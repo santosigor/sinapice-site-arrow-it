@@ -1,15 +1,15 @@
 {
-  "name": "model-project-web",
+  "name": "sinapice-site-arrow-it",
   "version": "1.0.0",
-  "main": "main.min.js",
+  "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://artemis.vilt-group.com/igor.santos/model-project-web.git"
+    "url": "https://github.com/santosigor/sinapice-site-arrow-it.git"
   },
-  "author": "Igor",
+  "author": "Igor Santos",
   "license": "ISC",
   "devDependencies": {
     "grunt": "^1.0.4",
@@ -21,9 +21,6 @@
     "grunt-newer": "^1.3.0",
     "grunt-sass": "^3.0.2",
     "node-sass": "^4.14.1"
-  },
-  "directories": {
-    "doc": "doc"
   },
   "description": ""
 }

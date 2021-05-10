@@ -25,7 +25,7 @@ module.exports = function(grunt) {
 							'src/js/components/*.js',
 							'src/js/content/*.js'
 						],
-				dest: 'dist/js/pe.min.js'
+				dest: 'dist/js/ait.min.js'
 			},
 			css: {
 				src: ['src/css/plugins.css',
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
 							'src/css/components.css',
 							'src/css/content.css'
 						],
-				dest: 'dist/css/pe.min.css'
+				dest: 'dist/css/ait.min.css'
 			}
 		},
 
@@ -41,7 +41,7 @@ module.exports = function(grunt) {
 	    my_target: {
 	      files: {
 	      	// lib
-	        'dist/js/pe.min.js': ['dist/js/pe.min.js']
+	        'dist/js/ait.min.js': ['dist/js/ait.min.js']
 	      }
 	    }
 	  },
@@ -54,7 +54,7 @@ module.exports = function(grunt) {
 		  target: {
 		    files: {
 		    	// lib
-		      'dist/css/pe.min.css': ['dist/css/pe.min.css']
+		      'dist/css/ait.min.css': ['dist/css/ait.min.css']
 		    }
 		  }
 		},
