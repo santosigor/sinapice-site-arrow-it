@@ -1,0 +1,15 @@
+@mixin transition($property, $transition, $function) {
+	-webkit-transition: $property $transition $function;
+	-moz-transition: 		$property $transition $function;
+	-ms-transition: 		$property $transition $function;
+	-o-transition: 			$property $transition $function;
+	transition: 				$property $transition $function;
+}
+
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
