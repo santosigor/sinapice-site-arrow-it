@@ -3240,13 +3240,13 @@ html {
 
 @font-face {
   font-family: 'magistral-medium';
-  src: url("/dist/fonts/magistral/magistral-medium.woff2") format("woff2"), url("/dist/fonts/magistral/magistral-medium.woff") format("woff"), url("/dist/fonts/magistral/magistral-medium.ttf") format("truetype");
+  src: url("../fonts/magistral/magistral-medium.woff2") format("woff2"), url("../fonts/magistral/magistral-medium.woff") format("woff"), url("../fonts/magistral/magistral-medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal; }
 
 @font-face {
   font-family: 'magistral-bold';
-  src: url("/dist/fonts/magistral/magistral-bold.woff2") format("woff2"), url("/dist/fonts/magistral/magistral-bold.woff") format("woff"), url("/dist/fonts/magistral/magistral-bold.ttf") format("truetype");
+  src: url("../fonts/magistral/magistral-bold.woff2") format("woff2"), url("../fonts/magistral/magistral-bold.woff") format("woff"), url("../fonts/magistral/magistral-bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal; }
 
@@ -3439,14 +3439,14 @@ body {
         background-position: top 7px left;
         background-size: 13px; }
       .ait-structure__footer ul li:nth-child(1) {
-        background-image: url("/dist/images/footer/ait-svg-pin.svg"); }
+        background-image: url("../images/footer/ait-svg-pin.svg"); }
       .ait-structure__footer ul li:nth-child(2) {
-        background-image: url("/dist/images/footer/ait-svg-phone.svg");
+        background-image: url("../images/footer/ait-svg-phone.svg");
         margin-right: 40px; }
       .ait-structure__footer ul li:nth-child(3) {
-        background-image: url("/dist/images/footer/ait-svg-whatsapp.svg"); }
+        background-image: url("../images/footer/ait-svg-whatsapp.svg"); }
       .ait-structure__footer ul li:nth-child(4) {
-        background-image: url("/dist/images/footer/ait-svg-mail.svg"); }
+        background-image: url("../images/footer/ait-svg-mail.svg"); }
       .ait-structure__footer ul li:nth-child(5) {
         display: block; }
         .ait-structure__footer ul li:nth-child(5) img {

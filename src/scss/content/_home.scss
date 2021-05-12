@@ -40,7 +40,7 @@
 			background-size: 1140px auto;
 			background-repeat: no-repeat;
 			background-position: top center;
-			background-image: url('/dist/images/home/futuro/ait-svg-fundo.svg');
+			background-image: url('../images/home/futuro/ait-svg-fundo.svg');
 			padding: 56px 0 0;
 			@media (min-width: 768px) {
 				padding: 106px 0 0;
@@ -153,7 +153,7 @@
 			content: '';
 			width: 100%;
 			height: 100%;
-			background-image: url('/dist/images/home/servicos/ait-svg-fundo.svg');
+			background-image: url('../images/home/servicos/ait-svg-fundo.svg');
 			opacity: 0.1;
 			position: absolute;
 			top: 0;
@@ -217,7 +217,7 @@
 	&__cases {
 		background-size: 480px auto;
 		background-position: center;
-		background-image: url('/dist/images/home/cases/ait-svg-fundo.svg');
+		background-image: url('../images/home/cases/ait-svg-fundo.svg');
 		padding: 0 0 40px;
 		@media (min-width: 768px) {
 			padding: 0 0 80px;

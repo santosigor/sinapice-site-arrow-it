@@ -52,7 +52,7 @@ img {
     background-size: 1140px auto;
     background-repeat: no-repeat;
     background-position: top center;
-    background-image: url("/dist/images/home/futuro/ait-svg-fundo.svg");
+    background-image: url("../images/home/futuro/ait-svg-fundo.svg");
     padding: 56px 0 0; }
     @media (min-width: 768px) {
       .ait-content__arrow-it-eo-futuro__experiencia {
@@ -144,7 +144,7 @@ img {
     content: '';
     width: 100%;
     height: 100%;
-    background-image: url("/dist/images/home/servicos/ait-svg-fundo.svg");
+    background-image: url("../images/home/servicos/ait-svg-fundo.svg");
     opacity: 0.1;
     position: absolute;
     top: 0;
@@ -192,7 +192,7 @@ img {
 .ait-content__cases {
   background-size: 480px auto;
   background-position: center;
-  background-image: url("/dist/images/home/cases/ait-svg-fundo.svg");
+  background-image: url("../images/home/cases/ait-svg-fundo.svg");
   padding: 0 0 40px; }
   @media (min-width: 768px) {
     .ait-content__cases {
@@ -320,13 +320,13 @@ img {
         background-position: top 7px left;
         background-size: 13px; }
       .ait-content__contato ul li:nth-child(1) {
-        background-image: url("/dist/images/contato/ait-svg-pin.svg"); }
+        background-image: url("../images/contato/ait-svg-pin.svg"); }
       .ait-content__contato ul li:nth-child(2) {
-        background-image: url("/dist/images/contato/ait-svg-phone.svg"); }
+        background-image: url("../images/contato/ait-svg-phone.svg"); }
       .ait-content__contato ul li:nth-child(3) {
-        background-image: url("/dist/images/contato/ait-svg-whatsapp.svg"); }
+        background-image: url("../images/contato/ait-svg-whatsapp.svg"); }
       .ait-content__contato ul li:nth-child(4) {
-        background-image: url("/dist/images/contato/ait-svg-mail.svg"); }
+        background-image: url("../images/contato/ait-svg-mail.svg"); }
       @media (max-width: 767.98px) {
         .ait-content__contato ul li:nth-child(5) {
           text-align: center; } }
