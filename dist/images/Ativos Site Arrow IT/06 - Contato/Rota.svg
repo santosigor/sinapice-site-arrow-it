@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
-  <g id="Grupo_2002" data-name="Grupo 2002" transform="translate(7931 13617)">
-    <g id="Elipse_1122" data-name="Elipse 1122" transform="translate(-7931 -13617)" fill="#fff" stroke="#303bfe" stroke-width="1">
-      <circle cx="40" cy="40" r="40" stroke="none"/>
-      <circle cx="40" cy="40" r="39.5" fill="none"/>
-    </g>
-    <path id="Caminho_13902" data-name="Caminho 13902" d="M67.933,21.011,47.246.324a4.709,4.709,0,0,0-6.5,0L20.084,20.988a4.573,4.573,0,0,0,0,6.475L40.748,48.126a4.6,4.6,0,0,0,6.475,0L67.864,27.485A4.573,4.573,0,0,0,67.933,21.011ZM44.008,44.889,23.344,24.225,44.008,3.561,64.672,24.225ZM34.8,21.952v9.184h4.592V24.248h9.184v5.74l8.036-8.036-8.036-8.036v5.74H37.1A2.3,2.3,0,0,0,34.8,21.952Z" transform="translate(-7934.136 -13601.313)" fill="#303bfe"/>
-  </g>
-</svg>

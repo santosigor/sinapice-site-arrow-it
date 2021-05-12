@@ -4,12 +4,25 @@ $(document).ready(function (){
 	  dots: true,
 	  infinite: true,
 	  speed: 300,
-	  slidesToShow: 1,
 	  centerMode: true,
-	  variableWidth: true
+	  variableWidth: true,
+	  slidesToShow: 2,
+	  responsive: [
+	    {
+	      breakpoint: 480,
+	      settings: {
+	        arrows: false,
+	        centerMode: true,
+	        centerPadding: '40px',
+	        slidesToShow: 1
+	      }
+	    }
+	  ]
 	});
 
-	$('.ait-component__carousel.center .slick-next').appendTo('.ait-component__carousel.center .slick-dots');
-	$('.ait-component__carousel.center .slick-prev').prependTo('.ait-component__carousel.center .slick-dots');
+	$('.ait-component__carousel.center').each(function() {
+    $(this).find('.slick-next').appendTo($(this).find('.slick-dots'));
+    $(this).find('.slick-prev').prependTo($(this).find('.slick-dots'));
+  });
 
 });

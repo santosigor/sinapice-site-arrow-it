@@ -3380,3 +3380,49 @@ body {
             color: #303BFE; }
           .ait-structure__header nav a.active {
             font-weight: 600; } }
+
+.ait-structure__footer {
+  background-color: #303BFE;
+  padding: 40px 0;
+  color: #fff;
+  overflow: hidden; }
+  .ait-structure__footer__logo {
+    display: inline-block;
+    margin-bottom: 36px; }
+  .ait-structure__footer ul {
+    margin: 0;
+    padding: 0;
+    max-width: 440px;
+    display: inline-block; }
+    .ait-structure__footer ul li {
+      display: inline-block;
+      color: #0E1628;
+      margin-bottom: 34px; }
+      .ait-structure__footer ul li a {
+        font-size: 16px;
+        line-height: 22px;
+        color: #fff;
+        display: inline-block;
+        text-decoration: none !important; }
+      .ait-structure__footer ul li:nth-child(1), .ait-structure__footer ul li:nth-child(2), .ait-structure__footer ul li:nth-child(3), .ait-structure__footer ul li:nth-child(4) {
+        padding-left: 22px;
+        background-repeat: no-repeat;
+        background-position: top 7px left;
+        background-size: 13px; }
+      .ait-structure__footer ul li:nth-child(1) {
+        background-image: url("/dist/images/footer/ait-svg-pin.svg"); }
+      .ait-structure__footer ul li:nth-child(2) {
+        background-image: url("/dist/images/footer/ait-svg-phone.svg");
+        margin-right: 40px; }
+      .ait-structure__footer ul li:nth-child(3) {
+        background-image: url("/dist/images/footer/ait-svg-whatsapp.svg"); }
+      .ait-structure__footer ul li:nth-child(4) {
+        background-image: url("/dist/images/footer/ait-svg-mail.svg"); }
+      .ait-structure__footer ul li:nth-child(5) {
+        display: block; }
+        .ait-structure__footer ul li:nth-child(5) img {
+          margin-right: 20px; }
+  .ait-structure__footer .col-md-6:last-child img {
+    position: absolute;
+    top: calc(50% - 361px);
+    left: 0; }
