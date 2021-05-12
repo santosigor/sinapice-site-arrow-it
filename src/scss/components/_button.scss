@@ -18,7 +18,7 @@
 		font-weight: 600;
 		border-radius: 8px;
 		padding: 9px 18px;
-		min-width: 158px;
+		min-width: 110px;
 		text-transform: uppercase;
 		color: #fff;
 		background: #303BFE;
@@ -26,7 +26,6 @@
 		&:hover {
 			color: #fff;
 			background: #303BFE;
-			
 		}
 		&.outline {
 			color: #303BFE;
@@ -37,6 +36,25 @@
 					background: #303BFE;
 				}
 			}
+		}
+		&.inline-white {
+			background: #fff;
+			color: #303BFE;
+			border: 1px solid #fff;
+			&:hover {
+				@media (min-width: 992px) {
+					color: #fff;
+					background: #303BFE;
+					border: 1px solid #303BFE;
+				}
+			}
+		}
+		&.upeercase-none {
+			text-transform: none;
+		}
+		&.small {
+			padding: 8px 5px;
+			min-width: auto;
 		}
 	}
 }
