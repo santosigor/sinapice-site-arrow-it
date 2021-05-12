@@ -1,0 +1,13 @@
+.ait-content {
+	&__parceria {
+		padding: 60px 0 40px;
+		@media (min-width: 768px) {
+			padding: 110px 0 80px;
+		}
+		@media (max-width: 767.98px) {
+			img {
+				max-width: 110px;
+			}
+		}
+	}
+}

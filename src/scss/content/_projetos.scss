@@ -1,0 +1,127 @@
+.ait-content {
+	&__projetos {
+		padding: 0 0 60px 0;
+		.ait-component__tab__content {
+			@include clearfix();
+			text-align: center;
+		}
+		&__item {
+			@include clearfix();
+			width: 380px;
+			height: 324px;
+			display: inline-block;
+			margin: 10px;
+			background-color: #F1F2F6;
+			padding: 20px;
+			border-radius: 13px;
+			&__img {
+				width: 118px;
+				height: 118px;
+				background: #FFFFFF;
+				box-shadow: 0px 0px 5px #00000029;
+				border-radius: 100%;
+				margin: 0 auto;
+				margin-top: -40px;
+				margin-bottom: 15px;
+				display: flex;
+				align-items: center;
+				img {
+					max-width: 98px;
+					max-height: 66px;
+					margin: 0 auto;
+				}
+			}
+			> strong {
+				display: block;
+				color: #303BFE;
+				font-size: 25px;
+				line-height: 33px;
+				margin-bottom: 4px;
+			}
+			> span {
+				display: block;
+				font-size: 16px;
+				line-height: 22px;
+				margin-bottom: 20px;
+			}
+			&__icon {
+				background-size: 34px;
+				background-repeat: no-repeat;
+				background-position: center;
+				display: inline-block;
+				width: 38px;
+				height: 38px;
+				float: left;
+				margin-right: 8px;
+				position: absolute;
+				top: calc(50% - 19px);
+				left: 10px;
+				&.tempo {	
+					background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg id='Grupo_179' data-name='Grupo 179' xmlns='http://www.w3.org/2000/svg' width='25.362' height='25.363' viewBox='0 0 25.362 25.363'%3e%3cpath id='Caminho_3091' data-name='Caminho 3091' d='M406.662,1814.477l-.48-.454,1.564-1.648.48.454Z' transform='translate(-388.037 -1807.327)' fill='%230e1628'/%3e%3crect id='Retângulo_191' data-name='Retângulo 191' width='2.271' height='0.661' transform='translate(5.11 19.769) rotate(-46.573)' fill='%230e1628'/%3e%3cpath id='Caminho_3092' data-name='Caminho 3092' d='M410.566,1825.257l-.017-.661,2.271-.06.017.661Z' transform='translate(-389.813 -1812.274)' fill='%230e1628'/%3e%3cpath id='Caminho_3093' data-name='Caminho 3093' d='M379.444,1825.3l-.017-.661,2.271-.06.017.661Z' transform='translate(-377.153 -1812.292)' fill='%230e1628'/%3e%3cpath id='Caminho_3094' data-name='Caminho 3094' d='M407.811,1836.474l-1.648-1.563.454-.48,1.648,1.564Z' transform='translate(-388.029 -1816.299)' fill='%230e1628'/%3e%3crect id='Retângulo_192' data-name='Retângulo 192' width='0.662' height='2.271' transform='matrix(0.688, -0.725, 0.725, 0.688, 5.061, 5.576)' fill='%230e1628'/%3e%3cpath id='Caminho_3095' data-name='Caminho 3095' d='M396.391,1841.085l-.06-2.271.661-.016.06,2.271Z' transform='translate(-384.029 -1818.075)' fill='%230e1628'/%3e%3cpath id='Caminho_3096' data-name='Caminho 3096' d='M396.348,1809.964l-.06-2.272.661-.016.06,2.271Z' transform='translate(-384.012 -1805.416)' fill='%230e1628'/%3e%3crect id='Retângulo_193' data-name='Retângulo 193' width='5.442' height='0.661' transform='translate(12.448 12.452) rotate(-45.463)' fill='%230e1628'/%3e%3ccircle id='Elipse_36' data-name='Elipse 36' cx='1.636' cy='1.636' r='1.636' transform='translate(11.045 11.045)' fill='%230e1628'/%3e%3cpath id='Caminho_3098' data-name='Caminho 3098' d='M388.275,1803.866a12.668,12.668,0,0,0-7.368,22.982l.476-.468a12.025,12.025,0,1,1,3.141,1.579l-.517.514a12.675,12.675,0,1,0,4.268-24.607Z' transform='translate(-375.594 -1803.866)' fill='%230e1628'/%3e%3crect id='Retângulo_195' data-name='Retângulo 195' width='0.867' height='0.867' transform='matrix(0.839, 0.544, -0.544, 0.839, 6.868, 23.062)' fill='%23303bfe'/%3e%3c/svg%3e ");
+				}
+				&.ambiente {
+					background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg id='Grupo_1667' data-name='Grupo 1667' xmlns='http://www.w3.org/2000/svg' width='21.868' height='24.549' viewBox='0 0 21.868 24.549'%3e%3crect id='Retângulo_950' data-name='Retângulo 950' width='0.677' height='0.677' transform='translate(10.621 14.756)' fill='%23303bfe'/%3e%3cg id='Grupo_1666' data-name='Grupo 1666'%3e%3cpath id='Caminho_13812' data-name='Caminho 13812' d='M3660.649,2357.349a2.323,2.323,0,1,1,2.323-2.323A2.326,2.326,0,0,1,3660.649,2357.349Zm0-4.043a1.72,1.72,0,1,0,1.72,1.72A1.721,1.721,0,0,0,3660.649,2353.306Z' transform='translate(-3641.104 -2347.762)' fill='%230e1628'/%3e%3cpath id='Caminho_13813' data-name='Caminho 13813' d='M3660.649,2373.772a2.323,2.323,0,1,1,2.323-2.324A2.327,2.327,0,0,1,3660.649,2373.772Zm0-4.042a1.719,1.719,0,1,0,1.72,1.719A1.721,1.721,0,0,0,3660.649,2369.73Z' transform='translate(-3641.104 -2354.276)' fill='%230e1628'/%3e%3cpath id='Caminho_13814' data-name='Caminho 13814' d='M3632.109,2357.349a2.323,2.323,0,1,1,2.323-2.323A2.326,2.326,0,0,1,3632.109,2357.349Zm0-4.043a1.72,1.72,0,1,0,1.719,1.72A1.721,1.721,0,0,0,3632.109,2353.306Z' transform='translate(-3629.785 -2347.762)' fill='%230e1628'/%3e%3cpath id='Caminho_13815' data-name='Caminho 13815' d='M3646.421,2349.161a2.323,2.323,0,1,1,2.323-2.323A2.326,2.326,0,0,1,3646.421,2349.161Zm0-4.043a1.72,1.72,0,1,0,1.72,1.72A1.722,1.722,0,0,0,3646.421,2345.118Z' transform='translate(-3635.461 -2344.514)' fill='%230e1628'/%3e%3cpath id='Caminho_13816' data-name='Caminho 13816' d='M3646.421,2382.145a2.323,2.323,0,1,1,2.323-2.324A2.327,2.327,0,0,1,3646.421,2382.145Zm0-4.043a1.72,1.72,0,1,0,1.72,1.719A1.721,1.721,0,0,0,3646.421,2378.1Z' transform='translate(-3635.461 -2357.596)' fill='%230e1628'/%3e%3cpath id='Caminho_13817' data-name='Caminho 13817' d='M3632.109,2373.772a2.323,2.323,0,1,1,2.323-2.324A2.327,2.327,0,0,1,3632.109,2373.772Zm0-4.042a1.719,1.719,0,1,0,1.719,1.719A1.721,1.721,0,0,0,3632.109,2369.73Z' transform='translate(-3629.785 -2354.276)' fill='%230e1628'/%3e%3cpath id='Caminho_13818' data-name='Caminho 13818' d='M3655.661,2374.59l-4.611,2.714a2.308,2.308,0,0,1,.23.39l4.612-2.714A2.26,2.26,0,0,1,3655.661,2374.59Z' transform='translate(-3638.219 -2356.443)' fill='%230e1628'/%3e%3cpath id='Caminho_13819' data-name='Caminho 13819' d='M3662.028,2360.388c-.078,0-.151-.016-.226-.023v5.309a2.148,2.148,0,0,1,.226-.022,2.2,2.2,0,0,1,.227.022v-5.309C3662.177,2360.373,3662.105,2360.388,3662.028,2360.388Z' transform='translate(-3642.483 -2350.801)' fill='%230e1628'/%3e%3cpath id='Caminho_13820' data-name='Caminho 13820' d='M3655.887,2352.586l-4.586-2.64a2.3,2.3,0,0,1-.228.392l4.587,2.639A2.4,2.4,0,0,1,3655.887,2352.586Z' transform='translate(-3638.228 -2346.669)' fill='%230e1628'/%3e%3cpath id='Caminho_13821' data-name='Caminho 13821' d='M3636.993,2352.979l4.631-2.649a2.313,2.313,0,0,1-.226-.392l-4.631,2.649A2.3,2.3,0,0,1,3636.993,2352.979Z' transform='translate(-3632.554 -2346.665)' fill='%230e1628'/%3e%3cpath id='Caminho_13822' data-name='Caminho 13822' d='M3633.261,2360.365v5.309a2.157,2.157,0,0,1,.227-.022,2.2,2.2,0,0,1,.226.022v-5.309c-.076.007-.149.023-.226.023S3633.337,2360.373,3633.261,2360.365Z' transform='translate(-3631.164 -2350.801)' fill='%230e1628'/%3e%3cpath id='Caminho_13823' data-name='Caminho 13823' d='M3636.744,2374.972l4.656,2.724a2.332,2.332,0,0,1,.229-.39l-4.656-2.723A2.271,2.271,0,0,1,3636.744,2374.972Z' transform='translate(-3632.545 -2356.44)' fill='%230e1628'/%3e%3cg id='Grupo_1665' data-name='Grupo 1665' transform='translate(4.21 4.624)'%3e%3cpath id='Caminho_13824' data-name='Caminho 13824' d='M3647.573,2370.868v4.024a1.127,1.127,0,0,1,.453,0v-4.024Z' transform='translate(-3641.05 -2359.591)' fill='%230e1628'/%3e%3cpath id='Caminho_13825' data-name='Caminho 13825' d='M3646.893,2359.827a3.35,3.35,0,0,0-.357-1.5l3.684-2.15a2.4,2.4,0,0,1-.229-.391l-3.68,2.149a3.383,3.383,0,0,0-2.572-1.474v-4.281c-.075.007-.149.023-.226.023s-.151-.016-.227-.023v4.281a3.377,3.377,0,0,0-2.563,1.462l-3.734-2.148a2.263,2.263,0,0,1-.226.391l3.732,2.147a3.347,3.347,0,0,0-.024,2.982l-3.7,2.1a2.348,2.348,0,0,1,.224.393l3.7-2.1a3.4,3.4,0,0,0,1.534,1.259v-1a2.491,2.491,0,1,1,2.533.022v.991a3.392,3.392,0,0,0,1.582-1.286l3.644,2.1a2.35,2.35,0,0,1,.227-.392l-3.65-2.1A3.367,3.367,0,0,0,3646.893,2359.827Z' transform='translate(-3636.762 -2352.177)' fill='%230e1628'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e ");
+				}
+			}
+			.col-lg-6 {
+				text-align: left;
+				padding-left: 54px;
+				padding-right: 0;
+				margin-bottom: 20px;
+				width: 58%;
+				flex: 0 0 58%;
+    		max-width: 58%;
+				&:last-child {
+					width: 42%;
+					flex: 0 0 42%;
+    			max-width: 42%;
+				}
+				strong {
+					display: inline-block;
+					font-size: 14px;
+					line-height: 19px;
+					color: #0E1628;
+				}
+				p {
+					margin: 0;
+					color: #303BFE;
+					font-size: 16px;
+					line-height: 22px;
+				}
+			}
+		}
+		&__depoimento {
+			@include clearfix();
+			width: 380px;
+			height: 246px;
+			display: inline-block;
+			margin: 10px;
+			background-color: #F1F2F6;
+			padding: 20px;
+			border-radius: 13px;
+			position: relative;
+			p {
+				font-weight: 500;
+				text-align: left;
+				font-size: 16px;
+				line-height: 22px;
+				margin-bottom: 20px;
+				span {
+					color: #303BFE;
+				}
+			}
+			strong {
+				font-weight: 600;
+				font-size: 14px;
+				line-height: 19px;
+				display: block;
+				text-align: right;
+				color: #303BFE;
+				text-transform: uppercase;
+				position: absolute;
+				bottom: 20px;
+				right: 20px;
+			}
+		}
+	}
+}

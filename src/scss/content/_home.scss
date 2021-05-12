@@ -302,7 +302,6 @@
 		padding: 60px 0;
 		background-color: #F1F2F6;
 		text-align: center;
-		box-shadow: 0 -1px 10px #3242f48c;
 		border-bottom: 1px solid #3242F4;
 
 		@media (min-width: 768px) {
@@ -315,6 +314,84 @@
 			margin: 0 6px;
 			@media (max-width: 767.98px) {
 				max-width: 84px;
+			}
+		}
+	}
+	&__contato {
+		padding-top: 40px;
+		.ait-component__tag {
+			color: #707070;
+		}
+		.ait-typography__h1 {
+			padding-bottom: 50px;
+		}
+		ul {
+			margin: 0;
+			padding: 0 20px;
+			@media (min-width: 768px) {
+				padding-left: 0;
+				float: right;
+				margin-right: 52px;
+				max-width: 250px;
+			}
+			li {
+				display: block;
+				color: #0E1628;
+				margin-bottom: 34px;
+				a {
+					display: inline-block;
+					font-size: 16px;
+					line-height: 22px;
+					color: #0E1628;
+					text-decoration: none!important;
+					strong {
+						color: #303BFE;
+					}
+				}
+				span {
+					display: block;
+					color: #0EDD97;
+					font-size: 11px;
+					line-height: 15px;
+					font-weight: 600;
+				}
+				&:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4) {
+					padding-left: 22px;
+					background-repeat: no-repeat;
+					background-position: top 7px left;
+					background-size: 13px;
+				}
+				&:nth-child(1) {
+					background-image: url('../images/icons/ait-svg-pin.svg');
+				}
+				&:nth-child(2) {
+					background-image: url('../images/icons/ait-svg-phone.svg');
+				}
+				&:nth-child(3) {
+					background-image: url('../images/icons/ait-svg-whatsapp.svg');
+				}
+				&:nth-child(4) {
+					background-image: url('../images/icons/ait-svg-mail.svg');
+				}
+				&:nth-child(5) {
+					@media (max-width: 767.98px) {
+						text-align: center;
+					}
+					img {
+						margin-right: 6px;
+					}
+				}
+			}
+		}
+		.col-md-7 {
+			iframe {
+				margin-bottom: -8px;
+			}
+			@media (max-width: 767.98px) {
+				iframe {
+					margin: 0 -25px -8px;
+					width: calc(100% + 50px);
+				}
 			}
 		}
 	}

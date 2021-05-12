@@ -1,0 +1,82 @@
+.ait-content {
+	&__caracteristicas {
+		margin-top: -110px;
+		background-size: 1280px auto;
+		background-position: top center;
+		background-image: url('../images/sobre/ait-svg-fundo-caracteristicas.svg');
+		position: relative;
+		padding: 46px 0;
+		.ait-utilities__text-align__center {
+			height: 440px;
+		}
+		&__img {
+			margin: 0 auto;
+			position: relative;
+			z-index: 5;
+		}
+		&__container {
+			max-width: 858px;
+			margin: 0 auto;
+		}
+		&__item {
+			display: inline-block;
+			margin: 0 20px;
+			&__shadow {
+				width: 128px;
+				height: 128px;
+				background-color: #F1F2F6;
+				box-shadow: 0px 0px 13px #3242F457;
+				border-radius: 8px;
+				text-align: center;
+				display: flex;
+				align-items: center;
+				margin-bottom: 15px;
+				img {
+					max-height: 80px;
+					margin: 0 auto;
+				}
+			}
+			strong {
+				display: block;
+				font-size: 16px;
+				line-height: 22px;
+				text-align: center;
+				font-weight: 600;
+				letter-spacing: 0.54px;
+				color: #303BFE;
+			}
+		}
+	}
+	&__estimulo {
+		background-color: #F1F2F6;
+		border-top: 2px solid #303BFE;
+		.col-lg-6 {
+			&:first-child {
+				padding-right: 40px;
+			}
+		}
+		&__bg {
+			background-color: #303BFE;
+			padding: 60px 0;
+			min-height: 600px;
+		}
+	}
+	&__pensamento {
+		background-size: 1280px auto;
+		background-position: top center;
+		background-image: url('../images/sobre/ait-svg-fundo-pensamento.svg');
+		padding: 100px 0;
+		&__container {
+			background-color: #F1F2F6;
+			background-color: rgba(241,242, 246, 0.9);
+			box-shadow: 0px 0px 21px #303BFE57;
+			border-radius: 13px;
+			max-width: 780px;
+			margin: 0 auto;
+			padding: 25px 10px;
+			@media (min-width: 768px) {
+				padding: 50px 100px;
+			}
+		}
+	}
+}

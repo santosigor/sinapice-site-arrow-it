@@ -1,0 +1,84 @@
+.ait-content {
+	&__servicos {
+		&__container {
+				padding: 20px 0;
+				border-bottom: 5px solid #303BFE;
+				background-color: #A6BCD2;
+				margin-bottom: 20px;
+			&__carrossel {
+				.slick-next, .slick-prev {
+					z-index: 5;
+					height: 40px;
+		    	width: 40px;
+			    display: inline-block;
+					&:before {
+				    content:'';
+				    display: block;
+				    width: 40px;
+						height: 40px;
+				    opacity: 1;
+				    background-position: center;
+				    background-size: 40px;
+					}
+				}
+				.slick-next {
+					&:before {
+				    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3e%3cg id='Grupo_2037' data-name='Grupo 2037' transform='translate(1157 4419) rotate(180)'%3e%3cpath id='Caminho_13920' data-name='Caminho 13920' d='M20,0A20,20,0,1,1,0,20,20,20,0,0,1,20,0Z' transform='translate(1117 4379)' fill='%23303bfe'/%3e%3cpath id='Caminho_92' data-name='Caminho 92' d='M0,0,5.538,6.923,0,13.846' transform='translate(1139.769 4405.923) rotate(180)' fill='none' stroke='%23f0f0f0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3e%3c/g%3e%3c/svg%3e ");
+					}
+					right: 0;
+				}
+				.slick-prev {
+					&:before {
+				    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3e%3cg id='Grupo_2038' data-name='Grupo 2038' transform='translate(-1117 -4379)'%3e%3cpath id='Caminho_13920' data-name='Caminho 13920' d='M20,0A20,20,0,1,1,0,20,20,20,0,0,1,20,0Z' transform='translate(1117 4379)' fill='%23303bfe'/%3e%3cpath id='Caminho_92' data-name='Caminho 92' d='M0,0,5.538,6.923,0,13.846' transform='translate(1139.769 4405.923) rotate(180)' fill='none' stroke='%23f0f0f0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3e%3c/g%3e%3c/svg%3e ");
+					}
+					left: 0;
+				}
+				.slick-dots {
+			    position: absolute;
+			    bottom: 0;
+			    li {
+			    	button {
+			    		&:before {
+			    			opacity: 1;
+				    		font-size: 36px;
+				    		color: #0E1628;
+				    	}
+			    	}
+			    	&.slick-active {
+				    	button {
+				    		&:before {
+				    			opacity: 1;
+					    		color: #303BFE;
+					    	}
+				    	}
+			    	}
+			    }
+				}
+				&__item {
+					cursor: pointer;
+					user-select: none;
+					text-align: center;
+					strong {
+						font-size: 42px;
+						line-height: 55px;
+						font-weight: 700;
+						color: #303BFE;
+						span {
+							font-weight: 400;
+						color: #0E1628;
+						}
+					}
+				}
+			}
+		}
+		&__content {
+			display: none;
+			p {
+				text-align: center;
+			}
+			&.active {
+				display: block;
+			}
+		}
+	}
+}
