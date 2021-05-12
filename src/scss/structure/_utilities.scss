@@ -1,0 +1,18 @@
+.ait-utilities {
+	&__text-align {
+		&__right {
+			text-align: right;
+		}
+		&__center {
+			text-align: center;
+		}
+	}
+	&__img-fluid {
+		max-width: 100%;
+	}
+	&__align-items-center {
+		display: flex;
+		align-items: center;
+		height: 100%;
+	}
+}

@@ -16,7 +16,122 @@
   .ait-utilities__reset-button:focus-visible {
     outline: 5px auto -webkit-focus-ring-color; }
 
-.ait-component__banner {
+.ait-component__banner__carousel {
   background-color: #303BFE; }
-  .ait-component__banner img {
-    max-width: 100%; }
+
+.ait-component__banner picture {
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-height: 604px;
+  overflow: hidden; }
+
+.ait-component__banner img {
+  width: 100%; }
+
+.ait-component__banner .slick-next, .ait-component__banner .slick-prev {
+  z-index: 5; }
+  .ait-component__banner .slick-next:before, .ait-component__banner .slick-prev:before {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 34px;
+    color: #0e1600;
+    opacity: 1;
+    background-position: center;
+    background-size: 14px 34px; }
+
+.ait-component__banner .slick-next {
+  right: 50px; }
+  .ait-component__banner .slick-next:before {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='17.208' height='38.217' viewBox='0 0 17.208 38.217'%3e%3cpath id='Caminho_80' data-name='Caminho 80' d='M24.75,6.75l13.6,17-13.6,17' transform='translate(-22.642 -4.642)' fill='none' stroke='%230e1628' stroke-linecap='round' stroke-linejoin='round' stroke-width='3'/%3e%3c/svg%3e "); }
+
+.ait-component__banner .slick-prev {
+  left: 50px; }
+  .ait-component__banner .slick-prev:before {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='17.208' height='38.217' viewBox='0 0 17.208 38.217'%3e%3cpath id='Caminho_85' data-name='Caminho 85' d='M0,0,13.6,17,0,34' transform='translate(15.1 36.108) rotate(180)' fill='none' stroke='%230e1628' stroke-linecap='round' stroke-linejoin='round' stroke-width='3'/%3e%3c/svg%3e "); }
+
+.ait-component__banner .slick-dots {
+  position: absolute;
+  bottom: 35px; }
+  .ait-component__banner .slick-dots li button:before {
+    opacity: 1;
+    font-size: 36px;
+    color: #0e1628; }
+  .ait-component__banner .slick-dots li.slick-active button:before {
+    opacity: 1;
+    color: #fff; }
+
+.ait-component__tag {
+  text-transform: uppercase;
+  font-weight: 700;
+  display: block;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.48px;
+  color: #303BFE;
+  margin-bottom: 20px; }
+
+.ait-component__link {
+  text-transform: uppercase;
+  font-weight: 600;
+  display: table;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.37px;
+  color: #303BFE;
+  text-decoration: none;
+  border-bottom: 2px solid #3242F4;
+  padding-right: 20px;
+  background-size: 14px 10px;
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-image: url("data:image/svg+xml;charset=UTF-8, %3csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 492.004 492.004' style='enable-background:new 0 0 492.004 492.004;' xml:space='preserve' fill='%23303BFE'%3e%3cg%3e%3cg%3e%3cpath d='M484.14,226.886L306.46,49.202c-5.072-5.072-11.832-7.856-19.04-7.856c-7.216,0-13.972,2.788-19.044,7.856l-16.132,16.136 c-5.068,5.064-7.86,11.828-7.86,19.04c0,7.208,2.792,14.2,7.86,19.264L355.9,207.526H26.58C11.732,207.526,0,219.15,0,234.002 v22.812c0,14.852,11.732,27.648,26.58,27.648h330.496L252.248,388.926c-5.068,5.072-7.86,11.652-7.86,18.864 c0,7.204,2.792,13.88,7.86,18.948l16.132,16.084c5.072,5.072,11.828,7.836,19.044,7.836c7.208,0,13.968-2.8,19.04-7.872 l177.68-177.68c5.084-5.088,7.88-11.88,7.86-19.1C492.02,238.762,489.228,231.966,484.14,226.886z'/%3e%3c/g%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3c/svg%3e ");
+  transition: all .15s ease-in-out; }
+  .ait-component__link:hover {
+    padding-right: 26px;
+    background-position: center right 0;
+    text-decoration: none;
+    color: #303BFE; }
+
+.ait-component__carousel {
+  padding-bottom: 65px; }
+  .ait-component__carousel .slick-next, .ait-component__carousel .slick-prev {
+    z-index: 5;
+    bottom: 0;
+    height: 40px;
+    width: 40px;
+    top: 18px;
+    -webkit-transform: translate(0, 0%);
+    -ms-transform: translate(0, 0%);
+    transform: translate(0, 0%);
+    position: relative;
+    display: inline-block; }
+    .ait-component__carousel .slick-next:before, .ait-component__carousel .slick-prev:before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 40px;
+      opacity: 1;
+      background-position: center;
+      background-size: 40px; }
+  .ait-component__carousel .slick-next {
+    right: -30px; }
+    .ait-component__carousel .slick-next:before {
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3e%3cg id='Grupo_2037' data-name='Grupo 2037' transform='translate(1157 4419) rotate(180)'%3e%3cpath id='Caminho_13920' data-name='Caminho 13920' d='M20,0A20,20,0,1,1,0,20,20,20,0,0,1,20,0Z' transform='translate(1117 4379)' fill='%23303bfe'/%3e%3cpath id='Caminho_92' data-name='Caminho 92' d='M0,0,5.538,6.923,0,13.846' transform='translate(1139.769 4405.923) rotate(180)' fill='none' stroke='%23f0f0f0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3e%3c/g%3e%3c/svg%3e "); }
+  .ait-component__carousel .slick-prev {
+    left: -30px; }
+    .ait-component__carousel .slick-prev:before {
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3e%3cg id='Grupo_2038' data-name='Grupo 2038' transform='translate(-1117 -4379)'%3e%3cpath id='Caminho_13920' data-name='Caminho 13920' d='M20,0A20,20,0,1,1,0,20,20,20,0,0,1,20,0Z' transform='translate(1117 4379)' fill='%23303bfe'/%3e%3cpath id='Caminho_92' data-name='Caminho 92' d='M0,0,5.538,6.923,0,13.846' transform='translate(1139.769 4405.923) rotate(180)' fill='none' stroke='%23f0f0f0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3e%3c/g%3e%3c/svg%3e "); }
+  .ait-component__carousel .slick-dots {
+    position: absolute;
+    bottom: 0; }
+    .ait-component__carousel .slick-dots li button:before {
+      opacity: 1;
+      font-size: 36px;
+      color: #0E1628; }
+    .ait-component__carousel .slick-dots li.slick-active button:before {
+      opacity: 1;
+      color: #303BFE; }
+  .ait-component__carousel .slick-list {
+    overflow: visible; }

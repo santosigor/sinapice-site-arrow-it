@@ -1,3 +1,46 @@
+@font-face {
+  font-family: 'magistral-medium';
+  src: url('/dist/fonts/magistral/magistral-medium.woff2') format('woff2'),
+       url('/dist/fonts/magistral/magistral-medium.woff') format('woff'),
+       url('/dist/fonts/magistral/magistral-medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'magistral-bold';
+  src: url('/dist/fonts/magistral/magistral-bold.woff2') format('woff2'),
+       url('/dist/fonts/magistral/magistral-bold.woff') format('woff'),
+       url('/dist/fonts/magistral/magistral-bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 body {
 	font-family: 'Open Sans', sans-serif;
+}
+
+.ait-typography {
+	&__h1 {
+		color: #0E1628;
+		font-size: 42px;
+		line-height: 55px;
+		padding-bottom: 30px;
+		font-family: 'magistral-bold', sans-serif;
+	}
+	&__h3 {
+		color: #0E1628;
+		font-size: 25px;
+		line-height: 33px;
+		padding-bottom: 30px;
+		font-family: 'magistral-medium', sans-serif;
+	}
+	&__h5 {
+		color: #A6BCD2;
+		font-size: 14px;
+		line-height: 19px;
+		padding-bottom: 25px;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
 }
