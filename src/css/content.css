@@ -342,7 +342,8 @@ img {
 .ait-content__contato-page .ait-typography__h1 {
   width: 400px;
   text-align: center;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding-top: 40px; }
 
 .ait-content__contato-page ul {
   margin: 0 auto;
@@ -664,3 +665,25 @@ img {
       position: absolute;
       bottom: 20px;
       right: 20px; }
+
+.ait-content__projetos-integra {
+  padding: 0 0 60px 0; }
+  .ait-content__projetos-integra__destaque {
+    padding: 15px 0;
+    background-color: #A6BCD2;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #303BFE; }
+  .ait-content__projetos-integra__item {
+    margin-bottom: 30px;
+    text-align: center; }
+    .ait-content__projetos-integra__item img {
+      margin-bottom: 10px; }
+    .ait-content__projetos-integra__item strong {
+      display: block;
+      font-size: 13px;
+      line-height: 18px;
+      color: #303BFE; }
+    .ait-content__projetos-integra__item p {
+      font-size: 15px;
+      line-height: 20px;
+      color: #0E1628; }

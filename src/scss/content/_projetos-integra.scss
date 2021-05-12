@@ -1,0 +1,29 @@
+.ait-content {
+	&__projetos-integra {
+		padding: 0 0 60px 0;
+		&__destaque {
+			padding: 15px 0;
+			background-color: #A6BCD2;
+			margin-bottom: 40px;
+			border-bottom: 2px solid #303BFE;
+		}
+		&__item {
+			margin-bottom: 30px;
+			text-align: center;
+			img {
+				margin-bottom: 10px;
+			}
+			strong {
+				display: block;
+				font-size: 13px;
+				line-height: 18px;
+				color: #303BFE;
+			}
+			p {
+				font-size: 15px;
+				line-height: 20px;
+				color: #0E1628;
+			}
+		}
+	}
+}

@@ -3328,7 +3328,8 @@ body {
 
 .ait-structure__header {
   height: 96px;
-  background-color: #fff; }
+  background-color: #fff;
+  border-bottom: 1px dashed #303BFE; }
   .ait-structure__header__logo {
     position: absolute;
     top: calc(50% - 23px);
