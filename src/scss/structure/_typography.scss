@@ -27,6 +27,11 @@ body {
 		line-height: 55px;
 		padding-bottom: 30px;
 		font-family: 'magistral-bold', sans-serif;
+		@media (max-width: 767.98px) {
+			text-align: center;
+			font-size: 23px;
+			line-height: 30px;
+		}
 	}
 	&__h3 {
 		color: #0E1628;
@@ -34,6 +39,11 @@ body {
 		line-height: 33px;
 		padding-bottom: 30px;
 		font-family: 'magistral-medium', sans-serif;
+		@media (max-width: 767.98px) {
+			text-align: center;
+			font-size: 19px;
+			line-height: 25px;
+		}
 	}
 	&__h5 {
 		color: #A6BCD2;
@@ -42,5 +52,10 @@ body {
 		padding-bottom: 25px;
 		font-weight: 700;
 		text-transform: uppercase;
+		@media (max-width: 767.98px) {
+			text-align: center;
+			font-size: 11px;
+			line-height: 15px;
+		}
 	}
 }

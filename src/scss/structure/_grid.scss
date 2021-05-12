@@ -53,10 +53,13 @@
 }
 
 .ait-container {
-  padding: 0 15px;
+  padding: 0 25px;
   max-width: 1280px;
   margin: 0 auto;
   position: relative;
+  @media (min-width: 992px) {
+    padding: 0 15px;
+  }
 }
 
 .row {

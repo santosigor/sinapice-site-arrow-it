@@ -2,19 +2,17 @@ $(document).ready(function (){
 
 	$('.ait-component__carousel.center').slick({
 	  dots: true,
-	  infinite: true,
+	  infinite: false,
 	  speed: 300,
-	  centerMode: true,
+	  // centerMode: true,
 	  variableWidth: true,
-	  slidesToShow: 2,
+	  slidesToShow: 1,
 	  responsive: [
 	    {
-	      breakpoint: 480,
+	      breakpoint: 992,
 	      settings: {
 	        arrows: false,
-	        centerMode: true,
-	        centerPadding: '40px',
-	        slidesToShow: 1
+	        dots: false
 	      }
 	    }
 	  ]

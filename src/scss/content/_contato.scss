@@ -9,10 +9,13 @@
 		}
 		ul {
 			margin: 0;
-			padding: 0;
-			max-width: 250px;
-			float: right;
-			margin-right: 52px;
+			padding: 0 20px;
+			@media (min-width: 768px) {
+				padding-left: 0;
+				float: right;
+				margin-right: 52px;
+				max-width: 250px;
+			}
 			li {
 				display: block;
 				color: #0E1628;
@@ -53,9 +56,23 @@
 					background-image: url('/dist/images/contato/ait-svg-mail.svg');
 				}
 				&:nth-child(5) {
+					@media (max-width: 767.98px) {
+						text-align: center;
+					}
 					img {
 						margin-right: 6px;
 					}
+				}
+			}
+		}
+		.col-md-7 {
+			iframe {
+				margin-bottom: -8px;
+			}
+			@media (max-width: 767.98px) {
+				iframe {
+					margin: 0 -25px -8px;
+					width: calc(100% + 50px);
 				}
 			}
 		}

@@ -4,7 +4,15 @@ $(document).ready(function (){
     dots: true,
     speed: 300,
     slidesToShow: 1,
-    adaptiveHeight: true
+    adaptiveHeight: true,
+	  responsive: [
+	    {
+	      breakpoint: 768,
+	      settings: {
+	        arrows: false
+	      }
+	    }
+	  ]
   });
 
 });
