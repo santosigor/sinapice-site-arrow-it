@@ -262,4 +262,161 @@
 		  }
 		}
 	}
+	&__plataform {
+		&__item {
+			width: 198px;
+			display: inline-block;
+			margin: 17px;
+			img {
+				height: 198px;
+				margin-bottom: 8px;
+			}
+			strong {
+				display: block;
+				font-size: 16px;
+				line-height: 22px;
+				font-weight: 700;
+				color: #303BFE;
+				span {
+					font-weight: 400;
+					color: #0E1628;
+				}
+			}
+		}
+	}
+	&__valores {
+		.ait-container {
+			padding: 180px 0 60px 0;
+			background-size: 664px auto;
+			background-repeat: no-repeat;
+			background-position: top 52px right;
+			background-image: url('../images/sobre/valores/fundo.svg');
+		}
+		.ait-component__tag, .ait-typography__h3 {
+			margin-left: 17px;
+		}
+		.ait-typography__h3 {
+			padding-bottom: 0;
+		}
+		&__item {
+			width: 572px;
+			height: 305px;
+			display: inline-block;
+			margin: 17px;
+			border-radius: 13px;
+			background-color: #F1F2F6;
+			padding: 70px 100px;
+			overflow: hidden;
+			&__img {
+				height: 70px;
+				display: inline-flex;
+				align-items: center;
+				margin-bottom: 34px;
+				img {
+					max-width: 70px;
+					max-height: 70px;
+					margin-right: 20px
+				}
+				strong {
+					display: block;
+					font-size: 16px;
+					line-height: 22px;
+					font-weight: 700;
+					color: #303BFE;
+					text-transform: uppercase;
+					span {
+						font-weight: 400;
+						color: #0E1628;
+					}
+				}
+			}
+			p {
+				font-size: 16px;
+				line-height: 22px;
+				font-weight: 600;
+				color: #0E1628;
+				span {
+					color: #303BFE;
+				}
+			}
+		}
+	}
+	&__nosso-time {
+		&__destaque {
+			background-color: #A6BCD2;
+			padding: 60px 0 190px;
+			.ait-utilities__text-align__center, .ait-typography__h3 {
+				color: #fff;
+			}
+		}
+		&__cards {
+			margin-top: -100px;
+			text-align: center;
+			&__item {
+				width: 185px;
+				height: 210px;
+				background: #FFFFFF;
+				box-shadow: 0px 0px 13px #00000057;
+				border-radius: 13px;
+				text-align: center;
+				display: inline-block;
+				margin: 10px;
+				> img {
+					margin-top: -78px;
+					max-height: 170px;
+					max-width: 124px;
+					margin-bottom: 15px;
+				}
+				strong {
+					display: block;
+					font-family: 'magistral-medium';
+  				color: #303BFE;
+					margin-bottom: 5px;
+					span {
+						font-weight: 400;
+					}
+				}
+				p {
+					font-weight: 700;
+				}
+			}
+			&__depoimento {
+				padding: 70px 0;
+				&__item {
+					@include clearfix();
+					width: 780px;
+					height: 240px;
+					display: inline-block;
+					margin: 10px;
+					background-color: #F1F2F6;
+					box-shadow: 0px 0px 21px #303BFE57;
+					padding: 50px 100px;
+					border-radius: 13px;
+					position: relative;
+					p {
+						font-weight: 600;
+						text-align: left;
+						font-size: 16px;
+						line-height: 22px;
+						margin-bottom: 20px;
+						span {
+							color: #303BFE;
+						}
+					}
+					strong {
+						font-weight: 700;
+						font-size: 14px;
+						line-height: 19px;
+						display: block;
+						text-align: right;
+						color: #303BFE;
+						text-transform: uppercase;
+						position: absolute;
+						bottom: 50px;
+						right: 100px;
+					}
+				}
+			}
+		}
+	}
 }
