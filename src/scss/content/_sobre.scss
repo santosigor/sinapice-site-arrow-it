@@ -57,8 +57,103 @@
 		}
 		&__bg {
 			background-color: #303BFE;
-			padding: 60px 0;
+			padding: 80px 0 0;
 			min-height: 600px;
+			.ait-typography__h3 {
+				padding-bottom: 0;
+				@media (min-width: 767px) {
+					max-width: 332px;
+					margin: 0 auto;
+					margin-bottom: 0;
+				}
+			}
+			&__carrosel {
+				max-width: 430px;
+				margin: 0 auto;
+				&__item {
+					background-color: #fff;
+					display: flex;
+					height: 250px;
+					align-items: center;
+					border-radius: 13px;
+					padding: 35px 111px;
+					margin: -12px 0;
+					position: relative;
+					div {
+						span {
+							display: inline-block;
+							font-size: 38px;
+							line-height: 45px;
+							font-family: 'magistral-bold';
+							color: #303BFE;
+							transform: rotate(- 90deg);
+							position: absolute;
+					    left: 10px;
+					    top: calc(50% - 22px);
+						}
+						p {
+							strong {
+
+							}
+						}
+					}
+				}
+				.slick-next, .slick-prev {
+					z-index: 5;
+					bottom: 0;
+					height: 40px;
+		    	width: 40px;
+			    -webkit-transform: translate(0,0%);
+			    -ms-transform: translate(0,0%);
+			    transform: translate(0,0%);
+					right: 0;
+					left: 355px;
+			    position: relative;
+			    display: inline-block;
+					&:before {
+				    content:'';
+				    display: block;
+				    width: 40px;
+						height: 40px;
+				    opacity: 1;
+				    background-position: center;
+				    background-size: 40px;
+					}
+				}
+				.slick-next {
+					transform: rotate(90deg);
+					top: -150px;
+					&:before {
+				    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3e%3cg id='Grupo_2037' data-name='Grupo 2037' transform='translate(1157 4419) rotate(180)'%3e%3cpath id='Caminho_13920' data-name='Caminho 13920' d='M20,0A20,20,0,1,1,0,20,20,20,0,0,1,20,0Z' transform='translate(1117 4379)' fill='%23303bfe'/%3e%3cpath id='Caminho_92' data-name='Caminho 92' d='M0,0,5.538,6.923,0,13.846' transform='translate(1139.769 4405.923) rotate(180)' fill='none' stroke='%23f0f0f0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3e%3c/g%3e%3c/svg%3e ");
+					}
+					&.slick-disabled {
+						&:before {
+					    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3e%3cg id='Grupo_2037' data-name='Grupo 2037' transform='translate(1157 4419) rotate(180)'%3e%3cpath id='Caminho_13920' data-name='Caminho 13920' d='M20,0A20,20,0,1,1,0,20,20,20,0,0,1,20,0Z' transform='translate(1117 4379)' fill='%23A6BCD2'/%3e%3cpath id='Caminho_92' data-name='Caminho 92' d='M0,0,5.538,6.923,0,13.846' transform='translate(1139.769 4405.923) rotate(180)' fill='none' stroke='%23f0f0f0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3e%3c/g%3e%3c/svg%3e ");
+						}
+					}
+				}
+				.slick-prev {
+					transform: rotate(90deg);
+					top: 150px;
+					&:before {
+				    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3e%3cg id='Grupo_2038' data-name='Grupo 2038' transform='translate(-1117 -4379)'%3e%3cpath id='Caminho_13920' data-name='Caminho 13920' d='M20,0A20,20,0,1,1,0,20,20,20,0,0,1,20,0Z' transform='translate(1117 4379)' fill='%23303bfe'/%3e%3cpath id='Caminho_92' data-name='Caminho 92' d='M0,0,5.538,6.923,0,13.846' transform='translate(1139.769 4405.923) rotate(180)' fill='none' stroke='%23f0f0f0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3e%3c/g%3e%3c/svg%3e ");
+					}
+					&.slick-disabled {
+						&:before {
+					    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3e%3cg id='Grupo_2038' data-name='Grupo 2038' transform='translate(-1117 -4379)'%3e%3cpath id='Caminho_13920' data-name='Caminho 13920' d='M20,0A20,20,0,1,1,0,20,20,20,0,0,1,20,0Z' transform='translate(1117 4379)' fill='%23A6BCD2'/%3e%3cpath id='Caminho_92' data-name='Caminho 92' d='M0,0,5.538,6.923,0,13.846' transform='translate(1139.769 4405.923) rotate(180)' fill='none' stroke='%23f0f0f0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3e%3c/g%3e%3c/svg%3e ");
+						}
+					}
+				}
+				.slick-slide:not(.slick-current) {
+					transform: scale(.9);
+					.ait-content__estimulo__bg__carrosel__item {
+						opacity: .5;
+						* {
+							display: none;
+						}
+					}
+				}
+			}
 		}
 	}
 	&__pensamento {
@@ -80,6 +175,49 @@
 			.ait-utilities__text-align__right {
 				.ait-component__tag {
 					margin-bottom: 0;
+				}
+			}
+		}
+	}
+	&__metodologia {
+		&__container {
+			max-width: 976px;
+			margin: 0 auto;
+			padding: 34px 98px;
+			background-color: #0e1628;
+			color: #ffffff;
+			position: relative;
+			&:before {
+				content: '';
+				width: 100%;
+				height: 100%;
+				background-image: url('../images/home/servicos/ait-svg-fundo.svg');
+				opacity: 0.1;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.ait-typography__h1, .ait-component__tag {
+				color: #fff;
+			}
+		}
+		&__carrossel {
+			margin-top: -15px;
+			&__item {
+				&__img {
+					strong {
+
+					}
+					img {
+
+					}
+					p {
+						font-size: 16px;
+						line-height: 22px;
+						span {
+							color: #0EDD97;
+						}
+					}
 				}
 			}
 		}

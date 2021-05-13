@@ -3338,6 +3338,9 @@ body {
 .ait-utilities__color__blue {
   color: #303BFE; }
 
+.ait-utilities__color__white {
+  color: #fff; }
+
 .ait-structure__header {
   height: 96px;
   background-color: #fff;
