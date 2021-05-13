@@ -10,4 +10,22 @@ $(document).ready(function (){
     verticalSwiping: true
 	});
 
+	$('.ait-content__metodologia__carrossel').slick({
+	  dots: false,
+	  infinite: false,
+	  speed: 300,
+	  slidesToShow: 6,
+	  slidesToScroll: 1,
+	  variableWidth: true,
+	  responsive: [
+	    {
+	      breakpoint: 480,
+	      settings: {
+	        slidesToShow: 1,
+	        slidesToScroll: 1
+	      }
+	    }
+	  ]
+	});
+
 });

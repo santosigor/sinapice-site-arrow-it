@@ -417,7 +417,7 @@ img {
   padding: 60px 0 40px; }
   @media (min-width: 768px) {
     .ait-content__parceria {
-      padding: 110px 0 80px; } }
+      padding: 90px 0 80px; } }
   @media (max-width: 767.98px) {
     .ait-content__parceria img {
       max-width: 110px; } }
@@ -581,12 +581,55 @@ img {
     color: #fff; }
 
 .ait-content__metodologia__carrossel {
-  margin-top: -15px; }
-  .ait-content__metodologia__carrossel__item__img p {
-    font-size: 16px;
-    line-height: 22px; }
-    .ait-content__metodologia__carrossel__item__img p span {
-      color: #0EDD97; }
+  margin-top: -15px;
+  position: relative; }
+  .ait-content__metodologia__carrossel:before {
+    content: '';
+    position: absolute;
+    width: calc(100% - 250px);
+    top: 204px;
+    left: 96px;
+    border-bottom: 1px dashed #707070; }
+  .ait-content__metodologia__carrossel__item {
+    width: 180px;
+    position: relative;
+    margin: 0 10px; }
+    .ait-content__metodologia__carrossel__item:after {
+      content: '';
+      position: absolute;
+      width: 13px;
+      height: 13px;
+      border-radius: 100%;
+      top: 198px;
+      left: calc(50% - 7.5px);
+      background-color: #0EDD97; }
+    .ait-content__metodologia__carrossel__item__img {
+      height: 168px;
+      background-color: #F4F2F2;
+      box-shadow: 0px 0px 21px #00000057;
+      border-radius: 13px;
+      padding: 22px;
+      margin-bottom: 56px; }
+      .ait-content__metodologia__carrossel__item__img strong {
+        display: block;
+        font-family: 'magistral-medium';
+        font-weight: 500;
+        color: #0EDD97;
+        font-size: 25px;
+        line-height: 33px;
+        margin-bottom: 13px; }
+      .ait-content__metodologia__carrossel__item__img img {
+        max-width: 70px;
+        max-height: 70px;
+        margin: 0 auto; }
+    .ait-content__metodologia__carrossel__item p {
+      font-size: 16px;
+      line-height: 22px; }
+      .ait-content__metodologia__carrossel__item p span {
+        color: #0EDD97;
+        font-weight: 700; }
+  .ait-content__metodologia__carrossel .slick-list {
+    overflow: hidden; }
 
 .ait-content__servicos__container {
   padding: 20px 0;
