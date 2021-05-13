@@ -2,8 +2,8 @@ $(document).ready(function (){
 
   $('.ait-content__servicos__container__carrossel').slick({
 	  centerMode: true,
-	  centerPadding: '60px',
-	  slidesToShow: 6,
+	  centerPadding: '130px',
+	  slidesToShow: 5,
 	  variableWidth: true,
 	  responsive: [
 	    {
