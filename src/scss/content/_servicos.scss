@@ -89,13 +89,16 @@
 							}
 						}
 						&.slick-active {
-							opacity: 1;
+							opacity: .5;
 							// &:nth-child(1n), &:nth-child(4n) {
 							// transform: scale(.4);
 							// }
 							// &:nth-child(2n), &:nth-child(3n) {
 							// transform: scale(.8);
 							// }
+						}
+						&.slick-current {
+							opacity: 1;
 						}
 					}
 				}
@@ -110,10 +113,13 @@
 				font-weight: 600;
 				padding: 14px 0 16px;
 			}
-			ul {
-				li {
-					&::marker {
-					  color: #303BFE;
+			.row {
+				ul {
+					li {
+						margin-bottom: 24px;
+						&::marker {
+						  color: #303BFE;
+						}
 					}
 				}
 			}

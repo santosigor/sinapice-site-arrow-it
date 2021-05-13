@@ -827,6 +827,8 @@ img {
       .ait-content__servicos__container__carrossel .slick-slide:not(.slick-current) .ait-content__servicos__container__carrossel__item strong span {
         display: block; }
     .ait-content__servicos__container__carrossel .slick-slide:not(.slick-current).slick-active {
+      opacity: .5; }
+    .ait-content__servicos__container__carrossel .slick-slide:not(.slick-current).slick-current {
       opacity: 1; }
 
 .ait-content__servicos__content {
@@ -837,8 +839,10 @@ img {
     line-height: 22px;
     font-weight: 600;
     padding: 14px 0 16px; }
-  .ait-content__servicos__content ul li::marker {
-    color: #303BFE; }
+  .ait-content__servicos__content .row ul li {
+    margin-bottom: 24px; }
+    .ait-content__servicos__content .row ul li::marker {
+      color: #303BFE; }
   .ait-content__servicos__content.active {
     display: block; }
 
