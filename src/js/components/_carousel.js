@@ -4,18 +4,9 @@ $(document).ready(function (){
 	  dots: true,
 	  infinite: false,
 	  speed: 300,
-	  // centerMode: true,
 	  variableWidth: true,
-	  slidesToShow: 1,
-	  responsive: [
-	    {
-	      breakpoint: 992,
-	      settings: {
-	        arrows: false,
-	        dots: false
-	      }
-	    }
-	  ]
+	  slidesToShow: 1
+	  // slidesToScroll: 4
 	});
 
 	$('.ait-component__carousel.center').each(function() {

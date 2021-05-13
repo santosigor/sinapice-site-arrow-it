@@ -96,7 +96,7 @@
 						display: none;
 					}
 				}
-				.col-md-6 {
+				.col-lg-6 {
 					&:first-child {
 						@media (min-width: 768px) {
 							padding-top: 45px;
@@ -164,7 +164,7 @@
 		}
 		.col-md-6 {
 			&:first-child {
-				img {
+				> img {
 					width: 76%;
 					margin-bottom: 30px;
 					@media (min-width: 768px) {
@@ -305,7 +305,7 @@
 		border-bottom: 1px solid #3242F4;
 
 		@media (min-width: 768px) {
-			padding: 80px 0 0;
+			padding: 80px 0 60px;
 		}
 		.ait-component__tag {
 			margin-bottom: 30px;
@@ -319,9 +319,6 @@
 	}
 	&__contato {
 		padding-top: 40px;
-		.ait-component__tag {
-			color: #707070;
-		}
 		.ait-typography__h1 {
 			padding-bottom: 50px;
 		}
@@ -332,7 +329,6 @@
 				padding-left: 0;
 				float: right;
 				margin-right: 52px;
-				max-width: 250px;
 			}
 			li {
 				display: block;

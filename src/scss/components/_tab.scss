@@ -19,6 +19,9 @@
 					cursor: pointer;
 					user-select: none;
 					font-weight: 600;
+					&:hover {
+						color: #303BFE;
+					}
 					&.active {
 						color: #303BFE;
 						border-bottom: 2px solid #303BFE;

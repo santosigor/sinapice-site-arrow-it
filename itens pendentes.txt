@@ -1,0 +1,44 @@
+AJUSTAR FONTES
+
+https://xd.adobe.com/view/4bbdaa86-9b96-4252-9065-876706c83449-1eee/
+
+
+ANIMAÇÃO
+
+	arrow (navezinha) ficar mexendo enquanto carrega
+
+HOME
+
+	shadow bullet banner home
+
+	funcao generica carrossel sem dots items por scroll
+	/ variableWidth: true,
+	  slidesToShow: 6
+	  // slidesToScroll: 4
+
+	 Revisar svg e imagens pesados
+
+
+SOBRE
+
+	Inserir Tag tiulo DEPOIMENTOS final da pagina
+	padronizar box de depoimentos
+
+
+SERVIÇO
+
+	revisar layout
+
+INTEGRA SERVIÇO
+	
+	clicar no botao do serviço redirecionar para home de serviços com o item marcado
+
+PROJETOS
+
+	Deixar box inteiro clicavel
+
+INTEGRA PROJETOs
+
+	Deixar outros projetos ramdom fixo
+
+	mobile quando clicar em proximo projeto chama o proximo da lsta

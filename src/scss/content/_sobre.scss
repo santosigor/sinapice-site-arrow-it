@@ -1,8 +1,8 @@
 .ait-content {
 	&__caracteristicas {
 		margin-top: -110px;
-		background-size: 1280px auto;
-		background-position: top center;
+		background-position: top 110px center;
+    background-repeat-y: no-repeat;
 		background-image: url('../images/sobre/ait-svg-fundo-caracteristicas.svg');
 		position: relative;
 		padding: 46px 0;
@@ -73,9 +73,14 @@
 			border-radius: 13px;
 			max-width: 780px;
 			margin: 0 auto;
-			padding: 25px 10px;
+			padding: 40px 10px;
 			@media (min-width: 768px) {
-				padding: 50px 100px;
+				padding: 70px 100px;
+			}
+			.ait-utilities__text-align__right {
+				.ait-component__tag {
+					margin-bottom: 0;
+				}
 			}
 		}
 	}

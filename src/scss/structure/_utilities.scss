@@ -24,6 +24,14 @@
 		&.bold {
 			font-weight: 600;
 		}
+		strong, i {
+			font-style: normal;
+			position: relative;
+		}
+		strong {
+			font-weight: 600;
+			text-transform: uppercase;
+		}
 		&:before {
 			content: '';
 			width: 100%;
@@ -32,6 +40,15 @@
 			position: absolute;
 			bottom: 0;
 			left: 0;
+		}
+		&.bg {
+			&:before {
+				height: 100%;
+				width: calc(100% + 50px);
+				left: auto;
+				right: 0;
+				background: transparent linear-gradient(90deg, #303BFE00 0%, #3242F4 100%) 0% 0% no-repeat padding-box;
+			}
 		}
 	}
 	&__pdd__30-0 {
