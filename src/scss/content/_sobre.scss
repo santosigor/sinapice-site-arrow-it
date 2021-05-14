@@ -6,11 +6,13 @@
 		background-image: url('../images/sobre/ait-svg-fundo-caracteristicas.svg');
 		position: relative;
 		padding: 46px 0;
+		z-index: 6;
 		@media (max-width: 991.98px) {
 			padding: 46px 0 0;
 		}	
 		@media (max-width: 767.98px) {
 			margin-top: -70px;
+			background-image: none;
 		}
 		.ait-utilities__text-align__center {
 			height: 440px;
@@ -110,6 +112,11 @@
 		@media (max-width: 767.98px) {
 			padding: 40px 0 0;
 		}
+		.ait-container {
+			@media (min-width: 768px) and (max-width: 992px) {
+				padding-right: 0;
+			}
+		}
 		.col-md-6 {
 			&:first-child {
 				padding-right: 40px;
@@ -123,7 +130,7 @@
 					display: none;
 					margin-bottom:20px;
 				}
-				@media (max-width: 991.98px) {
+				@media (min-width: 768px) and (max-width: 992px) {
 					padding-left: 40px;
 				}
 				@media (max-width: 767.98px) {
@@ -136,6 +143,15 @@
 						width: 174px;
 					}
 				}
+				p {
+					@media (max-width: 767.98px) {
+						font-size: 13px;
+						line-height: 18px;
+						br {
+							display: none;
+						}
+					}
+				}
 			}
 		}
 		&__bg {
@@ -145,12 +161,20 @@
 				padding: 80px 0 0;
 				min-height: 600px;
 			}
+			@media (max-width: 767.98px) {
+				margin: 0 -15px;
+  			width: calc(100% + 30px);
+			}
 			.ait-typography__h3 {
 				padding-bottom: 0;
 				@media (min-width: 767px) {
 					max-width: 332px;
 					margin: 0 auto;
 					margin-bottom: 0;
+				}
+				@media (max-width: 991.98px) {
+					text-align: center;
+					margin-bottom: -15px;
 				}
 				@media (max-width: 767.98px) {
 					padding: 0 40px;
@@ -196,8 +220,9 @@
 						}
 						p {
 							margin: 0;
-							strong {
-
+							@media (max-width: 767.98px) {
+								font-size: 13px;
+								line-height: 18px;
 							}
 						}
 					}
@@ -217,6 +242,9 @@
 					@media (max-width: 991.98px) {
 						left: 215px;
 					}
+					@media (max-width: 767.98px) {
+						left: 230px;
+					}
 					&:before {
 				    content:'';
 				    display: block;
@@ -225,6 +253,11 @@
 				    opacity: 1;
 				    background-position: center;
 				    background-size: 40px;
+						@media (max-width: 767.98px) {
+					    width: 30px;
+					    background-size: 30px;
+							height: 30px;
+						}
 					}
 				}
 				.slick-next {
@@ -232,6 +265,9 @@
 					top: -150px;
 					@media (max-width: 991.98px) {
 						top: -110px;
+					}
+					@media (max-width: 767.98px) {
+						top: -100px;
 					}
 					&:before {
 				    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3e%3cg id='Grupo_2037' data-name='Grupo 2037' transform='translate(1157 4419) rotate(180)'%3e%3cpath id='Caminho_13920' data-name='Caminho 13920' d='M20,0A20,20,0,1,1,0,20,20,20,0,0,1,20,0Z' transform='translate(1117 4379)' fill='%23303bfe'/%3e%3cpath id='Caminho_92' data-name='Caminho 92' d='M0,0,5.538,6.923,0,13.846' transform='translate(1139.769 4405.923) rotate(180)' fill='none' stroke='%23f0f0f0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3e%3c/g%3e%3c/svg%3e ");
@@ -258,12 +294,25 @@
 					}
 				}
 				.slick-slide:not(.slick-current) {
-					transform: scale(.9);
 					.ait-content__estimulo__bg__carrosel__item {
-						opacity: .5;
+						opacity: 0;
 						* {
 							display: none;
 						}
+					}
+				}
+				.slick-list {
+					&:before {
+				    content:'';
+				    display: block;
+				    width: calc(100% - 14%);
+				    height: 100%;
+				    background: #f1f2f6;
+				    opacity: .55;
+				    position: absolute;
+				    top: 0;
+				    left: 7%;
+				    border-radius: 13px;
 					}
 				}
 			}
@@ -274,6 +323,9 @@
 		background-position: top center;
 		background-image: url('../images/sobre/ait-svg-fundo-pensamento.svg');
 		padding: 100px 0;
+		@media (max-width: 767.98px) {
+			padding: 60px 0;
+		}
 		&__container {
 			background-color: #F1F2F6;
 			background-color: rgba(241,242, 246, 0.95);
@@ -323,6 +375,22 @@
 			}
 			.ait-typography__h1, .ait-component__tag {
 				color: #fff;
+				@media (min-width: 768px) {
+					br {
+						display: none;
+					}
+				}
+			}
+			p {
+				@media (max-width: 767.98px) {
+					font-size: 13px;
+					line-height: 18px;
+				}
+				@media (max-width: 991.98px) {
+					br {
+						display: none;
+					}
+				}
 			}
 		}
 		&__carrossel {
@@ -376,6 +444,10 @@
 						font-size: 25px;
 						line-height: 33px;
 						margin-bottom: 13px;
+						@media (max-width: 767.98px) {
+							font-size: 19px;
+							line-height: 25px;
+						}
 					}
 					img {
 						max-width: 70px;
@@ -386,10 +458,24 @@
 				p {
 					font-size: 16px;
 					line-height: 22px;
+					@media (max-width: 767.98px) {
+						font-size: 13px;
+						line-height: 18px;
+					}
 					span {
 						color: #0EDD97;
 						font-weight: 700;
 					}
+				}
+			}
+			.slick-next {
+				&:before {
+			    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3e%3cg id='Grupo_2037' data-name='Grupo 2037' transform='translate(1157 4419) rotate(180)'%3e%3cpath id='Caminho_13920' data-name='Caminho 13920' d='M20,0A20,20,0,1,1,0,20,20,20,0,0,1,20,0Z' transform='translate(1117 4379)' fill='%230EDD97'/%3e%3cpath id='Caminho_92' data-name='Caminho 92' d='M0,0,5.538,6.923,0,13.846' transform='translate(1139.769 4405.923) rotate(180)' fill='none' stroke='%23f0f0f0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3e%3c/g%3e%3c/svg%3e ");
+				}
+			}
+			.slick-prev {
+				&:before {
+			    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3e%3cg id='Grupo_2038' data-name='Grupo 2038' transform='translate(-1117 -4379)'%3e%3cpath id='Caminho_13920' data-name='Caminho 13920' d='M20,0A20,20,0,1,1,0,20,20,20,0,0,1,20,0Z' transform='translate(1117 4379)' fill='%230EDD97'/%3e%3cpath id='Caminho_92' data-name='Caminho 92' d='M0,0,5.538,6.923,0,13.846' transform='translate(1139.769 4405.923) rotate(180)' fill='none' stroke='%23f0f0f0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3e%3c/g%3e%3c/svg%3e ");
 				}
 			}
 			.slick-list {
@@ -402,19 +488,33 @@
 	}
 	&__plataform {
 		&__item {
-			width: 139px;
 			display: inline-block;
 			margin: 17px;
-			@media (min-width: 992px) {
-				width: 198px;
+			@media (max-width: 991.98px) {
+				margin: 17px 0;
+				width: 32%;
 			}
 			@media (max-width: 767.98px) {
-				width: 90px;
+				margin: 17px 0;
+				width: 49%;
+			}
+			a {
+				display: block;
+				text-decoration: none;
 			}
 			img {
+				width: 139px;
 				height: auto;
 				margin: 0 auto;
 				margin-bottom: 8px;
+				border-radius: 100%;
+				transition: all .15s ease-in-out;
+				@media (min-width: 992px) {
+					width: 198px;
+				}
+				@media (max-width: 767.98px) {
+					width: 90px;
+				}
 			}
 			strong {
 				display: block;
@@ -431,17 +531,22 @@
 					color: #0E1628;
 				}
 			}
+			&:hover {
+				img {
+					box-shadow: 0 0 8px rgba(0,0,0,.75);
+				}
+			}
 		}
 	}
 	&__valores {
 		.ait-container {
-			padding: 180px 30px 60px 30px;
+			padding: 90px 30px 60px 30px;
 			background-size: 480px auto;
 			background-repeat: no-repeat;
 			background-position: top 52px right;
 			background-image: url('../images/sobre/valores/fundo.svg');
 			@media (min-width: 992px) {
-				padding: 108px 0 60px 0;
+				padding: 180px 0 60px 0;
 				background-size: 664px auto;
 				background-position: top 52px right;
 			}
@@ -458,13 +563,16 @@
 			}
 		}
 		.ait-typography__h3 {
-			padding-bottom: 0;
+			padding-bottom: 10px;
 			@media (min-width: 768px) and (max-width: 992px) {
 				text-align: left;
 				max-width: 232px;
 			}
+			@media (max-width: 991.98px) {
+				padding-bottom: 25px;
+			}
 			@media (max-width: 767.98px) {
-				margin-bottom: 260px;
+				margin-bottom: 240px;
 			}
 		}
 		&__item {
@@ -573,11 +681,13 @@
 				text-align: center;
 				display: inline-block;
 				margin: 10px;
+				position: relative;
 				@media (max-width: 991.98px) {
 					width: 120px;
 					min-height: 146px;
 				}
 				> img {
+					display: inline-block;
 					margin-top: -78px;
 					max-height: 170px;
 					max-width: 124px;
@@ -607,9 +717,21 @@
 						line-height: 14px;
 					}
 				}
+				a {
+					display: inline-block;
+					position: absolute;
+					width: 100%;
+					left: 0;
+					img {
+						margin: 0 auto;
+					}
+				}
 			}
 			&__depoimento {
-				padding: 70px 0;
+				padding: 0 0 70px 0;
+				@media (max-width: 767.98px) {
+					padding: 20px 0 70px 0;
+				}
 				&__item {
 					@include clearfix();
 					width: 780px;
@@ -624,6 +746,9 @@
 					@media (max-width: 991.98px) {
 						width: 496px;
 						padding: 40px 50px;
+						br {
+							display: none;
+						}
 					}
 					@media (max-width: 767.98px) {
 						width: 100%;

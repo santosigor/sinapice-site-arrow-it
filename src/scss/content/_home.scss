@@ -319,6 +319,10 @@
 					height: 235px;
 					padding: 40px 16px;
 				}
+				transition: all .15s ease-in-out;
+				&:hover {
+					box-shadow: 0 0 8px rgba(0,0,0,.75);
+				}
 				div {
 					height: 80px;
 					display: flex;
