@@ -1,6 +1,20 @@
 .ait-component__banner {
 	&__carousel {
-		background-color: #303BFE;
+		@media (min-width: 992px) {
+			position: relative;
+			&:before {
+				content:'';
+				opacity: .3;
+				height: 250px;
+				width: 100%;
+				background: rgba(0,0,0, .3);
+				background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(2,0,36,1) 100%);
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				z-index: 4;
+			}
+		}
 	}
 	picture {
 		display: flex;
@@ -14,46 +28,67 @@
 	}
 	.slick-next, .slick-prev {
 		z-index: 5;
+		display: inline-block;
+		position: static;
+    width: 40px;
+		height: 40px;
+		@media (max-width: 991.98px) {
+			display: none!important;
+		}
 		&:before {
 	    content:'';
 	    display: block;
-	    width: 14px;
-			height: 34px;
 	    color: rgb(14,22,0);
 	    opacity: 1;
+	    width: 40px;
+			height: 40px;
+	    opacity: 1;
 	    background-position: center;
-	    background-size: 14px 34px;
+	    background-size: 40px;
+	    margin: -40px 0;
 		}
 	}
 	.slick-next {
+		margin-left: 25px;
 		&:before {
-	    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='17.208' height='38.217' viewBox='0 0 17.208 38.217'%3e%3cpath id='Caminho_80' data-name='Caminho 80' d='M24.75,6.75l13.6,17-13.6,17' transform='translate(-22.642 -4.642)' fill='none' stroke='%230e1628' stroke-linecap='round' stroke-linejoin='round' stroke-width='3'/%3e%3c/svg%3e ");
+	    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3e%3cg id='Grupo_2037' data-name='Grupo 2037' transform='translate(1157 4419) rotate(180)'%3e%3cpath id='Caminho_13920' data-name='Caminho 13920' d='M20,0A20,20,0,1,1,0,20,20,20,0,0,1,20,0Z' transform='translate(1117 4379)' fill='%23ffffff'/%3e%3cpath id='Caminho_92' data-name='Caminho 92' d='M0,0,5.538,6.923,0,13.846' transform='translate(1139.769 4405.923) rotate(180)' fill='none' stroke='%23303BFE' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3e%3c/g%3e%3c/svg%3e ");
 		}
-		right: 50px;
 	}
 	.slick-prev {
+		margin-right: 30px;
 		&:before {
-	    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='17.208' height='38.217' viewBox='0 0 17.208 38.217'%3e%3cpath id='Caminho_85' data-name='Caminho 85' d='M0,0,13.6,17,0,34' transform='translate(15.1 36.108) rotate(180)' fill='none' stroke='%230e1628' stroke-linecap='round' stroke-linejoin='round' stroke-width='3'/%3e%3c/svg%3e ");
+	    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3e%3cg id='Grupo_2038' data-name='Grupo 2038' transform='translate(-1117 -4379)'%3e%3cpath id='Caminho_13920' data-name='Caminho 13920' d='M20,0A20,20,0,1,1,0,20,20,20,0,0,1,20,0Z' transform='translate(1117 4379)' fill='%23ffffff'/%3e%3cpath id='Caminho_92' data-name='Caminho 92' d='M0,0,5.538,6.923,0,13.846' transform='translate(1139.769 4405.923) rotate(180)' fill='none' stroke='%23303BFE' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3e%3c/g%3e%3c/svg%3e ");
 		}
-		left: 50px;
 	}
 	.slick-dots {
-    position: absolute;
-    bottom: 35px;
+		position: static;
+		padding: 10px 0 0;
+		@media (min-width: 992px) {
+			padding: 0;
+	    position: absolute;
+	    bottom: 0;
+			z-index: 5;
+		}
     li {
     	button {
+    		width: 8px;
+    		height: 8px;
+    		border-radius: 100%;
+	    	background-color: transparent;
+	    	border: 1px solid #303BFE;
+				@media (min-width: 992px) {
+	    		border: 1px solid #fff;
+				}
     		&:before {
-    			opacity: 1;
-	    		font-size: 36px;
-	    		color: rgb(14,22,40);
+    			display: none;
 	    	}
     	}
     	&.slick-active {
 	    	button {
-	    		&:before {
-	    			opacity: 1;
-		    		color: #fff;
-		    	}
+	    		background-color: #303BFE;
+					@media (min-width: 992px) {
+		    		border: 1px solid #fff;
+					}
 	    	}
     	}
     }

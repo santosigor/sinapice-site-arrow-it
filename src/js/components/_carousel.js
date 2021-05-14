@@ -1,17 +1,28 @@
-$(document).ready(function (){
-
-	$('.ait-component__carousel.center').slick({
+function aitCarouselCenter(elemt, slides, slidesT, slidesM) {
+	$(elemt).slick({
 	  dots: true,
 	  infinite: false,
-	  speed: 300,
+	  speed: 1200,
 	  variableWidth: true,
-	  slidesToShow: 1
-	  // slidesToScroll: 4
+	  slidesToShow: slides,
+	  slidesToScroll: slides,
+	  responsive: [
+	    {
+	      breakpoint: 1024,
+	      settings: {
+				  slidesToShow: slidesT,
+				  slidesToScroll: slidesT
+	      }
+	    },
+	    {
+	      breakpoint: 768,
+	      settings: {
+	        slidesToShow: slidesM,
+	        slidesToScroll: slidesM
+	      }
+	    }
+	  ]
 	});
-
-	$('.ait-component__carousel.center').each(function() {
-    $(this).find('.slick-next').appendTo($(this).find('.slick-dots'));
-    $(this).find('.slick-prev').prependTo($(this).find('.slick-dots'));
-  });
-
-});
+  $(elemt).find('.slick-next').appendTo($(elemt).find('.slick-dots'));
+  $(elemt).find('.slick-prev').prependTo($(elemt).find('.slick-dots'));
+}

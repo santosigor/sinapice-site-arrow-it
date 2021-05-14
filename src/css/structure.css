@@ -3259,18 +3259,20 @@ body {
   line-height: 55px;
   padding-bottom: 30px;
   font-family: 'magistral-bold', sans-serif; }
+  @media (min-width: 992px) {
+    .ait-typography__h1 br {
+      display: none; } }
   @media (max-width: 991.98px) {
     .ait-typography__h1 {
-      text-align: center;
       font-size: 35px;
-      line-height: 46px; }
-      .ait-typography__h1 br {
-        display: none; } }
+      line-height: 46px; } }
   @media (max-width: 767.98px) {
     .ait-typography__h1 {
       text-align: center;
       font-size: 23px;
-      line-height: 30px; } }
+      line-height: 30px; }
+      .ait-typography__h1 br {
+        display: none; } }
 
 .ait-typography__h3 {
   color: #0E1628;
@@ -3280,16 +3282,15 @@ body {
   font-family: 'magistral-medium', sans-serif; }
   @media (max-width: 991.98px) {
     .ait-typography__h3 {
-      text-align: center;
       font-size: 21px;
-      line-height: 27px; }
-      .ait-typography__h3 br {
-        display: none; } }
+      line-height: 27px; } }
   @media (max-width: 767.98px) {
     .ait-typography__h3 {
       text-align: center;
       font-size: 19px;
-      line-height: 25px; } }
+      line-height: 25px; }
+      .ait-typography__h3 br {
+        display: none; } }
 
 .ait-typography__h5 {
   color: #A6BCD2;
@@ -3302,14 +3303,14 @@ body {
     .ait-typography__h5 {
       text-align: center;
       font-size: 13px;
-      line-height: 18px; }
-      .ait-typography__h5 br {
-        display: none; } }
+      line-height: 18px; } }
   @media (max-width: 767.98px) {
     .ait-typography__h5 {
       text-align: center;
       font-size: 11px;
-      line-height: 15px; } }
+      line-height: 15px; }
+      .ait-typography__h5 br {
+        display: none; } }
 
 .ait-utilities__text-align__right {
   text-align: right; }

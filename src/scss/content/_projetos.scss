@@ -18,6 +18,17 @@
 			background-color: #F1F2F6;
 			border-radius: 13px;
 			position: relative;
+			@media (max-width: 991.98px) {
+				width: calc(50% - 20px);
+				height: 300px;
+			}
+			@media (max-width: 767.98px) {
+				float: none;
+				width: 272px;
+				height: auto;
+				display: block;
+				margin: 0 auto 50px;
+			}
 			&__img {
 				width: 118px;
 				height: 118px;
@@ -29,10 +40,26 @@
 				margin-bottom: 15px;
 				display: flex;
 				align-items: center;
+				@media (max-width: 991.98px) {
+					width: 98px;
+					height: 98px;
+				}
+				@media (max-width: 767.98px) {
+					width: 84px;
+					height: 84px;
+				}
 				img {
 					max-width: 98px;
 					max-height: 66px;
 					margin: 0 auto;
+					@media (max-width: 991.98px) {
+						max-width: 82px;
+						max-height: 56px;
+					}
+					@media (max-width: 767.98px) {
+						max-width: 70px;
+						max-height: 48px;
+					}
 				}
 			}
 			&__icon {
@@ -47,6 +74,12 @@
 				position: absolute;
 				top: calc(50% - 19px);
 				left: 10px;
+				@media (max-width: 767.98px) {
+					background-size: 24px;
+					width: 28px;
+					height: 28px;
+					top: calc(50% - 14px);
+				}
 				&.tempo {	
 					background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg id='Grupo_179' data-name='Grupo 179' xmlns='http://www.w3.org/2000/svg' width='25.362' height='25.363' viewBox='0 0 25.362 25.363'%3e%3cpath id='Caminho_3091' data-name='Caminho 3091' d='M406.662,1814.477l-.48-.454,1.564-1.648.48.454Z' transform='translate(-388.037 -1807.327)' fill='%230e1628'/%3e%3crect id='Retângulo_191' data-name='Retângulo 191' width='2.271' height='0.661' transform='translate(5.11 19.769) rotate(-46.573)' fill='%230e1628'/%3e%3cpath id='Caminho_3092' data-name='Caminho 3092' d='M410.566,1825.257l-.017-.661,2.271-.06.017.661Z' transform='translate(-389.813 -1812.274)' fill='%230e1628'/%3e%3cpath id='Caminho_3093' data-name='Caminho 3093' d='M379.444,1825.3l-.017-.661,2.271-.06.017.661Z' transform='translate(-377.153 -1812.292)' fill='%230e1628'/%3e%3cpath id='Caminho_3094' data-name='Caminho 3094' d='M407.811,1836.474l-1.648-1.563.454-.48,1.648,1.564Z' transform='translate(-388.029 -1816.299)' fill='%230e1628'/%3e%3crect id='Retângulo_192' data-name='Retângulo 192' width='0.662' height='2.271' transform='matrix(0.688, -0.725, 0.725, 0.688, 5.061, 5.576)' fill='%230e1628'/%3e%3cpath id='Caminho_3095' data-name='Caminho 3095' d='M396.391,1841.085l-.06-2.271.661-.016.06,2.271Z' transform='translate(-384.029 -1818.075)' fill='%230e1628'/%3e%3cpath id='Caminho_3096' data-name='Caminho 3096' d='M396.348,1809.964l-.06-2.272.661-.016.06,2.271Z' transform='translate(-384.012 -1805.416)' fill='%230e1628'/%3e%3crect id='Retângulo_193' data-name='Retângulo 193' width='5.442' height='0.661' transform='translate(12.448 12.452) rotate(-45.463)' fill='%230e1628'/%3e%3ccircle id='Elipse_36' data-name='Elipse 36' cx='1.636' cy='1.636' r='1.636' transform='translate(11.045 11.045)' fill='%230e1628'/%3e%3cpath id='Caminho_3098' data-name='Caminho 3098' d='M388.275,1803.866a12.668,12.668,0,0,0-7.368,22.982l.476-.468a12.025,12.025,0,1,1,3.141,1.579l-.517.514a12.675,12.675,0,1,0,4.268-24.607Z' transform='translate(-375.594 -1803.866)' fill='%230e1628'/%3e%3crect id='Retângulo_195' data-name='Retângulo 195' width='0.867' height='0.867' transform='matrix(0.839, 0.544, -0.544, 0.839, 6.868, 23.062)' fill='%23303bfe'/%3e%3c/svg%3e ");
 				}
@@ -58,7 +91,10 @@
 				text-decoration: none;
 				display: block;
 				color: #0E1628;
-				padding: 20px;
+				padding: 20px 20px 60px;
+				@media (min-width: 768px) {
+					padding: 20px;
+				}
 				> strong {
 					display: block;
 					color: #303BFE;
@@ -67,25 +103,45 @@
 					margin-bottom: 4px;
 					font-family: 'magistral-medium';
 					font-weight: 500;
+					@media (max-width: 991.98px) {
+						font-size: 21px;
+						line-height: 27px;
+					}
+					@media (max-width: 767.98px) {
+						font-size: 19px;
+						line-height: 25px;
+					}
 				}
 				> span {
 					display: block;
 					font-size: 16px;
 					line-height: 22px;
 					margin-bottom: 20px;
+					@media (max-width: 991.98px) {
+						font-size: 15px;
+						line-height: 20px;
+					}
+					@media (max-width: 767.98px) {
+						margin-bottom: 15px;
+						font-size: 13px;
+						line-height: 18px;
+					}
 				}
 				.col-lg-6 {
 					text-align: left;
 					padding-left: 54px;
 					padding-right: 0;
-					margin-bottom: 20px;
-					width: 58%;
-					flex: 0 0 58%;
-	    		max-width: 58%;
-					&:last-child {
-						width: 42%;
-						flex: 0 0 42%;
-	    			max-width: 42%;
+					margin-bottom: 10px;
+					@media (min-width: 768px) {
+						margin-bottom: 20px;
+						width: 58%;
+						flex: 0 0 58%;
+		    		max-width: 58%;
+						&:last-child {
+							width: 42%;
+							flex: 0 0 42%;
+		    			max-width: 42%;
+						}
 					}
 					strong {
 						display: inline-block;
@@ -93,6 +149,10 @@
 						line-height: 19px;
 						color: #0E1628;
 						font-weight: 800;
+						@media (max-width: 991.98px) {
+							font-size: 12px;
+							line-height: 14px;
+						}
 					}
 					p {
 						font-weight: 600;
@@ -100,6 +160,10 @@
 						color: #303BFE;
 						font-size: 14px;
 						line-height: 19px;
+						@media (max-width: 991.98px) {
+							font-size: 12px;
+							line-height: 14px;
+						}
 					}
 				}
 				.ait-component__button.outline {
@@ -119,15 +183,24 @@
 			column-count: 3;
 			column-gap: 5px;
 			padding-bottom: 50px;
+			@media (max-width: 991.98px) {
+				column-count: 2;
+			}
+			@media (max-width: 767.98px) {
+				column-count: 1;
+			}
 			&__item {
 				@include clearfix();
-				width: 33%px;
-				margin: 10px;
+				margin: 10px 0;
 				display: inline-block;
 				background-color: #F1F2F6;
-				padding: 20px 20px 60px;
+				padding: 20px;
 				border-radius: 13px;
 				position: relative;
+				@media (min-width: 768px) {
+					margin: 10px;
+					padding: 20px 20px 60px;
+				}
 				p {
 					font-weight: 600;
 					text-align: left;
@@ -146,13 +219,15 @@
 					text-align: right;
 					color: #303BFE;
 					text-transform: uppercase;
-					position: absolute;
-					bottom: 20px;
-					right: 20px;
 					span {
 						display: block;
 						font-weight: 600;
 						font-size: 12px;
+					}
+					@media (min-width: 768px) {
+						position: absolute;
+						bottom: 20px;
+						right: 20px;
 					}
 				}
 			}

@@ -5,35 +5,70 @@
 			padding: 15px 0;
 			background-color: #A6BCD2;
 			margin-bottom: 40px;
+			@media (max-width: 767.98px) {
+				margin-bottom: 14px;
+			}
 			&__title {
+				@media (min-width: 768px) {
+					display: inline-flex;
+					align-items:center;
+				}
+				@media (max-width: 767.98px) {
+					text-align: center;
+				}
 				.ait-typography__h3 {
 					padding-bottom: 0;
+					@media (max-width: 767.98px) {
+						font-size: 13px;
+						line-height: 14px;
+					}
 				}
 				p {
 					color: #F1F2F6;
 					font-size: 16px;
 					line-height: 22px;
+					margin: 0;
+					@media (max-width: 767.98px) {
+						font-size: 12px;
+						line-height: 14px;
+					}
+				}
+				&__img {
+					width: 150px;
+					height: 150px;
+					border-radius: 100%;
+					background: #FFFFFF;
+					display: grid;
+					align-items:center;
+					margin-right: 20px;
+					@media (max-width: 767.98px) {
+						margin: 0 auto;
+						margin-bottom: 10px;
+						width: 79px;
+						height: 79px;
+					}
+					img {
+						max-height: 116px;
+						max-width: 116px;
+						margin: 0 auto;
+						@media (max-width: 767.98px) {
+							max-height: 61px;
+							max-width: 61px;
+						}
+					}
+					span {
+						display: flex;
+						align-items: center;
+						height: 100%;
+					}
 				}
 			}
 			.ait-component__button {
 				margin-right: 20px;
 				margin-top: 6px;
 				margin-bottom: 6px;
-			}
-			&__img {
-				width: 150px;
-				height: 150px;
-				border-radius: 100%;
-				background: #FFFFFF;
-				img {
-					max-height: 116px;
-					max-width: 116px;
-					margin: 0 auto;
-				}
-				span {
-					display: flex;
-					align-items: center;
-					height: 100%;
+				@media (max-width: 767.98px) {
+					display: none;
 				}
 			}
 		}
@@ -43,11 +78,20 @@
 			padding: 24px 0 5px;
 			margin-bottom: 40px;
 		}
+		.col-6 {
+			padding-right: 0;
+		}
 		&__item {
 			margin-bottom: 30px;
 			text-align: center;
+			@media (max-width: 767.98px) {
+				margin-bottom: 14px;
+			}
 			img {
 				margin-bottom: 10px;
+				@media (max-width: 767.98px) {
+					max-width: 60px;
+				}
 			}
 			strong {
 				text-transform: uppercase;
@@ -57,11 +101,19 @@
 				line-height: 18px;
 				letter-spacing: 0.44px;
 				color: #303BFE;
+				@media (max-width: 767.98px) {
+					font-size: 12px;
+					line-height: 14px;
+				}
 			}
 			p {
 				font-size: 15px;
 				line-height: 20px;
 				color: #0E1628;
+				@media (max-width: 767.98px) {
+					font-size: 13px;
+					line-height: 18px;
+				}
 			}
 		}
 		&__outros-proj {

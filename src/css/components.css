@@ -16,8 +16,20 @@
   .ait-utilities__reset-button:focus-visible {
     outline: 5px auto -webkit-focus-ring-color; }
 
-.ait-component__banner__carousel {
-  background-color: #303BFE; }
+@media (min-width: 992px) {
+  .ait-component__banner__carousel {
+    position: relative; }
+    .ait-component__banner__carousel:before {
+      content: '';
+      opacity: .3;
+      height: 250px;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #020024 100%);
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 4; } }
 
 .ait-component__banner picture {
   display: flex;
@@ -30,37 +42,61 @@
   width: 100%; }
 
 .ait-component__banner .slick-next, .ait-component__banner .slick-prev {
-  z-index: 5; }
+  z-index: 5;
+  display: inline-block;
+  position: static;
+  width: 40px;
+  height: 40px; }
+  @media (max-width: 991.98px) {
+    .ait-component__banner .slick-next, .ait-component__banner .slick-prev {
+      display: none !important; } }
   .ait-component__banner .slick-next:before, .ait-component__banner .slick-prev:before {
     content: '';
     display: block;
-    width: 14px;
-    height: 34px;
     color: #0e1600;
     opacity: 1;
+    width: 40px;
+    height: 40px;
+    opacity: 1;
     background-position: center;
-    background-size: 14px 34px; }
+    background-size: 40px;
+    margin: -40px 0; }
 
 .ait-component__banner .slick-next {
-  right: 50px; }
+  margin-left: 25px; }
   .ait-component__banner .slick-next:before {
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='17.208' height='38.217' viewBox='0 0 17.208 38.217'%3e%3cpath id='Caminho_80' data-name='Caminho 80' d='M24.75,6.75l13.6,17-13.6,17' transform='translate(-22.642 -4.642)' fill='none' stroke='%230e1628' stroke-linecap='round' stroke-linejoin='round' stroke-width='3'/%3e%3c/svg%3e "); }
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3e%3cg id='Grupo_2037' data-name='Grupo 2037' transform='translate(1157 4419) rotate(180)'%3e%3cpath id='Caminho_13920' data-name='Caminho 13920' d='M20,0A20,20,0,1,1,0,20,20,20,0,0,1,20,0Z' transform='translate(1117 4379)' fill='%23ffffff'/%3e%3cpath id='Caminho_92' data-name='Caminho 92' d='M0,0,5.538,6.923,0,13.846' transform='translate(1139.769 4405.923) rotate(180)' fill='none' stroke='%23303BFE' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3e%3c/g%3e%3c/svg%3e "); }
 
 .ait-component__banner .slick-prev {
-  left: 50px; }
+  margin-right: 30px; }
   .ait-component__banner .slick-prev:before {
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='17.208' height='38.217' viewBox='0 0 17.208 38.217'%3e%3cpath id='Caminho_85' data-name='Caminho 85' d='M0,0,13.6,17,0,34' transform='translate(15.1 36.108) rotate(180)' fill='none' stroke='%230e1628' stroke-linecap='round' stroke-linejoin='round' stroke-width='3'/%3e%3c/svg%3e "); }
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3e%3cg id='Grupo_2038' data-name='Grupo 2038' transform='translate(-1117 -4379)'%3e%3cpath id='Caminho_13920' data-name='Caminho 13920' d='M20,0A20,20,0,1,1,0,20,20,20,0,0,1,20,0Z' transform='translate(1117 4379)' fill='%23ffffff'/%3e%3cpath id='Caminho_92' data-name='Caminho 92' d='M0,0,5.538,6.923,0,13.846' transform='translate(1139.769 4405.923) rotate(180)' fill='none' stroke='%23303BFE' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3e%3c/g%3e%3c/svg%3e "); }
 
 .ait-component__banner .slick-dots {
-  position: absolute;
-  bottom: 35px; }
-  .ait-component__banner .slick-dots li button:before {
-    opacity: 1;
-    font-size: 36px;
-    color: #0e1628; }
-  .ait-component__banner .slick-dots li.slick-active button:before {
-    opacity: 1;
-    color: #fff; }
+  position: static;
+  padding: 10px 0 0; }
+  @media (min-width: 992px) {
+    .ait-component__banner .slick-dots {
+      padding: 0;
+      position: absolute;
+      bottom: 0;
+      z-index: 5; } }
+  .ait-component__banner .slick-dots li button {
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    background-color: transparent;
+    border: 1px solid #303BFE; }
+    @media (min-width: 992px) {
+      .ait-component__banner .slick-dots li button {
+        border: 1px solid #fff; } }
+    .ait-component__banner .slick-dots li button:before {
+      display: none; }
+  .ait-component__banner .slick-dots li.slick-active button {
+    background-color: #303BFE; }
+    @media (min-width: 992px) {
+      .ait-component__banner .slick-dots li.slick-active button {
+        border: 1px solid #fff; } }
 
 .ait-component__tag {
   text-transform: uppercase;
@@ -166,11 +202,17 @@
 .ait-component__tab__nav {
   background-color: #F1F2F6;
   margin-bottom: 40px; }
+  @media (max-width: 767.98px) {
+    .ait-component__tab__nav {
+      margin-bottom: 14px; } }
   .ait-component__tab__nav ul {
     text-align: center;
     width: 100%;
     padding: 0;
     margin: 0 0 20px; }
+    @media (max-width: 767.98px) {
+      .ait-component__tab__nav ul {
+        margin: 0; } }
     .ait-component__tab__nav ul li {
       display: inline-block;
       padding: 14px 0;
@@ -181,7 +223,10 @@
       color: #A6BCD2;
       cursor: pointer;
       user-select: none;
-      font-weight: 600; }
+      font-weight: 700; }
+      @media (max-width: 767.98px) {
+        .ait-component__tab__nav ul li {
+          margin: 0 4px; } }
       .ait-component__tab__nav ul li:hover {
         color: #303BFE; }
       .ait-component__tab__nav ul li.active {
@@ -192,6 +237,12 @@
   display: none; }
   .ait-component__tab__content.active {
     display: block; }
+  .ait-component__tab__content p:last-child {
+    margin-bottom: 0; }
+  @media (max-width: 767.98px) {
+    .ait-component__tab__content p {
+      font-size: 12px;
+      line-height: 14px; } }
 
 .ait-component__button {
   cursor: pointer;

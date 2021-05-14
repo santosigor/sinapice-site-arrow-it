@@ -3,11 +3,17 @@
 		&__nav {
 			background-color: #F1F2F6;
 			margin-bottom: 40px;
+			@media (max-width: 767.98px) {
+				margin-bottom: 14px;
+			}
 			ul {
 				text-align: center;
 				width: 100%;
 				padding: 0;
 				margin: 0 0 20px;
+				@media (max-width: 767.98px) {
+					margin: 0;
+				}
 				li {
 					display: inline-block;
 					padding: 14px 0;
@@ -18,7 +24,10 @@
 					color: #A6BCD2;
 					cursor: pointer;
 					user-select: none;
-					font-weight: 600;
+					font-weight: 700;
+					@media (max-width: 767.98px) {
+						margin: 0 4px;
+					}
 					&:hover {
 						color: #303BFE;
 					}
@@ -33,6 +42,15 @@
 			display: none;
 			&.active {
 				display: block;
+			}
+			p {
+				&:last-child {
+					margin-bottom: 0;
+				}
+				@media (max-width: 767.98px) {
+					font-size: 12px;
+					line-height: 14px;
+				}
 			}
 		}
 	}

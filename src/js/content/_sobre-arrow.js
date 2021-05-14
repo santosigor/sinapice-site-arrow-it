@@ -4,6 +4,7 @@ $(document).ready(function (){
 	  arrows: true,
     centerMode: true,
     infinite: false,
+    speed: 800,
     // dots: true,
     slidesToShow: 1,
     vertical: true,
@@ -13,13 +14,13 @@ $(document).ready(function (){
 	$('.ait-content__metodologia__carrossel').slick({
 	  dots: false,
 	  infinite: false,
-	  speed: 300,
+	  speed: 1200,
 	  slidesToShow: 6,
 	  slidesToScroll: 1,
 	  variableWidth: true,
 	  responsive: [
 	    {
-	      breakpoint: 480,
+	      breakpoint: 992,
 	      settings: {
 	        slidesToShow: 1,
 	        slidesToScroll: 1
@@ -27,5 +28,17 @@ $(document).ready(function (){
 	    }
 	  ]
 	});
+
+	aitCarouselCenter('.ait-content__parceria .ait-component__carousel', 6);
+
+	// if($(window).width() < 768){
+	// 	$('.ait-content__nosso-time__cards__carrossel').slick({
+	// 	  arrows: true,
+	//     centerMode: true,
+	//     infinite: false,
+	//     // dots: true,
+	//     slidesToShow: 1
+	// 	});
+	// }
 
 });

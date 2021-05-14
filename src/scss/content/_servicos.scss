@@ -5,6 +5,10 @@
 				border-bottom: 5px solid #303BFE;
 				background-color: #A6BCD2;
 				margin-bottom: 20px;
+				@media (max-width: 767.98px) {
+					border-bottom: 3px solid #303BFE;
+					padding: 10px 0 0;
+				}
 			&__carrossel {
 				.slick-next, .slick-prev {
 					z-index: 5;
@@ -61,6 +65,9 @@
 					img {
 						margin: 0 auto;
 						margin-bottom: 12px;
+						@media (max-width: 767.98px) {
+							width: 128px;
+						}
 					}
 					strong {
 						font-size: 42px;
@@ -68,6 +75,10 @@
 						font-weight: 700;
 						font-family: 'magistral-bold';
 						color: #303BFE;
+						@media (max-width: 767.98px) {
+							font-size: 23px;
+							line-height: 30px;
+						}
 						span {
 							font-family: 'magistral-medium';
 							font-weight: 400;
@@ -102,6 +113,11 @@
 						}
 					}
 				}
+				.slick-list {
+					@media (max-width: 767.98px) {
+						overflow: visible;
+					}
+				}
 			}
 		}
 		&__content {
@@ -112,11 +128,15 @@
 				line-height: 22px;
 				font-weight: 600;
 				padding: 14px 0 16px;
+				@media (max-width: 767.98px) {
+					padding: 14px 15px 16px;
+				}
 			}
 			.row {
 				ul {
 					margin: 0;
 					list-style-type: square;
+					padding-left: 15px;
 					li {
 						margin-bottom: 24px;
 						&::marker {
