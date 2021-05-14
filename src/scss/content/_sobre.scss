@@ -6,21 +6,36 @@
 		background-image: url('../images/sobre/ait-svg-fundo-caracteristicas.svg');
 		position: relative;
 		padding: 46px 0;
+		@media (max-width: 991.98px) {
+			padding: 46px 0 0;
+		}	
 		.ait-utilities__text-align__center {
 			height: 440px;
+			@media (max-width: 991.98px) {
+				height: 360px;
+			}	
 		}
 		&__img {
 			margin: 0 auto;
 			position: relative;
 			z-index: 5;
+			@media (max-width: 991.98px) {
+					max-width: 352px;
+			}
 		}
 		&__container {
 			max-width: 858px;
 			margin: 0 auto;
+			@media (max-width: 991.98px) {
+				max-width: 704px;
+			}
 		}
 		&__item {
 			display: inline-block;
 			margin: 0 20px;
+			@media (max-width: 991.98px) {
+				margin: 0 14px;
+			}
 			&__shadow {
 				width: 128px;
 				height: 128px;
@@ -35,6 +50,14 @@
 					max-height: 80px;
 					margin: 0 auto;
 				}
+				@media (max-width: 991.98px) {
+					width: 108px;
+					height: 108px;
+					img {
+						max-height: 54px;
+						margin: 0 auto;
+					}
+				}
 			}
 			strong {
 				display: block;
@@ -44,21 +67,34 @@
 				font-weight: 600;
 				letter-spacing: 0.54px;
 				color: #303BFE;
+				@media (max-width: 991.98px) {
+					font-size: 14px;
+					line-height: 20px;
+				}
 			}
 		}
 	}
 	&__estimulo {
 		background-color: #F1F2F6;
 		border-top: 2px solid #303BFE;
-		.col-lg-6 {
+		.col-md-6 {
 			&:first-child {
 				padding-right: 40px;
+				.ait-typography__h1 {
+						text-align: left;
+				}
+				@media (max-width: 991.98px) {
+					padding-left: 40px;
+				}
 			}
 		}
 		&__bg {
 			background-color: #303BFE;
-			padding: 80px 0 0;
-			min-height: 600px;
+			padding: 30px 0 0;
+			@media (min-width: 992px) {
+				padding: 80px 0 0;
+				min-height: 600px;
+			}
 			.ait-typography__h3 {
 				padding-bottom: 0;
 				@media (min-width: 767px) {
@@ -70,6 +106,9 @@
 			&__carrosel {
 				max-width: 430px;
 				margin: 0 auto;
+				@media (max-width: 991.98px) {
+					max-width: 280px;
+				}
 				&__item {
 					background-color: #fff;
 					display: flex;
@@ -79,6 +118,11 @@
 					padding: 35px 111px;
 					margin: -12px 0;
 					position: relative;
+					@media (max-width: 991.98px) {
+						padding: 0 50px;
+						width: 280px;
+						height: 150px;
+					}
 					div {
 						span {
 							display: inline-block;
@@ -90,8 +134,15 @@
 							position: absolute;
 					    left: 10px;
 					    top: calc(50% - 22px);
+							@media (max-width: 991.98px) {
+								font-size: 23px;
+								line-height: 30px;
+					    	top: calc(50% - 16px);
+					    	left: 0
+							}
 						}
 						p {
+							margin: 0;
 							strong {
 
 							}
@@ -110,6 +161,9 @@
 					left: 355px;
 			    position: relative;
 			    display: inline-block;
+					@media (max-width: 991.98px) {
+						left: 215px;
+					}
 					&:before {
 				    content:'';
 				    display: block;
@@ -123,6 +177,9 @@
 				.slick-next {
 					transform: rotate(90deg);
 					top: -150px;
+					@media (max-width: 991.98px) {
+						top: -110px;
+					}
 					&:before {
 				    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3e%3cg id='Grupo_2037' data-name='Grupo 2037' transform='translate(1157 4419) rotate(180)'%3e%3cpath id='Caminho_13920' data-name='Caminho 13920' d='M20,0A20,20,0,1,1,0,20,20,20,0,0,1,20,0Z' transform='translate(1117 4379)' fill='%23303bfe'/%3e%3cpath id='Caminho_92' data-name='Caminho 92' d='M0,0,5.538,6.923,0,13.846' transform='translate(1139.769 4405.923) rotate(180)' fill='none' stroke='%23f0f0f0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3e%3c/g%3e%3c/svg%3e ");
 					}
@@ -135,6 +192,9 @@
 				.slick-prev {
 					transform: rotate(90deg);
 					top: 150px;
+					@media (max-width: 991.98px) {
+						top: 110px;
+					}
 					&:before {
 				    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3e%3cg id='Grupo_2038' data-name='Grupo 2038' transform='translate(-1117 -4379)'%3e%3cpath id='Caminho_13920' data-name='Caminho 13920' d='M20,0A20,20,0,1,1,0,20,20,20,0,0,1,20,0Z' transform='translate(1117 4379)' fill='%23303bfe'/%3e%3cpath id='Caminho_92' data-name='Caminho 92' d='M0,0,5.538,6.923,0,13.846' transform='translate(1139.769 4405.923) rotate(180)' fill='none' stroke='%23f0f0f0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3e%3c/g%3e%3c/svg%3e ");
 					}
@@ -166,12 +226,16 @@
 			background-color: rgba(241,242, 246, 0.9);
 			box-shadow: 0px 0px 21px #303BFE57;
 			border-radius: 13px;
-			max-width: 780px;
+			max-width: 496px;
 			margin: 0 auto;
 			padding: 40px 10px;
-			@media (min-width: 768px) {
+			@media (min-width: 992px) {
 				padding: 70px 100px;
-			}
+				max-width: 780px;
+			}	
+			@media (min-width: 768px) {
+				padding: 70px 50px;
+			}		
 			.ait-utilities__text-align__right {
 				.ait-component__tag {
 					margin-bottom: 0;
@@ -187,6 +251,9 @@
 			background-color: #0e1628;
 			color: #ffffff;
 			position: relative;
+			@media (max-width: 991.98px) {
+				max-width: 676px;
+			}
 			&:before {
 				content: '';
 				width: 100%;
@@ -204,18 +271,29 @@
 		&__carrossel {
 			margin-top: -15px;
 			position: relative;
+			@media (max-width: 991.98px) {
+				padding: 0 30px;
+				margin: -15px -25px 0;
+			}
 			&:before {
 				content: '';
 				position: absolute;
-				width: calc(100% - 250px);
+				width: 100%;
 		    top: 204px;
-		    left: 96px;
+		    left: 0;
 				border-bottom: 1px dashed #707070;
+				@media (min-width: 992px) {
+		    	left: 96px;
+					width: calc(100% - 250px);
+				}
 			}
 			&__item {
 				width: 180px;
 				position: relative;
-				margin: 0 10px;
+				margin: 0 15px;
+				@media (min-width: 992px) {
+					margin: 0 10px;
+				}
 				&:after {
 					content: '';
 					position: absolute;
@@ -258,15 +336,21 @@
 				}
 			}
 			.slick-list {
-		    overflow: hidden;
+		    overflow: visible;
+				@media (min-width: 992px) {
+		    	overflow: hidden;
+				}
 		  }
 		}
 	}
 	&__plataform {
 		&__item {
-			width: 198px;
+			width: 139px;
 			display: inline-block;
 			margin: 17px;
+			@media (min-width: 992px) {
+				width: 198px;
+			}
 			img {
 				height: 198px;
 				margin-bottom: 8px;
@@ -275,10 +359,10 @@
 				display: block;
 				font-size: 16px;
 				line-height: 22px;
-				font-weight: 700;
+				font-weight: 800;
 				color: #303BFE;
 				span {
-					font-weight: 400;
+					font-weight: 600;
 					color: #0E1628;
 				}
 			}
@@ -286,44 +370,71 @@
 	}
 	&__valores {
 		.ait-container {
-			padding: 180px 0 60px 0;
-			background-size: 664px auto;
+			padding: 180px 30px 60px 30px;
+			background-size: 480px auto;
 			background-repeat: no-repeat;
 			background-position: top 52px right;
 			background-image: url('../images/sobre/valores/fundo.svg');
+			@media (min-width: 992px) {
+				padding: 108px 0 60px 0;
+				background-size: 664px auto;
+				background-position: top 52px right;
+			}
 		}
 		.ait-component__tag, .ait-typography__h3 {
 			margin-left: 17px;
 		}
 		.ait-typography__h3 {
 			padding-bottom: 0;
+			@media (max-width: 992px) {
+				text-align: left;
+				max-width: 232px;
+			}
 		}
 		&__item {
-			width: 572px;
-			height: 305px;
+			width: 324px;
+			height: 172px;
 			display: inline-block;
-			margin: 17px;
+			margin: 10px;
 			border-radius: 13px;
 			background-color: #F1F2F6;
-			padding: 70px 100px;
+			padding: 40px 30px;
 			overflow: hidden;
+			@media (min-width: 992px) {
+				width: 572px;
+				height: 305px;
+				margin: 17px;
+				padding: 70px 100px;
+			}
 			&__img {
-				height: 70px;
+				height: 44px;
 				display: inline-flex;
 				align-items: center;
-				margin-bottom: 34px;
+				margin-bottom: 24px;
+				@media (min-width: 992px) {
+					margin-bottom: 34px;
+					height: 70px;
+				}
 				img {
-					max-width: 70px;
-					max-height: 70px;
-					margin-right: 20px
+					max-width: 44px;
+					max-height: 44px;
+					margin-right: 20px;
+					@media (min-width: 992px) {
+						max-width: 70px;
+						max-height: 70px;
+					}
 				}
 				strong {
 					display: block;
-					font-size: 16px;
-					line-height: 22px;
+					font-size: 13px;
+					line-height: 18px;
 					font-weight: 700;
 					color: #303BFE;
 					text-transform: uppercase;
+					@media (min-width: 992px) {
+						font-size: 16px;
+						line-height: 22px;
+					}
 					span {
 						font-weight: 400;
 						color: #0E1628;
@@ -331,10 +442,14 @@
 				}
 			}
 			p {
-				font-size: 16px;
-				line-height: 22px;
+				font-size: 12px;
+				line-height: 14px;
 				font-weight: 600;
 				color: #0E1628;
+				@media (min-width: 992px) {
+					font-size: 16px;
+					line-height: 22px;
+				}
 				span {
 					color: #303BFE;
 				}
@@ -347,6 +462,13 @@
 			padding: 60px 0 190px;
 			.ait-utilities__text-align__center, .ait-typography__h3 {
 				color: #fff;
+			}
+			p {
+				@media (max-width: 991.98px) {
+					br {
+						display: none;
+					}
+				}
 			}
 		}
 		&__cards {
@@ -361,23 +483,39 @@
 				text-align: center;
 				display: inline-block;
 				margin: 10px;
+				@media (max-width: 991.98px) {
+					width: 120px;
+					min-height: 146px;
+				}
 				> img {
 					margin-top: -78px;
 					max-height: 170px;
 					max-width: 124px;
 					margin-bottom: 15px;
+					@media (max-width: 991.98px) {
+						max-height: 110px;
+						max-width: 80px;
+					}
 				}
 				strong {
 					display: block;
 					font-family: 'magistral-medium';
   				color: #303BFE;
 					margin-bottom: 5px;
+					@media (max-width: 991.98px) {
+						font-size: 13px;
+						line-height: 17px;
+					}
 					span {
 						font-weight: 400;
 					}
 				}
 				p {
 					font-weight: 700;
+					@media (max-width: 991.98px) {
+						font-size: 12px;
+						line-height: 14px;
+					}
 				}
 			}
 			&__depoimento {
@@ -393,6 +531,10 @@
 					padding: 50px 100px;
 					border-radius: 13px;
 					position: relative;
+					@media (max-width: 991.98px) {
+						width: 496px;
+						padding: 40px 50px;
+					}
 					p {
 						font-weight: 600;
 						text-align: left;
@@ -414,6 +556,10 @@
 						position: absolute;
 						bottom: 50px;
 						right: 100px;
+						@media (max-width: 991.98px) {
+							bottom: 40px;
+							right: 50px;
+						}
 					}
 				}
 			}
