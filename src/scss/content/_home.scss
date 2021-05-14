@@ -44,6 +44,10 @@
 					margin-bottom: 70px;
 					max-width: 400px;
 				}
+				@media (max-width: 767.98px) {
+					font-size: 13px;
+					line-height: 18px;
+				}
 			}
 			img {
 				width: 76%;
@@ -126,13 +130,11 @@
 				@media (min-width: 768px) {
 					padding: 45px 100px;
 				}
-				@media (max-width: 767.98px) {
+				@media (min-width: 768px) and (max-width: 991.98px) {
+					padding: 45px 0;
 					br {
 						display: none;
 					}
-				}
-				@media (min-width: 768px) and (max-width: 991.98px) {
-					padding: 45px 0;
 				}
 				.col-lg-6 {
 					&:first-child {
@@ -182,7 +184,7 @@
 	&__nossos-servicos {
 		background-color: #0e1628;
 		padding: 40px 0 80px;
-		color: #ffffff;
+		color: #F1F2F6;
 		position: relative;
 		@media (min-width: 768px) {
 			padding: 80px 0 160px;
@@ -229,6 +231,10 @@
 			p {
 				max-width: 380px;
 				margin-bottom: 34px;
+				@media (max-width: 767.98px) {
+					font-size: 13;
+					line-height: 18px;
+				}
 			}
 			ul {
 				margin: 0;
@@ -325,6 +331,9 @@
 					img {
 						max-height: 108px;
 						margin: 0 auto;
+						@media (max-width: 767.98px) {
+							max-height: 80px;
+						}
 					}
 				}
 				strong, span {
@@ -337,11 +346,19 @@
 					margin-bottom: 4px;
 					text-transform: uppercase;
 					color: #303BFE;
+					@media (max-width: 767.98px) {
+						font-size: 12px;
+						line-height: 14px;
+					}
 				}
 				span {
 					font-size: 10px;
 					line-height: 14px;
 					color: #0E1628;
+					@media (max-width: 767.98px) {
+						font-size: 12px;
+						line-height: 14px;
+					}
 				}
 			}
 		}
@@ -409,6 +426,10 @@
 					text-decoration: none!important;
 					strong {
 						color: #303BFE;
+					}
+					@media (max-width: 767.98px) {
+						font-size: 13px;
+						line-height: 18px;
 					}
 				}
 				span {

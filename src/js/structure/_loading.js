@@ -16,13 +16,18 @@ $(document).ready(function (){
 
   var aitLoading = aitGetCookie('aitLoading');
 
-  if(aitLoading != 1) {
-    aitLoading();
-  } else {
-    $('.ait-loading').hide();
-    $('body').addClass('ait-load');
-    aitSetCookie('aitLoading', 1, 15);
-  }
+  // if(aitLoading != 1) {
+  //   aitLoading();
+  // } else {
+  //   $('.ait-loading').hide();
+  //   $('body').addClass('ait-load');
+  //   aitSetCookie('aitLoading', 1, 15);
+  // }
+
+  // aitLoading();
+  
+  $('.ait-loading').fadeOut(1200);
+  $('body').addClass('ait-load');
 
 });
 

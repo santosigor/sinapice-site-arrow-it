@@ -3345,7 +3345,7 @@ body {
     height: 3px;
     background: transparent linear-gradient(90deg, #303BFE00 0%, #3242F4 100%) 0% 0% no-repeat padding-box;
     position: absolute;
-    bottom: 0;
+    bottom: -1;
     left: 0; }
   .ait-utilities__palavra-chave.bg:before {
     height: 100%;
