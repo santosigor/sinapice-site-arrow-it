@@ -3341,6 +3341,57 @@ body {
 .ait-utilities__color__white {
   color: #fff; }
 
+.ait-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0e1628;
+  z-index: 99999;
+  overflow: hidden; }
+  .ait-loading:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/home/servicos/ait-svg-fundo.svg");
+    opacity: 0.1;
+    position: absolute;
+    top: 0;
+    left: 0; }
+  .ait-loading span {
+    display: block; }
+  .ait-loading__container {
+    height: 100vh;
+    display: grid;
+    align-items: center;
+    color: #F1F2F6;
+    text-align: center; }
+  .ait-loading__porcentagem {
+    font-family: 'magistral-bold';
+    font-size: 41px;
+    line-height: 50px; }
+    @media (min-width: 768px) {
+      .ait-loading__porcentagem {
+        font-size: 48px;
+        line-height: 62px; } }
+  .ait-loading__logo {
+    width: 156px;
+    height: 166px;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='155.901' height='165.954' viewBox='0 0 155.901 165.954'%3e%3cg id='Grupo_244' data-name='Grupo 244' transform='translate(-24 -149.699)'%3e%3cpath id='Caminho_40' data-name='Caminho 40' d='M196.482,337.132,179.285,329a1.486,1.486,0,0,0-2,.755l-7.2,16.69a1.891,1.891,0,0,1-3.471,0L159.4,329.784a1.484,1.484,0,0,0-1.993-.753l-17.161,8.089a1.149,1.149,0,0,0-.031,2.063l27.161,13.835a2.157,2.157,0,0,0,1.962,0L196.513,339.2A1.15,1.15,0,0,0,196.482,337.132Z' transform='translate(-66.405 -37.602)' fill='%23303bfe'/%3e%3cpath id='Caminho_41' data-name='Caminho 41' d='M167.439,326.226l60.387,46.32a1.139,1.139,0,0,0,1.536-1.67l-52.467-57.663a90.848,90.848,0,0,1-15.538-24.37h0a1.15,1.15,0,0,0-2.2.608l3.884,29.17A11.5,11.5,0,0,0,167.439,326.226Z' transform='translate(-49.772 -72.22)' fill='%23f1f2f6'/%3e%3cpath id='Caminho_42' data-name='Caminho 42' d='M196.383,253.7l-16.676,95.77a11.169,11.169,0,0,1-4.206,6.946l-60.631,46.519a1.15,1.15,0,0,1-1.634-1.584l44.616-62.117A117.56,117.56,0,0,0,172.64,311.4l21.53-58.294A1.151,1.151,0,0,1,196.383,253.7Z' transform='translate(-89.008 -102.654)' fill='%23f1f2f6'/%3e%3c/g%3e%3c/svg%3e "); }
+    @media (min-width: 768px) {
+      .ait-loading__logo {
+        width: 227px;
+        height: 242px; } }
+  .ait-loading__barra {
+    height: 5px;
+    background-color: #3242F4;
+    box-shadow: 0px 0px 13px #303AFB;
+    width: 0; }
+
 .ait-structure__header {
   height: 96px;
   background-color: #fff;
@@ -3534,4 +3585,8 @@ body {
         right: -190px; } }
 
 body {
-  padding-top: 96px; }
+  padding-top: 96px;
+  height: 100vh;
+  overflow: hidden; }
+  body.ait-load {
+    height: auto; }

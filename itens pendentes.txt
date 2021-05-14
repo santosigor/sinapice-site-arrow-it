@@ -37,6 +37,10 @@ PROJETOS
 
 	Deixar box inteiro clicavel
 
+DEPOIMENTOS
+
+	mosaico
+
 INTEGRA PROJETOs
 
 	Deixar outros projetos ramdom fixo

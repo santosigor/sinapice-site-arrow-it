@@ -6,10 +6,16 @@
 @import '_grid';
 @import '_typography';
 @import '_utilities';
+@import '_loading';
 
 @import '_header';
 @import '_footer';
 
 body {
 	padding-top: 96px;
+	height: 100vh;
+	overflow: hidden;
+	&.ait-load {
+		height: auto;
+	}
 }
