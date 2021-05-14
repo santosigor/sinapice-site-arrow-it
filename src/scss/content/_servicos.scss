@@ -115,6 +115,8 @@
 			}
 			.row {
 				ul {
+					margin: 0;
+					list-style-type: square;
 					li {
 						margin-bottom: 24px;
 						&::marker {

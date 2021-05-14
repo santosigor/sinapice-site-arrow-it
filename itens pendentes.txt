@@ -21,8 +21,8 @@ HOME
 
 SOBRE
 
-	Inserir Tag tiulo DEPOIMENTOS final da pagina
-	padronizar box de depoimentos
+	Inserir Tag tiulo DEPOIMENTOS final da pagina - OK
+	padronizar box de depoimentos - OK
 
 
 SERVIÇO
@@ -35,11 +35,11 @@ INTEGRA SERVIÇO
 
 PROJETOS
 
-	Deixar box inteiro clicavel
+	Deixar box inteiro clicavel - OK
 
 DEPOIMENTOS
 
-	mosaico
+	mosaico - OK
 
 INTEGRA PROJETOs
 

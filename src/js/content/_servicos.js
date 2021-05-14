@@ -38,4 +38,9 @@ $(document).ready(function (){
     }
   });
 
+  $(document).on('click', '.ait-content__servicos__container__carrossel .slick-arrow', function(e){
+    e.preventDefault();
+    $('.ait-content__servicos__container__carrossel .slick-current.slick-active .ait-content__servicos__container__carrossel__item').click();
+  });
+
 });
