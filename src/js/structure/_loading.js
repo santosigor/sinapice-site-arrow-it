@@ -14,7 +14,7 @@ $(document).ready(function (){
     });
   });
 
-  var aitLoading = aitGetCookie('aitLoading');
+  // var aitLoading = aitGetCookie('aitLoading');
 
   // if(aitLoading != 1) {
   //   aitLoading();
@@ -24,10 +24,7 @@ $(document).ready(function (){
   //   aitSetCookie('aitLoading', 1, 15);
   // }
 
-  // aitLoading();
-  
-  $('.ait-loading').fadeOut(1200);
-  $('body').addClass('ait-load');
+  aitLoading()
 
 });
 

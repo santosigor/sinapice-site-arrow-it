@@ -7,6 +7,9 @@
 		}
 		.ait-component__tab__nav {
 			padding-top: 40px;
+			@media (max-width: 767.98px) {
+				margin-bottom: 40px;
+			}
 		}
 		&__item {
 			@include clearfix();
@@ -18,6 +21,10 @@
 			background-color: #F1F2F6;
 			border-radius: 13px;
 			position: relative;
+			transition: all .15s ease-in-out;
+			&:hover {
+				box-shadow: 0 0 8px rgba(0,0,0,.75);
+			}
 			@media (max-width: 991.98px) {
 				width: calc(50% - 20px);
 				height: 300px;

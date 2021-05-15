@@ -8,8 +8,9 @@
 		}
 		ul {
 			margin: 0 auto;
-			padding: 0 20px;
+			padding: 0;
 			@media (min-width: 768px) {
+				padding: 0 20px;
 				max-width: 400px;
 			}
 			li {
@@ -24,6 +25,9 @@
 					font-size: 16px;
 					color: #0E1628;
 					text-decoration: none!important;
+					@media (max-width: 767.98px) {
+						font-size: 13px;
+					}
 					strong {
 						color: #303BFE;
 					}
