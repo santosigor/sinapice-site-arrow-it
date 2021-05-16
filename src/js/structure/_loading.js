@@ -24,15 +24,15 @@ $(document).ready(function (){
   //   aitSetCookie('aitLoading', 1, 15);
   // }
 
-  aitLoading()
+  aitLoading();
 
 });
 
 function aitLoading() {
-   setTimeout(function(){
-    $('.ait-loading').fadeOut(1200);
+  //  setTimeout(function(){
+    // $('.ait-loading').fadeOut(1200);
     $('body').addClass('ait-load');
-  }, 5000);
+  // }, 5000);
 }
 
 // cookies

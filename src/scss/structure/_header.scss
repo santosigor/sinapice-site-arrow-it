@@ -43,6 +43,7 @@
       background-size: 24px;
       background-position: center;
       background-repeat: no-repeat;
+      transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
       background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='31' height='13' viewBox='0 0 31 13'%3e%3cdefs%3e%3clinearGradient id='linear-gradient' y1='0.5' x2='1' y2='0.5' gradientUnits='objectBoundingBox'%3e%3cstop offset='0' stop-color='%23303bfe'/%3e%3cstop offset='1' stop-color='%23101627'/%3e%3c/linearGradient%3e%3c/defs%3e%3cg id='Grupo_1176' data-name='Grupo 1176' transform='translate(-0.47 0.016)'%3e%3crect id='Retângulo_66' data-name='Retângulo 66' width='31' height='2' transform='translate(0.47 10.984)' fill='url(%23linear-gradient)'/%3e%3crect id='Retângulo_67' data-name='Retângulo 67' width='31' height='2' transform='translate(0.47 -0.016)' fill='url(%23linear-gradient)'/%3e%3c/g%3e%3c/svg%3e ");
       &.active {
       	background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg id='Grupo_2061' data-name='Grupo 2061' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='10.607' height='10.606' viewBox='0 0 10.607 10.606'%3e%3cdefs%3e%3clinearGradient id='linear-gradient' y1='0.5' x2='1' y2='0.5' gradientUnits='objectBoundingBox'%3e%3cstop offset='0' stop-color='%23303bfe'/%3e%3cstop offset='1' stop-color='%23101627'/%3e%3c/linearGradient%3e%3c/defs%3e%3crect id='Retângulo_66' data-name='Retângulo 66' width='14' height='1' transform='translate(0.707 0) rotate(45)' fill='url(%23linear-gradient)'/%3e%3crect id='Retângulo_67' data-name='Retângulo 67' width='14' height='1' transform='translate(0 9.899) rotate(-45)' fill='url(%23linear-gradient)'/%3e%3c/svg%3e ");
@@ -90,6 +91,7 @@
       	line-height: 38px;
 				letter-spacing: 0px;
 				color: #303BFE;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
         @media (max-width: 767.98px) {
           font-size: 16px;
           line-height: 22px;

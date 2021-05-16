@@ -1261,7 +1261,7 @@ img {
           width: 180px; } }
       @media (max-width: 767.98px) {
         .ait-content__servicos__container__carrossel__item img {
-          width: 98px; } }
+          width: 78px; } }
     .ait-content__servicos__container__carrossel__item strong {
       font-size: 42px;
       line-height: 55px;
@@ -1274,21 +1274,25 @@ img {
           line-height: 28px; } }
       @media (max-width: 767.98px) {
         .ait-content__servicos__container__carrossel__item strong {
-          font-size: 18px;
-          line-height: 20px; } }
+          font-size: 16px;
+          line-height: 4px; } }
       .ait-content__servicos__container__carrossel__item strong span {
         font-family: 'magistral-medium';
         font-weight: 400;
         color: #0E1628; }
-        @media (min-width: 768px) and (max-width: 992px) {
+        @media (max-width: 992px) {
           .ait-content__servicos__container__carrossel__item strong span {
             display: block; } }
   .ait-content__servicos__container__carrossel .slick-slide:not(.slick-current) {
     opacity: 0;
-    transform: scale(0.6); }
+    transform: scale(0.6);
+    pointer-events: none; }
     @media (max-width: 767.98px) {
       .ait-content__servicos__container__carrossel .slick-slide:not(.slick-current) {
         transform: scale(0.5); } }
+    @media (max-width: 374.98px) {
+      .ait-content__servicos__container__carrossel .slick-slide:not(.slick-current) {
+        transform: scale(0.4); } }
     .ait-content__servicos__container__carrossel .slick-slide:not(.slick-current) .ait-content__servicos__container__carrossel__item strong {
       font-size: 23px;
       line-height: 24px; }
@@ -1571,7 +1575,7 @@ img {
     padding: 15px 0;
     background-color: #A6BCD2;
     margin-bottom: 40px; }
-    @media (max-width: 767.98px) {
+    @media (max-width: 991.98px) {
       .ait-content__projetos-integra__destaque {
         margin-bottom: 14px;
         text-align: center; } }
@@ -1675,9 +1679,6 @@ img {
         .ait-content__projetos-integra__item p {
           font-size: 13px;
           line-height: 18px; } }
-  @media (max-width: 767.98px) {
-    .ait-content__projetos-integra .col-lg-3.ait-utilities__text-align__center {
-      display: none; } }
   .ait-content__projetos-integra__outros-proj {
     width: 90px;
     height: 90px;
@@ -1685,11 +1686,13 @@ img {
     box-shadow: 0px 0px 6px #00000029;
     display: inline-block;
     margin: 8px;
-    border-radius: 100%; }
+    border-radius: 100%;
+    overflow: hidden; }
     .ait-content__projetos-integra__outros-proj span {
       display: flex;
       align-items: center;
       height: 100%; }
       .ait-content__projetos-integra__outros-proj span img {
         max-width: 65px;
+        margin: 0 auto;
         max-height: 65px; }

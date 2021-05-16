@@ -5,7 +5,7 @@
 			padding: 15px 0;
 			background-color: #A6BCD2;
 			margin-bottom: 40px;
-			@media (max-width: 767.98px) {
+			@media (max-width: 991.98px) {
 				margin-bottom: 14px;
 				text-align: center;
 			}
@@ -129,7 +129,7 @@
 		}
 		.col-lg-3.ait-utilities__text-align__center {
 			@media (max-width: 767.98px) {
-				display: none;
+				// display: none;
 			}
 		}
 		&__outros-proj {
@@ -140,12 +140,14 @@
 			display: inline-block;
 			margin: 8px;
 			border-radius: 100%;
+			overflow: hidden;
 			span {
 				display: flex;
 				align-items: center;
 				height: 100%;
 				img {
 					max-width: 65px;
+					margin: 0 auto;
 					max-height: 65px;
 				}
 			}

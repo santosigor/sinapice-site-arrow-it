@@ -2,7 +2,7 @@ function aitCarouselCenter(elemt, slides, slidesT, slidesM) {
 	$(elemt).slick({
 	  dots: true,
 	  infinite: false,
-	  speed: 800,
+	  speed: 500,
 	  variableWidth: true,
 	  slidesToShow: slides,
 	  slidesToScroll: slides,

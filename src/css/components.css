@@ -232,7 +232,8 @@
       color: #A6BCD2;
       cursor: pointer;
       user-select: none;
-      font-weight: 700; }
+      font-weight: 700;
+      transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out; }
       @media (max-width: 767.98px) {
         .ait-component__tab__nav ul li {
           margin: 0 4px; } }

@@ -11,38 +11,12 @@ $(document).ready(function (){
     verticalSwiping: true
 	});
 
-	aitCarouselCenter('.ait-content__parceria .ait-component__carousel', 6);
+	aitCarouselCenter('.ait-content__parceria .ait-component__carousel', 7, 5, 1);
 
-	aitCarouselCenter('.ait-content__metodologia__carrossel .ait-component__carousel', 6, 3, 2);
+	aitCarouselCenter('.ait-content__metodologia__carrossel .ait-component__carousel', 6, 3, 1);
 
 	if($('.ait-content__nosso-time__cards__item').length > 5 || $(window).width() < 768){
-		var elemt = '.ait-content__nosso-time__cards__carrossel';
-		$(elemt).slick({
-		  dots: true,
-		  infinite: false,
-		  speed: 800,
-		  variableWidth: true,
-		  slidesToShow: 5,
-		  slidesToScroll: 5,
-		  responsive: [
-		    {
-		      breakpoint: 1024,
-		      settings: {
-					  slidesToShow: 5,
-					  slidesToScroll: 5
-		      }
-		    },
-		    {
-		      breakpoint: 768,
-		      settings: {
-		        slidesToShow: 2,
-		        slidesToScroll: 2
-		      }
-		    }
-		  ]
-		});
-	  $(elemt).find('.slick-next').appendTo($(elemt).find('.slick-dots'));
-	  $(elemt).find('.slick-prev').prependTo($(elemt).find('.slick-dots'));
+		aitCarouselCenter('.ait-content__nosso-time__cards__carrossel', 5, 5, 1);
 	}
 
 });
