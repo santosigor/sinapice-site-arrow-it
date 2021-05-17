@@ -6,6 +6,7 @@ $(document).ready(function (){
 	  variableWidth: true,
     speed: 0,
     draggable: false,
+    swipe: false,
 	  responsive: [
 	    {
 	      breakpoint: 500,
