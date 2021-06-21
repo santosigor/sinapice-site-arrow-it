@@ -1,14 +1,14 @@
 <?php 
-  include("pe_classes.php");
+  include("ait_classes.php");
 
-	$objpe = new Pe_class();
+	$objait = new Ait_class();
 
 	if(@$_POST["acao"]==1){
 
     $id_aluno = $_POST["idaluno"];
     $id_curso = $_POST["idcurso"];
 
-		$objpe->confirmarAluno($id_aluno, $id_curso);
+		$objait->confirmarAluno($id_aluno, $id_curso);
   }
 
   include('header.php'); 
