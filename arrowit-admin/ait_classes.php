@@ -147,5 +147,109 @@
 
 			mysqli_close($con);
 		}
+
+		function enviarEmailCliente($nome, $email, $empresa, $telefone, $cargo, $solucao, $consentimento, $privacidade){
+
+			if (!class_exists('PHPMailer\PHPMailer\PHPMailer')){
+				require("php-mailer/src/PHPMailer.php");
+			}
+
+			if (!class_exists('PHPMailer\PHPMailer\SMTP')){
+				require("php-mailer/src/SMTP.php");
+			}
+
+			//Instantiation and passing `true` enables exceptions
+			$mail = new PHPMailer\PHPMailer\PHPMailer();
+
+			//Server settings
+			// $mail->SMTPDebug = 2;               //Enable verbose debug output
+			$mail->isSMTP();                                            //Send using SMTP
+			$mail->Host       = 'ssl://smtp.gmail.com';                     //Set the SMTP server to send through
+			$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+			$mail->Username   = 'mrsantoshugo04@gmail.com';                     //SMTP username
+			$mail->Password   = 'desix123@@';                               //SMTP password
+			$mail->SMTPSecure = 'ssl';         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+			$mail->Port       = 465;                                    //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+			$mail->SMTPOptions = array(
+					'ssl' => array(
+							'verify_peer' => false,
+							'verify_peer_name' => false,
+							'allow_self_signed' => true
+					)
+			);
+
+			//Recipients
+			$mail->setFrom('mrsantoshugo04@gmail.com', 'Hugo');
+			$mail->addAddress($email, $nome);     //Add a recipient
+			// $mail->addAddress('ellen@example.com');               //Name is optional
+			// $mail->addReplyTo('info@example.com', 'Information');
+			// $mail->addCC('cc@example.com');
+			// $mail->addBCC('bcc@example.com');
+
+			//Attachments
+			// $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+			// $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+
+			//Content
+			$mail->isHTML(true);                                  //Set email format to HTML
+			$mail->Subject = 'OLÁ '.$nome.' TUDO BEM?';
+			$mail->Body    = 'recebemos seus dados';
+			// $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+			$mail->send();
+
+			$this->enviarEmailArrow($nome, $email, $empresa, $telefone, $cargo, $solucao, $consentimento, $privacidade);
+		}
+
+		function enviarEmailArrow($nome, $email, $empresa, $telefone, $cargo, $solucao, $consentimento, $privacidade){
+
+			if (!class_exists('PHPMailer\PHPMailer\PHPMailer')){
+				require("php-mailer/src/PHPMailer.php");
+			}
+
+			if (!class_exists('PHPMailer\PHPMailer\SMTP')){
+				require("php-mailer/src/SMTP.php");
+			}
+
+			//Instantiation and passing `true` enables exceptions
+			$mail = new PHPMailer\PHPMailer\PHPMailer();
+
+			//Server settings
+			// $mail->SMTPDebug = 2;               //Enable verbose debug output
+			$mail->isSMTP();                                            //Send using SMTP
+			$mail->Host       = 'ssl://smtp.gmail.com';                     //Set the SMTP server to send through
+			$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+			$mail->Username   = 'mrsantoshugo04@gmail.com';                     //SMTP username
+			$mail->Password   = 'desix123@@';                               //SMTP password
+			$mail->SMTPSecure = 'ssl';         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+			$mail->Port       = 465;                                    //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+			$mail->SMTPOptions = array(
+					'ssl' => array(
+							'verify_peer' => false,
+							'verify_peer_name' => false,
+							'allow_self_signed' => true
+					)
+			);
+
+			//Recipients
+			$mail->setFrom('mrsantoshugo04@gmail.com', 'Hugo');
+			$mail->addAddress('santosigor013@gmail.com', 'igornebiantos');     //Add a recipient
+			// $mail->addAddress('ellen@example.com');               //Name is optional
+			// $mail->addReplyTo('info@example.com', 'Information');
+			// $mail->addCC('cc@example.com');
+			// $mail->addBCC('bcc@example.com');
+
+			//Attachments
+			// $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+			// $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+
+			//Content
+			$mail->isHTML(true);                                  //Set email format to HTML
+			$mail->Subject = 'OLÁ '.$nome.' TUDO BEM?';
+			$mail->Body    = 'empresa:'.$empresa.' '.$telefone.' '.$cargo.' '.$solucao.' '.$consentimento.' '.$privacidade.' ';
+			// $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+			$mail->send();
+		}
 	}
 ?>
