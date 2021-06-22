@@ -95,29 +95,6 @@ function getCookie(cname) {
 	 return "";
 }
 
-/* PE usuario	*/
-
-function cadastrarUsuario(){
-	d = document.form;
-	d.acao.value = 1;
-	d.submit();
-}
-
-/* PE cursos	*/
-
-function cadastrarCurso(){
-	d = document.form;
-	d.acao.value = 1;
-	d.submit();
-}
-
-function aprovarInscricao(id){
-	d = document.form;
-	d.acao.value = 1;
-	d.id_aluno.value = id;
-	d.submit();
-}
-
 function lerexcel(){
 	d = document.form;
 	d.acao.value = 2;
@@ -156,42 +133,6 @@ function cadastroSubmit(){
 	}
 }
 
-function updateBanner(id){
-	var d = document.getElementById('formmodal'+id);
-	d.acao.value = 2;
-	d.idbannermodal.value = id;
-	d.submit();
-}
-
-function deleteBanner(id){
-	d = document.form;
-	d.acao.value = 3;
-	d.idbanner.value = id;
-	d.submit();
-}
-
-function acaoFacilitadoraLink(t, id, tipo){
-	if(tipo==1){
-		var d = document.getElementById('form');
-	}else if(tipo==2){
-		var d = document.getElementById('formmodal'+id);
-	}
-	d.acao.value = t;
-	d.idlink.value = id;
-	d.submit();
-}
-
-function acaoLink(t, id, tipo){
-	if(tipo==1){
-		var d = document.getElementById('formlinks');
-	}else if(tipo==2){
-		var d = document.getElementById('formlinksmodal'+id);
-	}
-	d.acao.value = t;
-	d.id_link.value = id;
-	d.submit();
-}
-
 if(getCookie("ait_res")==1){
   alert("Usuário e senha inválido!");
 }
@@ -207,14 +148,14 @@ function acaoServico(t, id, tipo){
 	d.submit();
 }
 
-function acaoIntegraProjeto(t, id, tipo){
+function acaoProjetos(t, id, tipo){
 	if(tipo==1){
 		var d = document.getElementById('form');
 	}else if(tipo==2){
 		var d = document.getElementById('formmodal'+id);
 	}
 	d.acao.value = t;
-	d.idintegra.value = id;
+	d.idprojeto.value = id;
 	d.submit();
 }
 
@@ -409,20 +350,6 @@ function FazerInscricao(){
       }
     }
   });
-}
-
-function confirmarAluno(id, idcur){
-	d = document.form;
-	d.acao.value = 1;
-	d.idaluno.value = id;
-	d.idcurso.value = idcur;
-	d.submit();
-}
-
-function DoLoginPortal(){
-	d = document.formmodallogin;
-	d.acaologin.value = 1;
-	d.submit();
 }
 
 function acaoTemas(t, id, tipo){

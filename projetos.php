@@ -46,23 +46,39 @@
         </div>
         <div class="ait-container">
           <div class="ait-component__tab__content active" ait-tab-content="tab1">
+            <?
+              include("arrowit-admin/config.php");
+
+              $sql = "SELECT id_projeto, titulo, setor, imagem, tempo_processo, ambiente
+              FROM ait_projetos
+              WHERE 1
+              ORDER BY id_projeto DESC";
+              $rs = mysqli_query($con, $sql); 
+              while($row = mysqli_fetch_array($rs)){
+                $id_projeto = $row["id_projeto"];
+                $titulo = $row["titulo"];
+                $setor = $row["setor"];
+                $imagem = $row["imagem"];
+                $tempo_processo = $row["tempo_processo"];
+                $ambiente = $row["ambiente"];
+            ?>
             <div class="ait-content__projetos__item">
-              <a href="projetos-integra-drogaria.html">
+              <a href="projetos-integra.php?id=<?=$id_projeto?>">
                 <div class="ait-content__projetos__item__img">
-                  <img src="./dist/images/projetos/drogaria.png" alt="">
+                  <img src="arrowit-admin/img/projetos/<?=$imagem?>" alt="">
                 </div>
-                <strong>Drogaria São Paulo</strong>
-                <span>Farmacêutica</span>
+                <strong><?=$titulo?></strong>
+                <span><?=$setor?></span>
                 <div class="row">
                   <div class="col-lg-6">
                     <span class="ait-content__projetos__item__icon tempo"></span>
                     <strong>Tempo de processo</strong>
-                    <p>2 dias (transição operacional)</p>
+                    <p><?=$tempo_processo?></p>
                   </div>
                   <div class="col-lg-6">
                     <span class="ait-content__projetos__item__icon ambiente"></span>
                     <strong>Ambiente</strong>
-                    <p>1.800 Ativos</p>
+                    <p><?=$ambiente?></p>
                   </div>
                 </div>
                 <div class="ait-utilities__text-align__center">
@@ -70,150 +86,7 @@
                 </div>
               </a>
             </div>
-            <div class="ait-content__projetos__item">
-              <a href="projetos-integra-europ.html">
-                <div class="ait-content__projetos__item__img">
-                  <img src="./dist/images/projetos/europ.png" alt="">
-                </div>
-                <strong>Europ Assistance</strong>
-                <span>Serviços de assistência e conveniência</span>
-                <div class="row">
-                  <div class="col-lg-6">
-                    <span class="ait-content__projetos__item__icon tempo"></span>
-                    <strong>Tempo de processo</strong>
-                    <p>15 dias (transição operacional)</p>
-                  </div>
-                  <div class="col-lg-6">
-                    <span class="ait-content__projetos__item__icon ambiente"></span>
-                    <strong>Ambiente</strong>
-                    <p>Mais de 2000 pontos</p>
-                  </div>
-                </div>
-                <div class="ait-utilities__text-align__center">
-                  <span class="ait-component__button outline">Saiba Mais</span>
-                </div>
-              </a>
-            </div>
-            <div class="ait-content__projetos__item">
-              <a href="projetos-integra-pague-menos.html">
-                <div class="ait-content__projetos__item__img">
-                  <img src="./dist/images/projetos/pague-menos.png" alt="">
-                </div>
-                <strong>Pague Menos Leve Mais</strong>
-                <span>Varejo/ Alimentício</span>
-                <div class="row">
-                  <div class="col-lg-6">
-                    <span class="ait-content__projetos__item__icon tempo"></span>
-                    <strong>Tempo de processo</strong>
-                    <p>2 Dias</p>
-                  </div>
-                  <div class="col-lg-6">
-                    <span class="ait-content__projetos__item__icon ambiente"></span>
-                    <strong>Ambiente</strong>
-                    <p>40 Ativos</p>
-                  </div>
-                </div>
-                <div class="ait-utilities__text-align__center">
-                  <span class="ait-component__button outline">Saiba Mais</span>
-                </div>
-              </a>
-            </div>
-            <div class="ait-content__projetos__item">
-              <a href="projetos-integra-estrela.html">
-                <div class="ait-content__projetos__item__img">
-                  <img src="./dist/images/projetos/estrela.png" alt="">
-                </div>
-                <strong>Estrela Alimentos</strong>
-                <span>Alimentos</span>
-                <div class="row">
-                  <div class="col-lg-6">
-                    <span class="ait-content__projetos__item__icon tempo"></span>
-                    <strong>Tempo de processo</strong>
-                    <p>3 Meses</p>
-                  </div>
-                  <div class="col-lg-6">
-                    <span class="ait-content__projetos__item__icon ambiente"></span>
-                    <strong>Ambiente</strong>
-                    <p>15 Ativos</p>
-                  </div>
-                </div>
-                <div class="ait-utilities__text-align__center">
-                  <span class="ait-component__button outline">Saiba Mais</span>
-                </div>
-              </a>
-            </div>
-            <div class="ait-content__projetos__item">
-              <a href="projetos-integra-ober.html">
-                <div class="ait-content__projetos__item__img">
-                  <img src="./dist/images/projetos/ober.png" alt="">
-                </div>
-                <strong>Ober</strong>
-                <span>Indústria</span>
-                <div class="row">
-                  <div class="col-lg-6">
-                    <span class="ait-content__projetos__item__icon tempo"></span>
-                    <strong>Tempo de processo</strong>
-                    <p>15 Dias</p>
-                  </div>
-                  <div class="col-lg-6">
-                    <span class="ait-content__projetos__item__icon ambiente"></span>
-                    <strong>Ambiente</strong>
-                    <p>30 Tb</p>
-                  </div>
-                </div>
-                <div class="ait-utilities__text-align__center">
-                  <span class="ait-component__button outline">Saiba Mais</span>
-                </div>
-              </a>
-            </div>
-            <div class="ait-content__projetos__item">
-              <a href="projetos-integra-rascal.html">
-                <div class="ait-content__projetos__item__img">
-                  <img src="./dist/images/projetos/rascal.png" alt="">
-                </div>
-                <strong>Ráscal</strong>
-                <span>Varejo/ Alimentício</span>
-                <div class="row">
-                  <div class="col-lg-6">
-                    <span class="ait-content__projetos__item__icon tempo"></span>
-                    <strong>Tempo de processo</strong>
-                    <p>3 Meses</p>
-                  </div>
-                  <div class="col-lg-6">
-                    <span class="ait-content__projetos__item__icon ambiente"></span>
-                    <strong>Ambiente</strong>
-                    <p>5 Ativos e<br> 15 Tb</p>
-                  </div>
-                </div>
-                <div class="ait-utilities__text-align__center">
-                  <span class="ait-component__button outline">Saiba Mais</span>
-                </div>
-              </a>
-            </div>
-            <div class="ait-content__projetos__item">
-              <a href="projetos-integra-autopass.html">
-                <div class="ait-content__projetos__item__img">
-                  <img src="./dist/images/projetos/autopass.png" alt="">
-                </div>
-                <strong>Autopass</strong>
-                <span>Tecnologia especializada em mobilidade urbana</span>
-                <div class="row">
-                  <div class="col-lg-6">
-                    <span class="ait-content__projetos__item__icon tempo"></span>
-                    <strong>Tempo de processo</strong>
-                    <p>5 dias</p>
-                  </div>
-                  <div class="col-lg-6">
-                    <span class="ait-content__projetos__item__icon ambiente"></span>
-                    <strong>Ambiente</strong>
-                    <p>+ de 180 pontos</p>
-                  </div>
-                </div>
-                <div class="ait-utilities__text-align__center">
-                  <span class="ait-component__button outline">Saiba Mais</span>
-                </div>
-              </a>
-            </div>
+            <?}?>
           </div>
           <div class="ait-component__tab__content" ait-tab-content="tab2">
             <div class="ait-content__projetos__depoimento">

@@ -34,6 +34,26 @@
 
     <header class="ait-structure__header"></header>
 
+    <?
+        include("arrowit-admin/config.php");
+
+       $sql = "SELECT id_dados, endereco, telefone, celular, email, facebook, instagram, linkedin
+       FROM ait_dadosgerais 
+       WHERE 1";
+       $rs = mysqli_query($con, $sql); 
+       $row = mysqli_fetch_array($rs);
+       $endereco = $row["endereco"];
+       $telefone = $row["telefone"];
+       $celular = $row["celular"];
+       $email = $row["email"];
+       $facebook = $row["facebook"];
+       $instagram = $row["instagram"];
+       $linkedin = $row["linkedin"];
+
+       $telform = "(".substr($telefone,0,2).") <strong>".substr($telefone,2,-4)." - ".substr($telefone,-4)."</strong>";
+       $celform = "(".substr($celular,0,2).") <strong>".substr($celular,2,-4)." - ".substr($celular,-4)."</strong>";
+    ?>
+
     <section class="ait-content__contato-page">
       <div class="ait-container">
         <div class="row">
@@ -41,34 +61,34 @@
             <div class="ait-typography__h1">Quando vamos tomar um café?</div>
             <ul>
               <li>
-                <a href="tel:+551123210031">(11) <strong>2321 - 0031</strong></a>
+                <a href="tel:+55<?=$telefone?>"><?=$telform?></a>
                 <p>Telefone</p>
               </li>
               <li>
-                <a href="mailto:contato@arrowit.com.br"><strong>contato</strong>@arrowit.com.br</a>
+                <a href="mailto:<?=$email?>"><?=$email?></a>
                 <p>E-mail</p>
               </li>
               <li>
-                <a  href="https://api.whatsapp.com/send?phone=5511%209%207531%20-%200031" target="_blank">(11) <strong>9 7531 - 0031</strong></a>
+                <a  href="https://api.whatsapp.com/send?phone=55<?=$celular?>" target="_blank"><?=$celform?></a>
                 <p>
                   WhatsApp <span>Suporte em atendimento 24 x 7</span>
                 </p>
               </li>
               <li>
-                <a href="https://www.facebook.com/arrowitsolucoes/" target="_blank" title="Facebook">
+                <a href="<?=$facebook?>" target="_blank" title="Facebook">
                   <img src="./dist/images/icons/ait-svg-facebook.svg" alt="">
                 </a>
-                <a href="https://www.instagram.com/arrowitsolucoes/" target="_blank" title="Instagram">
+                <a href="<?=$instagram?>" target="_blank" title="Instagram">
                   <img src="./dist/images/icons/ait-svg-instagram.svg" alt="">
                 </a>
-                <a href="https://www.linkedin.com/company/arrowitsolucoes/" target="_blank" title="Linkedin">
+                <a href="<?=$linkedin?>" target="_blank" title="Linkedin">
                   <img src="./dist/images/icons/ait-svg-linkedin.svg" alt="">
                 </a>
               </li>
             </ul>
             <div class="ait-content__contato-page__info">
               <div class="ait-typography__h3 ait-utilities__color__blue">Arrow IT <br>Soluções em Tecnologia</div>
-              <a href="https://goo.gl/maps/bB93DWEQBm7ytmNAA" target="_blank">Av. Trindade, 254 - Sala 1208 <br>Bethaville I - Barueri - SP</a>
+              <a href="https://goo.gl/maps/bB93DWEQBm7ytmNAA" target="_blank"><?=$endereco?></a>
             </div>
           </div>
           <div class="col-md-6 col-lg-7">

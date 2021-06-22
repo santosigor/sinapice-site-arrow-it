@@ -93,7 +93,7 @@
               </div>
               <div class="row form-group">
                 <div class="col col-md-3">
-                  <label for="text-input" class="form-control-label">E-mail</label>
+                  <label for="text-input" class="form-control-label">Linkedin</label>
                 </div>
                 <div class="col-12 col-md-9">
                   <input type="text" id="linkedin" name="linkedin" class="form-control" value="<?=$linkedin?>" />

@@ -86,5 +86,66 @@
 
 			mysqli_close($con);
 		}
+
+		function registerProjetos($id_projeto, $titulo, $setor, $tempo_processo, $ambiente, $desafios, $solucao, $resultados, $nomeimagem){
+
+			include("config.php");
+
+			// $usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
+			// $ipnow = $_SERVER["REMOTE_ADDR"];
+			$usernow = 1;
+			$ipnow = "123.123.123";
+
+			$id_projeto = $this->anti_sql_injection($id_projeto);
+			$titulo = $this->anti_sql_injection($titulo);
+			$setor = $this->anti_sql_injection($setor);
+			$tempo_processo = $this->anti_sql_injection($tempo_processo);
+			$ambiente = $this->anti_sql_injection($ambiente);
+			$desafios = $this->anti_sql_injection($desafios);
+			$solucao = $this->anti_sql_injection($solucao);
+			$resultados = $this->anti_sql_injection($resultados);
+			$nomeimagem = $this->anti_sql_injection($nomeimagem);
+
+			if($id_projeto!=""){
+				$sqladd = "";
+				if($nomeimagem!=""){
+					$sql = "SELECT imagem
+					FROM ait_projetos 
+					WHERE id_projeto = $id_projeto";
+					$rs = mysqli_query($con, $sql); 
+					$row = mysqli_fetch_array($rs);
+					$imagem = $row["imagem"];
+
+					unlink("img/projetos/".$imagem);
+					$sqladd = ", imagem = '$nomeimagem'";
+				}
+
+				$sql = "UPDATE ait_projetos SET titulo = '$titulo', setor = '$setor', tempo_processo = '$tempo_processo', ambiente = '$ambiente', desafios = '$desafios', solucao = '$solucao', resultados = '$resultados' $sqladd WHERE id_projeto = $id_projeto";
+				mysqli_query($con, $sql);
+			}else{
+				$sql = "INSERT INTO ait_projetos(id_projeto, titulo, setor, tempo_processo, ambiente, desafios, solucao, resultados, imagem, data_cadastro, quem_cadastrou, ip_cadastro) 
+				VALUES (NULL, '$titulo', '$setor', '$tempo_processo', '$ambiente', '$desafios', '$solucao', '$resultados', '$nomeimagem', NOW(), '$usernow', '$ipnow')";
+				mysqli_query($con, $sql);
+				$idprojeto = mysqli_insert_id($con);
+
+				$update = "UPDATE ait_projeto_servicos SET id_projeto = $idprojeto WHERE id_projeto = 0 AND quem_cadastrou = $usernow";
+				mysqli_query($con, $update);
+			}
+
+			mysqli_close($con);
+		}
+
+		function deleteProjetos($id_projeto){
+
+			include("config.php");
+
+			$sql = "DELETE FROM ait_projetos WHERE id_projeto = $id_projeto";
+			mysqli_query($con, $sql);
+
+			$sql = "DELETE FROM ait_projeto_servicos WHERE id_projeto = $id_projeto";
+			mysqli_query($con, $sql);
+
+			mysqli_close($con);
+		}
 	}
 ?>

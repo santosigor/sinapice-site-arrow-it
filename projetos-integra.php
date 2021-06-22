@@ -1,3 +1,28 @@
+<?
+  include("arrowit-admin/config.php");
+
+  if(isset($_GET["id"])&&$_GET["id"]!=""){
+    $id_projeto = $_GET["id"];
+
+    $sql = "SELECT id_projeto, titulo, setor, imagem, tempo_processo, ambiente, desafios, solucao, resultados
+    FROM ait_projetos
+    WHERE id_projeto = $id_projeto
+    ORDER BY id_projeto DESC";
+    $rs = mysqli_query($con, $sql); 
+    $row = mysqli_fetch_array($rs);
+    $id_projeto = $row["id_projeto"];
+    $titulo = $row["titulo"];
+    $setor = $row["setor"];
+    $imagem = $row["imagem"];
+    $tempo_processo = $row["tempo_processo"];
+    $ambiente = $row["ambiente"];
+    $desafios = $row["desafios"];
+    $solucao = $row["solucao"];
+    $resultados = $row["resultados"];
+  }else{
+    header("index.php");
+  }
+?>
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -44,32 +69,30 @@
             <div class="col-md-12 col-lg-7">
               <div class="ait-content__projetos-integra__destaque__title">
                 <div class="ait-content__projetos-integra__destaque__title__img">
-                  <img src="./dist/images/projetos/pague-menos.png" alt="">
+                  <img src="arrowit-admin/img/projetos/<?=$imagem?>" alt="">
                 </div>
                 <div>
-                  <div class="ait-typography__h3 ait-utilities__color__blue">Pague Menos Leve Mais</div>
-                  <p>Varejo/ Alimentício</p>
+                  <div class="ait-typography__h3 ait-utilities__color__blue"><?=$titulo?></div>
+                  <p><?=$setor?></p>
                 </div>
               </div>
             </div>
             <div class="col-md-12 col-lg-3">
               <div class="ait-utilities__align-items-center">
                 <div>
+                  <?
+                    $sqlveri = "SELECT b.titulo
+                    FROM ait_projeto_servicos a
+                    LEFT JOIN ait_servicos b on a.id_servico = b.id_servico
+                    WHERE a.id_projeto = $id_projeto";
+                    $rsveri = mysqli_query($con, $sqlveri); 
+                    while($rowveri = mysqli_fetch_array($rsveri)){
+                      $titulo = $rowveri["titulo"];
+                  ?>
                   <a href="servicos.html#svc6" class="ait-component__button inline-white small upeercase-none">
-                    #arrow<strong>.noc</strong>
+                    #arrow<strong><?=$titulo?></strong>
                   </a>
-                  <a href="servicos.html#svc7" class="ait-component__button inline-white small upeercase-none">
-                    #arrow<strong>.support</strong>
-                  </a>
-                  <a href="servicos.html#svc1" class="ait-component__button inline-white small upeercase-none">
-                    #arrow<strong>.bkp</strong>
-                  </a>
-                  <a href="servicos.html#svc2" class="ait-component__button inline-white small upeercase-none">
-                    #arrow<strong>.cloud</strong>
-                  </a>
-                  <a href="servicos.html#svc3" class="ait-component__button inline-white small upeercase-none">
-                    #arrow<strong>.consulting</strong>
-                  </a>
+                  <?}?>
                 </div>
               </div>
             </div>
@@ -84,14 +107,14 @@
                 <div class="ait-content__projetos-integra__item">
                   <img src="./dist/images/projetos/ait-svg-tempo.svg" alt="">
                   <strong>Tempo de processo</strong>
-                  <p> 2 Dias</p>
+                  <p><?=$tempo_processo?></p>
                 </div>
               </div>
               <div class="col-6 col-md-12">
                 <div class="ait-content__projetos-integra__item">
                   <img src="./dist/images/projetos/ait-svg-ambiente.svg" alt="">
                   <strong>Ambiente</strong>
-                  <p>40 Ativos</p>
+                  <p><?=$ambiente?></p>
                 </div>
               </div>
             </div>
@@ -106,40 +129,32 @@
                 </ul>
               </div>
               <div class="ait-component__tab__content active" ait-tab-content="tab1">
-                <p>
-                  <strong>Suportar as tecnologias e serviços</strong> IBM PureFlex e VMware, além dos recursos AWS para o ambiente SAP.
-                </p>
+                <?=$desafios?>
               </div>
               <div class="ait-component__tab__content" ait-tab-content="tab2">
-                <p> Sustentação 24x7: tendo uma gestão centralizada e um time de especialistas atuando proativamente.
-                </p>
+                <?=$solucao?>
               </div>
               <div class="ait-component__tab__content" ait-tab-content="tab3">
-                <p>
-                  Ambientes estáveis, performáticos, escaláveis e seguros, garantindo o <strong>pleno funcionamento, sem impactos e perdas ao negócio.</strong></p>
+                <?=$resultados?>
               </div>
             </div>
           </div>
           <div class="col-md-12 col-lg-3 ait-utilities__text-align__center">
             <div class="ait-typography__h5">Outros Projetos</div>
-            <a href="projetos-integra-drogaria.html" class="ait-content__projetos-integra__outros-proj">
-              <span><img src="./dist/images/projetos/drogaria.png" alt=""></span>
-            </a>
-            <a href="projetos-integra-europ.html" class="ait-content__projetos-integra__outros-proj">
-              <span><img src="./dist/images/projetos/europ.png" alt=""></span>
-            </a>
-            <a href="projetos-integra-estrela.html" class="ait-content__projetos-integra__outros-proj">
-              <span><img src="./dist/images/projetos/estrela.png" alt=""></span>
-            </a>
-            <a href="projetos-integra-ober.html" class="ait-content__projetos-integra__outros-proj">
-              <span><img src="./dist/images/projetos/ober.png" alt=""></span>
-            </a>
-            <a href="projetos-integra-rascal.html" class="ait-content__projetos-integra__outros-proj">
-              <span><img src="./dist/images/projetos/rascal.png" alt=""></span>
-            </a>
-            <a href="projetos-integra-autopass.html" class="ait-content__projetos-integra__outros-proj">
-              <span><img src="./dist/images/projetos/autopass.png" alt=""></span>
-            </a>
+            <?
+              $sql = "SELECT id_projeto, imagem
+              FROM ait_projetos
+              WHERE id_projeto != $id_projeto
+              ORDER BY id_projeto DESC";
+              $rs = mysqli_query($con, $sql); 
+              while($row = mysqli_fetch_array($rs)){
+              $id_projeto = $row["id_projeto"];
+              $imagem = $row["imagem"];
+            ?>
+              <a href="projetos-integra.php?id=<?=$id_projeto?>" class="ait-content__projetos-integra__outros-proj">
+                <span><img src="arrowit-admin/img/projetos/<?=$imagem?>" alt=""></span>
+              </a>
+            <?}?>
           </div>
         </div>
       </div>
