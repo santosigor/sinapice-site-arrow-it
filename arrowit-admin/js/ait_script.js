@@ -389,3 +389,56 @@ function aceitarAcordo(){
     }
   });
 }
+
+function enviarOrcamento(){
+	d = document.form;
+	erro = false;
+
+	text = "preencha os campos abaixo:\n";
+	if(d.nome.value==''){
+		erro = true;
+		text += "- Nome \n";
+	}
+
+	if(d.email.value==''){
+		erro = true;
+		text += "- E-mail \n";
+	}
+
+	if(d.empresa.value==''){
+		erro = true;
+		text += "- Empresa \n";
+	}
+
+	if(d.telefone.value==''){
+		erro = true;
+		text += "- Telefone \n";
+	}
+
+	if(d.cargo.value==''){
+		erro = true;
+		text += "- Cargo \n";
+	}
+
+	if(d.solucao.value==''){
+		erro = true;
+		text += "- Solução \n";
+	}
+
+	if(!d.consentimento.checked){
+		erro = true;
+		text += "- Consentimento \n";
+	}
+
+	if(!d.privacidade.checked){
+		erro = true;
+		text += "- Privacidade \n";
+	}
+
+	if(erro===false){
+		d.acao.value = 1;
+		d.submit();
+	}else{
+		alert(text);
+	}
+}
