@@ -52,7 +52,7 @@
                 $descricao = $row["descricao"];
                 $imagem = $row["imagem"];
             ?>
-              <div class="ait-content__servicos__container__carrossel__item" ait-servico-item="<?=$id_servico?>">
+              <div class="ait-content__servicos__container__carrossel__item" ait-servico-item="svc<?=$id_servico?>">
                 <img src="arrowit-admin/img/servicos/<?=$imagem?>" alt="">
                 <strong><span>#arrow</span><?=$titulo?></strong>
               </div>
@@ -88,37 +88,31 @@
           <div class="ait-component__tab__nav">
             <div class="ait-container">
               <ul>
-                <li class="active" ait-tab-item="tab1">Diferenciais</li>
-                <li ait-tab-item="tab2">Objetivo</li>
-                <li ait-tab-item="tab3">Benefícios</li>
+                <li class="active" ait-tab-item="tab1-<?=$id_servico?>">Diferenciais</li>
+                <li ait-tab-item="tab2-<?=$id_servico?>">Objetivo</li>
+                <li ait-tab-item="tab3-<?=$id_servico?>">Benefícios</li>
               </ul>
             </div>
           </div>
           <div class="ait-container">
-            <div class="ait-component__tab__content active" ait-tab-content="tab1">
+            <div class="ait-component__tab__content active" ait-tab-content="tab1-<?=$id_servico?>">
               <div class="row">
                 <?=$diferenciais?>
               </div>
-              <div class="ait-utilities__text-align__center ait-utilities__pdd__30-0">
-                <a href="contato.html" class="ait-component__button outline">Tenho interesse</a>
-              </div>
             </div>
-            <div class="ait-component__tab__content" ait-tab-content="tab2">
+            <div class="ait-component__tab__content" ait-tab-content="tab2-<?=$id_servico?>">
               <div class="row">
                 <?=$objetivo?>
               </div>
-              <div class="ait-utilities__text-align__center ait-utilities__pdd__30-0">
-                <a href="contato.html" class="ait-component__button outline">Tenho interesse</a>
-              </div>
             </div>
-            <div class="ait-component__tab__content" ait-tab-content="tab3">
+            <div class="ait-component__tab__content" ait-tab-content="tab3-<?=$id_servico?>">
               <div class="row">
                 <?=$beneficios?>
               </div>
-              <div class="ait-utilities__text-align__center ait-utilities__pdd__30-0">
-                <a href="contato.html" class="ait-component__button outline">Tenho interesse</a>
-              </div>
             </div>
+            <div class="ait-utilities__text-align__center ait-utilities__pdd__30-0">
+                <a href="orcamento.php" class="ait-component__button outline">Tenho interesse</a>
+              </div>
           </div>
         </div>
       </div>

@@ -251,5 +251,60 @@
 
 			$mail->send();
 		}
+
+		function registerBanner($id_banner, $nomeimagem){
+
+			include("config.php");
+
+			// $usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
+			// $ipnow = $_SERVER["REMOTE_ADDR"];
+			$usernow = 1;
+			$ipnow = "123.123.123";
+
+			$id_banner = $this->anti_sql_injection($id_banner);
+			$nomeimagem = $this->anti_sql_injection($nomeimagem);
+
+			if($id_banner!=""){
+				$sqladd = "";
+				if($nomeimagem!=""){
+					$sql = "SELECT imagem
+					FROM ait_blog_banner 
+					WHERE id_banner = $id_banner";
+					$rs = mysqli_query($con, $sql); 
+					$row = mysqli_fetch_array($rs);
+					$imagem = $row["imagem"];
+
+					unlink("img/blog_banner/".$imagem);
+
+					$sql = "UPDATE ait_blog_banner SET imagem = '$nomeimagem' WHERE id_banner = $id_banner";
+					mysqli_query($con, $sql);
+				}
+			}else{
+				$sql = "INSERT INTO ait_blog_banner(id_banner, imagem, data_cadastro, quem_cadastrou, ip_cadastro) 
+				VALUES (NULL, '$nomeimagem', NOW(), '$usernow', '$ipnow')";
+				mysqli_query($con, $sql);
+			}
+
+			mysqli_close($con);
+		}
+
+		function deleteBanner($idbanner){
+
+			include("config.php");
+
+			$sql = "SELECT imagem
+			FROM ait_blog_banner 
+			WHERE id_banner = $idbanner";
+			$rs = mysqli_query($con, $sql); 
+			$row = mysqli_fetch_array($rs);
+			$imagem = $row["imagem"];
+
+			unlink("img/blog_banner/".$imagem);
+
+			$sql = "DELETE FROM ait_blog_banner WHERE id_banner = $idbanner";
+			mysqli_query($con, $sql);
+
+			mysqli_close($con);
+		}
 	}
 ?>

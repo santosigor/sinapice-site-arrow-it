@@ -81,15 +81,16 @@
               <div class="ait-utilities__align-items-center">
                 <div>
                   <?
-                    $sqlveri = "SELECT b.titulo
+                    $sqlveri = "SELECT b.id_servico, b.titulo
                     FROM ait_projeto_servicos a
                     LEFT JOIN ait_servicos b on a.id_servico = b.id_servico
                     WHERE a.id_projeto = $id_projeto";
                     $rsveri = mysqli_query($con, $sqlveri); 
                     while($rowveri = mysqli_fetch_array($rsveri)){
+                      $id_servico = $rowveri["id_servico"];
                       $titulo = $rowveri["titulo"];
                   ?>
-                  <a href="servicos.html#svc6" class="ait-component__button inline-white small upeercase-none">
+                  <a href="servicos.php#svc<?=$id_servico?>" class="ait-component__button inline-white small upeercase-none">
                     #arrow<strong><?=$titulo?></strong>
                   </a>
                   <?}?>

@@ -74,6 +74,25 @@
               <li>
                 <a href="ait_projetos.php"> <i class="fas fa-tag"></i>projetos</a>
               </li>
+              <li class="has-sub">
+                <a class="js-arrow" href="#">
+                  <i class="fas fa-user"></i>blog
+                  <span class="arrow">
+                    <i class="fas fa-angle-down"></i>
+                  </span>
+                </a>
+                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                  <li>
+                    <a href="ait_blog_banner.php"> <i class="far fa-file-alt"></i>banner</a>
+                  </li>
+                  <li>
+                    <a href="ait_categoria.php"> <i class="far fa-file-alt"></i>categoria</a>
+                  </li>
+                  <li>
+                    <a href="ait_blog_post.php"> <i class="fas fa-tag"></i>post</a>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </nav>
           </div>
