@@ -4,7 +4,7 @@
   if(isset($_GET["id"])&&$_GET["id"]!=""){
     $id_post = $_GET["id"];
 
-    $sql = "SELECT id_post, titulo, segmento, imagem, autor, cargo_autor, DATE_FORMAT(data_cadastro, '%Y-%m-%d') as datacad, conteudo
+    $sql = "SELECT id_post, titulo, segmento, imagem, autor, foto_autor, cargo_autor, DATE_FORMAT(data_cadastro, '%Y-%m-%d') as datacad, conteudo
     FROM ait_blog_post
     WHERE id_post = $id_post
     ORDER BY id_post DESC";
@@ -14,6 +14,7 @@
     $titulo = $row["titulo"];
     $segmento = $row["segmento"];
     $imagem = $row["imagem"];
+    $foto_autor = $row["foto_autor"];
     $nome_autor = $row["autor"];
     $cargo_autor = $row["cargo_autor"];
     $conteudo = $row["conteudo"];
@@ -78,7 +79,7 @@
           </div>
         </div>
         <div class="ait-content__blog__integra__autor">
-          <img src="" alt="">
+          <img src="arrowit-admin/img/blog_post/<?=$foto_autor?>" alt="">
           <div>
             <strong><?=$nome_autor?></strong>
             <span><?=$cargo_autor?></span>
