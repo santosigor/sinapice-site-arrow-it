@@ -91,7 +91,7 @@
                       $titulo = $rowveri["titulo"];
                   ?>
                   <a href="servicos.php#svc<?=$id_servico?>" class="ait-component__button inline-white small upeercase-none">
-                    #arrow<strong><?=$titulo?></strong>
+                    #arrow<strong>.<?=$titulo?></strong>
                   </a>
                   <?}?>
                 </div>

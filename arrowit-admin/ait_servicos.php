@@ -94,7 +94,7 @@
               </div>
               <div class="row form-group">
                 <div class="col col-md-3">
-                  <label for="file-input" class="form-control-label">Documento</label>
+                  <label for="file-input" class="form-control-label">Imagem</label>
                 </div>
                 <div class="col-12 col-md-9">
                   <input type="file" id="imagem" name="imagem" class="form-control-file imagesize m-b-10" />

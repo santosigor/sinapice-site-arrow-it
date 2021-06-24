@@ -170,7 +170,7 @@
                     ?>
                       <div class="checkbox">
                           <label for="checkbox1" class="form-check-label ">
-                              <input type="checkbox" id="servico<?=$id_servico?>" name="servico<?=$id_servico?>" value="<?=$id_servico?>" class="form-check-input"><?=$titulocheck?>
+                              <input type="checkbox" id="servico<?=$id_servico?>" name="servico<?=$id_servico?>" value="<?=$id_servico?>" class="form-check-input">#arrow.<?=$titulocheck?>
                           </label>
                       </div>
                     <?}?>
@@ -377,7 +377,7 @@
                 ?>
                   <div class="checkbox">
                       <label for="checkbox1" class="form-check-label ">
-                          <input type="checkbox" id="servico<?=$id_servico?>" name="servico<?=$id_servico?>" value="<?=$id_servico?>" class="form-check-input" <?=$namechecked?> ><?=$titulocheck?>
+                          <input type="checkbox" id="servico<?=$id_servico?>" name="servico<?=$id_servico?>" value="<?=$id_servico?>" class="form-check-input" <?=$namechecked?> >#arrow.<?=$titulocheck?>
                       </label>
                   </div>
                 <?}?>

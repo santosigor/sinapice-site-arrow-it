@@ -135,15 +135,15 @@
 				width: 90%;
 		    max-width: 450px;
 		    height: 50px;
-		    padding: 14px 50px 14px 20px;
+		    padding: 14px 20px 14px 50px;
 				color: #0E1628;
 				font-weight: 600;
-		    background-color: transparent;
+		    background-color: #fff;
 		    font-size: 14px;
 		    outline: 0;
 		   	border: 2px solid #a6bcd2;
 		    transition: all .15s;
-				background-position: center right 5px;
+				background-position: center left 5px;
 				background-size: 36px;
 				background-repeat: no-repeat;
 		    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='55' height='55' viewBox='0 0 55 55'%3e%3cg id='Grupo_953' data-name='Grupo 953' transform='translate(-24 -78)'%3e%3ccircle id='Elipse_1039' data-name='Elipse 1039' cx='27.5' cy='27.5' r='27.5' transform='translate(24 78)' fill='%23fff'/%3e%3cpath id='ios-search' d='M31.847,30.167,24.15,22.4a10.969,10.969,0,1,0-1.664,1.686L30.131,31.8a1.185,1.185,0,0,0,1.673.044,1.192,1.192,0,0,0,.043-1.679ZM15.532,24.179a8.66,8.66,0,1,1,6.125-2.536A8.61,8.61,0,0,1,15.532,24.179Z' transform='translate(33.286 87.291)' fill='%23303bfe'/%3e%3c/g%3e%3c/svg%3e ");
@@ -156,11 +156,6 @@
 			.ait-container {
 				max-width: 980px;
 			}
-			.ait-tempo-leiura {
-				font-size: 16px;
-				line-height: 22px;
-				margin-left: 34px;
-			}
 			&__banner {
 				@media (max-width: 991.98px) {
 					margin: 0 -25px;
@@ -171,6 +166,9 @@
 					background-size: cover;
 					background-repeat: no-repeat;
 					position: relative;
+					@media (max-width: 767.98px) {
+						height: 220px;
+					}
 					&:before {
 						content: '';
 						width: 100%;
@@ -186,6 +184,12 @@
 						right: 80px;
 						font-size: 16px;
 						line-height: 22px;
+						@media (max-width: 767.98px) {
+							top: 25px;
+							right: 25px;
+							font-size: 12px;
+							line-height: 14px;
+						}
 					}
 				}
 				&__text {
@@ -197,6 +201,10 @@
 					@media (max-width: 991.98px) {
 						padding: 0 125px;
 					}
+					@media (max-width: 767.98px) {
+						padding: 0 25px;
+						bottom: 25px;
+					}
 				}
 				&__title {
 					font-size: 32px;
@@ -205,6 +213,14 @@
 					letter-spacing: 0px;
 					color: #F1F2F6;
 					max-width: 500px;
+					@media (max-width: 991.98px) {
+						font-size: 24px;
+						line-height: 34px;
+					}
+					@media (max-width: 767.98px) {
+						font-size: 19px;
+						line-height: 25px;
+					}
 				}
 				&__publicacao {
 					margin-top: 21px;
@@ -212,6 +228,23 @@
 					line-height: 22px;
 					letter-spacing: 0.54px;
 					color: #F1F2F6;
+					@media (max-width: 767.98px) {
+						font-size: 12px;
+						line-height: 14px;
+						margin-top: 6px;
+					}
+					.ait-tempo-leiura {
+						font-size: 16px;
+						line-height: 22px;
+						margin-left: 34px;
+						@media (max-width: 767.98px) {
+							font-size: 12px;
+							line-height: 14px;
+							display: block;
+							margin-top: 5px;
+							margin-left: 0;
+						}
+					}
 				}
 			}
 			&__autor {
@@ -220,9 +253,16 @@
 				display: inline-flex;
 				align-items: center;
 				width: 100%;
+				@media (max-width: 767.98px) {
+					padding: 28px 0;
+				}
 				img {
 					border-radius: 100%;
 					margin-right: 20px;
+					width: 68px;
+					@media (max-width: 767.98px) {
+						width: 40px;
+					}
 				}
 				div {
 					strong, span {
@@ -233,23 +273,38 @@
 						line-height: 20px;
 						letter-spacing: 0.51px;
 						color: #303BFE;
+						@media (max-width: 767.98px) {
+							font-size: 13px;
+							line-height: 16px;
+						}
 					}
 					span {
 						font-size: 16px;
 						line-height: 22px;
 						letter-spacing: 0.51px;
 						color: #0E1628;
+						@media (max-width: 767.98px) {
+							font-size: 12px;
+							line-height: 14px;
+						}
 					}
 				}
 			}
 			&__text {
 				padding: 28px 100px;
 				border-bottom: 1px solid #AABCD0;
+				@media (max-width: 767.98px) {
+					padding: 28px 0;
+				}
 				p {
 					font-size: 16px;
 					line-height: 22px;
 					letter-spacing: 0.54px;
 					color: #0E1628;
+					@media (max-width: 767.98px) {
+						font-size: 12px;
+						line-height: 14px;
+					}
 				}
 			}
 		}
