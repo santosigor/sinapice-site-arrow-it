@@ -383,7 +383,6 @@
 		padding: 60px 0;
 		background-color: #F1F2F6;
 		text-align: center;
-		border-bottom: 1px solid #3242F4;
 
 		@media (min-width: 768px) {
 			padding: 80px 0 60px;
@@ -401,6 +400,28 @@
 			@media (max-width: 767.98px) {
 				max-width: 84px;
 			}
+		}
+	}
+	&__home-blog {
+		padding: 0 0 40px;
+		border-bottom: 1px solid #3242F4;
+		@media (min-width: 768px) {
+			padding: 0 0 80px;
+		}
+		&__bg {
+			background-color: #303BFE;
+			padding: 42px 20px;
+			text-align: center;
+			min-height: 182px;
+			@media (min-width: 768px) {
+				min-height: 208px;
+			}
+			.ait-component__tag, .ait-typography__h1 {
+				color: #fff;
+			}
+		}
+		.ait-component__carousel {
+			margin-top: -60px;
 		}
 	}
 	&__contato {

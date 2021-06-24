@@ -1,24 +1,36 @@
 .ait-content {
 	&__blog {
+		@media (min-width: 992px) {
+			margin-top: -30px;
+		}
 		&__list {
 			margin: 0 auto;
 			max-width: 1020px;
 			padding-bottom: 50px;
 			@include clearfix();
+			@media (max-width: 399.98px) {
+				.ait-content__blog__card {
+					width: 100%;
+					margin: 10px 0;
+				}
+			}
 		}
 		&__card {
 			margin: 10px 10px;
 			float: left;
-			width: 320px;
+			width: 250px;
 			border-radius: 8px;
 			position: relative;
 			overflow: hidden;
+			@media (min-width: 400px) {
+				width: 320px;
+			}
 			a {
 				text-decoration: none;
 				display: block;
 			}
 			&__img {
-				height: 208px;
+				height: 240px;
 				background-position: center;
 				background-size: cover;
 				background-repeat: no-repeat;
@@ -30,8 +42,9 @@
 					top: 0; 
 					left: 0;
 					background-color: rgba(0,0,0,0.2);
+					background: transparent linear-gradient(180deg, #00000000 -15%, #000000 115%) 0% 0% no-repeat padding-box;
 				}
-				&__icon-text {
+				&__icon {
 					display: block;
 					width: 22px;
 					height: 22px;
@@ -41,7 +54,12 @@
 					background-position: center;
 					background-size: 22px;
 					background-repeat: no-repeat;
-					background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg id='Texto' xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22'%3e%3ccircle id='Elipse_25' data-name='Elipse 25' cx='11' cy='11' r='11' fill='%23f1f2f6' opacity='0.34'/%3e%3cpath id='text-align-left' d='M16.523,8.9H6.7a.7.7,0,0,1,0-1.4h9.821a.7.7,0,1,1,0,1.4Zm-2.806,2.806H6.7a.7.7,0,0,1,0-1.4h7.015a.7.7,0,0,1,0,1.4Zm2.806,2.806H6.7a.7.7,0,1,1,0-1.4h9.821a.7.7,0,1,1,0,1.4Zm-2.806,2.806H6.7a.7.7,0,1,1,0-1.4h7.015a.7.7,0,0,1,0,1.4Z' transform='translate(-0.612 -1.5)' fill='%23f1f2f6' fill-rule='evenodd'/%3e%3c/svg%3e ");
+					&.text {
+						background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg id='Texto' xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22'%3e%3ccircle id='Elipse_25' data-name='Elipse 25' cx='11' cy='11' r='11' fill='%23f1f2f6' opacity='0.34'/%3e%3cpath id='text-align-left' d='M16.523,8.9H6.7a.7.7,0,0,1,0-1.4h9.821a.7.7,0,1,1,0,1.4Zm-2.806,2.806H6.7a.7.7,0,0,1,0-1.4h7.015a.7.7,0,0,1,0,1.4Zm2.806,2.806H6.7a.7.7,0,1,1,0-1.4h9.821a.7.7,0,1,1,0,1.4Zm-2.806,2.806H6.7a.7.7,0,1,1,0-1.4h7.015a.7.7,0,0,1,0,1.4Z' transform='translate(-0.612 -1.5)' fill='%23f1f2f6' fill-rule='evenodd'/%3e%3c/svg%3e ");
+					}
+					&.video {
+						background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg id='Play' xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22'%3e%3ccircle id='Elipse_25' data-name='Elipse 25' cx='11' cy='11' r='11' fill='%23f1f2f6' opacity='0.34'/%3e%3cpath id='play-filled-alt' d='M7.189,15.039A.439.439,0,0,1,6.75,14.6V4.939a.439.439,0,0,1,.659-.38l8.343,4.83a.439.439,0,0,1,0,.76L7.409,14.98a.438.438,0,0,1-.22.059Z' transform='translate(0.452 1.23)' fill='%23f4f2f2'/%3e%3c/svg%3e ");
+					}
 				}
 				&__categoria {
 					display: inline-block;
@@ -87,6 +105,32 @@
 					font-size: 16px;
 					line-height: 22px;
 				}
+			}
+		}
+		&__search {
+			text-align: center;
+			padding: 50px 0 20px;
+			input {
+				border-radius: 8px;
+				background: 0 0;
+				width: 90%;
+		    max-width: 450px;
+		    height: 50px;
+		    padding: 14px 50px 14px 20px;
+				color: #0E1628;
+				font-weight: 600;
+		    background-color: transparent;
+		    font-size: 14px;
+		    outline: 0;
+		   	border: 2px solid #a6bcd2;
+		    transition: all .15s;
+				background-position: center right 5px;
+				background-size: 36px;
+				background-repeat: no-repeat;
+		    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='55' height='55' viewBox='0 0 55 55'%3e%3cg id='Grupo_953' data-name='Grupo 953' transform='translate(-24 -78)'%3e%3ccircle id='Elipse_1039' data-name='Elipse 1039' cx='27.5' cy='27.5' r='27.5' transform='translate(24 78)' fill='%23fff'/%3e%3cpath id='ios-search' d='M31.847,30.167,24.15,22.4a10.969,10.969,0,1,0-1.664,1.686L30.131,31.8a1.185,1.185,0,0,0,1.673.044,1.192,1.192,0,0,0,.043-1.679ZM15.532,24.179a8.66,8.66,0,1,1,6.125-2.536A8.61,8.61,0,0,1,15.532,24.179Z' transform='translate(33.286 87.291)' fill='%23303bfe'/%3e%3c/g%3e%3c/svg%3e ");
+		    &:focus {
+		    	border: 2px solid #303BFE;
+		    }
 			}
 		}
 	}

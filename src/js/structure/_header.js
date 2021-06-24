@@ -34,7 +34,14 @@ $(window).on('load', function () {
   if (aitCurrentUrl.indexOf('/projetos') > -1 || aitCurrentUrl.indexOf('/projetos-integra') > -1) {
     $('.ait-structure__header nav a:nth-child(4)').addClass('active');
   }
-  if (aitCurrentUrl.indexOf('/contato') > -1) {
+  if (aitCurrentUrl.indexOf('/blog') > -1 || aitCurrentUrl.indexOf('/blog-integra') > -1) {
     $('.ait-structure__header nav a:nth-child(5)').addClass('active');
+    $('.ait-structure__header__logo').addClass('blog');
+  }
+  if (aitCurrentUrl.indexOf('/orcamento') > -1) {
+    $('.ait-structure__header nav a:nth-child(6)').addClass('active');
+  }
+  if (aitCurrentUrl.indexOf('/contato') > -1) {
+    $('.ait-structure__header nav a:nth-child(7)').addClass('active');
   }
 });

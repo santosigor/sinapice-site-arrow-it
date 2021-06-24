@@ -39,7 +39,7 @@
     
     <title>ARROWIT</title>
 
-     <link href="./dist/images/favicon-16.png" rel="icon" sizes="16x16" type="image/png">
+     <link href="./dist/images/" rel="icon" sizes="16x16" type="image/png">
 
     <!-- share -->
     <meta property="og:title" content="Arrow IT" />
