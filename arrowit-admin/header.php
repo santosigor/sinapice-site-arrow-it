@@ -13,7 +13,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>ARROW-IT</title>
+    <title>ARROW-IT-ADMIN</title>
     <link href="css/font-face.css" rel="stylesheet" media="all" />
     <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all" />
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all" />
@@ -39,14 +39,16 @@
                   <div class="setting-menu js-right-sidebar">
                     <div class="account2">
                       <h4 class="name">Olá, Admin</h4>
-                      <a href="javascript:irPara(1, 'index.php?sair=1');">Sair</a>
                     </div>
                     <div class="account-dropdown__body">
                       <div class="account-dropdown__item">
-                        <a href="#"> <i class="zmdi zmdi-account"></i>minha conta</a>
+                        <a href="#"> <i class="zmdi zmdi-settings"></i>Alterar senha</a>
                       </div>
                       <div class="account-dropdown__item">
-                        <a href="#"> <i class="zmdi zmdi-settings"></i>configurações</a>
+                        <a href="#"> <i class="zmdi zmdi-account"></i>Usuários</a>
+                      </div>
+                      <div class="account-dropdown__item">
+                        <a href="javascript:irPara(1, 'index.php?sair=1');"> <i class="fas fa-sign-out-alt"></i>Sair</a>
                       </div>
                     </div>
                   </div>
@@ -57,36 +59,39 @@
         </header>
         <aside class="menu-sidebar2 js-right-sidebar">
           <div class="logo">
-            ARROW-IT
+            ARROW-IT-ADMIN
           </div>
           <div class="menu-sidebar2__content js-scrollbar2">
             <nav class="navbar-sidebar2">
             <ul class="list-unstyled navbar__list">
               <li>
-                <a href="inicial.php"> <i class="fas fa-home"></i>home</a>
+                <a href="ait_dadosgerais.php"> <i class="fas fa-desktop"></i>Dados gerais</a>
               </li>
               <li>
-                <a href="ait_dadosgerais.php"> <i class="fas fa-desktop"></i>dados gerais</a>
+                <a href="ait_home.php"> <i class="fas fa-home"></i>Home</a>
               </li>
               <li>
-                <a href="ait_servicos.php"> <i class="fas fa-file-alt"></i>serviços</a>
+                <a href="ait_servicos.php"> <i class="fas fa-file-alt"></i>Serviços</a>
               </li>
               <li>
-                <a href="ait_projetos.php"> <i class="fas fa-tag"></i>projetos</a>
+                <a href="ait_projetos.php"> <i class="fas fa-tag"></i>Projetos</a>
+              </li>
+              <li>
+                <a href="ait_depoimentos.php"> <i class="fas fa-align-left"></i>Depoimentos</a>
               </li>
               <li class="has-sub">
                 <a class="js-arrow" href="#">
-                  <i class="fas fa-user"></i>blog
+                  <i class="fas fa-user"></i>Blog
                   <span class="arrow">
                     <i class="fas fa-angle-down"></i>
                   </span>
                 </a>
                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                   <li>
-                    <a href="ait_blog_banner.php"> <i class="far fa-file-alt"></i>banner</a>
+                    <a href="ait_blog_banner.php"> <i class="far fa-file-alt"></i>Banner</a>
                   </li>
                   <li>
-                    <a href="ait_blog_post.php"> <i class="fas fa-tag"></i>post</a>
+                    <a href="ait_blog_post.php"> <i class="fas fa-tag"></i>Post</a>
                   </li>
                 </ul>
               </li>

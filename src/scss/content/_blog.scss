@@ -1,3 +1,16 @@
+.ait-tempo-leiura {
+	display: inline-block;
+	color: #F1F2F6;
+	font-size: 12px;
+	line-height: 14px;
+	margin-bottom: 12px;
+	background-position: center left;
+	padding-left: 16px;
+	background-size: 12px;
+	background-repeat: no-repeat;
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg id='clock' xmlns='http://www.w3.org/2000/svg' width='11.109' height='11.109' viewBox='0 0 11.109 11.109'%3e%3cpath id='Caminho_76' data-name='Caminho 76' d='M5.555,10.415a4.86,4.86,0,1,0-4.86-4.86A4.86,4.86,0,0,0,5.555,10.415Zm5.555-4.86A5.555,5.555,0,1,1,5.555,0a5.555,5.555,0,0,1,5.555,5.555Z' fill='%23f1f2f6' fill-rule='evenodd'/%3e%3cpath id='Caminho_77' data-name='Caminho 77' d='M16.1,6.75a.347.347,0,0,1,.347.347v3.618L18.7,12a.347.347,0,0,1-.344.6l-2.43-1.389a.347.347,0,0,1-.175-.3V7.1A.347.347,0,0,1,16.1,6.75Z' transform='translate(-10.89 -4.667)' fill='%23f1f2f6' fill-rule='evenodd'/%3e%3c/svg%3e ");
+}
+
 .ait-content {
 	&__blog {
 		@media (min-width: 992px) {
@@ -94,7 +107,8 @@
 					border-radius: 4px;
 				}
 				span {
-					display: block;
+					display: inline-block;
+					margin-right: 18px;
 					color: #F1F2F6;
 					font-size: 12px;
 					line-height: 14px;
@@ -106,6 +120,9 @@
 					color: #F1F2F6;
 					font-size: 16px;
 					line-height: 22px;
+				}
+				&__text {
+					display: none;
 				}
 			}
 		}
@@ -139,7 +156,15 @@
 			.ait-container {
 				max-width: 980px;
 			}
+			.ait-tempo-leiura {
+				font-size: 16px;
+				line-height: 22px;
+				margin-left: 34px;
+			}
 			&__banner {
+				@media (max-width: 991.98px) {
+					margin: 0 -25px;
+				}
 				&__img {
 					height: 324px;
 					background-position: center;
@@ -169,6 +194,9 @@
 					left: 0;
 					width: 100%;
 					padding: 0 100px;
+					@media (max-width: 991.98px) {
+						padding: 0 125px;
+					}
 				}
 				&__title {
 					font-size: 32px;

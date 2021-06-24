@@ -165,9 +165,15 @@
 })(jQuery);
 
 $('.peTextAreaEditText').tinymce({
-  height: 350,
+  // height: 350,
+  // menubar: false,
+  // toolbar: 'undo redo | bold italic'
+  height: 250,
+  language: 'pt_BR',
   menubar: false,
-  toolbar: 'undo redo | bold italic'
+  plugins: 'lists',
+  toolbar: 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist',
+  toolbar_mode: 'floating',
 });
 
 $('.tox-tinymce-aux, .tox-statusbar').remove();

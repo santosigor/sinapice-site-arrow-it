@@ -74,7 +74,7 @@
                 <?=$titulo?>
               </div>
               <div class="ait-content__blog__integra__banner__publicacao">
-                Publicado em <?=$dataextensa?> <span>2 min</span>
+                Publicado em <?=$dataextensa?> <span class="ait-tempo-leiura"></span>
               </div>
             </div>
           </div>
@@ -92,7 +92,7 @@
       </div>
     </section>
     <?
-      $sql = "SELECT id_post, titulo, segmento, imagem, DATE_FORMAT(data_cadastro, '%Y-%m-%d') as datacad, id_categoria
+      $sql = "SELECT id_post, titulo, segmento, imagem, DATE_FORMAT(data_cadastro, '%Y-%m-%d') as datacad, id_categoria, conteudo
       FROM ait_blog_post
       WHERE id_categoria = $id_categoria AND id_post != $id_post
       ORDER BY data_cadastro DESC
@@ -111,6 +111,7 @@
                 $id_post = $row["id_post"];
                 $titulo = $row["titulo"];
                 $segmento = $row["segmento"];
+                  $conteudo = $row["conteudo"];
                 $imagem = $row["imagem"];
                 $data_cadastro = $row["datacad"];
 
@@ -133,8 +134,11 @@
                         <span class="ait-content__blog__card__img__categoria"><?=$segmento?></span>
                       </div>
                       <div class="ait-content__blog__card__info">
-                        <span><?=$data_cadastro?></span>
+                        <div>
+                          <span><?=$data_cadastro?></span><span class="ait-tempo-leiura"></span>
+                        </div>
                         <strong><?=$titulo?></strong>
+                        <div class="ait-content__blog__card__info__text"><?=$conteudo?></div>
                       </div>
                     </a>
                   </div>

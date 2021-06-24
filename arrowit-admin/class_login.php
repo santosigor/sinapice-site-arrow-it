@@ -44,7 +44,7 @@
 				mysqli_query($con, $sqllog);
 
 				if($_SESSION["logged_".$_SESSION["nomesessao"]]==1){
-					Header("Location: inicial.php");
+					Header("Location: ait_dadosgerais.php");
 				}
 				
 				//apagar coockie

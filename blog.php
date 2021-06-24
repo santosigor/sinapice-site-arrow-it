@@ -76,7 +76,7 @@
           <div class="ait-component__tab__content active" ait-tab-content="tab1">
             <div class="ait-content__blog__list">
               <?
-                $sql = "SELECT id_post, titulo, segmento, imagem, DATE_FORMAT(data_cadastro, '%Y-%m-%d') as datacad, id_categoria
+                $sql = "SELECT id_post, titulo, segmento, imagem, DATE_FORMAT(data_cadastro, '%Y-%m-%d') as datacad, conteudo, id_categoria
                 FROM ait_blog_post
                 WHERE 1
                 ORDER BY id_post DESC";
@@ -85,6 +85,7 @@
                   $id_post = $row["id_post"];
                   $titulo = $row["titulo"];
                   $segmento = $row["segmento"];
+                  $conteudo = $row["conteudo"];
                   $imagem = $row["imagem"];
                   $data_cadastro = $row["datacad"];
 
@@ -106,8 +107,11 @@
                       <span class="ait-content__blog__card__img__categoria"><?=$segmento?></span>
                     </div>
                     <div class="ait-content__blog__card__info">
-                      <span><?=$data_cadastro?></span>
+                      <div>
+                        <span><?=$data_cadastro?></span><span class="ait-tempo-leiura"></span>
+                      </div>
                       <strong><?=$titulo?></strong>
+                      <div class="ait-content__blog__card__info__text"><?=$conteudo?></div>
                     </div>
                   </a>
                 </div>
@@ -120,7 +124,7 @@
           <div class="ait-component__tab__content" ait-tab-content="tab2">
             <div class="ait-content__blog__list">
               <?
-                $sql = "SELECT id_post, titulo, segmento, imagem, DATE_FORMAT(data_cadastro, '%Y-%m-%d') as datacad
+                $sql = "SELECT id_post, titulo, segmento, imagem, DATE_FORMAT(data_cadastro, '%Y-%m-%d') as datacad, conteudo
                 FROM ait_blog_post
                 WHERE id_categoria = 1
                 ORDER BY id_post DESC";
@@ -129,6 +133,7 @@
                   $id_post = $row["id_post"];
                   $titulo = $row["titulo"];
                   $segmento = $row["segmento"];
+                  $conteudo = $row["conteudo"];
                   $imagem = $row["imagem"];
                   $data_cadastro = $row["datacad"];
 
@@ -142,8 +147,11 @@
                       <span class="ait-content__blog__card__img__categoria"><?=$segmento?></span>
                     </div>
                     <div class="ait-content__blog__card__info">
-                      <span><?=$data_cadastro?></span>
+                      <div>
+                        <span><?=$data_cadastro?></span><span class="ait-tempo-leiura"></span>
+                      </div>
                       <strong><?=$titulo?></strong>
+                      <div class="ait-content__blog__card__info__text"><?=$conteudo?></div>
                     </div>
                   </a>
                 </div>
@@ -156,7 +164,7 @@
           <div class="ait-component__tab__content" ait-tab-content="tab3">
             <div class="ait-content__blog__list">
               <?
-                $sql = "SELECT id_post, titulo, segmento, imagem, DATE_FORMAT(data_cadastro, '%Y-%m-%d') as datacad
+                $sql = "SELECT id_post, titulo, segmento, imagem, DATE_FORMAT(data_cadastro, '%Y-%m-%d') as datacad, conteudo
                 FROM ait_blog_post
                 WHERE id_categoria = 2
                 ORDER BY id_post DESC";
@@ -165,6 +173,7 @@
                   $id_post = $row["id_post"];
                   $titulo = $row["titulo"];
                   $segmento = $row["segmento"];
+                  $conteudo = $row["conteudo"];
                   $imagem = $row["imagem"];
                   $data_cadastro = $row["datacad"];
 
@@ -178,8 +187,11 @@
                       <span class="ait-content__blog__card__img__categoria"><?=$segmento?></span>
                     </div>
                     <div class="ait-content__blog__card__info">
-                      <span><?=$data_cadastro?></span>
+                      <div>
+                        <span><?=$data_cadastro?></span><span class="ait-tempo-leiura"></span>
+                      </div>
                       <strong><?=$titulo?></strong>
+                      <div class="ait-content__blog__card__info__text"><?=$conteudo?></div>
                     </div>
                   </a>
                 </div>

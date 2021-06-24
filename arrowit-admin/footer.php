@@ -3,7 +3,7 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="copyright">
-                  <p>Copyright © <?php echo date('Y'); ?> Pintura Espontanea. Todos os direitos reservados.</p>
+                  <p>Copyright © <?php echo date('Y'); ?> GCS. Todos os direitos reservados.</p>
                 </div>
               </div>
             </div>
