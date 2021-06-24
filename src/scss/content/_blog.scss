@@ -215,7 +215,7 @@
 				}
 			}
 			&__text {
-				padding: 28px 100px 70px;
+				padding: 28px 100px;
 				border-bottom: 1px solid #AABCD0;
 				p {
 					font-size: 16px;
@@ -223,6 +223,15 @@
 					letter-spacing: 0.54px;
 					color: #0E1628;
 				}
+			}
+		}
+		&__relacionados {
+			padding: 40px 0;
+			@media (min-width: 768px) {
+				padding: 60px 0;
+			}
+			.ait-component__tag {
+				color: #0E1628;
 			}
 		}
 	}
