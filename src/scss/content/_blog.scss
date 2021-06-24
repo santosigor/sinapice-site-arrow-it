@@ -34,6 +34,7 @@
 				background-position: center;
 				background-size: cover;
 				background-repeat: no-repeat;
+				position: relative;
 				&:before {
 					content: '';
 					width: 100%;
@@ -69,6 +70,7 @@
 					padding: 4px 12px;
 					background-color: rgba(255,255,255,0.34);
 					color: #F1F2F6;
+					color: rgba(255,255,255,0.7);
 					font-size: 12px;
 					line-height: 14px;
 					font-weight: 600;
@@ -131,6 +133,96 @@
 		    &:focus {
 		    	border: 2px solid #303BFE;
 		    }
+			}
+		}
+		&__integra {
+			.ait-container {
+				max-width: 980px;
+			}
+			&__banner {
+				&__img {
+					height: 324px;
+					background-position: center;
+					background-size: cover;
+					background-repeat: no-repeat;
+					position: relative;
+					&:before {
+						content: '';
+						width: 100%;
+						height: 100%;
+						position: absolute;
+						top: 0; 
+						left: 0;
+						background-color: rgba(0,0,0,0.2);
+						background: transparent linear-gradient(180deg, #00000000 -15%, #000000 115%) 0% 0% no-repeat padding-box;
+					}
+					.ait-content__blog__card__img__categoria {
+						top: 34px;
+						right: 80px;
+						font-size: 16px;
+						line-height: 22px;
+					}
+				}
+				&__text {
+					position: absolute;
+					bottom: 50px;
+					left: 0;
+					width: 100%;
+					padding: 0 100px;
+				}
+				&__title {
+					font-size: 32px;
+					line-height:42px;
+					font-family: 'magistral-bold', sans-serif;
+					letter-spacing: 0px;
+					color: #F1F2F6;
+					max-width: 500px;
+				}
+				&__publicacao {
+					margin-top: 21px;
+					font-size: 16px;
+					line-height: 22px;
+					letter-spacing: 0.54px;
+					color: #F1F2F6;
+				}
+			}
+			&__autor {
+				border-bottom: 1px solid #AABCD0;
+				padding: 28px 100px;
+				display: inline-flex;
+				align-items: center;
+				width: 100%;
+				img {
+					border-radius: 100%;
+					margin-right: 20px;
+				}
+				div {
+					strong, span {
+						display: block;
+					}
+					strong {
+						font-size: 15px;
+						line-height: 20px;
+						letter-spacing: 0.51px;
+						color: #303BFE;
+					}
+					span {
+						font-size: 16px;
+						line-height: 22px;
+						letter-spacing: 0.51px;
+						color: #0E1628;
+					}
+				}
+			}
+			&__text {
+				padding: 28px 100px 70px;
+				border-bottom: 1px solid #AABCD0;
+				p {
+					font-size: 16px;
+					line-height: 22px;
+					letter-spacing: 0.54px;
+					color: #0E1628;
+				}
 			}
 		}
 	}
