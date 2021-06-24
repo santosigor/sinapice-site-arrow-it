@@ -306,5 +306,80 @@
 
 			mysqli_close($con);
 		}
+
+		function registerPost($id_post, $titulo, $segmento, $id_categoria, $autor, $cargo_autor, $conteudo, $nomeimagem, $nomefotoautor){
+			include("config.php");
+
+			// $usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
+			// $ipnow = $_SERVER["REMOTE_ADDR"];
+			$usernow = 1;
+			$ipnow = "123.123.123";
+
+			$id_post = $this->anti_sql_injection($id_post);
+			$titulo = $this->anti_sql_injection($titulo);
+			$segmento = $this->anti_sql_injection($segmento);
+			$id_categoria = $this->anti_sql_injection($id_categoria);
+			$autor = $this->anti_sql_injection($autor);
+			$cargo_autor = $this->anti_sql_injection($cargo_autor);
+			$conteudo = $this->anti_sql_injection($conteudo);
+			$nomeimagem = $this->anti_sql_injection($nomeimagem);
+			$nomefotoautor = $this->anti_sql_injection($nomefotoautor);
+
+			if($id_post!=""){
+				$sqladd = "";
+				if($nomeimagem!=""){
+					$sql = "SELECT imagem
+					FROM ait_blog_post 
+					WHERE id_post = $id_post";
+					$rs = mysqli_query($con, $sql); 
+					$row = mysqli_fetch_array($rs);
+					$imagem = $row["imagem"];
+
+					unlink("img/blog_post/".$imagem);
+					$sqladd = ", imagem = '$nomeimagem'";
+				}
+
+				if($nomefotoautor!=""){
+					$sql = "SELECT foto_autor
+					FROM ait_blog_post 
+					WHERE id_post = $id_post";
+					$rs = mysqli_query($con, $sql); 
+					$row = mysqli_fetch_array($rs);
+					$foto_autor = $row["foto_autor"];
+
+					unlink("img/blog_post/".$foto_autor);
+					$sqladd = ", foto_autor = '$nomefotoautor'";
+				}
+
+				$sql = "UPDATE ait_blog_post SET titulo = '$titulo', segmento = '$segmento', id_categoria = '$id_categoria', autor = '$autor', cargo_autor = '$cargo_autor', conteudo = '$conteudo' $sqladd WHERE id_post = $id_post";
+				mysqli_query($con, $sql);
+			}else{
+				$sql = "INSERT INTO ait_blog_post(id_post, titulo, segmento, id_categoria, autor, cargo_autor, conteudo, imagem, foto_autor, data_cadastro, quem_cadastrou, ip_cadastro) 
+				VALUES (NULL, '$titulo', '$segmento', '$id_categoria', '$autor', '$cargo_autor', '$conteudo', '$nomeimagem', '$nomefotoautor', NOW(), '$usernow', '$ipnow')";
+				mysqli_query($con, $sql);
+			}
+
+			mysqli_close($con);
+		}
+
+		function deletePost($id_post){
+
+			include("config.php");
+
+			$sql = "SELECT imagem
+			FROM ait_blog_post 
+			WHERE id_post = $id_post";
+			$rs = mysqli_query($con, $sql); 
+			while($row = mysqli_fetch_array($rs)){
+				$imagem = $row["imagem"];
+
+				unlink("img/blog_post/".$imagem);
+			}
+
+			$sql = "DELETE FROM ait_blog_post WHERE id_post = $id_post";
+			mysqli_query($con, $sql);
+
+			mysqli_close($con);
+		}
 	}
 ?>

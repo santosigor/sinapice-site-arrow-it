@@ -86,9 +86,6 @@
                     <a href="ait_blog_banner.php"> <i class="far fa-file-alt"></i>banner</a>
                   </li>
                   <li>
-                    <a href="ait_categoria.php"> <i class="far fa-file-alt"></i>categoria</a>
-                  </li>
-                  <li>
                     <a href="ait_blog_post.php"> <i class="fas fa-tag"></i>post</a>
                   </li>
                 </ul>

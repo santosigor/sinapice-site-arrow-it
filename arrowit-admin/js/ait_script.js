@@ -453,3 +453,14 @@ function acaoBanner(t, id, tipo){
 	d.idbanner.value = id;
 	d.submit();
 }
+
+function acaoPost(t, id, tipo){
+	if(tipo==1){
+		var d = document.getElementById('form');
+	}else if(tipo==2){
+		var d = document.getElementById('formmodal'+id);
+	}
+	d.acao.value = t;
+	d.idpost.value = id;
+	d.submit();
+}
