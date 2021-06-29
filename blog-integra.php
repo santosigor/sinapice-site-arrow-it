@@ -1,33 +1,33 @@
 <?
   include("header.php");
 
-  if(isset($_GET["id"])&&$_GET["id"]!=""){
-    $id_post = $_GET["id"];
+  // if(isset($_GET["id"])&&$_GET["id"]!=""){
+  //   $id_post = $_GET["id"];
 
-    $sql = "SELECT a.id_post, a.titulo, a.segmento, a.imagem, DATE_FORMAT(a.data_cadastro, '%Y-%m-%d') as datacad, a.conteudo, a.id_categoria, b.nome as autor, b.cargo as cargo_autor, b.foto as foto_autor
-    FROM ait_blog_post a
-    LEFT JOIN ait_autor b on a.id_autor = b.id_autor
-    WHERE a.id_post = $id_post
-    ORDER BY a.id_post DESC";
-    $rs = mysqli_query($con, $sql); 
-    $row = mysqli_fetch_array($rs);
-    $id_post = $row["id_post"];
-    $titulo = $row["titulo"];
-    $segmento = $row["segmento"];
-    $imagem = $row["imagem"];
-    $foto_autor = $row["foto_autor"];
-    $nome_autor = $row["autor"];
-    $cargo_autor = $row["cargo_autor"];
-    $conteudo = $row["conteudo"];
-    $id_categoria = $row["id_categoria"];
+  //   $sql = "SELECT a.id_post, a.titulo, a.segmento, a.imagem, DATE_FORMAT(a.data_cadastro, '%Y-%m-%d') as datacad, a.conteudo, a.id_categoria, b.nome as autor, b.cargo as cargo_autor, b.foto as foto_autor
+  //   FROM ait_blog_post a
+  //   LEFT JOIN ait_autor b on a.id_autor = b.id_autor
+  //   WHERE a.id_post = $id_post
+  //   ORDER BY a.id_post DESC";
+  //   $rs = mysqli_query($con, $sql); 
+  //   $row = mysqli_fetch_array($rs);
+  //   $id_post = $row["id_post"];
+  //   $titulo = $row["titulo"];
+  //   $segmento = $row["segmento"];
+  //   $imagem = $row["imagem"];
+  //   $foto_autor = $row["foto_autor"];
+  //   $nome_autor = $row["autor"];
+  //   $cargo_autor = $row["cargo_autor"];
+  //   $conteudo = $row["conteudo"];
+  //   $id_categoria = $row["id_categoria"];
 
-    $data_cadastro = $row["datacad"];
-    setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
-    date_default_timezone_set('America/Sao_Paulo');
-    $dataextensa = strftime('%d de %B de %Y', strtotime($data_cadastro));
-  }else{
-    header("index.php");
-  }
+  //   $data_cadastro = $row["datacad"];
+  //   setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+  //   date_default_timezone_set('America/Sao_Paulo');
+  //   $dataextensa = strftime('%d de %B de %Y', strtotime($data_cadastro));
+  // }else{
+  //   header("index.php");
+  // }
 ?>
 
     <section class="ait-content__blog__integra">
@@ -54,6 +54,8 @@
         </div>
         <div class="ait-content__blog__integra__text">
           <?=$conteudo?>
+          <h1>Conteúdo foi útil</h1>
+          
         </div>
       </div>
     </section>
