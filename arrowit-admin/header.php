@@ -66,8 +66,24 @@
               <li>
                 <a href="ait_dadosgerais.php"> <i class="fas fa-desktop"></i>Dados gerais</a>
               </li>
-              <li>
-                <a href="ait_home.php"> <i class="fas fa-home"></i>Home</a>
+              <li class="has-sub">
+                <a class="js-arrow" href="#">
+                  <i class="fas fa-user"></i>Home
+                  <span class="arrow">
+                    <i class="fas fa-angle-down"></i>
+                  </span>
+                </a>
+                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                  <li>
+                    <a href="ait_home.php"> <i class="far fa-file-alt"></i>Banner</a>
+                  </li>
+                  <li>
+                    <a href="ait_parceiros.php"> <i class="fas fa-tag"></i>Parceiros</a>
+                  </li>
+                  <li>
+                    <a href="ait_clientes.php"> <i class="fas fa-tag"></i>Clientes</a>
+                  </li>
+                </ul>
               </li>
               <li>
                 <a href="ait_servicos.php"> <i class="fas fa-file-alt"></i>Serviços</a>

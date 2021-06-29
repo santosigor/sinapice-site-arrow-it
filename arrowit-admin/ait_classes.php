@@ -327,7 +327,7 @@
 			mysqli_close($con);
 		}
 
-		function registerPost($id_post, $titulo, $segmento, $id_categoria, $autor, $cargo_autor, $conteudo, $nomeimagem, $nomefotoautor){
+		function registerPost($id_post, $titulo, $segmento, $id_categoria, $autor, $cargo_autor, $conteudo, $nomeimagem, $nomefotoautor, $destaque, $linkvideo, $nomevideo, $id_autor){
 			include("config.php");
 
 			// $usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
@@ -344,6 +344,42 @@
 			$conteudo = $this->anti_sql_injection($conteudo);
 			$nomeimagem = $this->anti_sql_injection($nomeimagem);
 			$nomefotoautor = $this->anti_sql_injection($nomefotoautor);
+			$destaque = $this->anti_sql_injection($destaque);
+			$linkvideo = $this->anti_sql_injection($linkvideo);
+			$nomevideo = $this->anti_sql_injection($nomevideo);
+			$id_autor = $this->anti_sql_injection($id_autor);
+
+			$sql = "SELECT 1
+			FROM ait_blog_post 
+			WHERE destaque = 1";
+			$rs = mysqli_query($con, $sql); 
+			if(!mysqli_num_rows($rs)<4){
+				$sql = "SELECT id_post
+				FROM ait_blog_post 
+				WHERE destaque = 1
+				ORDER BY data_cadastro ASC";
+				$rs = mysqli_query($con, $sql); 
+				$row = mysqli_fetch_array($rs);
+				$idpost = $row["id_post"];
+
+				$sql = "UPDATE ait_blog_post SET destaque = '0' WHERE id_post = $idpost";
+				mysqli_query($con, $sql);
+			}
+
+			if($id_autor==999){
+				$sql = "SELECT id_autor
+				FROM ait_autor 
+				WHERE nome = '$autor' AND cargo = '$cargo_autor'";
+				$rs = mysqli_query($con, $sql); 
+				if(mysqli_num_rows($rs)==0){
+					$sql = "INSERT INTO ait_autor(id_autor, nome, cargo, foto, data_cadastro, quem_cadastrou, ip_cadastro) 
+					VALUES (NULL, '$autor', '$cargo_autor', '$nomefotoautor', NOW(), '$usernow', '$ipnow')";
+					mysqli_query($con, $sql);
+				}else{ 
+					$row = mysqli_fetch_array($rs);
+					$id_autor = $row["id_autor"];
+				}
+			}
 
 			if($id_post!=""){
 				$sqladd = "";
@@ -359,23 +395,23 @@
 					$sqladd = ", imagem = '$nomeimagem'";
 				}
 
-				if($nomefotoautor!=""){
-					$sql = "SELECT foto_autor
+				if($nomevideo!=""){
+					$sql = "SELECT video
 					FROM ait_blog_post 
 					WHERE id_post = $id_post";
 					$rs = mysqli_query($con, $sql); 
 					$row = mysqli_fetch_array($rs);
-					$foto_autor = $row["foto_autor"];
+					$video = $row["video"];
 
-					unlink("img/blog_post/".$foto_autor);
-					$sqladd = ", foto_autor = '$nomefotoautor'";
+					unlink("img/blog_post/".$video);
+					$sqladd = ", video = '$nomevideo'";
 				}
 
-				$sql = "UPDATE ait_blog_post SET titulo = '$titulo', segmento = '$segmento', id_categoria = '$id_categoria', autor = '$autor', cargo_autor = '$cargo_autor', conteudo = '$conteudo' $sqladd WHERE id_post = $id_post";
+				$sql = "UPDATE ait_blog_post SET titulo = '$titulo', segmento = '$segmento', id_categoria = '$id_categoria', id_autor = '$id_autor', conteudo = '$conteudo', destaque = '$destaque', linkvideo = '$linkvideo' $sqladd WHERE id_post = $id_post";
 				mysqli_query($con, $sql);
 			}else{
-				$sql = "INSERT INTO ait_blog_post(id_post, titulo, segmento, id_categoria, autor, cargo_autor, conteudo, imagem, foto_autor, data_cadastro, quem_cadastrou, ip_cadastro) 
-				VALUES (NULL, '$titulo', '$segmento', '$id_categoria', '$autor', '$cargo_autor', '$conteudo', '$nomeimagem', '$nomefotoautor', NOW(), '$usernow', '$ipnow')";
+				$sql = "INSERT INTO ait_blog_post(id_post, titulo, segmento, id_categoria, conteudo, imagem, id_autor, destaque, linkvideo, video, data_cadastro, quem_cadastrou, ip_cadastro) 
+				VALUES (NULL, '$titulo', '$segmento', '$id_categoria', '$conteudo', '$nomeimagem', '$id_autor', '$destaque', '$linkvideo', '$nomevideo', NOW(), '$usernow', '$ipnow')";
 				mysqli_query($con, $sql);
 			}
 
@@ -410,6 +446,102 @@
 			$usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
 
 			$sql = "UPDATE ait_usuarios SET password = '$senha' WHERE id_usuario = $usernow";
+			mysqli_query($con, $sql);
+
+			mysqli_close($con);
+		}
+
+		function registerParceiro($id_parceiro, $titulo, $nomeimagem){
+
+			include("config.php");
+
+			// $usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
+			// $ipnow = $_SERVER["REMOTE_ADDR"];
+			$usernow = 1;
+			$ipnow = "123.123.123";
+
+			$id_parceiro = $this->anti_sql_injection($id_parceiro);
+			$titulo = $this->anti_sql_injection($titulo);
+			$nomeimagem = $this->anti_sql_injection($nomeimagem);
+
+			if($id_parceiro!=""){
+				$sqladd = "";
+				if($nomeimagem!=""){
+					$sql = "SELECT imagem
+					FROM ait_parceiros 
+					WHERE id_parceiro = $id_parceiro";
+					$rs = mysqli_query($con, $sql); 
+					$row = mysqli_fetch_array($rs);
+					$imagem = $row["imagem"];
+
+					unlink("img/parceiros/".$imagem);
+					$sqladd = ", imagem = '$nomeimagem'";
+				}
+
+				$sql = "UPDATE ait_parceiros SET titulo = '$titulo' $sqladd WHERE id_parceiro = $id_parceiro";
+				mysqli_query($con, $sql);
+			}else{
+				$sql = "INSERT INTO ait_parceiros(id_parceiro, titulo, imagem, data_cadastro, quem_cadastrou, ip_cadastro) 
+				VALUES (NULL, '$titulo', '$nomeimagem', NOW(), '$usernow', '$ipnow')";
+				mysqli_query($con, $sql);
+			}
+
+			mysqli_close($con);
+		}
+
+		function deleteParceiro($idparceiro){
+
+			include("config.php");
+
+			$sql = "DELETE FROM ait_parceiros WHERE id_parceiro = $idparceiro";
+			mysqli_query($con, $sql);
+
+			mysqli_close($con);
+		}
+
+		function registerCliente($id_cliente, $titulo, $nomeimagem){
+
+			include("config.php");
+
+			// $usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
+			// $ipnow = $_SERVER["REMOTE_ADDR"];
+			$usernow = 1;
+			$ipnow = "123.123.123";
+
+			$id_cliente = $this->anti_sql_injection($id_cliente);
+			$titulo = $this->anti_sql_injection($titulo);
+			$nomeimagem = $this->anti_sql_injection($nomeimagem);
+
+			if($id_cliente!=""){
+				$sqladd = "";
+				if($nomeimagem!=""){
+					$sql = "SELECT imagem
+					FROM ait_clientes 
+					WHERE id_cliente = $id_cliente";
+					$rs = mysqli_query($con, $sql); 
+					$row = mysqli_fetch_array($rs);
+					$imagem = $row["imagem"];
+
+					unlink("img/clientes/".$imagem);
+					$sqladd = ", imagem = '$nomeimagem'";
+				}
+
+				$sql = "UPDATE ait_clientes SET titulo = '$titulo' $sqladd WHERE id_cliente = $id_cliente";
+				mysqli_query($con, $sql);
+			}else{
+				$sql = "INSERT INTO ait_clientes(id_cliente, titulo, imagem, data_cadastro, quem_cadastrou, ip_cadastro) 
+				VALUES (NULL, '$titulo', '$nomeimagem', NOW(), '$usernow', '$ipnow')";
+				mysqli_query($con, $sql);
+			}
+
+			mysqli_close($con);
+		}
+
+		function deleteCliente($idcliente){
+
+			include("config.php");
+
+			$sql = "DELETE FROM ait_clientes WHERE id_cliente = $idcliente";
 			mysqli_query($con, $sql);
 
 			mysqli_close($con);
