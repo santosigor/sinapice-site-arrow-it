@@ -4,10 +4,11 @@
   if(isset($_GET["id"])&&$_GET["id"]!=""){
     $id_post = $_GET["id"];
 
-    $sql = "SELECT id_post, titulo, segmento, imagem, autor, foto_autor, cargo_autor, DATE_FORMAT(data_cadastro, '%Y-%m-%d') as datacad, conteudo, id_categoria
-    FROM ait_blog_post
-    WHERE id_post = $id_post
-    ORDER BY id_post DESC";
+    $sql = "SELECT a.id_post, a.titulo, a.segmento, a.imagem, DATE_FORMAT(a.data_cadastro, '%Y-%m-%d') as datacad, a.conteudo, a.id_categoria, b.nome as autor, b.cargo as cargo_autor, b.foto as foto_autor
+    FROM ait_blog_post a
+    LEFT JOIN ait_autor b on a.id_autor = b.id_autor
+    WHERE a.id_post = $id_post
+    ORDER BY a.id_post DESC";
     $rs = mysqli_query($con, $sql); 
     $row = mysqli_fetch_array($rs);
     $id_post = $row["id_post"];

@@ -2,27 +2,23 @@
 
   <section class="ait-component__banner">
     <div class="ait-component__banner__carousel">
+      <?
+        $sql = "SELECT imagem
+        FROM ait_home_banner
+        WHERE destaque = 1
+        ORDER BY id_banner DESC";
+        $rs = mysqli_query($con, $sql); 
+        while($row = mysqli_fetch_array($rs)){
+          $imagem = $row["imagem"];
+      ?>
       <div>
         <picture>
-          <source media="(min-width: 0) and (max-width: 767.98px)" srcset="./dist/images/home/ait-banner-mobile.jpg" />
-          <source media="(min-width: 768px) and (max-width: 991.98px)" srcset="./dist/images/home/ait-banner-tablet.jpg" />
-          <img src="./dist/images/home/ait-banner.jpg" alt="" />
+          <source media="(min-width: 0) and (max-width: 767.98px)" srcset="arrowit-admin/img/home_banner/<?=$imagem?>" />
+          <source media="(min-width: 768px) and (max-width: 991.98px)" srcset="arrowit-admin/img/home_banner/<?=$imagem?>" />
+          <img src="arrowit-admin/img/home_banner/<?=$imagem?>" alt="" />
         </picture>
       </div>
-      <div>
-        <picture>
-          <source media="(min-width: 0) and (max-width: 767.98px)" srcset="./dist/images/home/ait-banner-2-mobile.jpg" />
-          <source media="(min-width: 768px) and (max-width: 991.98px)" srcset="./dist/images/home/ait-banner-2-tablet.jpg" />
-          <img src="./dist/images/home/ait-banner-2.jpg" alt="" />
-        </picture>
-      </div>
-      <div>
-        <picture>
-          <source media="(min-width: 0) and (max-width: 767.98px)" srcset="./dist/images/home/ait-banner-3-mobile.jpg" />
-          <source media="(min-width: 768px) and (max-width: 991.98px)" srcset="./dist/images/home/ait-banner-3-tablet.jpg" />
-          <img src="./dist/images/home/ait-banner-3.jpg" alt="" />
-        </picture>
-      </div>
+      <?}?>
     </div>
   </section>
 
@@ -318,14 +314,14 @@
         ?>
         <div>
           <div class="ait-content__blog__card">
-            <a href="blog-integra.php">
-              <div class="ait-content__blog__card__img" style="background-image: url('https://i.picsum.photos/id/834/320/208.jpg?hmac=KvAqP0V1vblolKFtAhQl-JK6TtRY_Bq8jDaBkFr53Pk');">
-                <span class="ait-content__blog__card__img__icon video"></span>
-                <span class="ait-content__blog__card__img__categoria">Banco de Dados</span>
+            <a href="blog-integra.php?id=<?=$id_post?>">
+              <div class="ait-content__blog__card__img" style="background-image: url('arrowit-admin/img/blog_post/<?=$imagem?>');">
+                <span class="ait-content__blog__card__img__icon <?=$nomeclass?>"></span>
+                <span class="ait-content__blog__card__img__categoria"><?=$segmento?></span>
               </div>
               <div class="ait-content__blog__card__info">
-                <span>12/06/2021</span>
-                <strong>Qual o melhor banco de dados para a sua empresa ?</strong>
+                <span><?=$data_cadastro?></span>
+                <strong><?=$titulo?></strong>
               </div>
             </a>
           </div>

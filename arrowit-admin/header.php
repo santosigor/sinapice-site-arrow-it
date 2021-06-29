@@ -103,9 +103,6 @@
                 </a>
                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                   <li>
-                    <a href="ait_blog_banner.php"> <i class="far fa-file-alt"></i>Banner</a>
-                  </li>
-                  <li>
                     <a href="ait_blog_post.php"> <i class="fas fa-tag"></i>Post</a>
                   </li>
                 </ul>
