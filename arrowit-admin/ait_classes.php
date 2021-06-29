@@ -546,5 +546,41 @@
 
 			mysqli_close($con);
 		}
+
+		function registerDepoimentos($id_depoimento, $texto, $cliente, $cargo){
+
+			include("config.php");
+
+			// $usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
+			// $ipnow = $_SERVER["REMOTE_ADDR"];
+			$usernow = 1;
+			$ipnow = "123.123.123";
+
+			$id_depoimento = $this->anti_sql_injection($id_depoimento);
+			$texto = $this->anti_sql_injection($texto);
+			$cliente = $this->anti_sql_injection($cliente);
+			$cargo = $this->anti_sql_injection($cargo);
+
+			if($id_depoimento!=""){
+				$sql = "UPDATE ait_depoimentos SET texto = '$texto', cliente = '$cliente', cargo = '$cargo' WHERE id_depoimento = $id_depoimento";
+				mysqli_query($con, $sql);
+			}else{
+				$sql = "INSERT INTO ait_depoimentos(id_depoimento, texto, cliente, cargo, data_cadastro, quem_cadastrou, ip_cadastro) 
+				VALUES (NULL, '$texto', '$cliente', '$cargo', NOW(), '$usernow', '$ipnow')";
+				mysqli_query($con, $sql);
+			}
+
+			mysqli_close($con);
+		}
+
+		function deleteDepoimentos($iddepoimento){
+
+			include("config.php");
+
+			$sql = "DELETE FROM ait_depoimentos WHERE id_depoimento = $iddepoimento";
+			mysqli_query($con, $sql);
+
+			mysqli_close($con);
+		}
 	}
 ?>

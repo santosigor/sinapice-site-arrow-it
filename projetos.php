@@ -54,78 +54,26 @@
           </div>
           <div class="ait-component__tab__content" ait-tab-content="tab2">
             <div class="ait-content__projetos__depoimento">
-              <div class="ait-content__projetos__depoimento__item">
-                <p>
-                  “O apoio e flexibilidade da Arrow IT, no entendimento da nossa situação e disponibilização ágil de recursos com o perfil que procurávamos, foi essencial para reverter a imagem do novo Service Desk, aumentar a satisfação dos nossos usuários e agregar valor ao nosso negócio.”
-                </p>
-                <strong>
-                  Cláudia Marquesani 
-                  <span>Gerente Executiva de Serviços e Operações de TI</span>
-                </strong>
-              </div>
-              <div class="ait-content__projetos__depoimento__item">
-                <p>
-                  “Fizemos uma grande parceria, uma empresa que só agregou para empresa MA&A, nós estamos muito satisfeitos com todo serviço oferecido a dedicação que a Arrow tem conosco e o que melhor ainda, é ver os meus clientes satisfeitos com o serviço.”
-                </p>
-                <strong>
-                   Adriana Lima 
-                  <span>Proprietária</span>
-                </strong>
-              </div>
-              <div class="ait-content__projetos__depoimento__item">
-                <p>
-                  “A Arrow IT trouxe a nós o que mais precisava: tempo, eficiência e agilidade.<br>Essas são as palavras que podemos definir sobre a parceria.”
-                </p>
-                <strong>
-                   Gustavo Moraes
-                  <span>Infraestrutura de TI</span>
-                </strong>
-              </div>
-              <div class="ait-content__projetos__depoimento__item">
-                <p>
-                  “A Arrow IT trouxe a nós o que mais precisava: tempo, eficiência e agilidade. Essas são as palavras que podemos definir sobre a parceria.”
-                </p>
-                <strong>
-                   Gustavo Moraes
-                  <span>Infraestrutura de TI</span>
-                </strong>
-              </div>
-              <div class="ait-content__projetos__depoimento__item">
-                <p>
-                  “Com a parceria da empresa Arrow IT conseguimos consolidar o nosso parque de máquinas (servidores), para um ambiente virtualizado, trazendo maior produtividade, segurança e economia, sendo de infraestrutura e manutenção. Atendimento rápido e com excelente tempo de resposta nos atendimentos.”
-                </p>
-                <strong>
-                   Salmo Donizeti da Silva
-                  <span>Gestão de TI</span>
-                </strong>
-              </div>
-              <div class="ait-content__projetos__depoimento__item">
-                <p>
-                  “Depositamos na Arrow IT a confiança e responsabilidade de cuidar de nossa infraestrutura na parte de servidores, dados e controle de usuários estabelecendo uma parceria na prestação de serviços em T.I.”
-                </p>
-                <strong>
-                   Gestão de Tecnologia 
-                  <span>Drypol Industria e Comércio de Polímeros</span>
-                </strong>
-              </div>
-              <div class="ait-content__projetos__depoimento__item">
-                <p>
-                  “A Arrow IT é uma das principais parceiras da empresa na área de TI. Sempre estão prontos para auxiliar no que for necessário, independentemente do dia e horário. Há suporte 24 horas do dia, todos os dias da semana e o profissionalismo e capacidade técnica dos especialistas é indiscutível.”
-                </p>
-                <strong>
-                   Eliton Bissoli
-                  <span>Gerente de TI</span>
-                </strong>
-              </div>
-              <div class="ait-content__projetos__depoimento__item">
-                <p>
-                  “O Gerenciamento de nosso ambiente de infraestrutura de servidores virtuais é feito pela Arrow IT. Iniciamos esta parceria em 2016 e o resultado está sendo muito satisfatório. A capacitação profissional nestas áreas é fundamental e são muito bem exercidos pela Arrow, o que nos dá muita segurança e confiança.”
-                </p>
-                <strong>
-                   Emerson Martes
-                  <span>Coordenador de Suporte Grupo Ráscal</span>
-                </strong>
-              </div>
+              <?
+                $sql = "SELECT id_depoimento, texto, cliente, cargo
+                FROM ait_depoimentos 
+                WHERE 1
+                ORDER BY id_depoimento DESC";
+                $rs = mysqli_query($con, $sql); 
+                while($row = mysqli_fetch_array($rs)){
+                  $id_depoimento = $row["id_depoimento"];
+                  $texto = $row["texto"];
+                  $cliente = $row["cliente"];
+                  $cargo = $row["cargo"];
+              ?>
+                <div class="ait-content__projetos__depoimento__item">
+                  <?=$texto?>
+                  <strong>
+                    <?=$cliente?>
+                    <span><?=$cargo?></span>
+                  </strong>
+                </div>
+              <?}?>
             </div>
           </div>
         </div>

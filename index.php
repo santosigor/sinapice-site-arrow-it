@@ -82,36 +82,19 @@
         <div class="ait-content__arrow-it-eo-futuro__experiencia__parceria">
           <div class="ait-typography__h5 ait-utilities__text-align__center">Parceria sólida com os maiores players</div>
           <div class="ait-component__carousel center">
-            <div>
-              <img src="./dist/images/parceiros/veeam.png" alt="">
-            </div>
-            <div>
-              <img src="./dist/images/parceiros/g-cloud.png" alt="">
-            </div>
-            <div>
-              <img src="./dist/images/parceiros/ingram.png" alt="">
-            </div>
-            <div>
-              <img src="./dist/images/parceiros/tsplus.png" alt="">
-            </div>
-            <div>
-              <img src="./dist/images/parceiros/oraclecloud.png" alt="">
-            </div>
-            <div>
-              <img src="./dist/images/parceiros/synnex.png" alt="">
-            </div>
-            <div>
-              <img src="./dist/images/parceiros/go-global.png" alt="">
-            </div>
-            <div>
-              <img src="./dist/images/parceiros/aws.png" alt="">
-            </div>
-            <div>
-              <img src="./dist/images/parceiros/ibm.png" alt="">
-            </div>
-            <div>
-              <img src="./dist/images/parceiros/microsoft.png" alt="">
-            </div>
+            <?
+              $sql = "SELECT imagem
+              FROM ait_parceiros
+              WHERE 1
+              ORDER BY id_parceiro DESC";
+              $rs = mysqli_query($con, $sql); 
+              while($row = mysqli_fetch_array($rs)){
+                $imagem = $row["imagem"];
+            ?>
+              <div>
+                <img src="arrowit-admin/img/parceiros/<?=$imagem?>" alt="" width="200px">
+              </div>
+            <?}?>
           </div>
         </div>
       </div>
@@ -217,60 +200,19 @@
     <div class="ait-container">
       <span class="ait-component__tag">Quem confia na arrow it</span>
       <div class="ait-component__carousel center">
-        <div>
-          <img src="./dist/images/home/confianca/1.svg" alt="">
-        </div>
-        <div>
-          <img src="./dist/images/home/confianca/2.svg" alt="">
-        </div>
-        <div>
-          <img src="./dist/images/home/confianca/3.svg" alt="">
-        </div>
-        <div>
-          <img src="./dist/images/home/confianca/4.svg" alt="">
-        </div>
-        <div>
-          <img src="./dist/images/home/confianca/5.svg" alt="">
-        </div>
-        <div>
-          <img src="./dist/images/home/confianca/6.svg" alt="">
-        </div>
-        <div>
-          <img src="./dist/images/home/confianca/7.svg" alt="">
-        </div>
-        <div>
-          <img src="./dist/images/home/confianca/8.svg" alt="">
-        </div>
-        <div>
-          <img src="./dist/images/home/confianca/9.svg" alt="">
-        </div>
-        <div>
-          <img src="./dist/images/home/confianca/10.svg" alt="">
-        </div>
-        <div>
-          <img src="./dist/images/home/confianca/11.svg" alt="">
-        </div>
-        <div>
-          <img src="./dist/images/home/confianca/12.svg" alt="">
-        </div>
-        <div>
-          <img src="./dist/images/home/confianca/13.svg" alt="">
-        </div>
-        <div>
-          <img src="./dist/images/home/confianca/14.svg" alt="">
-        </div>
-        <div>
-          <img src="./dist/images/home/confianca/15.svg" alt="">
-        </div>
-        <div>
-          <img src="./dist/images/home/confianca/16.svg" alt="">
-        </div>
-        <div>
-          <img src="./dist/images/home/confianca/17.svg" alt="">
-        </div>
-        <div>
-          <img src="./dist/images/home/confianca/18.svg" alt="">
-        </div>
+        <?
+          $sql = "SELECT imagem
+          FROM ait_clientes
+          WHERE 1
+          ORDER BY id_cliente DESC";
+          $rs = mysqli_query($con, $sql); 
+          while($row = mysqli_fetch_array($rs)){
+            $imagem = $row["imagem"];
+        ?>
+          <div>
+            <img src="arrowit-admin/img/clientes/<?=$imagem?>" alt="" width="140px">
+          </div>
+        <?}?>
       </div>
     </div>
   </section>

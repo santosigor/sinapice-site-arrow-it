@@ -4,65 +4,26 @@
   $objait = new Ait_class();
 
   if(@$_POST["acao"]==1){
-    @$titulo = $_POST["titulo"];
-    @$descricao = $_POST["descricao"];
-    @$diferenciais = $_POST["diferenciais"];
-    @$objetivo = $_POST["objetivo"];
-    @$beneficios = $_POST["beneficios"];
+    @$texto = $_POST["texto"];
+    @$cliente = $_POST["cliente"];
+    @$cargo = $_POST["cargo"];
 
-    $nomeimagem = "";
-    if ( isset( $_FILES[ 'imagem' ][ 'name' ] ) && $_FILES[ 'imagem' ][ 'error' ] == 0 ) {
-    
-        $arquivo_tmp = $_FILES[ 'imagem' ][ 'tmp_name' ];
-        $nome = $_FILES[ 'imagem' ][ 'name' ];
-    
-        $extensao = pathinfo ( $nome, PATHINFO_EXTENSION );
-        $extensao = strtolower ( $extensao );
-
-        $novoNome = uniqid ( time () ).'.'.$extensao;
-        $destino = 'img/servicos/'.$novoNome;
-        
-        if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
-            $nomeimagem = $novoNome;
-        }
-    }
-
-    $objait->registerServicos("", $titulo, $descricao, $diferenciais, $objetivo, $beneficios, $nomeimagem);
+    $objait->registerDepoimentos("", $texto, $cliente, $cargo);
 
     header('Location: ait_depoimentos.php');
   }else if(@$_POST["acao"]==2){
-    @$id_servico = $_POST["idservico"];
-    @$titulo = $_POST["titulo"];
-    @$descricao = $_POST["descricao"];
-    @$diferenciais = $_POST["diferenciais".$id_servico];
-    @$objetivo = $_POST["objetivo".$id_servico];
-    @$beneficios = $_POST["beneficios".$id_servico];
+    @$id_depoimento = $_POST["iddepoimento"];
+    @$texto = $_POST["texto"];
+    @$cliente = $_POST["cliente"];
+    @$cargo = $_POST["cargo"];
 
-    $nomeimagem = "";
-    if($_FILES[ 'imagem' ][ 'name' ]!=""){
-      if ( isset( $_FILES[ 'imagem' ][ 'name' ] ) && $_FILES[ 'imagem' ][ 'error' ] == 0 ) {
-        $arquivo_tmp = $_FILES[ 'imagem' ][ 'tmp_name' ];
-        $nome = $_FILES[ 'imagem' ][ 'name' ];
-    
-        $extensao = pathinfo ( $nome, PATHINFO_EXTENSION );
-        $extensao = strtolower ( $extensao );
-        
-        $novoNome = uniqid ( time () ).'.'.$extensao;
-        $destino = 'img/servicos/'.$novoNome;
-        
-        if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
-            $nomeimagem = $novoNome;
-        }
-      }
-    }
-
-    $objait->registerServicos($id_servico, $titulo, $descricao, $diferenciais, $objetivo, $beneficios, $nomeimagem);
+    $objait->registerDepoimentos($id_depoimento, $texto, $cliente, $cargo);
 
   }else if(@$_POST["acao"]==3){
 
-    $idservico = $_POST["idservico"];
+    $iddepoimento = $_POST["iddepoimento"];
 
-    $objait->deleteServicos($idservico);
+    $objait->deleteDepoimentos($iddepoimento);
   }
 
   include('header.php'); 
@@ -81,7 +42,7 @@
                   <label for="text-input" class="form-control-label">Texto</label>
                 </div>
                 <div class="col-12 col-md-9">
-                  <textarea id="" name="" rows="4" cols="50" class="form-control" style="resize: none;height: 150px;"></textarea>
+                  <textarea id="texto" name="texto" rows="4" cols="50" class="form-control" style="resize: none;height: 150px;"></textarea>
                 </div>
               </div>
               <div class="row form-group">
@@ -89,7 +50,7 @@
                   <label for="text-input" class="form-control-label">Cliente</label>
                 </div>
                 <div class="col-12 col-md-9">
-                  <input type="text" id="titulo" name="titulo" class="form-control" />
+                  <input type="text" id="cliente" name="cliente" class="form-control" />
                 </div>
               </div>
               <div class="row form-group">
@@ -97,15 +58,15 @@
                   <label for="text-input" class="form-control-label">Cargo</label>
                 </div>
                 <div class="col-12 col-md-9">
-                  <input type="text" id="titulo" name="titulo" class="form-control" />
+                  <input type="text" id="cargo" name="cargo" class="form-control" />
                 </div>
               </div>
               <input type="hidden" id="acao" name="acao" value="0">
-              <input type="hidden" id="idservico" name="idservico" value="0">
+              <input type="hidden" id="iddepoimento" name="iddepoimento" value="0">
               <div class="row form-group">
                 <div class="col col-md-3"></div>
                 <div class="col-12 col-md-9">
-                  <button onclick="acaoServico('1', '', '1');" class="btn btn-success btn-md"> Cadastrar</button>
+                  <button onclick="acaoDepoimentos('1', '', '1');" class="btn btn-success btn-md"> Cadastrar</button>
                 </div>
               </div>
             </form>
@@ -135,33 +96,29 @@
               </thead>
               <tbody>
                 <?
-                  $sql = "SELECT id_servico, titulo, descricao, imagem
-                  FROM ait_servicos 
+                  $sql = "SELECT id_depoimento, texto, cliente, cargo
+                  FROM ait_depoimentos 
                   WHERE 1
-                  ORDER BY id_servico DESC";
+                  ORDER BY id_depoimento DESC";
                   $rs = mysqli_query($con, $sql); 
                   while($row = mysqli_fetch_array($rs)){
-                    $id_servico = $row["id_servico"];
-                    $titulo = $row["titulo"];
-                    $descricao = $row["descricao"];
-                    $imagem = $row["imagem"];
+                    $id_depoimento = $row["id_depoimento"];
+                    $texto = $row["texto"];
+                    $cliente = $row["cliente"];
+                    $cargo = $row["cargo"];
                 ?>
                 <tr class="tr-shadow">
-                  <td><?=$titulo?></td>
-                  <td><?=$titulo?></td>
-                  <td>
-                  <?if($imagem!=""){?>
-                    <img src="img/servicos/<?=$imagem?>" alt="" width="150px" />
-                  <?}?>
-                  </td>
+                  <td><?=$texto?></td>
+                  <td><?=$cliente?></td>
+                  <td><?=$cargo?></td>
                   <td>
                     <div class="table-data-feature">
                       <span class="item" data-toggle="tooltip" data-placement="top" title="Editar">
-                        <button data-toggle="modal" data-target="#mediumModal<?=$id_servico?>">
+                        <button data-toggle="modal" data-target="#mediumModal<?=$id_depoimento?>">
                           <i class="zmdi zmdi-edit"></i>
                         </button>
                       </span>
-                      <button class="item" data-toggle="tooltip" data-placement="top" title="Excluir" onclick="acaoServico('3', <?=$id_servico?>, '1');">
+                      <button class="item" data-toggle="tooltip" data-placement="top" title="Excluir" onclick="acaoDepoimentos('3', <?=$id_depoimento?>, '1');">
                         <i class="zmdi zmdi-delete"></i>
                       </button>
                     </div>
@@ -180,20 +137,18 @@
 </section>
 
 <?
-  $sql = "SELECT id_servico, titulo, descricao, diferenciais, objetivo, beneficios
-  FROM ait_servicos 
+  $sql = "SELECT id_depoimento, texto, cliente, cargo
+  FROM ait_depoimentos 
   WHERE 1
-  ORDER BY id_servico DESC";
+  ORDER BY id_depoimento DESC";
   $rs = mysqli_query($con, $sql); 
   while($row = mysqli_fetch_array($rs)){
-    $id_servico = $row["id_servico"];
-    $titulo = $row["titulo"];
-    $descricao = $row["descricao"];
-    $diferenciais = $row["diferenciais"];
-    $objetivo = $row["objetivo"];
-    $beneficios = $row["beneficios"];
+    $id_depoimento = $row["id_depoimento"];
+    $texto = $row["texto"];
+    $cliente = $row["cliente"];
+    $cargo = $row["cargo"];
 ?>
-<div class="modal fade" id="mediumModal<?=$id_servico?>" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
+<div class="modal fade" id="mediumModal<?=$id_depoimento?>" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -204,62 +159,37 @@
         </button>
       </div>
       <div class="modal-body">
-       <form id="formmodal<?=$id_servico?>" name="form<?=$id_servico?>" action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-          <div class="row form-group">
-            <div class="col col-md-3">
-              <label for="text-input" class="form-control-label">Titulo</label>
+       <form id="formmodal<?=$id_depoimento?>" name="form<?=$id_depoimento?>" action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+       <div class="row form-group">
+          <div class="col col-md-3">
+              <label for="text-input" class="form-control-label">Texto</label>
             </div>
             <div class="col-12 col-md-9">
-              <input type="text" id="titulo" name="titulo" class="form-control" value="<?=$titulo?>" />
+              <textarea id="texto" name="texto" rows="4" cols="50" class="form-control" style="resize: none;height: 150px;"><?=$texto?></textarea>
             </div>
           </div>
           <div class="row form-group">
             <div class="col col-md-3">
-              <label for="text-input" class="form-control-label">Descrição</label>
+              <label for="text-input" class="form-control-label">Cliente</label>
             </div>
             <div class="col-12 col-md-9">
-              <input type="text" id="descricao" name="descricao" class="form-control" value="<?=$descricao?>" />
+              <input type="text" id="cliente" name="cliente" class="form-control" value="<?=$cliente?>" />
             </div>
           </div>
           <div class="row form-group">
             <div class="col col-md-3">
-              <label for="file-input" class="form-control-label">Documento</label>
+              <label for="text-input" class="form-control-label">Cargo</label>
             </div>
             <div class="col-12 col-md-9">
-              <input type="file" id="imagem" name="imagem" class="form-control-file imagesize m-b-10" />
-              <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
-            </div>
-          </div>
-          <div class="row form-group">
-            <div class="col col-md-3">
-              <label for="text-input" class="form-control-label">Diferenciais</label>
-            </div>
-            <div class="col-12 col-md-9">
-              <textarea class="peTextAreaEditText" id="diferenciais<?=$id_servico?>" name="diferenciais<?=$id_servico?>"><?=$diferenciais?></textarea>
-            </div>
-          </div>
-          <div class="row form-group">
-            <div class="col col-md-3">
-              <label for="text-input" class="form-control-label">Objetivo</label>
-            </div>
-            <div class="col-12 col-md-9">
-              <textarea class="peTextAreaEditText" id="objetivo<?=$id_servico?>" name="objetivo<?=$id_servico?>"><?=$objetivo?></textarea>
-            </div>
-          </div>
-          <div class="row form-group">
-            <div class="col col-md-3">
-              <label for="text-input" class="form-control-label">Benefícios</label>
-            </div>
-            <div class="col-12 col-md-9">
-              <textarea class="peTextAreaEditText" id="beneficios<?=$id_servico?>" name="beneficios<?=$id_servico?>"><?=$beneficios?></textarea>
+              <input type="text" id="cargo" name="cargo" class="form-control" value="<?=$cargo?>" />
             </div>
           </div>
           <input type="hidden" id="acao" name="acao" value="0">
-          <input type="hidden" id="idservico" name="idservico" value="0">
+          <input type="hidden" id="iddepoimento" name="iddepoimento" value="0">
           <div class="row form-group">
             <div class="col col-md-3"></div>
             <div class="col-12 col-md-9">
-              <button type="button" onclick="acaoServico('2', <?=$id_servico?>, '2');" class="btn btn-primary">Atualizar</button>
+              <button type="button" onclick="acaoDepoimentos('2', <?=$id_depoimento?>, '2');" class="btn btn-primary">Atualizar</button>
             </div>
           </div>
         </form>

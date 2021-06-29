@@ -456,6 +456,17 @@ function acaoClientes(t, id, tipo){
 	d.submit();
 }
 
+function acaoDepoimentos(t, id, tipo){
+	if(tipo==1){
+		var d = document.getElementById('form');
+	}else if(tipo==2){
+		var d = document.getElementById('formmodal'+id);
+	}
+	d.acao.value = t;
+	d.iddepoimento.value = id;
+	d.submit();
+}
+
 
 
 

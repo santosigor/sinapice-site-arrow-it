@@ -4,18 +4,18 @@
     <div class="ait-component__banner__carousel">
       <?
         $sql = "SELECT imagem
-        FROM ait_blog_banner
-        WHERE 1
-        ORDER BY id_banner DESC";
+        FROM ait_blog_post
+        WHERE id_categoria = 1 AND destaque = 1
+        ORDER BY id_post DESC";
         $rs = mysqli_query($con, $sql); 
         while($row = mysqli_fetch_array($rs)){
           $imagem = $row["imagem"];
       ?>
         <div>
           <picture>
-            <source media="(min-width: 0) and (max-width: 767.98px)" srcset="arrowit-admin/img/blog_banner/<?=$imagem?>" />
-            <source media="(min-width: 768px) and (max-width: 991.98px)" srcset="arrowit-admin/img/blog_banner/<?=$imagem?>" />
-            <img src="arrowit-admin/img/blog_banner/<?=$imagem?>" alt="" />
+            <source media="(min-width: 0) and (max-width: 767.98px)" srcset="arrowit-admin/img/blog_post/<?=$imagem?>" />
+            <source media="(min-width: 768px) and (max-width: 991.98px)" srcset="arrowit-admin/img/blog_post/<?=$imagem?>" />
+            <img src="arrowit-admin/img/blog_post/<?=$imagem?>" alt="" />
           </picture>
         </div>
       <?}?>

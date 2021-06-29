@@ -361,7 +361,7 @@
 </section>
 
 <?
-  $sql = "SELECT id_post, titulo, segmento, id_categoria, conteudo
+  $sql = "SELECT id_post, titulo, segmento, id_categoria, conteudo, id_autor
   FROM ait_blog_post 
   WHERE 1
   ORDER BY id_post DESC";
@@ -372,6 +372,7 @@
     $segmento = $row["segmento"];
     $id_categoria = $row["id_categoria"];
     $conteudo = $row["conteudo"];
+    $id_autor = $row["id_autor"];
 ?>
 <div class="modal fade" id="mediumModal<?=$id_post?>" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
   aria-hidden="true">
@@ -406,11 +407,44 @@
               <label for="text-input" class="form-control-label">Categoria</label>
             </div>
             <div class="col-12 col-md-9">
-              <select name="id_categoria" id="id_categoria" class="form-control">
+              <select name="id_categoria" id="id_categoria" class="form-control" onchange="chooseCategoria()">
                   <option value="0">Selecione a categoria</option>
                   <option value="1" <?if($id_categoria==1){?>selected<?}?>>Artigo</option>
                   <option value="2" <?if($id_categoria==2){?>selected<?}?>>Video</option>
               </select>
+            </div>
+          </div>
+          <div id="divdestaque" class="row form-group" style="display:none;">
+            <div class="col col-md-3">
+              <label class=" form-control-label">Destaque</label>
+            </div>
+            <div class="col col-md-9">
+              <div class="form-check">
+                  <div class="checkbox">
+                      <label for="checkbox1" class="form-check-label ">
+                          <input type="checkbox" id="destaque" name="destaque" value="1" class="form-check-input">Sim
+                      </label>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div id="divvideo" style="display:none;">
+            <div class="row form-group">
+              <div class="col col-md-3">
+                <label for="text-input" class="form-control-label">Link video</label>
+              </div>
+              <div class="col-12 col-md-9">
+                <input type="text" id="linkvideo" name="linkvideo" class="form-control" />
+              </div>
+            </div>
+            <div class="row form-group">
+              <div class="col col-md-3">
+                <label for="file-input" class="form-control-label">Video</label>
+              </div>
+              <div class="col-12 col-md-9">
+                <input type="file" id="video" name="video" class="form-control-file videosize m-b-10" />
+                <small class="form-text text-muted">Tamanho máximo: 10mb</small><hr>
+              </div>
             </div>
           </div>
           <div class="row form-group">
@@ -427,24 +461,49 @@
               <label for="text-input" class="form-control-label">Autor</label>
             </div>
             <div class="col-12 col-md-9">
-              <input type="text" id="autor" name="autor" class="form-control" value="<?=$autor?>" />
+              <select name="id_autor" id="id_autor" class="form-control" onchange="registerAutor()">
+                  <option value="0">Selecione a autor</option>
+                  <?
+                    $sqlautor = "SELECT id_autor, nome
+                    FROM ait_autor
+                    WHERE 1
+                    ORDER BY nome ASC";
+                    $rsautor = mysqli_query($con, $sqlautor);
+                    while($rowautor = mysqli_fetch_array($rsautor)){
+                      $idautor = $rowautor["id_autor"];
+                      $nomeautor = $rowautor["nome"];
+                  ?>
+                    <option value="<?=$idautor?>" <?if($id_autor==$idautor){?>selected<?}?>><?=$nomeautor?></option>
+                  <?}?>
+                  <option value="999">Novo cadastro</option>
+              </select>
             </div>
           </div>
-          <div class="row form-group">
-            <div class="col col-md-3">
-              <label for="text-input" class="form-control-label">Cargo autor</label>
+          <div id="divautor" style="display:none;">
+            <div class="row form-group">
+              <div class="col col-md-3">
+                <label for="text-input" class="form-control-label">Autor</label>
+              </div>
+              <div class="col-12 col-md-9">
+                <input type="text" id="autor" name="autor" class="form-control" />
+              </div>
             </div>
-            <div class="col-12 col-md-9">
-              <input type="text" id="cargo_autor" name="cargo_autor" class="form-control" value="<?=$cargo_autor?>" />
+            <div class="row form-group">
+              <div class="col col-md-3">
+                <label for="text-input" class="form-control-label">Cargo autor</label>
+              </div>
+              <div class="col-12 col-md-9">
+                <input type="text" id="cargo_autor" name="cargo_autor" class="form-control" />
+              </div>
             </div>
-          </div>
-          <div class="row form-group">
-            <div class="col col-md-3">
-              <label for="file-input" class="form-control-label">Foto autor</label>
-            </div>
-            <div class="col-12 col-md-9">
-              <input type="file" id="foto_autor" name="foto_autor" class="form-control-file imagesize m-b-10" />
-              <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
+            <div class="row form-group">
+              <div class="col col-md-3">
+                <label for="file-input" class="form-control-label">Foto autor</label>
+              </div>
+              <div class="col-12 col-md-9">
+                <input type="file" id="foto_autor" name="foto_autor" class="form-control-file imagesize m-b-10" />
+                <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
+              </div>
             </div>
           </div>
           <div class="row form-group">
