@@ -14668,7 +14668,7 @@ body {
     padding: 30px;
 }
 
-.tox-tinymce-aux, .tox-statusbar {
+.tox-statusbar {
     display: none!important;
 }
 
