@@ -28,6 +28,14 @@ $('.imagesize').change(function(){
 	}
 });
 
+$('.videosize').change(function(){
+	const file = $(this)[0].files[0]
+	if(file.size>10000000){
+		$('.videosize').val('');
+	  alert("O tamanho do arquivo excede 10mb!");
+	}
+});
+
 function cadastroSubmit(){
 	d = document.form;
 	erro = false;
@@ -399,6 +407,53 @@ function updatePassword(){
 	}else{
 		alertify.warning("Preencha todos os campos!");
 	}
+}
+
+function chooseCategoria(){
+	d = document.form;
+
+	if(d.id_categoria.value==1){
+		document.getElementById("divdestaque").style.display = '';
+		document.getElementById("divvideo").style.display = 'none';
+	}else if(d.id_categoria.value==2){
+		document.getElementById("divvideo").style.display = '';
+		document.getElementById("divdestaque").style.display = 'none';
+	}else{
+		document.getElementById("divvideo").style.display = 'none';
+		document.getElementById("divdestaque").style.display = 'none';
+	}
+}
+
+function registerAutor(){
+	d = document.form;
+
+	if(d.id_autor.value==999){
+		document.getElementById("divautor").style.display = '';
+	}else{
+		document.getElementById("divautor").style.display = 'none';
+	}
+}
+
+function acaoParceiros(t, id, tipo){
+	if(tipo==1){
+		var d = document.getElementById('form');
+	}else if(tipo==2){
+		var d = document.getElementById('formmodal'+id);
+	}
+	d.acao.value = t;
+	d.idparceiro.value = id;
+	d.submit();
+}
+
+function acaoClientes(t, id, tipo){
+	if(tipo==1){
+		var d = document.getElementById('form');
+	}else if(tipo==2){
+		var d = document.getElementById('formmodal'+id);
+	}
+	d.acao.value = t;
+	d.idcliente.value = id;
+	d.submit();
 }
 
 

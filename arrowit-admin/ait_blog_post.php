@@ -7,10 +7,13 @@
 		@$titulo = $_POST["titulo"];
 		@$segmento = $_POST["segmento"];
 		@$id_categoria = $_POST["id_categoria"];
+		@$id_autor = $_POST["id_autor"];
 		@$autor = $_POST["autor"];
 		@$cargo_autor = $_POST["cargo_autor"];
 		@$conteudo = $_POST["conteudo"];
-
+		@$destaque = $_POST["destaque"];
+		@$linkvideo = $_POST["linkvideo"];
+    
     $nomeimagem = "";
     if ( isset( $_FILES[ 'imagem' ][ 'name' ] ) && $_FILES[ 'imagem' ][ 'error' ] == 0 ) {
     
@@ -45,17 +48,37 @@
         }
     }
 
-		$objait->registerPost("", $titulo, $segmento, $id_categoria, $autor, $cargo_autor, $conteudo, $nomeimagem, $nomefotoautor);
+    $nomevideo = "";
+    if ( isset( $_FILES[ 'video' ][ 'name' ] ) && $_FILES[ 'video' ][ 'error' ] == 0 ) {
+    
+        $arquivo_tmp = $_FILES[ 'video' ][ 'tmp_name' ];
+        $nome = $_FILES[ 'video' ][ 'name' ];
+    
+        $extensao = pathinfo ( $nome, PATHINFO_EXTENSION );
+        $extensao = strtolower ( $extensao );
 
+        $novoNome = uniqid ( time () ).'.'.$extensao;
+        $destino = 'img/blog_post/'.$novoNome;
+        
+        if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
+            $nomevideo = $novoNome;
+        }
+    }
+
+		$objait->registerPost("", $titulo, $segmento, $id_categoria, $autor, $cargo_autor, $conteudo, $nomeimagem, $nomefotoautor, $destaque, $linkvideo, $nomevideo, $id_autor);
+     
     header('Location: ait_blog_post.php');
 	}else if(@$_POST["acao"]==2){
     @$id_post = $_POST["idpost"];
 		@$titulo = $_POST["titulo"];
 		@$segmento = $_POST["segmento"];
 		@$id_categoria = $_POST["id_categoria"];
+		@$id_autor = $_POST["id_autor"];
 		@$autor = $_POST["autor"];
 		@$cargo_autor = $_POST["cargo_autor"];
 		@$conteudo = $_POST["conteudo".$id_post];
+		@$destaque = $_POST["destaque"];
+		@$linkvideo = $_POST["linkvideo"];
 
     $nomeimagem = "";
     if($_FILES[ 'imagem' ][ 'name' ]!=""){
@@ -93,7 +116,25 @@
       }
     }
 
-    $objait->registerPost($id_post, $titulo, $segmento, $id_categoria, $autor, $cargo_autor, $conteudo, $nomeimagem, $nomefotoautor);
+    $nomevideo = "";
+    if($_FILES[ 'video' ][ 'name' ]!=""){
+      if ( isset( $_FILES[ 'video' ][ 'name' ] ) && $_FILES[ 'video' ][ 'error' ] == 0 ) {
+        $arquivo_tmp = $_FILES[ 'video' ][ 'tmp_name' ];
+        $nome = $_FILES[ 'video' ][ 'name' ];
+    
+        $extensao = pathinfo ( $nome, PATHINFO_EXTENSION );
+        $extensao = strtolower ( $extensao );
+        
+        $novoNome = uniqid ( time () ).'.'.$extensao;
+        $destino = 'img/blog_post/'.$novoNome;
+        
+        if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
+            $nomevideo = $novoNome;
+        }
+      }
+    }
+
+    $objait->registerPost($id_post, $titulo, $segmento, $id_categoria, $autor, $cargo_autor, $conteudo, $nomeimagem, $nomefotoautor, $destaque, $linkvideo, $nomevideo, $id_autor);
 
   }else if(@$_POST["acao"]==3){
 
@@ -141,6 +182,39 @@
                   </select>
                 </div>
               </div>
+              <div id="divdestaque" class="row form-group" style="display:none;">
+                <div class="col col-md-3">
+                  <label class=" form-control-label">Destaque</label>
+                </div>
+                <div class="col col-md-9">
+                  <div class="form-check">
+                      <div class="checkbox">
+                          <label for="checkbox1" class="form-check-label ">
+                              <input type="checkbox" id="destaque" name="destaque" value="1" class="form-check-input">Sim
+                          </label>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div id="divvideo" style="display:none;">
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label for="text-input" class="form-control-label">Link video</label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <input type="text" id="linkvideo" name="linkvideo" class="form-control" />
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label for="file-input" class="form-control-label">Video</label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <input type="file" id="video" name="video" class="form-control-file videosize m-b-10" />
+                    <small class="form-text text-muted">Tamanho máximo: 10mb</small><hr>
+                  </div>
+                </div>
+              </div>
               <div class="row form-group">
                 <div class="col col-md-3">
                   <label for="file-input" class="form-control-label">Imagem</label>
@@ -155,24 +229,49 @@
                   <label for="text-input" class="form-control-label">Autor</label>
                 </div>
                 <div class="col-12 col-md-9">
-                  <input type="text" id="autor" name="autor" class="form-control" />
+                  <select name="id_autor" id="id_autor" class="form-control" onchange="registerAutor()">
+                      <option value="0">Selecione a autor</option>
+                      <?
+                        $sqlautor = "SELECT id_autor, nome
+                        FROM ait_autor
+                        WHERE 1
+                        ORDER BY nome ASC";
+                        $rsautor = mysqli_query($con, $sqlautor);
+                        while($rowautor = mysqli_fetch_array($rsautor)){
+                          $idautor = $rowautor["id_autor"];
+                          $nomeautor = $rowautor["nome"];
+                      ?>
+                        <option value="<?=$idautor?>"><?=$nomeautor?></option>
+                      <?}?>
+                      <option value="999">Novo cadastro</option>
+                  </select>
                 </div>
               </div>
-              <div class="row form-group">
-                <div class="col col-md-3">
-                  <label for="text-input" class="form-control-label">Cargo autor</label>
+              <div id="divautor" style="display:none;">
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label for="text-input" class="form-control-label">Autor</label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <input type="text" id="autor" name="autor" class="form-control" />
+                  </div>
                 </div>
-                <div class="col-12 col-md-9">
-                  <input type="text" id="cargo_autor" name="cargo_autor" class="form-control" />
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label for="text-input" class="form-control-label">Cargo autor</label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <input type="text" id="cargo_autor" name="cargo_autor" class="form-control" />
+                  </div>
                 </div>
-              </div>
-              <div class="row form-group">
-                <div class="col col-md-3">
-                  <label for="file-input" class="form-control-label">Foto autor</label>
-                </div>
-                <div class="col-12 col-md-9">
-                  <input type="file" id="foto_autor" name="foto_autor" class="form-control-file imagesize m-b-10" />
-                  <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label for="file-input" class="form-control-label">Foto autor</label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <input type="file" id="foto_autor" name="foto_autor" class="form-control-file imagesize m-b-10" />
+                    <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
+                  </div>
                 </div>
               </div>
               <div class="row form-group">
@@ -262,7 +361,7 @@
 </section>
 
 <?
-  $sql = "SELECT id_post, titulo, segmento, id_categoria, autor, cargo_autor, conteudo
+  $sql = "SELECT id_post, titulo, segmento, id_categoria, conteudo
   FROM ait_blog_post 
   WHERE 1
   ORDER BY id_post DESC";
@@ -272,8 +371,6 @@
     $titulo = $row["titulo"];
     $segmento = $row["segmento"];
     $id_categoria = $row["id_categoria"];
-    $autor = $row["autor"];
-    $cargo_autor = $row["cargo_autor"];
     $conteudo = $row["conteudo"];
 ?>
 <div class="modal fade" id="mediumModal<?=$id_post?>" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
