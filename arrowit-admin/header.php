@@ -22,6 +22,8 @@
     <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all" />
     <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all" />
     <link href="css/theme.css" rel="stylesheet" media="all" />
+    <link rel="stylesheet" href="css/alertify.min.css"/>
+    <link rel="stylesheet" href="css/alertify.default.min.css"/>
   </head>
   <body class="animsition">
 
@@ -42,10 +44,7 @@
                     </div>
                     <div class="account-dropdown__body">
                       <div class="account-dropdown__item">
-                        <a href="#"> <i class="zmdi zmdi-settings"></i>Alterar senha</a>
-                      </div>
-                      <div class="account-dropdown__item">
-                        <a href="#"> <i class="zmdi zmdi-account"></i>Usuários</a>
+                        <a href="ait_alterarsenha.php"> <i class="zmdi zmdi-settings"></i>Alterar senha</a>
                       </div>
                       <div class="account-dropdown__item">
                         <a href="javascript:irPara(1, 'index.php?sair=1');"> <i class="fas fa-sign-out-alt"></i>Sair</a>

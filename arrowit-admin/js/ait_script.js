@@ -1,104 +1,22 @@
-// Geral
-function irPara(tp, pag){
-	if(tp==1){
-		location.href = pag;
-	}else if(tp==2){
-		window.open(pag);
-	}
-}
-
-function VerificaCpf() {
-	d=document.form;
-
-	cpf = d.cpf.value;
-	cpf=cpf.replace("-", "");
-	cpf=cpf.replace(".", "");
-	cpf=cpf.replace(".", "");
-
-	if(cpf!=""){
-	if (cpf.length != 11 || cpf == "00000000000" || cpf == "11111111111" || cpf == "22222222222" || cpf == "33333333333" || cpf == "44444444444" || cpf == "55555555555" || cpf == "66666666666" || cpf == "77777777777" || cpf == "88888888888" || cpf == "99999999999"){
-		$(document).ready(function() {
-			$(document).ready(function() {
-				alert("CPF inválido!");
-				return false;
-		});
-		return false;
-	});
-	d.cpf.value='';return false;}
-	add = 0;
-	for (i=0; i < 9; i ++)
-	add += parseInt(cpf.charAt(i)) * (10 - i);
-	rev = 11 - (add % 11);
-	if (rev == 10 || rev == 11)
-	rev = 0;
-	if (rev != parseInt(cpf.charAt(9)))
-	{
-	d.cpf.value='';
-	$(document).ready(function() {
-			alert("CPF inválido!");
-			return false;
-	});
-	return false;
-	}
-	add = 0;
-	for (i = 0; i < 10; i ++)
-	add += parseInt(cpf.charAt(i)) * (11 - i);
-	rev = 11 - (add % 11);
-	if (rev == 10 || rev == 11)
-	rev = 0;
-	if (rev != parseInt(cpf.charAt(10)))
-	{
-	d.cpf.value='';
-	$(document).ready(function() {
-			alert("CPF inválido!");
-			return false;
-	});
-	return false;
-	}
-	return true;
-	}
-}
-
-function VerificaEmail(){
-	d = document.form;
-	campo = d.email.value;
-
-	if((campo.indexOf(".")==-1 || campo.indexOf("@")==-1) && campo != ""){
-		$(document).ready(function() {
-				alert("Email inválido!");
-				return false;
-		});
-		d.email.value = '';
-	}
-}
-
 /* PE Login(index) */
-
-function Logar(){
-		d = document.form;
-		d.submit();
-}
-
-function getCookie(cname) {
-	 var name = cname + "=";
-	 var decodedCookie = decodeURIComponent(document.cookie);
-	 var ca = decodedCookie.split(';');
-	 for(var i = 0; i <ca.length; i++) {
-			 var c = ca[i];
-			 while (c.charAt(0) == ' ') {
-			 c = c.substring(1);
-			 }
-			 if (c.indexOf(name) == 0) {
-			 return c.substring(name.length, c.length);
-			 }
-	 }
-	 return "";
-}
-
-function lerexcel(){
+function loginIn(){
 	d = document.form;
-	d.acao.value = 2;
-	d.submit();
+	erro = false;
+
+	if(d.usuario.value==''){
+		erro = true;
+	}
+	
+	if(d.password.value==''){
+		erro = true;
+	}
+
+	if(erro===false){
+		d.acao.value = 1;
+		d.submit();
+	}else{
+		alertify.warning("Preencha todos os campos!");
+	}
 }
 
 /* General	*/
@@ -131,10 +49,6 @@ function cadastroSubmit(){
 	}else{
 		alert(text);
 	}
-}
-
-if(getCookie("ait_res")==1){
-  alert("Usuário e senha inválido!");
 }
 
 function acaoServico(t, id, tipo){
@@ -230,6 +144,7 @@ function acaoExercicios(t, id, tipo){
 
 function updateDadosGerais(){
 	d = document.form;
+	peSetCookie("ait_res", "3", 1);
 	d.acao.value = 1;
 	d.submit();
 }
@@ -463,4 +378,69 @@ function acaoPost(t, id, tipo){
 	d.acao.value = t;
 	d.idpost.value = id;
 	d.submit();
+}
+
+function updatePassword(){
+	d = document.form;
+	erro = false;
+
+	if(d.senha.value==''){
+		erro = true;
+	}else	if(d.confirmarsenha.value==''){
+		erro = true;
+	}else	if(d.senha.value!=d.confirmarsenha.value){
+		alertify.warning("As senhas não conferem!");
+		return;
+	}
+
+	if(erro===false){
+		d.acao.value = 1;
+		d.submit();
+	}else{
+		alertify.warning("Preencha todos os campos!");
+	}
+}
+
+
+
+
+//COOKIES
+var domain = window.location.hostname;
+
+function peSetCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  var expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";domain=;" + domain + ";" + expires + ";path=/";
+}
+
+function peGetCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+if(peGetCookie("ait_res")){
+	var cookie = peGetCookie("ait_res");
+
+	if(cookie==1){
+		alertify.error('Usuário e senha inválido!');
+	}else if(cookie==2){
+		alertify.success('Cadastrado com sucesso!');
+	}else if(cookie==3){
+		alertify.message('Atualizado com sucesso!');
+	}else if(cookie==4){
+		alertify.error('Excluído com sucesso!');
+	}
+	peSetCookie("ait_res", "", -1);
 }

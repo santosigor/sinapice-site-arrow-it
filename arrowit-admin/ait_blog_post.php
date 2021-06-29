@@ -134,7 +134,7 @@
                   <label for="text-input" class="form-control-label">Categoria</label>
                 </div>
                 <div class="col-12 col-md-9">
-                  <select name="id_categoria" id="id_categoria" class="form-control">
+                  <select name="id_categoria" id="id_categoria" class="form-control" onchange="chooseCategoria()">
                       <option value="0">Selecione a categoria</option>
                       <option value="1">Artigo</option>
                       <option value="2">Video</option>

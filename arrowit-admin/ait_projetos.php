@@ -53,7 +53,7 @@
 
 		$objait->registerProjetos('', $titulo, $setor, $tempo_processo, $ambiente, $desafios, $solucao, $resultados, $nomeimagem);
 
-    @$_POST["acao"] = 0;
+    header('Location: ait_projetos.php');
 	}else if(@$_POST["acao"]==2){
 		@$id_projeto = $_POST["idprojeto"];
 		@$titulo = $_POST["titulo"];

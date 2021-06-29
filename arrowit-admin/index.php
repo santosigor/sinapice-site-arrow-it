@@ -6,7 +6,7 @@
       $login->deslogar();
     }
 
-    if(isset($_POST["usuario"])){
+    if(@$_POST["acao"]==1){
       $login = new Login();
       $login->efetuarLogin($_POST["usuario"], $_POST["password"]); 
     } 
@@ -30,6 +30,8 @@
     <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all" />
     <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all" />
     <link href="css/theme.css" rel="stylesheet" media="all" />
+    <link rel="stylesheet" href="css/alertify.min.css"/>
+    <link rel="stylesheet" href="css/alertify.default.min.css"/>
   </head>
   <body class="animsition">
 
@@ -45,13 +47,14 @@
                     <form name="form" id="form" method="post">
                         <div class="form-group">
                             <label>Usuário</label>
-                            <input class="au-input au-input--full" type="text" id="usuario" name="usuario" required />
+                            <input class="au-input au-input--full" type="text" id="usuario" name="usuario" />
                         </div>
                         <div class="form-group">
                             <label>Senha</label>
-                            <input class="au-input au-input--full m-b-20" type="password" id="password" name="password" required />
+                            <input class="au-input au-input--full m-b-20" type="password" id="password" name="password" />
                         </div>
-                        <button type="submit" class="au-btn au-btn--block au-btn-load m-b-20">Entrar</button>
+                        <input type="hidden" id="acao" name="acao" value="0">
+                        <button type="button" onclick="loginIn();" class="au-btn au-btn--block au-btn-load m-b-20">Entrar</button>
                     </form>
                     <div class="register-link">
                         <p>
@@ -96,8 +99,9 @@
     <script src="vendor/animsition/animsition.min.js"></script>
     <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/alertify.min.js"></script>
 
-    <script src="js/pe_script.js"></script>
+    <script src="js/ait_script.js"></script>
 
   </body>
 </html>

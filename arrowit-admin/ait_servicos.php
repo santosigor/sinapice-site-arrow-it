@@ -29,7 +29,7 @@
 
 		$objait->registerServicos("", $titulo, $descricao, $diferenciais, $objetivo, $beneficios, $nomeimagem);
 
-    @$_POST["acao"] = 0;
+    header('Location: ait_servicos.php');
 	}else if(@$_POST["acao"]==2){
     @$id_servico = $_POST["idservico"];
 		@$titulo = $_POST["titulo"];

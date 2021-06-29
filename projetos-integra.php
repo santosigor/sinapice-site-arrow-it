@@ -146,7 +146,8 @@
               $sql = "SELECT id_projeto, imagem
               FROM ait_projetos
               WHERE id_projeto != $id_projeto
-              ORDER BY id_projeto DESC";
+              ORDER BY RAND()
+              LIMIT 6";
               $rs = mysqli_query($con, $sql); 
               while($row = mysqli_fetch_array($rs)){
               $id_projeto = $row["id_projeto"];

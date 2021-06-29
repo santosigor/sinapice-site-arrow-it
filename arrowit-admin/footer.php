@@ -20,6 +20,7 @@
     <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="js/tinymce.min.js"></script>
     <script src="js/jquery.tinymce.min.js"></script>
+    <script src="js/alertify.min.js"></script>
     
     <script src="js/main.js"></script>
 

@@ -252,7 +252,7 @@
 			$mail->send();
 		}
 
-		function registerBanner($id_banner, $nomeimagem){
+		function registerBanner($id_banner, $titulo, $destaque, $nomeimagem){
 
 			include("config.php");
 
@@ -262,26 +262,46 @@
 			$ipnow = "123.123.123";
 
 			$id_banner = $this->anti_sql_injection($id_banner);
+			$titulo = $this->anti_sql_injection($titulo);
+			$destaque = $this->anti_sql_injection($destaque);
 			$nomeimagem = $this->anti_sql_injection($nomeimagem);
+
+			$sql = "SELECT 1
+			FROM ait_home_banner 
+			WHERE destaque = 1";
+			$rs = mysqli_query($con, $sql); 
+			if(!mysqli_num_rows($rs)<4){
+				$sql = "SELECT id_banner
+				FROM ait_home_banner 
+				WHERE destaque = 1
+				ORDER BY data_cadastro ASC";
+				$rs = mysqli_query($con, $sql); 
+				$row = mysqli_fetch_array($rs);
+				$idbanner = $row["id_banner"];
+
+				$sql = "UPDATE ait_home_banner SET destaque = '0' WHERE id_banner = $idbanner";
+				mysqli_query($con, $sql);
+			}
 
 			if($id_banner!=""){
 				$sqladd = "";
 				if($nomeimagem!=""){
 					$sql = "SELECT imagem
-					FROM ait_blog_banner 
+					FROM ait_home_banner 
 					WHERE id_banner = $id_banner";
 					$rs = mysqli_query($con, $sql); 
 					$row = mysqli_fetch_array($rs);
 					$imagem = $row["imagem"];
 
-					unlink("img/blog_banner/".$imagem);
-
-					$sql = "UPDATE ait_blog_banner SET imagem = '$nomeimagem' WHERE id_banner = $id_banner";
-					mysqli_query($con, $sql);
+					unlink("img/home_banner/".$imagem);
+					$sqladd = ", imagem = '$nomeimagem'";
 				}
+
+				$sql = "UPDATE ait_home_banner SET titulo = '$titulo', destaque = '$destaque' $sqladd WHERE id_banner = $id_banner";
+				mysqli_query($con, $sql);
 			}else{
-				$sql = "INSERT INTO ait_blog_banner(id_banner, imagem, data_cadastro, quem_cadastrou, ip_cadastro) 
-				VALUES (NULL, '$nomeimagem', NOW(), '$usernow', '$ipnow')";
+				$sql = "INSERT INTO ait_home_banner(id_banner, titulo, destaque, imagem, data_cadastro, quem_cadastrou, ip_cadastro) 
+				VALUES (NULL, '$titulo', '$destaque', '$nomeimagem', NOW(), '$usernow', '$ipnow')";
 				mysqli_query($con, $sql);
 			}
 
@@ -293,15 +313,15 @@
 			include("config.php");
 
 			$sql = "SELECT imagem
-			FROM ait_blog_banner 
+			FROM ait_home_banner 
 			WHERE id_banner = $idbanner";
 			$rs = mysqli_query($con, $sql); 
 			$row = mysqli_fetch_array($rs);
 			$imagem = $row["imagem"];
 
-			unlink("img/blog_banner/".$imagem);
+			unlink("img/home_banner/".$imagem);
 
-			$sql = "DELETE FROM ait_blog_banner WHERE id_banner = $idbanner";
+			$sql = "DELETE FROM ait_home_banner WHERE id_banner = $idbanner";
 			mysqli_query($con, $sql);
 
 			mysqli_close($con);
@@ -377,6 +397,19 @@
 			}
 
 			$sql = "DELETE FROM ait_blog_post WHERE id_post = $id_post";
+			mysqli_query($con, $sql);
+
+			mysqli_close($con);
+		}
+
+		function updatePassword($senha){
+
+			include("config.php");
+
+			$senha = md5($senha);
+			$usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
+
+			$sql = "UPDATE ait_usuarios SET password = '$senha' WHERE id_usuario = $usernow";
 			mysqli_query($con, $sql);
 
 			mysqli_close($con);
