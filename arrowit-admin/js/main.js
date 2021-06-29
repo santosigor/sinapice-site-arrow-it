@@ -164,16 +164,13 @@
 
 })(jQuery);
 
-$('.peTextAreaEditText').tinymce({
-  // height: 350,
-  // menubar: false,
-  // toolbar: 'undo redo | bold italic'
+tinymce.init({
+  selector: 'textarea',
   height: 250,
   language: 'pt_BR',
   menubar: false,
-  plugins: 'lists',
-  toolbar: 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist',
+  plugins: 'lists autolink link image',
+  toolbar: 'undo redo | bold italic | link | image | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist',
   toolbar_mode: 'floating',
+  default_link_target: '_blank'
 });
-
-$('.tox-tinymce-aux, .tox-statusbar').remove();
