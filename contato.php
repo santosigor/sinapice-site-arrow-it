@@ -1,58 +1,21 @@
-<!doctype html>
-<html lang="pt-br">
-  <head>
+<? include("header.php");
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <title>ARROWIT</title>
+   $sql = "SELECT id_dados, endereco, telefone, celular, email, facebook, instagram, linkedin
+   FROM ait_dadosgerais 
+   WHERE 1";
+   $rs = mysqli_query($con, $sql); 
+   $row = mysqli_fetch_array($rs);
+   $endereco = $row["endereco"];
+   $telefone = $row["telefone"];
+   $celular = $row["celular"];
+   $email = $row["email"];
+   $facebook = $row["facebook"];
+   $instagram = $row["instagram"];
+   $linkedin = $row["linkedin"];
 
-    <link href="./dist/images/favicon.png" rel="icon" sizes="16x16" type="image/png">
-
-    <!-- share -->
-    <meta property="og:title" content="Arrow IT" />
-    <meta property="og:description" content="O seu objetivo é o nosso caminho" />
-    <meta property="og:url" content="https://www.arrowit.com.br/" />
-    <meta property="og:image" content="https://www.arrowit.com.br/dist/images/ait-image-compartilhar.jpg" />
-
-    <!-- CSS -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="./dist/css/ait.min.css">
-
-  </head>
-  <body>
-
-    <div class="ait-loading">
-      <div class="ait-loading__container">
-        <div class="ait-loading__porcentagem">100</div>
-        <div class="ait-loading__logo"></div>
-        <div class="ait-loading__barra"></div>
-      </div>
-    </div>
-
-    <header class="ait-structure__header"></header>
-
-    <?
-        include("arrowit-admin/config.php");
-
-       $sql = "SELECT id_dados, endereco, telefone, celular, email, facebook, instagram, linkedin
-       FROM ait_dadosgerais 
-       WHERE 1";
-       $rs = mysqli_query($con, $sql); 
-       $row = mysqli_fetch_array($rs);
-       $endereco = $row["endereco"];
-       $telefone = $row["telefone"];
-       $celular = $row["celular"];
-       $email = $row["email"];
-       $facebook = $row["facebook"];
-       $instagram = $row["instagram"];
-       $linkedin = $row["linkedin"];
-
-       $telform = "(".substr($telefone,0,2).") <strong>".substr($telefone,2,-4)." - ".substr($telefone,-4)."</strong>";
-       $celform = "(".substr($celular,0,2).") <strong>".substr($celular,2,-4)." - ".substr($celular,-4)."</strong>";
-    ?>
+   $telform = "(".substr($telefone,0,2).") <strong>".substr($telefone,2,-4)." - ".substr($telefone,-4)."</strong>";
+   $celform = "(".substr($celular,0,2).") <strong>".substr($celular,2,-4)." - ".substr($celular,-4)."</strong>";
+?>
 
     <section class="ait-content__contato-page">
       <div class="ait-container">
@@ -98,19 +61,4 @@
       </div>
     </section>
 
-    <footer class="ait-structure__footer"></footer>
-
-    <!-- jquery e plugins -->
-    <script src="./dist/js/jquery.min.js"></script>
-
-     <!-- header e footer estatico -->
-     <script>
-      $('.ait-structure__header').load('header.html');
-      $('.ait-structure__footer').load('footer.html');
-    </script>
-    
-    <!-- AIT JS -->    
-    <script src="./dist/js/ait.min.js"></script>
-
-  </body>
-</html>
+<? include("footer.php"); ?>

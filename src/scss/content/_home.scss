@@ -457,8 +457,13 @@
 						line-height: 18px;
 					}
 				}
+				p {
+					font-size: 11px;
+					line-height: 15px;
+					margin: 0;
+				}
 				span {
-					display: block;
+					display: inline-block;
 					color: #0EDD97;
 					font-size: 11px;
 					line-height: 15px;

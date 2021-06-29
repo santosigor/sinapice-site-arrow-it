@@ -404,8 +404,12 @@ img {
           .ait-content__contato ul li a {
             font-size: 13px;
             line-height: 18px; } }
+      .ait-content__contato ul li p {
+        font-size: 11px;
+        line-height: 15px;
+        margin: 0; }
       .ait-content__contato ul li span {
-        display: block;
+        display: inline-block;
         color: #0EDD97;
         font-size: 11px;
         line-height: 15px;

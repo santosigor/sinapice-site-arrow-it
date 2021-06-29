@@ -1,46 +1,10 @@
-<!doctype html>
-<html lang="pt-br">
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <title>Arrow IT</title>
-
-    <!-- <link href="dist/images/" rel="icon" sizes="16x16" type="image/png">-->
-
-    <!-- share -->
-    <meta property="og:title" content="Arrow IT" />
-    <meta property="og:description" content="O seu objetivo é o nosso caminho" />
-    <meta property="og:url" content="https://clientesinapice.com.br/sites/arrow-it/" />
-    <meta property="og:image" content="https://clientesinapice.com.br/sites/arrow-it/dist/images/ait-image-compartilhar.jpg" />
-
-    <!-- CSS -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="./dist/css/ait.min.css">
-
-  </head>
-  <body>
-
-    <div class="ait-loading">
-      <div class="ait-loading__container">
-        <div class="ait-loading__porcentagem">100</div>
-        <div class="ait-loading__logo"></div>
-        <div class="ait-loading__barra"></div>
-      </div>
-    </div>
-
-    <header class="ait-structure__header"></header>
+<? include("header.php"); ?>
 
     <section class="ait-content__servicos">
       <div class="ait-content__servicos__container">
         <div class="ait-container">
           <div class="ait-content__servicos__container__carrossel">
           <?
-              include("arrowit-admin/config.php");
-
               $sql = "SELECT id_servico, titulo, descricao, imagem
               FROM ait_servicos
               WHERE 1
@@ -119,19 +83,4 @@
       <?}?>
     </section>
 
-    <footer class="ait-structure__footer"></footer>
-
-    <!-- jquery e plugins -->
-    <script src="./dist/js/jquery.min.js"></script>
-
-     <!-- header e footer estatico -->
-     <script>
-      $('.ait-structure__header').load('header.html');
-      $('.ait-structure__footer').load('footer.html');
-    </script>
-    
-    <!-- AIT JS -->    
-    <script src="./dist/js/ait.min.js"></script>
-
-  </body>
-</html>
+<? include("footer.php"); ?>

@@ -1,38 +1,4 @@
-<!doctype html>
-<html lang="pt-br">
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <title>ARROWIT</title>
-
-    <link href="./dist/images/favicon.png" rel="icon" sizes="16x16" type="image/png">
-
-    <!-- share -->
-    <meta property="og:title" content="Arrow IT" />
-    <meta property="og:description" content="O seu objetivo é o nosso caminho" />
-    <meta property="og:url" content="https://www.arrowit.com.br/" />
-    <meta property="og:image" content="https://www.arrowit.com.br/dist/images/ait-image-compartilhar.jpg" />
-
-    <!-- CSS -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="./dist/css/ait.min.css">
-
-  </head>
-  <body>
-
-    <div class="ait-loading">
-      <div class="ait-loading__container">
-        <div class="ait-loading__porcentagem">100</div>
-        <div class="ait-loading__logo"></div>
-        <div class="ait-loading__barra"></div>
-      </div>
-    </div>
-
-    <header class="ait-structure__header"></header>
+<? include("header.php"); ?>
 
     <section class="ait-component__banner">
       <div class="ait-component__banner__carousel">
@@ -310,66 +276,25 @@
       <div class="ait-container ait-utilities__text-align__center">
         <span class="ait-component__tag">Arrow.Platform</span>
         <div class="ait-typography__h3">Nossa gama de serviços para auxiliar seu negócio</div>
-        <div class="ait-content__plataform__item">
-          <a href="servicos.html#svc1">
-            <img src="./dist/images/servicos/ait-svg-servico-bkp.svg" alt="">
-            <strong><span>#arrow</span>.bkp</strong>
-          </a>
-        </div>
-        <div class="ait-content__plataform__item">
-          <a href="servicos.html#svc2">
-            <img src="./dist/images/servicos/ait-svg-servico-cloud.svg" alt="">
-            <strong><span>#arrow</span>.cloud</strong>
-          </a>
-        </div>
-        <div class="ait-content__plataform__item">
-          <a href="servicos.html#svc3">
-            <img src="./dist/images/servicos/ait-svg-servico-consulting.svg" alt="">
-            <strong><span>#arrow</span>.consulting</strong>
-          </a>
-        </div>
-        <div class="ait-content__plataform__item">
-          <a href="servicos.html#svc4">
-            <img src="./dist/images/servicos/ait-svg-servico-assessment.svg" alt="">
-            <strong><span>#arrow</span>.assessment</strong>
-          </a>
-        </div>
-        <div class="ait-content__plataform__item">
-          <a href="servicos.html#svc5">
-            <img src="./dist/images/servicos/ait-svg-servico-database.svg" alt="">
-            <strong><span>#arrow</span>.database</strong>
-          </a>
-        </div>
-        <div class="ait-content__plataform__item">
-          <a href="servicos.html#svc6">
-            <img src="./dist/images/servicos/ait-svg-servico-noc.svg" alt="">
-            <strong><span>#arrow</span>.noc</strong>
-          </a>
-        </div>
-        <div class="ait-content__plataform__item">
-          <a href="servicos.html#svc7">
-            <img src="./dist/images/servicos/ait-svg-servico-support.svg" alt="">
-            <strong><span>#arrow</span>.support</strong>
-          </a>
-        </div>
-        <div class="ait-content__plataform__item">
-          <a href="servicos.html#svc8">
-            <img src="./dist/images/servicos/ait-svg-servico-secure.svg" alt="">
-            <strong><span>#arrow</span>.secure</strong>
-          </a>
-        </div>
-        <div class="ait-content__plataform__item">
-          <a href="servicos.html#svc9">
-            <img src="./dist/images/servicos/ait-svg-servico-apps.svg" alt="">
-            <strong><span>#arrow</span>.apps</strong>
-          </a>
-        </div>
-        <div class="ait-content__plataform__item">
-          <a href="servicos.html#svc10">
-            <img src="./dist/images/servicos/ait-svg-servico-bodyshop.svg" alt="">
-            <strong><span>#arrow</span>.bodyshop</strong>
-          </a>
-        </div>
+        <?
+          $sql = "SELECT id_servico, titulo, descricao, imagem
+          FROM ait_servicos
+          WHERE 1
+          ORDER BY id_servico DESC";
+          $rs = mysqli_query($con, $sql); 
+          while($row = mysqli_fetch_array($rs)){
+            $id_servico = $row["id_servico"];
+            $titulo = $row["titulo"];
+            $descricao = $row["descricao"];
+            $imagem = $row["imagem"];
+        ?>
+          <div class="ait-content__plataform__item">
+            <a href="servicos.php#svc<?=$id_servico?>">
+              <img src="arrowit-admin/img/servicos/<?=$imagem?>" alt="#arrow.<?=$titulo?>">
+              <strong><span>#arrow</span>.<?=$titulo?></strong>
+            </a>
+          </div>
+        <?}?>
       </div>
     </section>
 
@@ -489,19 +414,4 @@
       </div>
     </section>
 
-    <footer class="ait-structure__footer"></footer>
-
-    <!-- jquery e plugins -->
-    <script src="./dist/js/jquery.min.js"></script>
-
-     <!-- header e footer estatico -->
-     <script>
-      $('.ait-structure__header').load('header.html');
-      $('.ait-structure__footer').load('footer.html');
-    </script>
-    
-    <!-- AIT JS -->    
-    <script src="./dist/js/ait.min.js"></script>
-
-  </body>
-</html>
+<? include("footer.php"); ?>
