@@ -1,19 +1,19 @@
 <?php 
-  include('config.php'); 
+  // include('config.php'); 
 
-  session_start();
+  // session_start();
 
-  if($_SESSION["logged_".$_SESSION["nomesessao"]]!=1){
-    session_destroy();
-    Header("Location: ../index.php");
-  }
+  // if($_SESSION["logged_".$_SESSION["nomesessao"]]!=1){
+  //   session_destroy();
+  //   Header("Location: ../index.php");
+  // }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>ARROW-IT-ADMIN</title>
+    <title>GCS - ArrowIT</title>
     <link href="css/font-face.css" rel="stylesheet" media="all" />
     <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all" />
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all" />
@@ -58,7 +58,7 @@
         </header>
         <aside class="menu-sidebar2 js-right-sidebar">
           <div class="logo">
-            ARROW-IT-ADMIN
+            GCS - ArrowIT
           </div>
           <div class="menu-sidebar2__content js-scrollbar2">
             <nav class="navbar-sidebar2">
@@ -104,6 +104,9 @@
                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                   <li>
                     <a href="ait_blog_post.php"> <i class="fas fa-tag"></i>Post</a>
+                  </li>
+                  <li>
+                    <a href="ait_blog_conteudo_util.php"> <i class="fas fa-thumbs-up"></i>Conteúdo útil</a>
                   </li>
                 </ul>
               </li>
