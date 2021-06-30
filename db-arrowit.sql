@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2021 at 11:23 PM
+-- Generation Time: Jun 30, 2021 at 04:30 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
+-- 
 -- Database: `db-arrowit`
 --
 
@@ -61,6 +61,7 @@ CREATE TABLE `ait_blog_post` (
   `linkvideo` varchar(200) DEFAULT NULL,
   `video` varchar(200) DEFAULT NULL,
   `id_autor` int(11) DEFAULT NULL,
+  `conteudo_util` int(11) DEFAULT NULL,
   `ip_cadastro` varchar(50) DEFAULT NULL,
   `data_cadastro` datetime DEFAULT NULL,
   `quem_cadastrou` int(11) DEFAULT NULL
@@ -70,18 +71,17 @@ CREATE TABLE `ait_blog_post` (
 -- Dumping data for table `ait_blog_post`
 --
 
-INSERT INTO `ait_blog_post` (`id_post`, `titulo`, `segmento`, `id_categoria`, `conteudo`, `imagem`, `destaque`, `linkvideo`, `video`, `id_autor`, `ip_cadastro`, `data_cadastro`, `quem_cadastrou`) VALUES
-(3, 'bnm', 'mnb', 1, '<p>33333</p>', '', NULL, NULL, NULL, 0, '123.123.123', '2021-07-28 00:52:29', 1),
-(4, 'teste', 'banco', 2, '<p>cvkihbdf dflf</p>', '162450555860d3fcd6bb36f.png', NULL, NULL, NULL, 0, '123.123.123', '2021-06-24 00:32:38', 1),
-(5, 'sdf', 'sdf', 2, '<p>xcv</p>', '', NULL, NULL, NULL, 0, '123.123.123', '2021-06-24 01:20:20', 1),
-(6, 'vbn', 'vbn', 2, '<p>dfg</p>', '', NULL, NULL, NULL, 0, '123.123.123', '2021-06-24 01:20:37', 1),
-(7, 'dfgdfg', '34tdrt', 1, '<p>dfgdfg</p>', '', NULL, NULL, NULL, 0, '123.123.123', '2021-06-24 01:20:48', 1),
-(8, '11111111', '', 0, '', '', 0, '', '', 0, '123.123.123', '2021-06-28 21:41:26', 1),
-(9, '2222222', '', 1, '', '', 0, '', '', 0, '123.123.123', '2021-06-28 21:41:55', 1),
-(10, '33333333', '', 2, '', '162492734060da6c6ce3c91.png', 0, 'gnbmbnm', '162492734060da6c6ce3db0.png', 0, '123.123.123', '2021-06-28 21:42:20', 1),
-(11, 'cvb', 'cvb', 1, '<p>cvbcvb</p>', '162492872660da71d6c39c8.png', 0, '', '', 0, '123.123.123', '2021-06-28 22:05:26', 1),
-(12, 'cvb2222', 'cvbcvb', 1, '<p>bcvb111</p>', '162492895460da72baa5ce1.png', 0, '', '', 1, '123.123.123', '2021-06-28 22:09:14', 1),
-(13, 'fcvgb', 'fgh', 1, '<p><a title=\"tsd\" href=\"http://www.google.com.br\" target=\"_blank\" rel=\"noopener\">www.google.com.br</a></p>\r\n<p><img src=\"https://img.ibxk.com.br/2020/01/30/30021141299110.jpg?w=1120&amp;h=420&amp;mode=crop&amp;scale=both\" alt=\"\" width=\"1120\" height=\"420\" /></p>', '', 0, '', '', 1, '123.123.123', '2021-06-28 23:45:50', 1);
+INSERT INTO `ait_blog_post` (`id_post`, `titulo`, `segmento`, `id_categoria`, `conteudo`, `imagem`, `destaque`, `linkvideo`, `video`, `id_autor`, `conteudo_util`, `ip_cadastro`, `data_cadastro`, `quem_cadastrou`) VALUES
+(3, 'bnm', 'mnb', 1, '<p>33333</p>', '', NULL, NULL, NULL, 0, NULL, '123.123.123', '2021-07-28 00:52:29', 1),
+(4, 'teste', 'banco', 2, '<p>cvkihbdf dflf</p>', '162450555860d3fcd6bb36f.png', NULL, NULL, NULL, 0, NULL, '123.123.123', '2021-06-24 00:32:38', 1),
+(5, 'sdf', 'sdf', 2, '<p>xcv</p>', '', NULL, NULL, NULL, 0, NULL, '123.123.123', '2021-06-24 01:20:20', 1),
+(6, 'vbn', 'vbn', 2, '<p>dfg</p>', '', NULL, NULL, NULL, 0, NULL, '123.123.123', '2021-06-24 01:20:37', 1),
+(7, 'dfgdfg', '34tdrt', 1, '<p>dfgdfg</p>', '', NULL, NULL, NULL, 0, NULL, '123.123.123', '2021-06-24 01:20:48', 1),
+(8, '11111111', '', 0, '', '', 0, '', '', 0, NULL, '123.123.123', '2021-06-28 21:41:26', 1),
+(9, '2222222', '', 1, '', '', 0, '', '', 0, NULL, '123.123.123', '2021-06-28 21:41:55', 1),
+(10, '33333333', '', 2, '', '162492734060da6c6ce3c91.png', 0, 'gnbmbnm', '162492734060da6c6ce3db0.png', 0, NULL, '123.123.123', '2021-06-28 21:42:20', 1),
+(11, 'cvb', 'cvb', 1, '<p>cvbcvb</p>', '162492872660da71d6c39c8.png', 1, '', '', 0, NULL, '123.123.123', '2021-06-28 22:05:26', 1),
+(12, 'cvb2222', 'cvbcvb', 1, '<p>bcvb111</p>', '162492895460da72baa5ce1.png', 1, '', '', 1, NULL, '123.123.123', '2021-06-28 22:09:14', 1);
 
 -- --------------------------------------------------------
 
@@ -104,6 +104,30 @@ CREATE TABLE `ait_clientes` (
 
 INSERT INTO `ait_clientes` (`id_cliente`, `titulo`, `imagem`, `ip_cadastro`, `data_cadastro`, `quem_cadastrou`) VALUES
 (2, 'hugao1', '162493068460da797ce9cc4.png', '::1', '2021-06-28 22:37:14', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ait_conteudo_util`
+--
+
+CREATE TABLE `ait_conteudo_util` (
+  `id_conteudo` int(11) NOT NULL,
+  `id_post` int(11) DEFAULT NULL,
+  `tipo` tinyint(4) DEFAULT NULL,
+  `comentario` varchar(500) DEFAULT NULL,
+  `ip_cadastro` varchar(50) DEFAULT NULL,
+  `data_cadastro` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ait_conteudo_util`
+--
+
+INSERT INTO `ait_conteudo_util` (`id_conteudo`, `id_post`, `tipo`, `comentario`, `ip_cadastro`, `data_cadastro`) VALUES
+(2, 12, 1, NULL, '::1', '2021-06-29 22:09:09'),
+(3, 12, 2, 'cvbcb cvb cvb cbv cvb c', '::1', '2021-06-29 22:09:27'),
+(4, 12, 2, 'teste', '::1', '2021-06-29 22:24:38');
 
 -- --------------------------------------------------------
 
@@ -212,7 +236,8 @@ INSERT INTO `ait_log_acesso` (`id_log`, `id_usuario`, `ip_usuario`, `modelo`, `d
 (7, 1, '::1', 'Windows 10 / Chrome', '2021-06-27 21:42:51'),
 (8, 1, '::1', 'Windows 10 / Chrome', '2021-06-27 22:02:34'),
 (9, 1, '::1', 'Windows 10 / Chrome', '2021-06-27 22:24:29'),
-(10, 1, '::1', 'Windows 10 / Chrome', '2021-06-28 21:01:49');
+(10, 1, '::1', 'Windows 10 / Chrome', '2021-06-28 21:01:49'),
+(11, 1, '::1', 'Windows 10 / Chrome', '2021-06-29 21:04:13');
 
 -- --------------------------------------------------------
 
@@ -369,6 +394,12 @@ ALTER TABLE `ait_clientes`
   ADD PRIMARY KEY (`id_cliente`);
 
 --
+-- Indexes for table `ait_conteudo_util`
+--
+ALTER TABLE `ait_conteudo_util`
+  ADD PRIMARY KEY (`id_conteudo`);
+
+--
 -- Indexes for table `ait_dadosgerais`
 --
 ALTER TABLE `ait_dadosgerais`
@@ -445,6 +476,12 @@ ALTER TABLE `ait_clientes`
   MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `ait_conteudo_util`
+--
+ALTER TABLE `ait_conteudo_util`
+  MODIFY `id_conteudo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `ait_dadosgerais`
 --
 ALTER TABLE `ait_dadosgerais`
@@ -466,7 +503,7 @@ ALTER TABLE `ait_home_banner`
 -- AUTO_INCREMENT for table `ait_log_acesso`
 --
 ALTER TABLE `ait_log_acesso`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `ait_parceiros`
