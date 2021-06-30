@@ -1986,8 +1986,7 @@ img {
         line-height: 14px; } }
 
 .ait-content__blog__integra__text {
-  padding: 28px 100px;
-  border-bottom: 1px solid #AABCD0; }
+  padding: 28px 100px; }
   @media (max-width: 767.98px) {
     .ait-content__blog__integra__text {
       padding: 28px 0; } }
@@ -2002,7 +2001,8 @@ img {
         line-height: 14px; } }
 
 .ait-content__blog__relacionados {
-  padding: 40px 0; }
+  padding: 40px 0;
+  background-color: #f5f5f5; }
   @media (min-width: 768px) {
     .ait-content__blog__relacionados {
       padding: 60px 0; } }

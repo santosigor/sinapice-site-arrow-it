@@ -1,0 +1,64 @@
+.ait-components {
+	&__conteudo-util {
+		border-top: 1px solid #AABCD0;
+		@include clearfix;
+		padding: 40px 100px;
+		@media (max-width: 767.98px) {
+			padding: 40px 0;
+		}
+		.ait-component__button {
+	    min-width: 90px;
+	    &.active {
+		    color: #fff;
+		    background: #303bfe;
+		    border: 1px solid #3242f4;
+	    }
+	  }
+		&__options {
+			margin-bottom: 30px;
+			strong {
+				display: inline-block;
+				font-size: 18px;
+				line-height: 22px;
+				color: #2C3E50;
+				margin-right: 20px;
+				@media (max-width: 767.98px) {
+					display: block;
+					margin-bottom: 16px;
+					margin-right: 0;
+				}
+			}
+			span {
+				margin-right: 20px;
+			}
+		}
+		&__form {
+			@include clearfix;
+			display: none;
+			textarea {
+				resize: none;
+				width: 100%;
+				height: 150px;
+		    padding: 16px;
+		    font-size: 18px;
+				line-height: 22px;
+				color: #828282;
+				background: #FFFFFF;
+				border: 1px solid #D9D9D9;
+				border-radius: 4px;
+				outline: 0;
+				margin-bottom: 30px;
+				&.error {
+					border: 1px solid #DB340B;
+				}
+			}
+			.sb-components__button {
+				float: right;
+			}
+		}
+		&__msg {
+			display: none;
+			margin-top: 40px;
+		}
+	}
+}

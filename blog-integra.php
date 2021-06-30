@@ -54,8 +54,24 @@
         </div>
         <div class="ait-content__blog__integra__text">
           <?=$conteudo?>
-          <h1>Conteúdo foi útil</h1>
-          
+        </div>
+        <div class="ait-components__conteudo-util">
+          <div class="ait-components__conteudo-util__options">
+            <strong>O conteúdo foi útil pra você?</strong>
+            <span class="ait-component__button outline" ait-data-option="sim">Sim</span>
+            <span class="ait-component__button outline" ait-data-option="nao">Não</span>
+          </div>
+          <div class="ait-components__conteudo-util__form">
+            <textarea id="" name="" placeholder="O conteúdo não foi útil? Explique o porquê e ajude-nos a melhorar!"></textarea>
+            <button type="button" class="ait-component__button">Enviar</button>
+          </div>
+          <div class="ait-components__conteudo-util__msg">
+            <div class="ait-components__alert success">
+              <span class="ait-components__alert__close"></span>
+              <strong>Mensagem de informação</strong>
+              <p>Lorem ipsum dolor sit amet dolor sit</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
