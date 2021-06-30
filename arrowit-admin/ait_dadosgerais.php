@@ -1,4 +1,6 @@
 <?php 
+  include('header.php'); 
+
   include("ait_classes.php");
 
   $objait = new Ait_class();
@@ -14,11 +16,7 @@
     @$linkedin = $_POST["linkedin"];
 
     $objait->updateDadosGerais($id_dados, $endereco, $telefone, $celular, $email, $facebook, $instagram, $linkedin);
-
-    @$_POST["acao"] = 0;
   }
-
-  include('header.php'); 
 
   $sql = "SELECT id_dados, endereco, telefone, celular, email, facebook, instagram, linkedin
   FROM ait_dadosgerais 

@@ -1,12 +1,12 @@
 <?php 
-  // include('config.php'); 
+  include('config.php'); 
 
-  // session_start();
+  session_start();
 
-  // if($_SESSION["logged_".$_SESSION["nomesessao"]]!=1){
-  //   session_destroy();
-  //   Header("Location: ../index.php");
-  // }
+  if($_SESSION["logged_".$_SESSION["nomesessao"]]!=1){
+    session_destroy();
+    Header("Location: ../index.php");
+  }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

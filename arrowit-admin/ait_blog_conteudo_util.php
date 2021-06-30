@@ -19,23 +19,47 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="tr-shadow">
-                  <td>Titulo do póst</td>
-                  <td>Segmento</td>
-                  <td>Sim (10)</td>
-                  <td>
-                    <div class="table-data-feature" style="-webkit-box-pack: start;-webkit-justify-content: start;-moz-box-pack: start;-ms-flex-pack: start;justify-content: start;">
-                      
-                    <span style="padding: 4px 20px 4px 0;">Não (2)</span> 
-                    <span class="item" data-toggle="tooltip" data-placement="top" title="Ver comentários">
-                        <button data-toggle="modal" data-target="#mediumModalUtil">
-                          <i class="zmdi zmdi-link"></i>
-                        </button>
-                      </span>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="spacer"></tr>
+                <?
+                  $sql = "SELECT id_post, titulo, segmento
+                  FROM ait_blog_post 
+                  WHERE 1
+                  ORDER BY id_post DESC";
+                  $rs = mysqli_query($con, $sql); 
+                  while($row = mysqli_fetch_array($rs)){
+                    $id_post = $row["id_post"];
+                    $titulo = $row["titulo"];
+                    $segmento = $row["segmento"];
+
+                    $sqlutil = "SELECT 1
+                    FROM ait_conteudo_util 
+                    WHERE id_post = $id_post AND tipo = 1";
+                    $rsutil = mysqli_query($con, $sqlutil);
+                    $countsim = mysqli_num_rows($rsutil);
+
+                    $sqlutil = "SELECT 1
+                    FROM ait_conteudo_util 
+                    WHERE id_post = $id_post AND tipo = 2";
+                    $rsutil = mysqli_query($con, $sqlutil);
+                    $countnao = mysqli_num_rows($rsutil);
+                ?>
+                  <tr class="tr-shadow">
+                    <td><?=$titulo?></td>
+                    <td><?=$segmento?></td>
+                    <td>Sim (<?=$countsim?>)</td>
+                    <td>
+                      <div class="table-data-feature" style="-webkit-box-pack: start;-webkit-justify-content: start;-moz-box-pack: start;-ms-flex-pack: start;justify-content: start;">
+                        
+                      <span style="padding: 4px 20px 4px 0;">Não (<?=$countnao?>)</span> 
+                      <span class="item" data-toggle="tooltip" data-placement="top" title="Ver comentários">
+                          <button data-toggle="modal" data-target="#mediumModalUtil<?=$id_post?>">
+                            <i class="zmdi zmdi-link"></i>
+                          </button>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="spacer"></tr>
+                <?}?>
               </tbody>
             </table>
           </div>
@@ -46,7 +70,17 @@
   </div>
 </section>
 
-<div class="modal fade" id="mediumModalUtil" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
+
+
+<?
+  $sql = "SELECT id_post
+  FROM ait_blog_post 
+  WHERE id_post IN (SELECT id_post FROM ait_conteudo_util WHERE tipo = 2)";
+  $rs = mysqli_query($con, $sql); 
+  while($row = mysqli_fetch_array($rs)){
+    $id_post = $row["id_post"];
+?>
+<div class="modal fade" id="mediumModalUtil<?=$id_post?>" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -66,18 +100,25 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="tr-shadow">
-                <td>12/05/2021</td>
-                <td>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </td>
-              </tr>
-              <tr class="spacer"></tr>
+              <?
+                $sql = "SELECT id_post, comentario, DATE_FORMAT(data_cadastro, '%Y-%m-%d') as datacad
+                FROM ait_conteudo_util 
+                WHERE tipo = 2 AND id_post = $id_post";
+                $rs = mysqli_query($con, $sql); 
+                while($row = mysqli_fetch_array($rs)){
+                  $id_post = $row["id_post"];
+                  $comentario = $row["comentario"];
+                  $data_cadastro = $row["datacad"];
+
+                  $d = explode("-", $data_cadastro);
+                  $data_cadastro = $d[2]."/".$d[1]."/".$d[0];
+              ?>
+                <tr class="tr-shadow">
+                  <td><?=$data_cadastro?></td>
+                  <td><?=$comentario?></td>
+                </tr>
+                <tr class="spacer"></tr>
+              <?}?>
             </tbody>
           </table>
         </div>
@@ -85,5 +126,6 @@
     </div>
   </div>
 </div>
+<?}?>
 
 <?php include('footer.php'); ?>

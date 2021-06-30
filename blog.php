@@ -3,20 +3,30 @@
   <section class="ait-component__banner">
     <div class="ait-component__banner__carousel">
       <?
-        $sql = "SELECT imagem
+        $sql = "SELECT id_post, titulo, imagem, segmento
         FROM ait_blog_post
         WHERE id_categoria = 1 AND destaque = 1
         ORDER BY id_post DESC";
         $rs = mysqli_query($con, $sql); 
         while($row = mysqli_fetch_array($rs)){
+          $id_post = $row["id_post"];
           $imagem = $row["imagem"];
+          $titulo = $row["titulo"];
+          $segmento = $row["segmento"];
       ?>
-        <div>
-          <picture>
-            <source media="(min-width: 0) and (max-width: 767.98px)" srcset="arrowit-admin/img/blog_post/<?=$imagem?>" />
-            <source media="(min-width: 768px) and (max-width: 991.98px)" srcset="arrowit-admin/img/blog_post/<?=$imagem?>" />
-            <img src="arrowit-admin/img/blog_post/<?=$imagem?>" alt="" />
-          </picture>
+        <div style="position: relative">
+          <a href="blog-integra.php?id=<?=$id_post?>" style="display: block">
+            <div style="background-image: url('arrowit-admin/img/blog_post/<?=$imagem?>')">
+            <br>
+            <br>
+            <br>
+              <span><?=$segmento?></span>
+              <strong><?=$titulo?></strong>
+            <br>
+            <br>
+            <br>
+            </div>
+          </a>
         </div>
       <?}?>
     </div>
