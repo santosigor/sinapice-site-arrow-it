@@ -94,10 +94,28 @@
               </div>
               <div class="row form-group">
                 <div class="col col-md-3">
-                  <label for="file-input" class="form-control-label">Imagem</label>
+                  <label class="form-control-label">Desktop</label>
                 </div>
                 <div class="col-12 col-md-9">
                   <input type="file" id="imagem" name="imagem" class="form-control-file imagesize m-b-10" />
+                  <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col col-md-3">
+                  <label class="form-control-label">Tablet</label>
+                </div>
+                <div class="col-12 col-md-9">
+                  <input type="file" id="imagem_tablet" name="imagem_tablet" class="form-control-file imagesize m-b-10" />
+                  <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col col-md-3">
+                  <label class="form-control-label">Mobile</label>
+                </div>
+                <div class="col-12 col-md-9">
+                  <input type="file" id="imagem_mobile" name="imagem_mobile" class="form-control-file imagesize m-b-10" />
                   <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
                 </div>
               </div>

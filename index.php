@@ -305,7 +305,7 @@
         <div class="col-md-5">
           <ul>
             <li>
-              <a href="https://goo.gl/maps/bB93DWEQBm7ytmNAA" target="_blank"><strong>Av. Trindade, 254</strong> - Sala 1208 <br>Bethaville I - Barueri - SP</a>
+              <a href="https://goo.gl/maps/bB93DWEQBm7ytmNAA" target="_blank"><?=$endereco?></a>
             </li>
             <li>
               <a href="tel:+55<?=$telefone?>"><?=$telform?></a>

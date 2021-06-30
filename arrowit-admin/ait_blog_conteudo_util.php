@@ -22,7 +22,7 @@
                 <?
                   $sql = "SELECT id_post, titulo, segmento
                   FROM ait_blog_post 
-                  WHERE 1
+                  WHERE id_post IN (SELECT id_post FROM ait_conteudo_util)
                   ORDER BY id_post DESC";
                   $rs = mysqli_query($con, $sql); 
                   while($row = mysqli_fetch_array($rs)){

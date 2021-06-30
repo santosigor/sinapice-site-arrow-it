@@ -56,11 +56,6 @@
                         <input type="hidden" id="acao" name="acao" value="0">
                         <button type="button" onclick="loginIn();" class="au-btn au-btn--block au-btn-load m-b-20">Entrar</button>
                     </form>
-                    <div class="register-link">
-                        <p>
-                          <a href="#" data-toggle="modal" data-target="#modalSenha">Esqueceu sua senha?</a>
-                        </p>
-                    </div>
                 </div>
             </div>
           </div>
