@@ -142,26 +142,9 @@
           <div ait-modal="modalVideo" class="ait-component__modal">
             <div class="ait-component__modal__wrapper">
               <div class="ait-component__modal__content">
-                <div class="ait-component__modal__header">
-                  <strong>BEM VINDO (A) AO CURSO DE PINTURA ESPONTÂNEA</strong>
-                </div>
+                <span class="ait-component__modal__close ait-modal-close"></span>
                 <div class="ait-component__modal__body">
-                  <form class="ait-component__form" id="formmodallogin" name="formmodallogin" method="post">
-                    <div class="ait-component__form__ipt ait-utilities__mb__24">
-                      <label for="turma">Turma</label>
-                      <input type="text" name="turma" id="turma">
-                    </div>
-                    <div class="ait-component__form__ipt ait-utilities__mb__24">
-                      <label for="chaveacesso">Chave de acesso</label>
-                      <input type="password" name="chaveacesso" id="chaveacesso">
-                      <a href="#">Esqueceu a chave?</a>
-                    </div>
-                    <input type="hidden" id="acaologin" name="acaologin" value="0">
-                  </form>
-                </div>
-                <div class="ait-component__modal__footer">
-                  <button class="ait-component__button ait-modal-close">Voltar</button>
-                  <button onclick="DoLoginPortal();" class="ait-component__button">Entrar</button>
+                  <iframe width="100%" height="538" src="https://www.youtube.com/embed/GfIvfO9o6lo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
               </div>
             </div>

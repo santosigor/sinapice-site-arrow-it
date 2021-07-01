@@ -36,7 +36,7 @@ $(window).on('load', function () {
   }
   if (aitCurrentUrl.indexOf('/blog') > -1 || aitCurrentUrl.indexOf('/blog-integra') > -1) {
     $('.ait-structure__header nav a:nth-child(5)').addClass('active');
-    $('.ait-structure__header__logo').addClass('blog');
+    $('.ait-structure__header__logo').addClass('blog').attr('href','blog.php');
   }
   if (aitCurrentUrl.indexOf('/orcamento') > -1) {
     $('.ait-structure__header nav a:nth-child(6)').addClass('active');

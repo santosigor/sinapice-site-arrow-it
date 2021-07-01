@@ -1960,7 +1960,8 @@ img {
   .ait-content__blog__integra__autor img {
     border-radius: 100%;
     margin-right: 20px;
-    width: 68px; }
+    width: 68px;
+    height: 68px; }
     @media (max-width: 767.98px) {
       .ait-content__blog__integra__autor img {
         width: 40px; } }
