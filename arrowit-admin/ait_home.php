@@ -24,7 +24,41 @@
         }
     }
 
-    $objait->registerBanner("", $titulo, $destaque, $nomeimagem);
+    $nomeimagemmobile = "";
+    if ( isset( $_FILES[ 'imagem_mobile' ][ 'name' ] ) && $_FILES[ 'imagem_mobile' ][ 'error' ] == 0 ) {
+    
+        $arquivo_tmp = $_FILES[ 'imagem_mobile' ][ 'tmp_name' ];
+        $nome = $_FILES[ 'imagem_mobile' ][ 'name' ];
+    
+        $extensao = pathinfo ( $nome, PATHINFO_EXTENSION );
+        $extensao = strtolower ( $extensao );
+
+        $novoNome = uniqid ( time () ).'.'.$extensao;
+        $destino = 'img/home_banner/'.$novoNome;
+        
+        if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
+            $nomeimagemmobile = $novoNome;
+        }
+    }
+
+    $nomeimagemtablet = "";
+    if ( isset( $_FILES[ 'imagem_tablet' ][ 'name' ] ) && $_FILES[ 'imagem_tablet' ][ 'error' ] == 0 ) {
+    
+        $arquivo_tmp = $_FILES[ 'imagem_tablet' ][ 'tmp_name' ];
+        $nome = $_FILES[ 'imagem_tablet' ][ 'name' ];
+    
+        $extensao = pathinfo ( $nome, PATHINFO_EXTENSION );
+        $extensao = strtolower ( $extensao );
+
+        $novoNome = uniqid ( time () ).'.'.$extensao;
+        $destino = 'img/home_banner/'.$novoNome;
+        
+        if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
+            $nomeimagemtablet = $novoNome;
+        }
+    }
+
+    $objait->registerBanner("", $titulo, $destaque, $nomeimagem, $nomeimagemmobile, $nomeimagemtablet);
 
     header('Location: ait_home.php');
   }else if(@$_POST["acao"]==2){
@@ -50,7 +84,43 @@
       }
     }
 
-    $objait->registerBanner($id_banner, $titulo, $destaque, $nomeimagem);
+    $nomeimagemtablet = "";
+    if($_FILES[ 'imagem_tablet' ][ 'name' ]!=""){
+      if ( isset( $_FILES[ 'imagem_tablet' ][ 'name' ] ) && $_FILES[ 'imagem_tablet' ][ 'error' ] == 0 ) {
+        $arquivo_tmp = $_FILES[ 'imagem_tablet' ][ 'tmp_name' ];
+        $nome = $_FILES[ 'imagem_tablet' ][ 'name' ];
+    
+        $extensao = pathinfo ( $nome, PATHINFO_EXTENSION );
+        $extensao = strtolower ( $extensao );
+        
+        $novoNome = uniqid ( time () ).'.'.$extensao;
+        $destino = 'img/home_banner/'.$novoNome;
+        
+        if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
+            $nomeimagemtablet = $novoNome;
+        }
+      }
+    }
+
+    $nomeimagemmobile = "";
+    if($_FILES[ 'imagem_mobile' ][ 'name' ]!=""){
+      if ( isset( $_FILES[ 'imagem_mobile' ][ 'name' ] ) && $_FILES[ 'imagem_mobile' ][ 'error' ] == 0 ) {
+        $arquivo_tmp = $_FILES[ 'imagem_mobile' ][ 'tmp_name' ];
+        $nome = $_FILES[ 'imagem_mobile' ][ 'name' ];
+    
+        $extensao = pathinfo ( $nome, PATHINFO_EXTENSION );
+        $extensao = strtolower ( $extensao );
+        
+        $novoNome = uniqid ( time () ).'.'.$extensao;
+        $destino = 'img/home_banner/'.$novoNome;
+        
+        if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
+            $nomeimagemmobile = $novoNome;
+        }
+      }
+    }
+
+    $objait->registerBanner($id_banner, $titulo, $destaque, $nomeimagem, $nomeimagemmobile, $nomeimagemtablet);
 
   }else if(@$_POST["acao"]==3){
 
@@ -249,10 +319,28 @@
           </div>
           <div class="row form-group">
             <div class="col col-md-3">
-              <label for="file-input" class="form-control-label">Imagem</label>
+              <label for="file-input" class="form-control-label">Desktop</label>
             </div>
             <div class="col-12 col-md-9">
               <input type="file" id="imagem" name="imagem" class="form-control-file imagesize m-b-10" />
+              <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-3">
+              <label class="form-control-label">Tablet</label>
+            </div>
+            <div class="col-12 col-md-9">
+              <input type="file" id="imagem_tablet" name="imagem_tablet" class="form-control-file imagesize m-b-10" />
+              <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-3">
+              <label class="form-control-label">Mobile</label>
+            </div>
+            <div class="col-12 col-md-9">
+              <input type="file" id="imagem_mobile" name="imagem_mobile" class="form-control-file imagesize m-b-10" />
               <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
             </div>
           </div>

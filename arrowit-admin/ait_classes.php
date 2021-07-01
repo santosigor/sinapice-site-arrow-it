@@ -252,7 +252,7 @@
 			$mail->send();
 		}
 
-		function registerBanner($id_banner, $titulo, $destaque, $nomeimagem){
+		function registerBanner($id_banner, $titulo, $destaque, $nomeimagem, $nomeimagemmobile, $nomeimagemtablet){
 
 			include("config.php");
 
@@ -265,23 +265,8 @@
 			$titulo = $this->anti_sql_injection($titulo);
 			$destaque = $this->anti_sql_injection($destaque);
 			$nomeimagem = $this->anti_sql_injection($nomeimagem);
-
-			$sql = "SELECT 1
-			FROM ait_home_banner 
-			WHERE destaque = 1";
-			$rs = mysqli_query($con, $sql); 
-			if(!mysqli_num_rows($rs)<4){
-				$sql = "SELECT id_banner
-				FROM ait_home_banner 
-				WHERE destaque = 1
-				ORDER BY data_cadastro ASC";
-				$rs = mysqli_query($con, $sql); 
-				$row = mysqli_fetch_array($rs);
-				$idbanner = $row["id_banner"];
-
-				$sql = "UPDATE ait_home_banner SET destaque = '0' WHERE id_banner = $idbanner";
-				mysqli_query($con, $sql);
-			}
+			$nomeimagemmobile = $this->anti_sql_injection($nomeimagemmobile);
+			$nomeimagemtablet = $this->anti_sql_injection($nomeimagemtablet);
 
 			if($id_banner!=""){
 				$sqladd = "";
@@ -294,14 +279,36 @@
 					$imagem = $row["imagem"];
 
 					unlink("img/home_banner/".$imagem);
-					$sqladd = ", imagem = '$nomeimagem'";
+					$sqladd = ", imagem = '$nomeimagem', data_cadastro = NOW()";
+				}
+				if($nomeimagemmobile!=""){
+					$sql = "SELECT imagemmobile
+					FROM ait_home_banner 
+					WHERE id_banner = $id_banner";
+					$rs = mysqli_query($con, $sql); 
+					$row = mysqli_fetch_array($rs);
+					$imagemmobile = $row["imagemmobile"];
+
+					unlink("img/home_banner/".$imagemmobile);
+					$sqladd = ", imagemmobile = '$nomeimagemmobile', data_cadastro = NOW()";
+				}
+				if($nomeimagemtablet!=""){
+					$sql = "SELECT imagemtablet
+					FROM ait_home_banner 
+					WHERE id_banner = $id_banner";
+					$rs = mysqli_query($con, $sql); 
+					$row = mysqli_fetch_array($rs);
+					$imagemtablet = $row["imagemtablet"];
+
+					unlink("img/home_banner/".$imagemtablet);
+					$sqladd = ", imagemtablet = '$nomeimagemtablet', data_cadastro = NOW()";
 				}
 
 				$sql = "UPDATE ait_home_banner SET titulo = '$titulo', destaque = '$destaque' $sqladd WHERE id_banner = $id_banner";
 				mysqli_query($con, $sql);
 			}else{
-				$sql = "INSERT INTO ait_home_banner(id_banner, titulo, destaque, imagem, data_cadastro, quem_cadastrou, ip_cadastro) 
-				VALUES (NULL, '$titulo', '$destaque', '$nomeimagem', NOW(), '$usernow', '$ipnow')";
+				$sql = "INSERT INTO ait_home_banner(id_banner, titulo, destaque, imagem, imagemmobile, imagemtablet, data_cadastro, quem_cadastrou, ip_cadastro) 
+				VALUES (NULL, '$titulo', '$destaque', '$nomeimagem', '$nomeimagemmobile', '$nomeimagemtablet', NOW(), '$usernow', '$ipnow')";
 				mysqli_query($con, $sql);
 			}
 

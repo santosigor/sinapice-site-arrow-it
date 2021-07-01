@@ -3,18 +3,25 @@
   <section class="ait-component__banner">
     <div class="ait-component__banner__carousel">
       <?
-        $sql = "SELECT imagem
+        $sql = "SELECT imagem, imagemmobile, imagemtablet
         FROM ait_home_banner
-        WHERE destaque = 1
-        ORDER BY id_banner DESC";
+        WHERE 1
+        ORDER BY data_cadastro, destaque DESC
+        LIMIT 4";
         $rs = mysqli_query($con, $sql); 
         while($row = mysqli_fetch_array($rs)){
           $imagem = $row["imagem"];
+          $imagemmobile = $row["imagemmobile"];
+          $imagemtablet = $row["imagemtablet"];
       ?>
       <div>
         <picture>
-          <source media="(min-width: 0) and (max-width: 767.98px)" srcset="arrowit-admin/img/home_banner/<?=$imagem?>" />
-          <source media="(min-width: 768px) and (max-width: 991.98px)" srcset="arrowit-admin/img/home_banner/<?=$imagem?>" />
+        <?if($imagemmobile!=""){?>
+          <source media="(min-width: 0) and (max-width: 767.98px)" srcset="arrowit-admin/img/home_banner/<?=$imagemmobile?>" />
+        <?}?>
+        <?if($imagemtablet!=""){?>
+          <source media="(min-width: 768px) and (max-width: 991.98px)" srcset="arrowit-admin/img/home_banner/<?=$imagemtablet?>" />
+        <?}?>
           <img src="arrowit-admin/img/home_banner/<?=$imagem?>" alt="" />
         </picture>
       </div>

@@ -369,12 +369,22 @@ function enviarOrcamento(){
 function acaoBanner(t, id, tipo){
 	if(tipo==1){
 		var d = document.getElementById('form');
+
+		if(d.imagem.value==''){
+			erro = true;
+		}
 	}else if(tipo==2){
 		var d = document.getElementById('formmodal'+id);
+	}	
+	erro = false;
+
+	if(erro===false){
+		d.acao.value = t;
+		d.idbanner.value = id;
+		d.submit();
+	}else{
+		alertify.warning("Selecione a imagem Desktop!");
 	}
-	d.acao.value = t;
-	d.idbanner.value = id;
-	d.submit();
 }
 
 function acaoPost(t, id, tipo){
