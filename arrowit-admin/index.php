@@ -98,5 +98,14 @@
 
     <script src="js/ait_script.js"></script>
 
+    <script type="text/javascript">
+      // tecla enter
+      $(document).keypress(function(e) {
+        if (e.keycode == 13 || e.which == 13) {
+          loginIn();
+        }
+      });
+    </script>
+
   </body>
 </html>

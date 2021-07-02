@@ -14682,3 +14682,20 @@ form .col-md-9{
     width: calc(100% - 116px);
     max-width: calc(100% - 116px);
 }
+
+.servico-prefix {
+    padding-left: 75px;
+    position: relative;
+}
+.servico-prefix-text {
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+    padding: .375rem .75rem;
+    top:  calc(50% - 4px);
+    left: .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 600;
+    color: #495057;
+}
