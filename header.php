@@ -1,4 +1,4 @@
-<? include("arrowit-admin/config.php"); ?>
+<? include("gcs/config.php"); ?>
 
 <!doctype html>
 <html lang="pt-br">

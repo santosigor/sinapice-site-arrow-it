@@ -16,7 +16,7 @@
       ?>
         <div style="position: relative">
           <a href="blog-integra.php?id=<?=$id_post?>" style="display: block">
-            <div style="background-image: url('arrowit-admin/img/blog_post/<?=$imagem?>')">
+            <div style="background-image: url('gcs/img/blog_post/<?=$imagem?>')">
             <br>
             <br>
             <br>
@@ -69,15 +69,11 @@
                 $id_categoria = $row["id_categoria"];
 
                 if($id_categoria==1){
-                  $nomeclass = "text";
-                }else if($id_categoria==2){
-                  $nomeclass = "video";
-                }
             ?>
               <div class="ait-content__blog__card">
                 <a href="blog-integra.php?id=<?=$id_post?>">
-                  <div class="ait-content__blog__card__img" style="background-image: url('arrowit-admin/img/blog_post/<?=$imagem?>');">
-                    <span class="ait-content__blog__card__img__icon <?=$nomeclass?>"></span>
+                  <div class="ait-content__blog__card__img" style="background-image: url('gcs/img/blog_post/<?=$imagem?>');">
+                    <span class="ait-content__blog__card__img__icon text"></span>
                     <span class="ait-content__blog__card__img__categoria"><?=$segmento?></span>
                   </div>
                   <div class="ait-content__blog__card__info">
@@ -89,6 +85,35 @@
                   </div>
                 </a>
               </div>
+              <?
+                }else if($id_categoria==2){
+              ?>
+                <div class="ait-content__blog__card">
+                  <a href="#" class="ait-modal-open" ait-modal="modalVideo1<?=$id_post?>">
+                    <div class="ait-content__blog__card__img" style="background-image: url('gcs/img/blog_post/<?=$imagem?>');">
+                      <span class="ait-content__blog__card__img__icon video"></span>
+                      <span class="ait-content__blog__card__img__categoria"><?=$segmento?></span>
+                    </div>
+                    <div class="ait-content__blog__card__info">
+                      <div>
+                        <span><?=$data_cadastro?></span><span class="ait-tempo-leiura"></span>
+                      </div>
+                      <strong><?=$titulo?></strong>
+                      <div class="ait-content__blog__card__info__text"><?=$conteudo?></div>
+                    </div>
+                  </a>
+                </div>
+                <div ait-modal="modalVideo1<?=$id_post?>" class="ait-component__modal">
+                  <div class="ait-component__modal__wrapper">
+                    <div class="ait-component__modal__content">
+                      <span class="ait-component__modal__close ait-modal-close"></span>
+                      <div class="ait-component__modal__body">
+                        <iframe width="100%" height="538" src="https://www.youtube.com/embed/GfIvfO9o6lo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <?}?>
             <?}?>
           </div>
           <div class="ait-utilities__text-align__center ait-utilities__pdd__30-0">
@@ -116,7 +141,7 @@
             ?>
               <div class="ait-content__blog__card">
                 <a href="blog-integra.php?id=<?=$id_post?>">
-                  <div class="ait-content__blog__card__img" style="background-image: url('arrowit-admin/img/blog_post/<?=$imagem?>');">
+                  <div class="ait-content__blog__card__img" style="background-image: url('gcs/img/blog_post/<?=$imagem?>');">
                     <span class="ait-content__blog__card__img__icon text"></span>
                     <span class="ait-content__blog__card__img__categoria"><?=$segmento?></span>
                   </div>
@@ -136,20 +161,6 @@
           </div>
         </div>
         <div class="ait-component__tab__content" ait-tab-content="tab3">
-
-          <a href="#" class="ait-modal-open" ait-modal="modalVideo">Modal video</a>
-
-          <div ait-modal="modalVideo" class="ait-component__modal">
-            <div class="ait-component__modal__wrapper">
-              <div class="ait-component__modal__content">
-                <span class="ait-component__modal__close ait-modal-close"></span>
-                <div class="ait-component__modal__body">
-                  <iframe width="100%" height="538" src="https://www.youtube.com/embed/GfIvfO9o6lo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div class="ait-content__blog__list">
             <?
               $sql = "SELECT id_post, titulo, segmento, imagem, DATE_FORMAT(data_cadastro, '%Y-%m-%d') as datacad, conteudo
@@ -167,10 +178,10 @@
 
                 $d = explode("-", $data_cadastro);
                 $data_cadastro = $d[2]."/".$d[1]."/".$d[0];
-            ?>
+            ?>        
               <div class="ait-content__blog__card">
-                <a href="blog-integra.php?id=<?=$id_post?>">
-                  <div class="ait-content__blog__card__img" style="background-image: url('arrowit-admin/img/blog_post/<?=$imagem?>');">
+                <a href="#" class="ait-modal-open" ait-modal="modalVideo0<?=$id_post?>">
+                  <div class="ait-content__blog__card__img" style="background-image: url('gcs/img/blog_post/<?=$imagem?>');">
                     <span class="ait-content__blog__card__img__icon video"></span>
                     <span class="ait-content__blog__card__img__categoria"><?=$segmento?></span>
                   </div>
@@ -182,6 +193,16 @@
                     <div class="ait-content__blog__card__info__text"><?=$conteudo?></div>
                   </div>
                 </a>
+              </div>
+              <div ait-modal="modalVideo0<?=$id_post?>" class="ait-component__modal">
+                <div class="ait-component__modal__wrapper">
+                  <div class="ait-component__modal__content">
+                    <span class="ait-component__modal__close ait-modal-close"></span>
+                    <div class="ait-component__modal__body">
+                      <iframe width="100%" height="538" src="https://www.youtube.com/embed/GfIvfO9o6lo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                  </div>
+                </div>
               </div>
             <?}?>
           </div>

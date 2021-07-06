@@ -2,7 +2,7 @@
 
   include("header.php");
 
-  include("arrowit-admin/ait_classes.php");
+  include("gcs/ait_classes.php");
 
 	$objait = new Ait_class();
 

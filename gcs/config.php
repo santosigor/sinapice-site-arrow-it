@@ -1,4 +1,11 @@
 <?php
+    // prod
+    // $servername = "50.116.112.236";
+    // $dbname = "clie6689_db_arrowit";
+    // $username = "clie6689_arrowit";
+    // $passworddb = "r]8Y.(MkPsy@2021";
+
+    //local
     $servername = "localhost";
     $username = "root";
     $passworddb = "";

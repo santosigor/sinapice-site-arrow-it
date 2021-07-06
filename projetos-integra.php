@@ -34,7 +34,7 @@
             <div class="col-md-12 col-lg-7">
               <div class="ait-content__projetos-integra__destaque__title">
                 <div class="ait-content__projetos-integra__destaque__title__img">
-                  <img src="arrowit-admin/img/projetos/<?=$imagem?>" alt="">
+                  <img src="gcs/img/projetos/<?=$imagem?>" alt="">
                 </div>
                 <div>
                   <div class="ait-typography__h3 ait-utilities__color__blue"><?=$titulo?></div>
@@ -119,7 +119,7 @@
               $imagem = $row["imagem"];
             ?>
               <a href="projetos-integra.php?id=<?=$id_projeto?>" class="ait-content__projetos-integra__outros-proj">
-                <span><img src="arrowit-admin/img/projetos/<?=$imagem?>" alt=""></span>
+                <span><img src="gcs/img/projetos/<?=$imagem?>" alt=""></span>
               </a>
             <?}?>
           </div>

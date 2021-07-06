@@ -33,7 +33,7 @@
     <section class="ait-content__blog__integra">
       <div class="ait-container">
         <div class="ait-content__blog__integra__banner">
-          <div class="ait-content__blog__integra__banner__img" style="background-image: url('arrowit-admin/img/blog_post/<?=$imagem?>');">
+          <div class="ait-content__blog__integra__banner__img" style="background-image: url('gcs/img/blog_post/<?=$imagem?>');">
             <span class="ait-content__blog__card__img__categoria"><?=$segmento?></span>
             <div class="ait-content__blog__integra__banner__text">
               <div class="ait-content__blog__integra__banner__title">
@@ -46,7 +46,7 @@
           </div>
         </div>
         <div class="ait-content__blog__integra__autor">
-          <img src="arrowit-admin/img/blog_post/<?=$foto_autor?>" alt="">
+          <img src="gcs/img/blog_post/<?=$foto_autor?>" alt="">
           <div>
             <strong><?=$nome_autor?></strong>
             <span><?=$cargo_autor?></span>
@@ -115,7 +115,7 @@
                 <div>
                   <div class="ait-content__blog__card">
                     <a href="blog-integra.php?id=<?=$id_post?>">
-                      <div class="ait-content__blog__card__img" style="background-image: url('arrowit-admin/img/blog_post/<?=$imagem?>');">
+                      <div class="ait-content__blog__card__img" style="background-image: url('gcs/img/blog_post/<?=$imagem?>');">
                         <span class="ait-content__blog__card__img__icon <?=$nomeclass?>"></span>
                         <span class="ait-content__blog__card__img__categoria"><?=$segmento?></span>
                       </div>

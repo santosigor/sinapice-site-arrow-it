@@ -21,7 +21,7 @@ function comentarioUtil(tp, id){
   
   $.ajax({
     type: "POST",
-    url: "arrowit-admin/ait_comentario_util.php",
+    url: "gcs/ait_comentario_util.php",
     data: { tipo: tp, comentario: d.comentario.value, id_post: id}
   });
 }

@@ -248,7 +248,7 @@
               $imagem = $row["imagem"];
           ?>
             <div>
-              <img src="arrowit-admin/img/parceiros/<?=$imagem?>" alt="" width="200px">
+              <img src="gcs/img/parceiros/<?=$imagem?>" alt="" width="200px">
             </div>
           <?}?>
         </div>
@@ -273,7 +273,7 @@
         ?>
           <div class="ait-content__plataform__item">
             <a href="servicos.php#svc<?=$id_servico?>">
-              <img src="arrowit-admin/img/servicos/<?=$imagem?>" alt="#arrow.<?=$titulo?>">
+              <img src="gcs/img/servicos/<?=$imagem?>" alt="#arrow.<?=$titulo?>">
               <strong><span>#arrow</span>.<?=$titulo?></strong>
             </a>
           </div>

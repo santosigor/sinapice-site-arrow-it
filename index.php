@@ -17,12 +17,12 @@
       <div>
         <picture>
         <?if($imagemmobile!=""){?>
-          <source media="(min-width: 0) and (max-width: 767.98px)" srcset="arrowit-admin/img/home_banner/<?=$imagemmobile?>" />
+          <source media="(min-width: 0) and (max-width: 767.98px)" srcset="gcs/img/home_banner/<?=$imagemmobile?>" />
         <?}?>
         <?if($imagemtablet!=""){?>
-          <source media="(min-width: 768px) and (max-width: 991.98px)" srcset="arrowit-admin/img/home_banner/<?=$imagemtablet?>" />
+          <source media="(min-width: 768px) and (max-width: 991.98px)" srcset="gcs/img/home_banner/<?=$imagemtablet?>" />
         <?}?>
-          <img src="arrowit-admin/img/home_banner/<?=$imagem?>" alt="" />
+          <img src="gcs/img/home_banner/<?=$imagem?>" alt="" />
         </picture>
       </div>
       <?}?>
@@ -99,7 +99,7 @@
                 $imagem = $row["imagem"];
             ?>
               <div>
-                <img src="arrowit-admin/img/parceiros/<?=$imagem?>" alt="" width="200px">
+                <img src="gcs/img/parceiros/<?=$imagem?>" alt="" width="200px">
               </div>
             <?}?>
           </div>
@@ -185,7 +185,7 @@
           ?>
           <div>
             <a href="projetos-integra.php?id=<?=$id_projeto?>" class="ait-content__cases__carrossel__item">
-              <div><img src="arrowit-admin/img/projetos/<?=$imagem?>" alt=""></div>
+              <div><img src="gcs/img/projetos/<?=$imagem?>" alt=""></div>
               <strong><?=$titulo?></strong>
               <span><?=$setor?></span>
             </a>
@@ -217,7 +217,7 @@
             $imagem = $row["imagem"];
         ?>
           <div>
-            <img src="arrowit-admin/img/clientes/<?=$imagem?>" alt="" width="140px">
+            <img src="gcs/img/clientes/<?=$imagem?>" alt="" width="140px">
           </div>
         <?}?>
       </div>
@@ -264,7 +264,7 @@
         <div>
           <div class="ait-content__blog__card">
             <a href="blog-integra.php?id=<?=$id_post?>">
-              <div class="ait-content__blog__card__img" style="background-image: url('arrowit-admin/img/blog_post/<?=$imagem?>');">
+              <div class="ait-content__blog__card__img" style="background-image: url('gcs/img/blog_post/<?=$imagem?>');">
                 <span class="ait-content__blog__card__img__icon <?=$nomeclass?>"></span>
                 <span class="ait-content__blog__card__img__categoria"><?=$segmento?></span>
               </div>

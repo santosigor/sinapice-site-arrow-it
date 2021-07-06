@@ -17,7 +17,7 @@
                 $imagem = $row["imagem"];
             ?>
               <div class="ait-content__servicos__container__carrossel__item" ait-servico-item="svc<?=$id_servico?>">
-                <img src="arrowit-admin/img/servicos/<?=$imagem?>" alt="">
+                <img src="gcs/img/servicos/<?=$imagem?>" alt="">
                 <strong><span>#arrow</span>.<?=$titulo?></strong>
               </div>
             <?}?>

@@ -29,7 +29,7 @@
             <div class="ait-content__projetos__item">
               <a href="projetos-integra.php?id=<?=$id_projeto?>">
                 <div class="ait-content__projetos__item__img">
-                  <img src="arrowit-admin/img/projetos/<?=$imagem?>" alt="">
+                  <img src="gcs/img/projetos/<?=$imagem?>" alt="">
                 </div>
                 <strong><?=$titulo?></strong>
                 <span><?=$setor?></span>

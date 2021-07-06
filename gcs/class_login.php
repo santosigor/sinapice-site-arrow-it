@@ -29,7 +29,7 @@
 				$row = mysqli_fetch_array($rs);
 				$id_usuario = $row["id_usuario"];
 
-				$_SESSION["nomesessao"] = "arrowit-admin";		
+				$_SESSION["nomesessao"] = "gcs";		
 				$_SESSION["logged_".$_SESSION["nomesessao"]] = 1;
 				$_SESSION["id_usuario_".$_SESSION["nomesessao"]] = $id_usuario;
 				
