@@ -1,6 +1,4 @@
 <?php 
-
-  include('header.php'); 
   
   include("ait_classes.php");
 
@@ -70,7 +68,7 @@
 
 		$objait->registerPost("", $titulo, $segmento, $id_categoria, $autor, $cargo_autor, $conteudo, $nomeimagem, $nomefotoautor, $destaque, $linkvideo, $nomevideo, $id_autor);
      
-    header('Location: ait_blog_post.php');
+    Header('Location: ait_blog_post.php');
 	}else if(@$_POST["acao"]==2){
     @$id_post = $_POST["idpost"];
 		@$titulo = $_POST["titulo"];
@@ -146,6 +144,8 @@
 		$objait->deletePost($idpost);
   }
 
+  include('header.php'); 
+
 ?>
 
 <section class="m-t-45 m-b-40">
@@ -201,19 +201,32 @@
               <div id="divvideo" style="display:none;">
                 <div class="row form-group">
                   <div class="col col-md-3">
+                    <label for="text-input" class="form-control-label">Tipo</label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <select name="id_tipo" id="id_tipo" class="form-control" onchange="chooseTipo()">
+                        <option value="0">Selecione o tipo</option>
+                        <option value="1">Interno</option>
+                        <option value="2">Externo</option>
+                    </select>
+                  </div>
+                </div>
+                <div id="divlink" class="row form-group" style="display:none;">
+                  <div class="col col-md-3">
                     <label for="text-input" class="form-control-label">Link video</label>
                   </div>
                   <div class="col-12 col-md-9">
-                    <input type="text" id="linkvideo" name="linkvideo" class="form-control" />
+                    <input type="text" id="linkvideo" name="linkvideo" class="form-control" placeholder="Youtube" />
                   </div>
                 </div>
-                <div class="row form-group">
+                <div id="divarq" class="row form-group" style="display:none;">
                   <div class="col col-md-3">
                     <label for="file-input" class="form-control-label">Video</label>
                   </div>
                   <div class="col-12 col-md-9">
                     <input type="file" id="video" name="video" class="form-control-file videosize m-b-10" />
-                    <small class="form-text text-muted">Tamanho máximo: 10mb</small><hr>
+                    <small class="form-text text-muted">Tamanho máximo: 5mb</small><hr>
+                    <small class="form-text text-muted">Extensões: .mp4</small><hr>
                   </div>
                 </div>
               </div>
@@ -363,7 +376,7 @@
 </section>
 
 <?
-  $sql = "SELECT id_post, titulo, segmento, id_categoria, conteudo, id_autor
+  $sql = "SELECT id_post, titulo, segmento, id_categoria, conteudo, id_autor, destaque, linkvideo, video
   FROM ait_blog_post 
   WHERE 1
   ORDER BY id_post DESC";
@@ -375,6 +388,9 @@
     $id_categoria = $row["id_categoria"];
     $conteudo = $row["conteudo"];
     $id_autor = $row["id_autor"];
+    $destaque = $row["destaque"];
+    $linkvideo = $row["linkvideo"];
+    $video = $row["video"];
 ?>
 <div class="modal fade" id="mediumModal<?=$id_post?>" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
   aria-hidden="true">
@@ -416,7 +432,7 @@
               </select>
             </div>
           </div>
-          <div id="divdestaque" class="row form-group" style="display:none;">
+          <div id="divdestaque" class="row form-group" style="display:<?if($id_categoria!=1){?>none<?}?>">
             <div class="col col-md-3">
               <label class=" form-control-label">Destaque</label>
             </div>
@@ -424,19 +440,19 @@
               <div class="form-check">
                   <div class="checkbox">
                       <label for="checkbox1" class="form-check-label ">
-                          <input type="checkbox" id="destaque" name="destaque" value="1" class="form-check-input">Sim
+                          <input type="checkbox" id="destaque" name="destaque" value="1" class="form-check-input" <?if($destaque==1){?>checked<?}?>>Sim
                       </label>
                   </div>
               </div>
             </div>
           </div>
-          <div id="divvideo" style="display:none;">
+          <div id="divvideo" style="display:<?if($id_categoria!=2){?>none<?}?>">
             <div class="row form-group">
               <div class="col col-md-3">
                 <label for="text-input" class="form-control-label">Link video</label>
               </div>
               <div class="col-12 col-md-9">
-                <input type="text" id="linkvideo" name="linkvideo" class="form-control" />
+                <input type="text" id="linkvideo" name="linkvideo" class="form-control" value="<?=$linkvideo?>" />
               </div>
             </div>
             <div class="row form-group">

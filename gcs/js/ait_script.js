@@ -434,6 +434,21 @@ function chooseCategoria(){
 	}
 }
 
+function chooseTipo(){
+	d = document.form;
+
+	if(d.id_tipo.value==1){
+		document.getElementById("divarq").style.display = '';
+		document.getElementById("divlink").style.display = 'none';
+	}else if(d.id_tipo.value==2){
+		document.getElementById("divlink").style.display = '';
+		document.getElementById("divarq").style.display = 'none';
+	}else{
+		document.getElementById("divlink").style.display = 'none';
+		document.getElementById("divarq").style.display = 'none';
+	}
+}
+
 function registerAutor(){
 	d = document.form;
 

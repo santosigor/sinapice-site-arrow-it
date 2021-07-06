@@ -50,7 +50,7 @@
         <div class="ait-component__tab__content active" ait-tab-content="tab1">
           <div class="ait-content__blog__list">
             <?
-              $sql = "SELECT id_post, titulo, segmento, imagem, DATE_FORMAT(data_cadastro, '%Y-%m-%d') as datacad, conteudo, id_categoria
+              $sql = "SELECT id_post, titulo, segmento, imagem, DATE_FORMAT(data_cadastro, '%Y-%m-%d') as datacad, conteudo, id_categoria, linkvideo, video
               FROM ait_blog_post
               WHERE 1
               ORDER BY id_post DESC";
@@ -62,6 +62,11 @@
                 $conteudo = $row["conteudo"];
                 $imagem = $row["imagem"];
                 $data_cadastro = $row["datacad"];
+                $video = $row["video"];
+                $linkvideo = $row["linkvideo"];
+                $d = explode("/", $linkvideo);
+                $linkvideo  = $d[3];
+                $urlvideo = "https://www.youtube.com/embed/".$linkvideo;
 
                 $d = explode("-", $data_cadastro);
                 $data_cadastro = $d[2]."/".$d[1]."/".$d[0];
@@ -108,7 +113,15 @@
                     <div class="ait-component__modal__content">
                       <span class="ait-component__modal__close ait-modal-close"></span>
                       <div class="ait-component__modal__body">
-                        <iframe width="100%" height="538" src="https://www.youtube.com/embed/GfIvfO9o6lo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <?if($urlvideo!=""){?>
+                          <iframe width="100%" height="538" src="<?=$urlvideo?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <?}?>
+                        <?if($video!=""){?>
+                          <video width="100%" height="538" controls>
+                            <source src="gcs/img/blog_post/<?=$video?>" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        <?}?>
                       </div>
                     </div>
                   </div>
@@ -163,7 +176,7 @@
         <div class="ait-component__tab__content" ait-tab-content="tab3">
           <div class="ait-content__blog__list">
             <?
-              $sql = "SELECT id_post, titulo, segmento, imagem, DATE_FORMAT(data_cadastro, '%Y-%m-%d') as datacad, conteudo
+              $sql = "SELECT id_post, titulo, segmento, imagem, DATE_FORMAT(data_cadastro, '%Y-%m-%d') as datacad, conteudo, video, linkvideo
               FROM ait_blog_post
               WHERE id_categoria = 2
               ORDER BY id_post DESC";
@@ -175,6 +188,11 @@
                 $conteudo = $row["conteudo"];
                 $imagem = $row["imagem"];
                 $data_cadastro = $row["datacad"];
+                $video = $row["video"];
+                $linkvideo = $row["linkvideo"];
+                $d = explode("/", $linkvideo);
+                $linkvideo  = $d[3];
+                $urlvideo = "https://www.youtube.com/embed/".$linkvideo;
 
                 $d = explode("-", $data_cadastro);
                 $data_cadastro = $d[2]."/".$d[1]."/".$d[0];
@@ -199,7 +217,15 @@
                   <div class="ait-component__modal__content">
                     <span class="ait-component__modal__close ait-modal-close"></span>
                     <div class="ait-component__modal__body">
-                      <iframe width="100%" height="538" src="https://www.youtube.com/embed/GfIvfO9o6lo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <?if($urlvideo!=""){?>
+                        <iframe width="100%" height="538" src="<?=$urlvideo?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <?}?>
+                      <?if($video!=""){?>
+                        <video width="100%" height="538" controls>
+                          <source src="gcs/img/blog_post/<?=$video?>" type="video/mp4">
+                          Your browser does not support the video tag.
+                        </video>
+                      <?}?>
                     </div>
                   </div>
                 </div>
