@@ -44,16 +44,11 @@
       min-height: 100vh;
     }
     &__content {
-      box-shadow: -3px 3px 4px rgba(0, 0, 0, 0.15);
       border-radius: 4px;
       position: relative;
-      background: #fff;
-      padding: 40px 20px 20px;
       width: 100%;
-      max-width: 604px;
-      @media (min-width: 768px) {
-        padding: 40px;
-      }
+      max-width: 956px;
+      padding: 60px;
     }
     &__header {
       margin-bottom: 16px;
@@ -68,9 +63,7 @@
       }
     }
     &__body {
-      max-width: 360px;
-      margin: 0 auto;
-      margin-bottom: 32px;
+      line-height: 0
     }
     &__footer {
       

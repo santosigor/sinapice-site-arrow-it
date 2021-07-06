@@ -172,8 +172,8 @@
 			$mail->isSMTP();                                            //Send using SMTP
 			$mail->Host       = 'ssl://smtp.gmail.com';                     //Set the SMTP server to send through
 			$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-			$mail->Username   = 'mrsantoshugo04@gmail.com';                     //SMTP username
-			$mail->Password   = 'desix123@@';                               //SMTP password
+			$mail->Username   = 'santosigor013@gmail.com';                     //SMTP username
+			$mail->Password   = 'Fsw18@gmail';                               //SMTP password
 			$mail->SMTPSecure = 'ssl';         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
 			$mail->Port       = 465;                                    //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 			$mail->SMTPOptions = array(
@@ -185,8 +185,9 @@
 			);
 
 			//Recipients
-			$mail->setFrom('mrsantoshugo04@gmail.com', 'Hugo');
-			$mail->addAddress($email, $nome);     //Add a recipient
+			$mail->setFrom('santosigor013@gmail.com', 'Igor');
+			$mail->addAddress('ola@sinapice.com.br', 'Sinapice');
+			// $mail->addAddress($email, $nome);     //Add a recipient
 			// $mail->addAddress('ellen@example.com');               //Name is optional
 			// $mail->addReplyTo('info@example.com', 'Information');
 			// $mail->addCC('cc@example.com');
@@ -225,8 +226,8 @@
 			$mail->isSMTP();                                            //Send using SMTP
 			$mail->Host       = 'ssl://smtp.gmail.com';                     //Set the SMTP server to send through
 			$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-			$mail->Username   = 'mrsantoshugo04@gmail.com';                     //SMTP username
-			$mail->Password   = 'desix123@@';                               //SMTP password
+			$mail->Username   = 'santosigor013@gmail.com';                     //SMTP username
+			$mail->Password   = 'Fsw18@gmail';                               //SMTP password
 			$mail->SMTPSecure = 'ssl';         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
 			$mail->Port       = 465;                                    //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 			$mail->SMTPOptions = array(
@@ -238,8 +239,8 @@
 			);
 
 			//Recipients
-			$mail->setFrom('mrsantoshugo04@gmail.com', 'Hugo');
-			$mail->addAddress('santosigor013@gmail.com', 'igornebiantos');     //Add a recipient
+			$mail->setFrom('santosigor013@gmail.com', 'Igor');
+			$mail->addAddress('ola@sinapice.com.br', 'Sinapice');     //Add a recipient
 			// $mail->addAddress('ellen@example.com');               //Name is optional
 			// $mail->addReplyTo('info@example.com', 'Information');
 			// $mail->addCC('cc@example.com');

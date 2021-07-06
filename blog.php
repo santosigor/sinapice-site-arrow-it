@@ -65,7 +65,11 @@
                 $video = $row["video"];
                 $linkvideo = $row["linkvideo"];
                 $d = explode("/", $linkvideo);
-                $linkvideo  = $d[3];
+                if(isset($d[3])) {
+                  $linkvideo  = $d[3];
+                } else {
+                  $linkvideo  = '';
+                }
                 $urlvideo = "https://www.youtube.com/embed/".$linkvideo;
 
                 $d = explode("-", $data_cadastro);
@@ -101,7 +105,7 @@
                     </div>
                     <div class="ait-content__blog__card__info">
                       <div>
-                        <span><?=$data_cadastro?></span><span class="ait-tempo-leiura"></span>
+                        <span><?=$data_cadastro?></span><!-- <span class="ait-tempo-leiura"></span> -->
                       </div>
                       <strong><?=$titulo?></strong>
                       <div class="ait-content__blog__card__info__text"><?=$conteudo?></div>
@@ -113,10 +117,10 @@
                     <div class="ait-component__modal__content">
                       <span class="ait-component__modal__close ait-modal-close"></span>
                       <div class="ait-component__modal__body">
-                        <?if($urlvideo!=""){?>
+                        <?if(!empty($urlvideo)){?>
                           <iframe width="100%" height="538" src="<?=$urlvideo?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <?}?>
-                        <?if($video!=""){?>
+                        <?if(!empty($video)){?>
                           <video width="100%" height="538" controls>
                             <source src="gcs/img/blog_post/<?=$video?>" type="video/mp4">
                             Your browser does not support the video tag.
@@ -191,7 +195,11 @@
                 $video = $row["video"];
                 $linkvideo = $row["linkvideo"];
                 $d = explode("/", $linkvideo);
-                $linkvideo  = $d[3];
+                if(isset($d[3])) {
+                  $linkvideo  = $d[3];
+                } else {
+                  $linkvideo  = '';
+                }
                 $urlvideo = "https://www.youtube.com/embed/".$linkvideo;
 
                 $d = explode("-", $data_cadastro);
@@ -205,7 +213,7 @@
                   </div>
                   <div class="ait-content__blog__card__info">
                     <div>
-                      <span><?=$data_cadastro?></span><span class="ait-tempo-leiura"></span>
+                      <span><?=$data_cadastro?></span><!-- <span class="ait-tempo-leiura"></span> -->
                     </div>
                     <strong><?=$titulo?></strong>
                     <div class="ait-content__blog__card__info__text"><?=$conteudo?></div>
@@ -217,15 +225,15 @@
                   <div class="ait-component__modal__content">
                     <span class="ait-component__modal__close ait-modal-close"></span>
                     <div class="ait-component__modal__body">
-                      <?if($urlvideo!=""){?>
-                        <iframe width="100%" height="538" src="<?=$urlvideo?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                      <?}?>
-                      <?if($video!=""){?>
-                        <video width="100%" height="538" controls>
-                          <source src="gcs/img/blog_post/<?=$video?>" type="video/mp4">
-                          Your browser does not support the video tag.
-                        </video>
-                      <?}?>
+                      <?if(!empty($urlvideo)){?>
+                          <iframe width="100%" height="538" src="<?=$urlvideo?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <?}?>
+                        <?if(!empty($video)){?>
+                          <video width="100%" height="538" controls>
+                            <source src="gcs/img/blog_post/<?=$video?>" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        <?}?>
                     </div>
                   </div>
                 </div>
