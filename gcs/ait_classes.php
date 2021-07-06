@@ -1,4 +1,10 @@
 <?
+	session_start();
+
+	if($_SESSION["logged_".$_SESSION["nomesessao"]]!=1){
+		session_destroy();
+		Header("Location: ../index.php");
+	}
 	class Ait_class{
 
 		function anti_sql_injection($str) {
@@ -360,7 +366,7 @@
 			FROM ait_blog_post 
 			WHERE destaque = 1";
 			$rs = mysqli_query($con, $sql); 
-			if(!mysqli_num_rows($rs)<4){
+			if(mysqli_num_rows($rs)==4){
 				$sql = "SELECT id_post
 				FROM ait_blog_post 
 				WHERE destaque = 1
