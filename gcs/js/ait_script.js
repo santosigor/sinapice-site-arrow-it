@@ -24,15 +24,15 @@ $('.imagesize').change(function(){
 	const file = $(this)[0].files[0]
 	if(file.size>4000000){
 		$('.imagesize').val('');
-	  alert("O tamanho do arquivo excede 4mb!");
+	  alertify.warning("O tamanho do arquivo excede 4mb!");
 	}
 });
 
 $('.videosize').change(function(){
 	const file = $(this)[0].files[0]
-	if(file.size>10000000){
+	if(file.size>5000000){
 		$('.videosize').val('');
-	  alert("O tamanho do arquivo excede 10mb!");
+	  alertify.warning("O tamanho do arquivo excede 5mb!");
 	}
 });
 
@@ -40,30 +40,30 @@ function cadastroSubmit(){
 	d = document.form;
 	erro = false;
 
-	text = "";
 	if(d.legenda.value==''){
 		erro = true;
-		text += "- Legenda \n";
 	}
 
 	if(d.imagembanner.value==''){
 		erro = true;
-		text += "- Imagem \n";
 	}
 
 	if(erro===false){
 		d.acao.value = 1;
+		peSetCookie("ait_res", "2", 1);
 		d.submit();
 	}else{
-		alert(text);
+		alertify.warning("Preencha todos os campos!");
 	}
 }
 
 function acaoServico(t, id, tipo){
 	if(tipo==1){
 		var d = document.getElementById('form');
+		peSetCookie("ait_res", "2", 1);
 	}else if(tipo==2){
 		var d = document.getElementById('formmodal'+id);
+		peSetCookie("ait_res", "3", 1);
 	}
 	d.acao.value = t;
 	d.idservico.value = id;
@@ -73,8 +73,10 @@ function acaoServico(t, id, tipo){
 function acaoProjetos(t, id, tipo){
 	if(tipo==1){
 		var d = document.getElementById('form');
+		peSetCookie("ait_res", "2", 1);
 	}else if(tipo==2){
 		var d = document.getElementById('formmodal'+id);
+		peSetCookie("ait_res", "3", 1);
 	}
 	d.acao.value = t;
 	d.idprojeto.value = id;
@@ -120,8 +122,10 @@ function BloquearLetras(e){
 function acaoCursos(t, id, tipo){
 	if(tipo==1){
 		var d = document.getElementById('form');
+		peSetCookie("ait_res", "2", 1);
 	}else if(tipo==2){
 		var d = document.getElementById('formmodal'+id);
+		peSetCookie("ait_res", "3", 1);
 	}
 	d.acao.value = t;
 	d.idcurso.value = id;
@@ -131,8 +135,10 @@ function acaoCursos(t, id, tipo){
 function acaoFormPag(t, id, tipo){
 	if(tipo==1){
 		var d = document.getElementById('form');
+		peSetCookie("ait_res", "2", 1);
 	}else if(tipo==2){
 		var d = document.getElementById('formmodal'+id);
+		peSetCookie("ait_res", "3", 1);
 	}
 	d.acao.value = t;
 	d.idforma.value = id;
@@ -142,8 +148,10 @@ function acaoFormPag(t, id, tipo){
 function acaoExercicios(t, id, tipo){
 	if(tipo==1){
 		var d = document.getElementById('form');
+		peSetCookie("ait_res", "2", 1);
 	}else if(tipo==2){
 		var d = document.getElementById('formmodal'+id);
+		peSetCookie("ait_res", "3", 1);
 	}
 	d.acao.value = t;
 	d.idexercicio.value = id;
@@ -317,59 +325,50 @@ function enviarOrcamento(){
 	d = document.form;
 	erro = false;
 
-	text = "preencha os campos abaixo:\n";
 	if(d.nome.value==''){
 		erro = true;
-		text += "- Nome \n";
 	}
 
 	if(d.email.value==''){
 		erro = true;
-		text += "- E-mail \n";
 	}
 
 	if(d.empresa.value==''){
 		erro = true;
-		text += "- Empresa \n";
 	}
 
 	if(d.telefone.value==''){
 		erro = true;
-		text += "- Telefone \n";
 	}
 
 	if(d.cargo.value==''){
 		erro = true;
-		text += "- Cargo \n";
 	}
 
 	if(d.solucao.value==''){
 		erro = true;
-		text += "- Solução \n";
 	}
 
 	if(!d.consentimento.checked){
 		erro = true;
-		text += "- Consentimento \n";
 	}
 
 	if(!d.privacidade.checked){
 		erro = true;
-		text += "- Privacidade \n";
 	}
 
 	if(erro===false){
 		d.acao.value = 1;
+		peSetCookie("ait_res", "5", 1);
 		d.submit();
 	}else{
-		alert(text);
+		alertify.warning("Preencha todos os campos!");
 	}
 }
 
 function acaoBanner(t, id, tipo){
 	if(tipo==1){
 		var d = document.getElementById('form');
-
 		if(d.imagem.value==''){
 			erro = true;
 		}
@@ -379,6 +378,11 @@ function acaoBanner(t, id, tipo){
 	erro = false;
 
 	if(erro===false){
+		if(tipo==1){
+			peSetCookie("ait_res", "2", 1);
+		}else if(tipo==2){
+			peSetCookie("ait_res", "3", 1);
+		}	
 		d.acao.value = t;
 		d.idbanner.value = id;
 		d.submit();
@@ -390,8 +394,10 @@ function acaoBanner(t, id, tipo){
 function acaoPost(t, id, tipo){
 	if(tipo==1){
 		var d = document.getElementById('form');
+		peSetCookie("ait_res", "2", 1);
 	}else if(tipo==2){
 		var d = document.getElementById('formmodal'+id);
+		peSetCookie("ait_res", "3", 1);
 	}
 	d.acao.value = t;
 	d.idpost.value = id;
@@ -413,6 +419,7 @@ function updatePassword(){
 
 	if(erro===false){
 		d.acao.value = 1;
+		peSetCookie("ait_res", "3", 1);
 		d.submit();
 	}else{
 		alertify.warning("Preencha todos os campos!");
@@ -449,6 +456,21 @@ function chooseTipo(){
 	}
 }
 
+function chooseTipoModal(id){
+	var d = document.getElementById('formmodal'+id);
+
+	if(d.id_tipo.value==1){
+		document.getElementById("divarqmodal").style.display = '';
+		document.getElementById("divlinkmodal").style.display = 'none';
+	}else if(d.id_tipo.value==2){
+		document.getElementById("divlinkmodal").style.display = '';
+		document.getElementById("divarqmodal").style.display = 'none';
+	}else{
+		document.getElementById("divlinkmodal").style.display = 'none';
+		document.getElementById("divarqmodal").style.display = 'none';
+	}
+}
+
 function registerAutor(){
 	d = document.form;
 
@@ -462,8 +484,10 @@ function registerAutor(){
 function acaoParceiros(t, id, tipo){
 	if(tipo==1){
 		var d = document.getElementById('form');
+		peSetCookie("ait_res", "2", 1);
 	}else if(tipo==2){
 		var d = document.getElementById('formmodal'+id);
+		peSetCookie("ait_res", "3", 1);
 	}
 	d.acao.value = t;
 	d.idparceiro.value = id;
@@ -473,8 +497,10 @@ function acaoParceiros(t, id, tipo){
 function acaoClientes(t, id, tipo){
 	if(tipo==1){
 		var d = document.getElementById('form');
+		peSetCookie("ait_res", "2", 1);
 	}else if(tipo==2){
 		var d = document.getElementById('formmodal'+id);
+		peSetCookie("ait_res", "3", 1);
 	}
 	d.acao.value = t;
 	d.idcliente.value = id;
@@ -484,8 +510,10 @@ function acaoClientes(t, id, tipo){
 function acaoDepoimentos(t, id, tipo){
 	if(tipo==1){
 		var d = document.getElementById('form');
+		peSetCookie("ait_res", "2", 1);
 	}else if(tipo==2){
 		var d = document.getElementById('formmodal'+id);
+		peSetCookie("ait_res", "3", 1);
 	}
 	d.acao.value = t;
 	d.iddepoimento.value = id;
@@ -532,6 +560,8 @@ if(peGetCookie("ait_res")){
 		alertify.message('Atualizado com sucesso!');
 	}else if(cookie==4){
 		alertify.error('Excluído com sucesso!');
+	}else if(cookie==5){
+		alertify.success('E-mail enviado com sucesso!');
 	}
 	peSetCookie("ait_res", "", -1);
 }

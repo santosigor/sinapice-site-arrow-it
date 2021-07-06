@@ -51,7 +51,7 @@
             <div class="col-md-6">
               <div class="ait-component__form">
                 <label>E-mail (Corporativo)</label>
-                <input type="text" id="email" name="email">
+                <input type="email" id="email" name="email" required >
               </div>
             </div>
             <div class="col-md-6">

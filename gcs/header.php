@@ -1,6 +1,3 @@
-<?php 
-  include('config.php'); 
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -57,39 +54,39 @@
             <nav class="navbar-sidebar2">
             <ul class="list-unstyled navbar__list">
               <li>
-                <a href="ait_dadosgerais.php"> <i class="fas fa-desktop"></i>Dados gerais</a>
+                <a href="ait_dadosgerais.php"> <i class="fas fa-list-ul"></i>Dados gerais</a>
               </li>
               <li class="has-sub">
                 <a class="js-arrow" href="#">
-                  <i class="fas fa-user"></i>Home
+                  <i class="fas fa-desktop"></i>Home
                   <span class="arrow">
                     <i class="fas fa-angle-down"></i>
                   </span>
                 </a>
                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                   <li>
-                    <a href="ait_home.php"> <i class="far fa-file-alt"></i>Banner</a>
+                    <a href="ait_home.php"> <i class="fas fa-images"></i>Banner</a>
                   </li>
                   <li>
-                    <a href="ait_parceiros.php"> <i class="fas fa-tag"></i>Parceiros</a>
+                    <a href="ait_parceiros.php"> <i class="fas fa-handshake"></i>Parceiros</a>
                   </li>
                   <li>
-                    <a href="ait_clientes.php"> <i class="fas fa-tag"></i>Clientes</a>
+                    <a href="ait_clientes.php"> <i class="fas fa-users"></i>Clientes</a>
                   </li>
                 </ul>
               </li>
               <li>
-                <a href="ait_servicos.php"> <i class="fas fa-file-alt"></i>Serviços</a>
+                <a href="ait_servicos.php"> <i class="fas fa-cog"></i>Serviços</a>
               </li>
               <li>
-                <a href="ait_projetos.php"> <i class="fas fa-tag"></i>Projetos</a>
+                <a href="ait_projetos.php"> <i class="fas fa-clipboard-check"></i>Projetos</a>
               </li>
               <li>
                 <a href="ait_depoimentos.php"> <i class="fas fa-align-left"></i>Depoimentos</a>
               </li>
               <li class="has-sub">
                 <a class="js-arrow" href="#">
-                  <i class="fas fa-user"></i>Blog
+                  <i class="fab fa-blogger-b"></i>Blog
                   <span class="arrow">
                     <i class="fas fa-angle-down"></i>
                   </span>

@@ -1,4 +1,7 @@
 <?
+
+	include('config.php'); 
+	
 	session_start();
 
 	if($_SESSION["logged_".$_SESSION["nomesessao"]]!=1){
@@ -174,6 +177,8 @@
 			$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
 			$mail->Username   = 'santosigor013@gmail.com';                     //SMTP username
 			$mail->Password   = 'Fsw18@gmail';                               //SMTP password
+			// $mail->Username   = 'site@arrowit.com.br';                     //SMTP username
+			// $mail->Password   = '$1T3@$3rv1c0$@rr0wIT9';                               //SMTP password
 			$mail->SMTPSecure = 'ssl';         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
 			$mail->Port       = 465;                                    //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 			$mail->SMTPOptions = array(
@@ -186,12 +191,10 @@
 
 			//Recipients
 			$mail->setFrom('santosigor013@gmail.com', 'Igor');
+			// $mail->addAddress('santosigor013@gmail.com', 'Igor');
 			$mail->addAddress('ola@sinapice.com.br', 'Sinapice');
 			// $mail->addAddress($email, $nome);     //Add a recipient
-			// $mail->addAddress('ellen@example.com');               //Name is optional
-			// $mail->addReplyTo('info@example.com', 'Information');
-			// $mail->addCC('cc@example.com');
-			// $mail->addBCC('bcc@example.com');
+
 
 			//Attachments
 			// $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
@@ -199,9 +202,13 @@
 
 			//Content
 			$mail->isHTML(true);                                  //Set email format to HTML
-			$mail->Subject = 'OLÁ '.$nome.' TUDO BEM?';
-			$mail->Body    = 'recebemos seus dados';
-			// $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+			$mail->Subject = utf8_decode('[Site ArrowIT] Orçamento');
+
+			$html = '<p>Olá, '.$nome.'<br><br><b>OBRIGADO PELO SEU CONTATO!</b><br><br>Recebemos a sua mensagem.<br>Em breve um de nossos especialistas retornará a sua mensagem.<br><br>Até logo!</p>';
+
+			$html = utf8_decode($html);
+
+			$mail->Body = $html;
 
 			$mail->send();
 
@@ -228,6 +235,8 @@
 			$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
 			$mail->Username   = 'santosigor013@gmail.com';                     //SMTP username
 			$mail->Password   = 'Fsw18@gmail';                               //SMTP password
+			// $mail->Username   = 'site@arrowit.com.br';                     //SMTP username
+			// $mail->Password   = '$1T3@$3rv1c0$@rr0wIT9';                               //SMTP password
 			$mail->SMTPSecure = 'ssl';         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
 			$mail->Port       = 465;                                    //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 			$mail->SMTPOptions = array(
@@ -240,21 +249,23 @@
 
 			//Recipients
 			$mail->setFrom('santosigor013@gmail.com', 'Igor');
-			$mail->addAddress('ola@sinapice.com.br', 'Sinapice');     //Add a recipient
-			// $mail->addAddress('ellen@example.com');               //Name is optional
-			// $mail->addReplyTo('info@example.com', 'Information');
-			// $mail->addCC('cc@example.com');
-			// $mail->addBCC('bcc@example.com');
-
+			// $mail->addAddress('santosigor013@gmail.com', 'Igor');
+			$mail->addAddress('ola@sinapice.com.br', 'Sinapice');
+			// $mail->addAddress('comercial@arrowit.com.br', 'Comercial ArrowIT');
+			
 			//Attachments
 			// $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
 			// $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
 
 			//Content
 			$mail->isHTML(true);                                  //Set email format to HTML
-			$mail->Subject = 'OLÁ '.$nome.' TUDO BEM?';
-			$mail->Body    = 'empresa:'.$empresa.' '.$telefone.' '.$cargo.' '.$solucao.' '.$consentimento.' '.$privacidade.' ';
-			// $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+			$mail->Subject = utf8_decode('[Site ArrowIT] Orçamento');
+
+			$html = 'Nome: '.$nome.'<br>Empresa: '.$empresa.'<br>Tel: '.$telefone.'<br>Cargo: '.$cargo.'<br>Solucao: '.$solucao.'<br>Consentimento: '.$consentimento.'<br>Privacidade: '.$privacidade.' ';
+			
+			$html = utf8_decode($html);
+
+			$mail->Body = $html;
 
 			$mail->send();
 		}

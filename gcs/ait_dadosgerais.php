@@ -1,5 +1,4 @@
 <?php 
-  include('header.php'); 
 
   include("ait_classes.php");
 
@@ -31,6 +30,8 @@
   $facebook = $row["facebook"];
   $instagram = $row["instagram"];
   $linkedin = $row["linkedin"];
+
+  include('header.php'); 
 ?>
 
 <section class="m-t-45 m-b-40">

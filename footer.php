@@ -58,9 +58,12 @@
 
     <!-- jquery e plugins -->
     <script src="./dist/js/jquery.min.js"></script>
+
+    <script src="./gcs/js/alertify.min.js"></script>
     
     <!-- AIT JS -->    
     <script src="./dist/js/ait.min.js"></script>
+    <script src="./gcs/js/ait_script.js"></script>
 
   </body>
 </html>

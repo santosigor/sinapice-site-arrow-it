@@ -42,7 +42,7 @@
                   <label for="text-input" class="form-control-label">Texto</label>
                 </div>
                 <div class="col-12 col-md-9">
-                  <textarea id="texto" name="texto" rows="4" cols="50" class="form-control" style="resize: none;height: 150px;"></textarea>
+                  <textarea id="texto" name="texto" rows="4" cols="50" class="form-control no-edit" style="resize: none;height: 150px;"></textarea>
                 </div>
               </div>
               <div class="row form-group">
@@ -165,7 +165,7 @@
               <label for="text-input" class="form-control-label">Texto</label>
             </div>
             <div class="col-12 col-md-9">
-              <textarea id="texto" name="texto" rows="4" cols="50" class="form-control" style="resize: none;height: 150px;"><?=$texto?></textarea>
+              <textarea id="texto" name="texto" rows="4" cols="50" class="form-control no-edit" style="resize: none;height: 150px;"><?=$texto?></textarea>
             </div>
           </div>
           <div class="row form-group">

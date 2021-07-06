@@ -69,8 +69,8 @@
             <div class="ait-components__conteudo-util__msg">
               <div class="ait-components__alert success">
                 <span class="ait-components__alert__close"></span>
-                <strong>Mensagem de informação</strong>
-                <p>Lorem ipsum dolor sit amet dolor sit</p>
+                <strong>Obrigado!</strong>
+                <p>Foi um prazer te ajudar :)</p>
               </div>
             </div>
           </div>
@@ -134,5 +134,22 @@
       </div>
     </section>
     <?}?>
+
+    <div class="ait-compartilhar" title="Compartilhar">
+      <div class="ait-compartilhar__content">
+        <a href="#" class="facebook" target="_blank" title="Facebook">
+          <img src="./dist/images/icons/ait-svg-facebook.svg" alt="Facebook">
+        </a>
+        <a href="#" class="twitter" target="_blank" title="Twitter">
+          <img src="./dist/images/icons/ait-svg-twitter.svg" alt="Twitter">
+        </a>
+        <a href="#" class="linkedin" target="_blank" title="Linkedin">
+          <img src="./dist/images/icons/ait-svg-linkedin.svg" alt="Linkedin">
+        </a>
+        <a href="#" class="whatsapp" target="_blank" title="Whatsapp">
+          <img src="./dist/images/icons/ait-svg-whatsapp.svg" alt="Whatsapp">
+        </a>
+      </div>
+    </div>
 
 <? include("footer.php"); ?>

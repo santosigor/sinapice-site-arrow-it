@@ -37,7 +37,7 @@
       <div class="ait-component__tab__nav">
         <div class="ait-container">
           <div class="ait-content__blog__search">
-            <input type="text" name="search" placeholder="O que você procura?">
+            <input type="text" name="search" class="searchItem" onkeyup="aitSearchItem()" placeholder="O que você procura?">
           </div>
           <ul>
             <li class="active" ait-tab-item="tab1">TODOS</li>
@@ -64,14 +64,11 @@
                 $data_cadastro = $row["datacad"];
                 $video = $row["video"];
                 $linkvideo = $row["linkvideo"];
-                $d = explode("/", $linkvideo);
-                if(isset($d[3])) {
+                if($linkvideo!='') {
+                  $d = explode("/", $linkvideo);
                   $linkvideo  = $d[3];
-                } else {
-                  $linkvideo  = '';
+                  $urlvideo = "https://www.youtube.com/embed/".$linkvideo;
                 }
-                $urlvideo = "https://www.youtube.com/embed/".$linkvideo;
-
                 $d = explode("-", $data_cadastro);
                 $data_cadastro = $d[2]."/".$d[1]."/".$d[0];
 
@@ -117,10 +114,10 @@
                     <div class="ait-component__modal__content">
                       <span class="ait-component__modal__close ait-modal-close"></span>
                       <div class="ait-component__modal__body">
-                        <?if(!empty($urlvideo)){?>
+                        <?if($linkvideo!=''){?>
                           <iframe width="100%" height="538" src="<?=$urlvideo?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <?}?>
-                        <?if(!empty($video)){?>
+                        <?if($linkvideo==''){?>
                           <video width="100%" height="538" controls>
                             <source src="gcs/img/blog_post/<?=$video?>" type="video/mp4">
                             Your browser does not support the video tag.
@@ -133,9 +130,9 @@
               <?}?>
             <?}?>
           </div>
-          <div class="ait-utilities__text-align__center ait-utilities__pdd__30-0">
+          <!-- <div class="ait-utilities__text-align__center ait-utilities__pdd__30-0">
             <a href="#" class="ait-component__button">Carregar mais</a>
-          </div>
+          </div> -->
         </div>
         <div class="ait-component__tab__content" ait-tab-content="tab2">
           <div class="ait-content__blog__list">
@@ -173,9 +170,9 @@
               </div>
             <?}?>
           </div>
-          <div class="ait-utilities__text-align__center ait-utilities__pdd__30-0">
+          <!-- <div class="ait-utilities__text-align__center ait-utilities__pdd__30-0">
             <a href="#" class="ait-component__button">Carregar mais</a>
-          </div>
+          </div> -->
         </div>
         <div class="ait-component__tab__content" ait-tab-content="tab3">
           <div class="ait-content__blog__list">
@@ -194,14 +191,11 @@
                 $data_cadastro = $row["datacad"];
                 $video = $row["video"];
                 $linkvideo = $row["linkvideo"];
-                $d = explode("/", $linkvideo);
-                if(isset($d[3])) {
+                if($linkvideo!='') {
+                  $d = explode("/", $linkvideo);
                   $linkvideo  = $d[3];
-                } else {
-                  $linkvideo  = '';
+                  $urlvideo = "https://www.youtube.com/embed/".$linkvideo;
                 }
-                $urlvideo = "https://www.youtube.com/embed/".$linkvideo;
-
                 $d = explode("-", $data_cadastro);
                 $data_cadastro = $d[2]."/".$d[1]."/".$d[0];
             ?>        
@@ -225,10 +219,10 @@
                   <div class="ait-component__modal__content">
                     <span class="ait-component__modal__close ait-modal-close"></span>
                     <div class="ait-component__modal__body">
-                      <?if(!empty($urlvideo)){?>
+                      <?if($linkvideo!=''){?>
                           <iframe width="100%" height="538" src="<?=$urlvideo?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <?}?>
-                        <?if(!empty($video)){?>
+                        <?if($linkvideo==''){?>
                           <video width="100%" height="538" controls>
                             <source src="gcs/img/blog_post/<?=$video?>" type="video/mp4">
                             Your browser does not support the video tag.
@@ -240,9 +234,9 @@
               </div>
             <?}?>
           </div>
-          <div class="ait-utilities__text-align__center ait-utilities__pdd__30-0">
+          <!-- <div class="ait-utilities__text-align__center ait-utilities__pdd__30-0">
             <a href="#" class="ait-component__button">Carregar mais</a>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

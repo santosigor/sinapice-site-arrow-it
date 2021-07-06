@@ -449,19 +449,32 @@
           <div id="divvideo" style="display:<?if($id_categoria!=2){?>none<?}?>">
             <div class="row form-group">
               <div class="col col-md-3">
+                <label for="text-input" class="form-control-label">Tipo</label>
+              </div>
+              <div class="col-12 col-md-9">
+                <select name="id_tipo" id="id_tipo" class="form-control" onchange="chooseTipoModal(<?=$id_post?>)">
+                    <option value="0">Selecione o tipo</option>
+                    <option value="1" <?if($linkvideo==''){?>selected<?}?>>Interno</option>
+                    <option value="2" <?if($linkvideo!=''){?>selected<?}?>>Externo</option>
+                </select>
+              </div>
+            </div>
+            <div id="divlinkmodal" class="row form-group" style="display:<?if($linkvideo==''){?>none<?}?>">
+              <div class="col col-md-3">
                 <label for="text-input" class="form-control-label">Link video</label>
               </div>
               <div class="col-12 col-md-9">
-                <input type="text" id="linkvideo" name="linkvideo" class="form-control" value="<?=$linkvideo?>" />
+                <input type="text" id="linkvideo" name="linkvideo" class="form-control" placeholder="Youtube" value="<?=$linkvideo?>" />
               </div>
             </div>
-            <div class="row form-group">
+            <div id="divarqmodal" class="row form-group" style="display:<?if($linkvideo!=''){?>none<?}?>">
               <div class="col col-md-3">
                 <label for="file-input" class="form-control-label">Video</label>
               </div>
               <div class="col-12 col-md-9">
                 <input type="file" id="video" name="video" class="form-control-file videosize m-b-10" />
-                <small class="form-text text-muted">Tamanho máximo: 10mb</small><hr>
+                <small class="form-text text-muted">Tamanho máximo: 5mb</small><hr>
+                <small class="form-text text-muted">Extensões: .mp4</small><hr>
               </div>
             </div>
           </div>

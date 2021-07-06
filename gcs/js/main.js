@@ -165,7 +165,7 @@
 })(jQuery);
 
 tinymce.init({
-  selector: 'textarea',
+  selector: 'textarea:not(.no-edit)',
   height: 250,
   language: 'pt_BR',
   menubar: false,
