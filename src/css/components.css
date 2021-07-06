@@ -29,7 +29,9 @@
       position: absolute;
       left: 0;
       bottom: 0;
-      z-index: 4; } }
+      z-index: 4; }
+    .ait-component__banner__carousel.before-none:before {
+      display: none; } }
 
 .ait-component__banner picture {
   display: flex;

@@ -1,7 +1,7 @@
 <? include("header.php"); ?>
 
   <section class="ait-component__banner">
-    <div class="ait-component__banner__carousel">
+    <div class="ait-component__banner__carousel before-none">
       <?
         $sql = "SELECT id_post, titulo, imagem, segmento
         FROM ait_blog_post
@@ -14,17 +14,17 @@
           $titulo = $row["titulo"];
           $segmento = $row["segmento"];
       ?>
-        <div style="position: relative">
-          <a href="blog-integra.php?id=<?=$id_post?>" style="display: block">
-            <div style="background-image: url('gcs/img/blog_post/<?=$imagem?>')">
-            <br>
-            <br>
-            <br>
-              <span><?=$segmento?></span>
-              <strong><?=$titulo?></strong>
-            <br>
-            <br>
-            <br>
+        <div class="ait-content__blog__banner">
+          <a href="blog-integra.php?id=<?=$id_post?>">
+            <div class="ait-content__blog__banner__img" style="background-image: url('gcs/img/blog_post/<?=$imagem?>');">
+              <div class="ait-container">
+                <div class="ait-content__blog__banner__text">
+                  <span><?=$segmento?></span>
+                  <div class="ait-content__blog__banner__title">
+                    <?=$titulo?>
+                  </div>
+                </div>
+              </div>
             </div>
           </a>
         </div>
