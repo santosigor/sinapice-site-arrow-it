@@ -1748,7 +1748,7 @@ img {
     position: relative; }
     @media (max-width: 767.98px) {
       .ait-content__blog__banner__img {
-        height: 220px; } }
+        height: 215px; } }
     .ait-content__blog__banner__img:before {
       content: '';
       width: 100%;
@@ -1764,20 +1764,21 @@ img {
     left: 0;
     width: 100%;
     padding: 0 100px; }
-    @media (max-width: 991.98px) {
-      .ait-content__blog__banner__text {
-        padding: 0 125px; } }
     @media (max-width: 767.98px) {
       .ait-content__blog__banner__text {
-        padding: 0 25px;
-        bottom: 25px; } }
+        padding: 0 50px;
+        bottom: 50px; } }
     .ait-content__blog__banner__text span {
       font-size: 14px;
       line-height: 19px;
       text-transform: uppercase;
       display: block;
+      font-weight: 700;
       margin-bottom: 27px;
       color: #F1F2F6; }
+      @media (max-width: 991.98px) {
+        .ait-content__blog__banner__text span {
+          margin-bottom: 19px; } }
   .ait-content__blog__banner__title {
     font-size: 42px;
     line-height: 55px;
@@ -1787,12 +1788,12 @@ img {
     max-width: 500px; }
     @media (max-width: 991.98px) {
       .ait-content__blog__banner__title {
-        font-size: 24px;
-        line-height: 34px; } }
+        font-size: 35px;
+        line-height: 46px; } }
     @media (max-width: 767.98px) {
       .ait-content__blog__banner__title {
-        font-size: 19px;
-        line-height: 25px; } }
+        font-size: 23px;
+        line-height: 30px; } }
 
 .ait-content__blog__list {
   margin: 0 auto;
