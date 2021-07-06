@@ -1,4 +1,4 @@
-/* PE Login(index) */
+/* Login(index) */
 function loginIn(){
 	d = document.form;
 	erro = false;
@@ -16,6 +16,14 @@ function loginIn(){
 		d.submit();
 	}else{
 		alertify.warning("Preencha todos os campos!");
+	}
+}
+
+function irPara(tp, pag){
+	if(tp==1){
+		location.href = pag;
+	}else if(tp==2){
+		window.open(pag);
 	}
 }
 
