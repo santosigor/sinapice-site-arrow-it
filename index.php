@@ -93,7 +93,7 @@
               $sql = "SELECT imagem
               FROM ait_parceiros
               WHERE 1
-              ORDER BY id_parceiro DESC";
+              ORDER BY id_parceiro ASC";
               $rs = mysqli_query($con, $sql); 
               while($row = mysqli_fetch_array($rs)){
                 $imagem = $row["imagem"];
@@ -211,7 +211,7 @@
           $sql = "SELECT imagem
           FROM ait_clientes
           WHERE 1
-          ORDER BY id_cliente DESC";
+          ORDER BY id_cliente ASC";
           $rs = mysqli_query($con, $sql); 
           while($row = mysqli_fetch_array($rs)){
             $imagem = $row["imagem"];
@@ -224,11 +224,11 @@
     </div>
   </section>
   <?
-    $sql = "SELECT id_post, titulo, segmento, imagem, DATE_FORMAT(data_cadastro, '%Y-%m-%d') as datacad, conteudo, id_categoria
-            FROM ait_blog_post
-            WHERE 1
-            ORDER BY id_post DESC
-            LIMIT 8";
+    $sql = "SELECT id_post, titulo, segmento, imagem, DATE_FORMAT(data_cadastro, '%Y-%m-%d') as datacad, conteudo, id_categoria, linkvideo, video
+              FROM ait_blog_post
+              WHERE 1
+              ORDER BY id_post DESC
+              LIMIT 8";
     $rs = mysqli_query($con, $sql); 
     if(mysqli_num_rows($rs)>0){
   ?>
@@ -242,41 +242,125 @@
     <div class="ait-container">
       <div class="ait-component__carousel center">
         <?
+          $sql = "SELECT id_post, titulo, segmento, imagem, DATE_FORMAT(data_cadastro, '%Y-%m-%d') as datacad, conteudo, id_categoria, linkvideo, video
+          FROM ait_blog_post
+          WHERE 1
+          ORDER BY id_post DESC";
+          $rs = mysqli_query($con, $sql); 
           while($row = mysqli_fetch_array($rs)){
+            $id_post = $row["id_post"];
+            $titulo = $row["titulo"];
+            $segmento = $row["segmento"];
+            $conteudo = $row["conteudo"];
+            $imagem = $row["imagem"];
+            $data_cadastro = $row["datacad"];
+            $video = $row["video"];
+            $linkvideo = $row["linkvideo"];
+            if($linkvideo!='') {
+              $d = explode("/", $linkvideo);
+              $linkvideo  = $d[3];
+              $urlvideo = "https://www.youtube.com/embed/".$linkvideo."?version=3&enablejsapi=1";
+            }
+            $d = explode("-", $data_cadastro);
+            $data_cadastro = $d[2]."/".$d[1]."/".$d[0];
+
+            $id_categoria = $row["id_categoria"];
+
+            if($id_categoria==1){
+        ?>
+          <div>
+            <div class="ait-content__blog__card">
+              <a href="blog-integra.php?id=<?=$id_post?>">
+                <div class="ait-content__blog__card__img" style="background-image: url('gcs/img/blog_post/<?=$imagem?>');">
+                  <span class="ait-content__blog__card__img__icon text"></span>
+                  <span class="ait-content__blog__card__img__categoria"><?=$segmento?></span>
+                </div>
+                <div class="ait-content__blog__card__info">
+                  <div>
+                    <span><?=$data_cadastro?></span><span class="ait-tempo-leiura"></span>
+                  </div>
+                  <strong><?=$titulo?></strong>
+                  <div class="ait-content__blog__card__info__text"><?=$conteudo?></div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <?
+            }else if($id_categoria==2){
+          ?>
+            <div>
+              <div class="ait-content__blog__card">
+                <a href="#" class="ait-modal-open" ait-modal="modalVideo1<?=$id_post?>">
+                  <div class="ait-content__blog__card__img" style="
+                  <?if($linkvideo==''){?>
+                    background-image: url('gcs/img/blog_post/<?=$imagem?>');
+                  <?}else if($linkvideo!=''){?>
+                    background-image: url('https://img.youtube.com/vi/<?=$linkvideo?>/mqdefault.jpg');
+                  <?}?>
+                  ">
+                    <span class="ait-content__blog__card__img__icon video"></span>
+                    <span class="ait-content__blog__card__img__categoria"><?=$segmento?></span>
+                  </div>
+                  <div class="ait-content__blog__card__info">
+                    <div>
+                      <span><?=$data_cadastro?></span><!-- <span class="ait-tempo-leiura"></span> -->
+                    </div>
+                    <strong><?=$titulo?></strong>
+                    <div class="ait-content__blog__card__info__text"><?=$conteudo?></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          <?}?>
+        <?}?>
+      </div>
+      <?
+        $sql = "SELECT id_post, titulo, segmento, imagem, DATE_FORMAT(data_cadastro, '%Y-%m-%d') as datacad, conteudo, id_categoria, linkvideo, video
+        FROM ait_blog_post
+        WHERE 1
+        ORDER BY id_post DESC";
+        $rs = mysqli_query($con, $sql); 
+        while($row = mysqli_fetch_array($rs)){
           $id_post = $row["id_post"];
           $titulo = $row["titulo"];
           $segmento = $row["segmento"];
           $conteudo = $row["conteudo"];
           $imagem = $row["imagem"];
           $data_cadastro = $row["datacad"];
-
+          $video = $row["video"];
+          $linkvideo = $row["linkvideo"];
+          if($linkvideo!='') {
+            $d = explode("/", $linkvideo);
+            $linkvideo  = $d[3];
+            $urlvideo = "https://www.youtube.com/embed/".$linkvideo."?version=3&enablejsapi=1";
+          }
           $d = explode("-", $data_cadastro);
           $data_cadastro = $d[2]."/".$d[1]."/".$d[0];
 
           $id_categoria = $row["id_categoria"];
 
-          if($id_categoria==1){
-            $nomeclass = "text";
-          }else if($id_categoria==2){
-            $nomeclass = "video";
-          }
+          if($id_categoria==2){
         ?>
-        <div>
-          <div class="ait-content__blog__card">
-            <a href="blog-integra.php?id=<?=$id_post?>">
-              <div class="ait-content__blog__card__img" style="background-image: url('gcs/img/blog_post/<?=$imagem?>');">
-                <span class="ait-content__blog__card__img__icon <?=$nomeclass?>"></span>
-                <span class="ait-content__blog__card__img__categoria"><?=$segmento?></span>
+          <div ait-modal="modalVideo1<?=$id_post?>" class="ait-component__modal">
+            <div class="ait-component__modal__wrapper">
+              <div class="ait-component__modal__content">
+                <span class="ait-component__modal__close ait-modal-close"></span>
+                <div class="ait-component__modal__body">
+                  <?if($linkvideo!=''){?>
+                    <iframe width="100%" class="ait-pause-video" height="538" src="<?=$urlvideo?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <?}?>
+                  <?if($linkvideo==''){?>
+                    <video width="100%" height="538" controls>
+                      <source src="gcs/img/blog_post/<?=$video?>" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  <?}?>
+                </div>
               </div>
-              <div class="ait-content__blog__card__info">
-                <span><?=$data_cadastro?></span>
-                <strong><?=$titulo?></strong>
-              </div>
-            </a>
+            </div>
           </div>
-        </div>
         <?}?>
-      </div>
+      <?}?>
     </div>
     <div class="ait-utilities__text-align__center"><br>
       <a href="blog.php" class="ait-component__link">Leia mais</a>

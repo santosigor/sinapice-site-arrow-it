@@ -112,6 +112,7 @@
             <table class="table table-data2">
               <thead>
                 <tr>
+                  <th>Ordem</th>
                   <th>titulo</th>
                   <th>imagem</th>
                   <th></th>
@@ -122,14 +123,16 @@
                   $sql = "SELECT id_parceiro, titulo, imagem
                   FROM ait_parceiros 
                   WHERE 1
-                  ORDER BY id_parceiro DESC";
+                  ORDER BY id_parceiro ASC";
                   $rs = mysqli_query($con, $sql); 
+                  $contador = 1;
                   while($row = mysqli_fetch_array($rs)){
                     $id_parceiro = $row["id_parceiro"];
                     $titulo = $row["titulo"];
                     $imagem = $row["imagem"];
                 ?>
                 <tr class="tr-shadow">
+                  <td><?=$contador?></td>
                   <td><?=$titulo?></td>
                   <td>
                   <?if($imagem!=""){?>
@@ -150,7 +153,9 @@
                   </td>
                 </tr>
                 <tr class="spacer"></tr>
-                <?}?>
+                <?
+                  $contador += 1;
+                }?>
               </tbody>
             </table>
           </div>

@@ -53,7 +53,9 @@
           </div>
         </div>
         <div class="ait-content__blog__integra__text">
-          <?=$conteudo?>
+          <div class="text-editor">
+            <?=$conteudo?>
+          </div>
         </div>
         <form id="form" name="form" action="" method="post" enctype="multipart/form-data" >
           <div class="ait-components__conteudo-util">

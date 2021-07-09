@@ -67,7 +67,7 @@
                 if($linkvideo!='') {
                   $d = explode("/", $linkvideo);
                   $linkvideo  = $d[3];
-                  $urlvideo = "https://www.youtube.com/embed/".$linkvideo;
+                  $urlvideo = "https://www.youtube.com/embed/".$linkvideo."?version=3&enablejsapi=1";
                 }
                 $d = explode("-", $data_cadastro);
                 $data_cadastro = $d[2]."/".$d[1]."/".$d[0];
@@ -96,7 +96,13 @@
               ?>
                 <div class="ait-content__blog__card">
                   <a href="#" class="ait-modal-open" ait-modal="modalVideo1<?=$id_post?>">
-                    <div class="ait-content__blog__card__img" style="background-image: url('gcs/img/blog_post/<?=$imagem?>');">
+                    <div class="ait-content__blog__card__img" style="
+                    <?if($linkvideo==''){?>
+                      background-image: url('gcs/img/blog_post/<?=$imagem?>');
+                    <?}else if($linkvideo!=''){?>
+                      background-image: url('https://img.youtube.com/vi/<?=$linkvideo?>/mqdefault.jpg');
+                    <?}?>
+                    ">
                       <span class="ait-content__blog__card__img__icon video"></span>
                       <span class="ait-content__blog__card__img__categoria"><?=$segmento?></span>
                     </div>
@@ -115,7 +121,7 @@
                       <span class="ait-component__modal__close ait-modal-close"></span>
                       <div class="ait-component__modal__body">
                         <?if($linkvideo!=''){?>
-                          <iframe width="100%" height="538" src="<?=$urlvideo?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                          <iframe width="100%" class="ait-pause-video" height="538" src="<?=$urlvideo?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <?}?>
                         <?if($linkvideo==''){?>
                           <video width="100%" height="538" controls>
@@ -194,14 +200,20 @@
                 if($linkvideo!='') {
                   $d = explode("/", $linkvideo);
                   $linkvideo  = $d[3];
-                  $urlvideo = "https://www.youtube.com/embed/".$linkvideo;
+                  $urlvideo = "https://www.youtube.com/embed/".$linkvideo."?version=3&enablejsapi=1";
                 }
                 $d = explode("-", $data_cadastro);
                 $data_cadastro = $d[2]."/".$d[1]."/".$d[0];
             ?>        
               <div class="ait-content__blog__card">
                 <a href="#" class="ait-modal-open" ait-modal="modalVideo0<?=$id_post?>">
-                  <div class="ait-content__blog__card__img" style="background-image: url('gcs/img/blog_post/<?=$imagem?>');">
+                  <div class="ait-content__blog__card__img" style="
+                    <?if($linkvideo==''){?>
+                      background-image: url('gcs/img/blog_post/<?=$imagem?>');
+                    <?}else if($linkvideo!=''){?>
+                      background-image: url('https://img.youtube.com/vi/<?=$linkvideo?>/mqdefault.jpg');
+                    <?}?>
+                    ">
                     <span class="ait-content__blog__card__img__icon video"></span>
                     <span class="ait-content__blog__card__img__categoria"><?=$segmento?></span>
                   </div>
@@ -220,7 +232,7 @@
                     <span class="ait-component__modal__close ait-modal-close"></span>
                     <div class="ait-component__modal__body">
                       <?if($linkvideo!=''){?>
-                          <iframe width="100%" height="538" src="<?=$urlvideo?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                          <iframe width="100%" class="ait-pause-video" height="538" src="<?=$urlvideo?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <?}?>
                         <?if($linkvideo==''){?>
                           <video width="100%" height="538" controls>

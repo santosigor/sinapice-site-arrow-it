@@ -60,17 +60,17 @@
           </div>
           <div class="ait-container">
             <div class="ait-component__tab__content active" ait-tab-content="tab1-<?=$id_servico?>">
-              <div class="row">
+              <div class="text-editor">
                 <?=$diferenciais?>
               </div>
             </div>
             <div class="ait-component__tab__content" ait-tab-content="tab2-<?=$id_servico?>">
-              <div class="row">
+              <div class="text-editor">
                 <?=$objetivo?>
               </div>
             </div>
             <div class="ait-component__tab__content" ait-tab-content="tab3-<?=$id_servico?>">
-              <div class="row">
+              <div class="text-editor">
                 <?=$beneficios?>
               </div>
             </div>

@@ -38,9 +38,9 @@ $('.imagesize').change(function(){
 
 $('.videosize').change(function(){
 	const file = $(this)[0].files[0]
-	if(file.size>5000000){
+	if(file.size>10000000){
 		$('.videosize').val('');
-	  alertify.warning("O tamanho do arquivo excede 5mb!");
+	  alertify.warning("O tamanho do arquivo excede 10mb!");
 	}
 });
 
@@ -440,12 +440,15 @@ function chooseCategoria(){
 	if(d.id_categoria.value==1){
 		document.getElementById("divdestaque").style.display = '';
 		document.getElementById("divvideo").style.display = 'none';
+		$('.esconde-video').show();
 	}else if(d.id_categoria.value==2){
 		document.getElementById("divvideo").style.display = '';
 		document.getElementById("divdestaque").style.display = 'none';
+		$('.esconde-video').hide();
 	}else{
 		document.getElementById("divvideo").style.display = 'none';
 		document.getElementById("divdestaque").style.display = 'none';
+		$('.esconde-video').show();
 	}
 }
 

@@ -95,13 +95,19 @@
                 </ul>
               </div>
               <div class="ait-component__tab__content active" ait-tab-content="tab1">
-                <?=$desafios?>
+                <div class="text-editor">
+                  <?=$desafios?>
+                </div>
               </div>
               <div class="ait-component__tab__content" ait-tab-content="tab2">
-                <?=$solucao?>
+                <div class="text-editor">
+                  <?=$solucao?>
+                </div>
               </div>
               <div class="ait-component__tab__content" ait-tab-content="tab3">
-                <?=$resultados?>
+                <div class="text-editor">
+                  <?=$resultados?>
+                </div>
               </div>
             </div>
           </div>

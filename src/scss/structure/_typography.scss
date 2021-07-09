@@ -92,3 +92,18 @@ p {
 		margin-bottom: 0;
 	}
 }
+
+.text-editor {
+	font-family: 'Open Sans', sans-serif!important;
+	* {
+		font-family: 'Open Sans', sans-serif!important;
+		font-size: inherit!important;
+    line-height: inherit!important;
+	}
+	p {
+		margin-bottom: 1rem!important;
+		&:last-child {
+			margin-bottom: 0!important;
+		}
+	}
+}

@@ -1377,19 +1377,29 @@ img {
         font-size: 13px;
         line-height: 16px;
         padding: 0 15px; } }
-  .ait-content__servicos__content .row ul {
+  .ait-content__servicos__content .text-editor ul {
     margin: 0;
     list-style-type: square;
-    padding-left: 15px; }
-    .ait-content__servicos__content .row ul li {
-      margin-bottom: 24px; }
-      .ait-content__servicos__content .row ul li::marker {
-        color: #303BFE; }
-      @media (max-width: 767.98px) {
-        .ait-content__servicos__content .row ul li {
-          font-size: 12px;
-          line-height: 14px;
-          margin-bottom: 10px; } }
+    padding-left: 15px;
+    column-count: 2;
+    column-gap: 5px;
+    padding-bottom: 50px; }
+    @media (max-width: 991.98px) {
+      .ait-content__servicos__content .text-editor ul {
+        column-count: 2; } }
+    @media (max-width: 767.98px) {
+      .ait-content__servicos__content .text-editor ul {
+        column-count: 1; } }
+    .ait-content__servicos__content .text-editor ul li::marker {
+      color: #303BFE; }
+    @media (min-width: 768px) {
+      .ait-content__servicos__content .text-editor ul li {
+        margin: 0 0 24px; } }
+    @media (max-width: 767.98px) {
+      .ait-content__servicos__content .text-editor ul li {
+        font-size: 12px;
+        line-height: 14px;
+        margin: 0 0 10px; } }
   @media (max-width: 767.98px) {
     .ait-content__servicos__content .ait-utilities__pdd__30-0 {
       padding: 10px 0 30px 0; } }

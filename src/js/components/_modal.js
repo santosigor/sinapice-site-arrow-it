@@ -10,6 +10,10 @@ $(document).on('click', '.ait-modal-open', function(e){
 $(document).on('click', '.ait-modal-close', function(e){
   e.preventDefault();
   this.blur();
+  $('.ait-pause-video').each(function(){
+    this.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*')
+  });
+  $('video').trigger('pause');
   $('html, body').css('overflow','');
   $('.ait-component__modal').fadeOut('fast').removeClass('active');
 });

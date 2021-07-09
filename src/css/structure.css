@@ -3315,6 +3315,17 @@ body {
 p:last-child {
   margin-bottom: 0; }
 
+.text-editor {
+  font-family: "Open Sans", sans-serif !important; }
+  .text-editor * {
+    font-family: "Open Sans", sans-serif !important;
+    font-size: inherit !important;
+    line-height: inherit !important; }
+  .text-editor p {
+    margin-bottom: 1rem !important; }
+    .text-editor p:last-child {
+      margin-bottom: 0 !important; }
+
 .ait-utilities__text-align__right {
   text-align: right; }
 
