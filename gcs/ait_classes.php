@@ -175,10 +175,8 @@
 			$mail->isSMTP();                                            //Send using SMTP
 			$mail->Host       = 'ssl://smtp.gmail.com';                     //Set the SMTP server to send through
 			$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-			$mail->Username   = 'santosigor013@gmail.com';                     //SMTP username
-			$mail->Password   = 'Fsw18@gmail';                               //SMTP password
-			// $mail->Username   = 'site@arrowit.com.br';                     //SMTP username
-			// $mail->Password   = '$1T3@$3rv1c0$@rr0wIT9';                               //SMTP password
+			$mail->Username   = 'site@arrowit.com.br';                     //SMTP username
+			$mail->Password   = '$1T3@$3rv1c0$@rr0wIT9';                               //SMTP password
 			$mail->SMTPSecure = 'ssl';         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
 			$mail->Port       = 465;                                    //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 			$mail->SMTPOptions = array(
@@ -190,10 +188,10 @@
 			);
 
 			//Recipients
-			$mail->setFrom('santosigor013@gmail.com', 'Igor');
+			$mail->setFrom('site@arrowit.com.br', 'Site Arrow IT');
 			$mail->addAddress('santosigor013@gmail.com', 'Igor');
 			$mail->addAddress('hugonex2000@gmail.com', 'Hugo');
-			// $mail->addAddress('ola@sinapice.com.br', 'Sinapice');
+			$mail->addAddress('ola@sinapice.com.br', 'Sinapice');
 			// $mail->addAddress($email, $nome);     //Add a recipient
 
 
@@ -234,10 +232,8 @@
 			$mail->isSMTP();                                            //Send using SMTP
 			$mail->Host       = 'ssl://smtp.gmail.com';                     //Set the SMTP server to send through
 			$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-			$mail->Username   = 'santosigor013@gmail.com';                     //SMTP username
-			$mail->Password   = 'Fsw18@gmail';                               //SMTP password
-			// $mail->Username   = 'site@arrowit.com.br';                     //SMTP username
-			// $mail->Password   = '$1T3@$3rv1c0$@rr0wIT9';                               //SMTP password
+			$mail->Username   = 'site@arrowit.com.br';                     //SMTP username
+			$mail->Password   = '$1T3@$3rv1c0$@rr0wIT9';                               //SMTP password
 			$mail->SMTPSecure = 'ssl';         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
 			$mail->Port       = 465;                                    //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 			$mail->SMTPOptions = array(
@@ -249,10 +245,10 @@
 			);
 
 			//Recipients
-			$mail->setFrom('santosigor013@gmail.com', 'Igor');
+			$mail->setFrom('site@arrowit.com.br', 'Site Arrow IT');
 			$mail->addAddress('santosigor013@gmail.com', 'Igor');
 			$mail->addAddress('hugonex2000@gmail.com', 'Hugo');
-			// $mail->addAddress('ola@sinapice.com.br', 'Sinapice');
+			$mail->addAddress('ola@sinapice.com.br', 'Sinapice');
 			// $mail->addAddress('comercial@arrowit.com.br', 'Comercial ArrowIT');
 			
 			//Attachments
