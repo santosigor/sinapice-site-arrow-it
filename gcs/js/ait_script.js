@@ -83,6 +83,10 @@ function acaoServico(t, id, tipo){
 		erro = true;
 	}
 
+	if(t==3){
+		erro = false;
+	}
+
 	if(erro===false){
 		alertResult(t);
 		d.acao.value = t;
@@ -138,6 +142,10 @@ function acaoProjetos(t, id, tipo){
 
 	if(resultados==''){
 		erro = true;
+	}
+
+	if(t==3){
+		erro = false;
 	}
 
 	if(erro===false){
@@ -218,6 +226,10 @@ function updateDadosGerais(){
 		erro = true;
 	}
 
+	if(t==3){
+		erro = false;
+	}
+
 	if(erro===false){
 		alertResult(2);
 		d.acao.value = 1;
@@ -289,6 +301,10 @@ function acaoBanner(t, id, tipo){
 		erro = true;
 	}
 
+	if(t==3){
+		erro = false;
+	}
+
 	if(erro===false){
 		alertResult(t);
 		d.acao.value = t;
@@ -336,6 +352,10 @@ function acaoPost(t, id, tipo){
 		}
 	}
 
+	if(t==3){
+		erro = false;
+	}
+
 	if(erro===false){
 		alertResult(t);
 		d.acao.value = t;
@@ -368,51 +388,73 @@ function updatePassword(){
 	}
 }
 
-function chooseCategoria(){
-	d = document.form;
+function chooseCategoria(tipo, id){
+	if(tipo==1){
+		var d = document.getElementById('form');
+	}else if(tipo==2){
+		var d = document.getElementById('formmodal'+id);
+	}
 
-	if(d.id_categoria.value==1){
-		document.getElementById("divdestaque").style.display = '';
-		document.getElementById("divvideo").style.display = 'none';
-		$('.esconde-video').show();
-	}else if(d.id_categoria.value==2){
-		document.getElementById("divvideo").style.display = '';
-		document.getElementById("divdestaque").style.display = 'none';
-		$('.esconde-video').hide();
+	if(tipo==1){
+		if(d.id_categoria.value==1){
+			document.getElementById("divdestaque").style.display = '';
+			document.getElementById("divvideo").style.display = 'none';
+			$('.esconde-video').show();
+		}else if(d.id_categoria.value==2){
+			document.getElementById("divvideo").style.display = '';
+			document.getElementById("divdestaque").style.display = 'none';
+			$('.esconde-video').hide();
+		}else{
+			document.getElementById("divvideo").style.display = 'none';
+			document.getElementById("divdestaque").style.display = 'none';
+			$('.esconde-video').show();
+		}
 	}else{
-		document.getElementById("divvideo").style.display = 'none';
-		document.getElementById("divdestaque").style.display = 'none';
-		$('.esconde-video').show();
+		if(d.id_categoria.value==1){
+			document.getElementById("divdestaque"+id).style.display = '';
+			document.getElementById("divvideo"+id).style.display = 'none';
+			$('.esconde-video').show();
+		}else if(d.id_categoria.value==2){
+			document.getElementById("divvideo"+id).style.display = '';
+			document.getElementById("divdestaque"+id).style.display = 'none';
+			$('.esconde-video').hide();
+		}else{
+			document.getElementById("divvideo"+id).style.display = 'none';
+			document.getElementById("divdestaque"+id).style.display = 'none';
+			$('.esconde-video').show();
+		}
 	}
 }
 
-function chooseTipo(){
-	d = document.form;
-
-	if(d.id_tipo.value==1){
-		document.getElementById("divarq").style.display = '';
-		document.getElementById("divlink").style.display = 'none';
-	}else if(d.id_tipo.value==2){
-		document.getElementById("divlink").style.display = '';
-		document.getElementById("divarq").style.display = 'none';
-	}else{
-		document.getElementById("divlink").style.display = 'none';
-		document.getElementById("divarq").style.display = 'none';
+function chooseTipo(tipo, id){
+	if(tipo==1){
+		var d = document.getElementById('form');
+	}else if(tipo==2){
+		var d = document.getElementById('formmodal'+id);
 	}
-}
 
-function chooseTipoModal(id){
-	var d = document.getElementById('formmodal'+id);
-
-	if(d.id_tipo.value==1){
-		document.getElementById("divarqmodal").style.display = '';
-		document.getElementById("divlinkmodal").style.display = 'none';
-	}else if(d.id_tipo.value==2){
-		document.getElementById("divlinkmodal").style.display = '';
-		document.getElementById("divarqmodal").style.display = 'none';
+	if(tipo==1){
+		if(d.id_tipo.value==1){
+			document.getElementById("divarq").style.display = '';
+			document.getElementById("divlink").style.display = 'none';
+		}else if(d.id_tipo.value==2){
+			document.getElementById("divlink").style.display = '';
+			document.getElementById("divarq").style.display = 'none';
+		}else{
+			document.getElementById("divlink").style.display = 'none';
+			document.getElementById("divarq").style.display = 'none';
+		}
 	}else{
-		document.getElementById("divlinkmodal").style.display = 'none';
-		document.getElementById("divarqmodal").style.display = 'none';
+		if(d.id_tipo.value==1){
+			document.getElementById("divarq"+id).style.display = '';
+			document.getElementById("divlink"+id).style.display = 'none';
+		}else if(d.id_tipo.value==2){
+			document.getElementById("divlink"+id).style.display = '';
+			document.getElementById("divarq"+id).style.display = 'none';
+		}else{
+			document.getElementById("divlink"+id).style.display = 'none';
+			document.getElementById("divarq"+id).style.display = 'none';
+		}
 	}
 }
 
@@ -427,42 +469,100 @@ function registerAutor(){
 }
 
 function acaoParceiros(t, id, tipo){
+	erro = false;
+
 	if(tipo==1){
 		var d = document.getElementById('form');
+
+		if(d.imagem.value==''){
+			erro = true;
+		}
 	}else if(tipo==2){
 		var d = document.getElementById('formmodal'+id);
 	}
 
-	alertResult(t);
-	d.acao.value = t;
-	d.idparceiro.value = id;
-	d.submit();
+	if(d.titulo.value==''){
+		erro = true;
+	}
+
+	if(t==3){
+		erro = false;
+	}
+
+	if(erro===false){
+		alertResult(t);
+		d.acao.value = t;
+		d.idparceiro.value = id;
+		d.submit();
+	}else{
+		alertify.warning("Preencha todos os campos!");
+	}
 }
 
-function acaoClientes(t, id, tipo){
+function acaoClientes(t, id, tipo){;
+	erro = false;
+
 	if(tipo==1){
 		var d = document.getElementById('form');
+
+		if(d.imagem.value==''){
+			erro = true;
+		}
 	}else if(tipo==2){
 		var d = document.getElementById('formmodal'+id);
 	}
 
-	alertResult(t);
-	d.acao.value = t;
-	d.idcliente.value = id;
-	d.submit();
+	if(d.titulo.value==''){
+		erro = true;
+	}
+
+	if(t==3){
+		erro = false;
+	}
+
+	if(erro===false){
+		alertResult(t);
+		d.acao.value = t;
+		d.idcliente.value = id;
+		d.submit()
+	}else{
+		alertify.warning("Preencha todos os campos!");
+	}
 }
 
 function acaoDepoimentos(t, id, tipo){
+	erro = false;
+
 	if(tipo==1){
 		var d = document.getElementById('form');
 	}else if(tipo==2){
 		var d = document.getElementById('formmodal'+id);
 	}
 
-	alertResult(t);
-	d.acao.value = t;
-	d.iddepoimento.value = id;
-	d.submit();
+	if(d.texto.value==''){
+		erro = true;
+	}
+
+	if(d.cliente.value==''){
+		erro = true;
+	}
+
+	if(d.cargo.value==''){
+		erro = true;
+	}
+
+	if(t==3){
+		erro = false;
+	}
+
+	if(erro===false){
+		alertResult(t);
+		d.acao.value = t;
+		d.iddepoimento.value = id;
+		d.submit();
+	}else{
+		alertify.warning("Preencha todos os campos!");
+	}
 }
 
 

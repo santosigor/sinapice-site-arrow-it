@@ -177,7 +177,7 @@
                   <label for="text-input" class="form-control-label">Categoria</label>
                 </div>
                 <div class="col-12 col-md-9">
-                  <select name="id_categoria" id="id_categoria" class="form-control" onchange="chooseCategoria()">
+                  <select name="id_categoria" id="id_categoria" class="form-control" onchange="chooseCategoria('1', '')">
                       <option value="0">Selecione a categoria</option>
                       <option value="1">Artigo</option>
                       <option value="2">Video</option>
@@ -204,7 +204,7 @@
                     <label for="text-input" class="form-control-label">Tipo</label>
                   </div>
                   <div class="col-12 col-md-9">
-                    <select name="id_tipo" id="id_tipo" class="form-control" onchange="chooseTipo()">
+                    <select name="id_tipo" id="id_tipo" class="form-control" onchange="chooseTipo('1', '')">
                         <option value="0">Selecione o tipo</option>
                         <option value="1">Interno</option>
                         <option value="2">Externo</option>
@@ -428,14 +428,14 @@
               <label for="text-input" class="form-control-label">Categoria</label>
             </div>
             <div class="col-12 col-md-9">
-              <select name="id_categoria" id="id_categoria" class="form-control" onchange="chooseCategoria()">
+              <select name="id_categoria" id="id_categoria" class="form-control" onchange="chooseCategoria('2', <?=$id_post?>)">
                   <option value="0">Selecione a categoria</option>
                   <option value="1" <?if($id_categoria==1){?>selected<?}?>>Artigo</option>
                   <option value="2" <?if($id_categoria==2){?>selected<?}?>>Video</option>
               </select>
             </div>
           </div>
-          <div id="divdestaque" class="row form-group" style="display:<?if($id_categoria!=1){?>none<?}?>">
+          <div id="divdestaque<?=$id_post?>" class="row form-group" style="display:<?if($id_categoria!=1){?>none<?}?>">
             <div class="col col-md-3">
               <label class=" form-control-label">Destaque</label>
             </div>
@@ -449,20 +449,20 @@
               </div>
             </div>
           </div>
-          <div id="divvideo" style="display:<?if($id_categoria!=2){?>none<?}?>">
+          <div id="divvideo<?=$id_post?>" style="display:<?if($id_categoria!=2){?>none<?}?>">
             <div class="row form-group">
               <div class="col col-md-3">
                 <label for="text-input" class="form-control-label">Tipo</label>
               </div>
               <div class="col-12 col-md-9">
-                <select name="id_tipo" id="id_tipo" class="form-control" onchange="chooseTipoModal(<?=$id_post?>)">
+                <select name="id_tipo" id="id_tipo" class="form-control" onchange="chooseTipo('2', <?=$id_post?>)">
                     <option value="0">Selecione o tipo</option>
                     <option value="1" <?if($linkvideo==''){?>selected<?}?>>Interno</option>
                     <option value="2" <?if($linkvideo!=''){?>selected<?}?>>Externo</option>
                 </select>
               </div>
             </div>
-            <div id="divlinkmodal" class="row form-group" style="display:<?if($linkvideo==''){?>none<?}?>">
+            <div id="divlink<?=$id_post?>" class="row form-group" style="display:<?if($linkvideo==''){?>none<?}?>">
               <div class="col col-md-3">
                 <label for="text-input" class="form-control-label">Link video</label>
               </div>
@@ -470,7 +470,7 @@
                 <input type="text" id="linkvideo" name="linkvideo" class="form-control" placeholder="Youtube" value="<?=$linkvideo?>" />
               </div>
             </div>
-            <div id="divarqmodal" class="row form-group" style="display:<?if($linkvideo!=''){?>none<?}?>">
+            <div id="divarq<?=$id_post?>" class="row form-group" style="display:<?if($linkvideo!=''){?>none<?}?>">
               <div class="col col-md-3">
                 <label for="file-input" class="form-control-label">Video</label>
               </div>

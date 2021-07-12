@@ -1,7 +1,5 @@
 <?php 
 
-  include("header.php");
-
   include("gcs/ait_classes.php");
 
 	$objait = new Ait_class();
@@ -30,8 +28,10 @@
 
 		$objait->enviarEmailCliente($nome, $email, $empresa, $telefone, $cargo, $solucao, $consentimento, $privacidade);
 
-    @$_POST["acao"] = 0;
+    Header("Location: orcamento.php");
 	}
+
+  include("header.php");
 ?>
 
     <section class="ait-content__orcamento">

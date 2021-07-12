@@ -43,7 +43,7 @@
         WHERE id_projeto = 0 AND id_servico = $id_servico";
         $rsverifica = mysqli_query($con, $sqlverifica); 
         if(mysqli_num_rows($rsverifica)==0){
-          $insert = "INSERT INTO ait_projeto_servicos (id, id_projeto, id_servico) VALUES(NULL, '0', '$id_servico')";
+          $insert = "INSERT INTO ait_projeto_servicos (id, id_projeto, id_servico, data_cadastro, quem_cadastrou) VALUES(NULL, '0', '$id_servico', NOW(), '1')";
           mysqli_query($con, $insert);
         }
       }
@@ -94,7 +94,7 @@
         WHERE id_projeto = $id_projeto AND id_servico = $id_servico";
         $rsverifica = mysqli_query($con, $sqlverifica); 
         if(mysqli_num_rows($rsverifica)==0){
-          $insert = "INSERT INTO ait_projeto_servicos (id, id_projeto, id_servico) VALUES(NULL, '$id_projeto', '$id_servico')";
+          $insert = "INSERT INTO ait_projeto_servicos (id, id_projeto, id_servico, data_cadastro, quem_cadastrou) VALUES(NULL, '$id_projeto', '$id_servico', NOW(), '1')";
           mysqli_query($con, $insert);
         }
       }else{

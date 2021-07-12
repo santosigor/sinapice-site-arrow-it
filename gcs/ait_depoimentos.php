@@ -66,7 +66,7 @@
               <div class="row form-group">
                 <div class="col col-md-3"></div>
                 <div class="col-12 col-md-9">
-                  <button onclick="acaoDepoimentos('1', '', '1');" class="btn btn-success btn-md"> Cadastrar</button>
+                  <button type="button" onclick="acaoDepoimentos('1', '', '1');" class="btn btn-success btn-md"> Cadastrar</button>
                 </div>
               </div>
             </form>

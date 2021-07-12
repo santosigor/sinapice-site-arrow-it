@@ -25,7 +25,7 @@
             </a>
             <ul>
               <li>
-                <a href="https://goo.gl/maps/bB93DWEQBm7ytmNAA" target="_blank"><?=$endereco?></a>
+                <?=$endereco?>
               </li>
               <li>
                 <a href="tel:+55<?=$telefone?>"><?=$telform?></a>
