@@ -66,7 +66,7 @@
               <div class="row form-group">
                 <div class="col col-md-3"></div>
                 <div class="col-12 col-md-9">
-                  <button onclick="acaoDepoimentos('1', '', '1');" class="btn btn-success btn-md"> Cadastrar</button>
+                  <button type="button" onclick="acaoDepoimentos('1', '', '1');" class="btn btn-success btn-md"> Cadastrar</button>
                 </div>
               </div>
             </form>
@@ -153,7 +153,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="mediumModalLabel">Serviço</h5>
+        <h5 class="modal-title" id="mediumModalLabel">Atualizar</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

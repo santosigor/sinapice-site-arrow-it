@@ -51,7 +51,7 @@
             </ul>
             <div class="ait-content__contato-page__info">
               <div class="ait-typography__h3 ait-utilities__color__blue">Arrow IT <br>Soluções em Tecnologia</div>
-              <a href="https://goo.gl/maps/bB93DWEQBm7ytmNAA" target="_blank"><?=$endereco?></a>
+              <?=$endereco?>
             </div>
           </div>
           <div class="col-md-6 col-lg-7">

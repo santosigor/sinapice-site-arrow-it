@@ -103,7 +103,7 @@
               <div class="row form-group">
                 <div class="col col-md-3"></div>
                 <div class="col-12 col-md-9">
-                  <button onclick="updateDadosGerais();" class="btn btn-primary btn-md">Atualizar</button>
+                  <button type="button" onclick="updateDadosGerais();" class="btn btn-primary btn-md">Atualizar</button>
                 </div>
               </div>
             </form>

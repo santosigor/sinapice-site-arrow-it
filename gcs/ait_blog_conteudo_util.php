@@ -1,4 +1,7 @@
 <?php 
+  
+  include("ait_classes.php");
+
   include('header.php'); 
 ?>
 
@@ -52,7 +55,7 @@
                       <span style="padding: 4px 20px 4px 0;">Não (<?=$countnao?>)</span> 
                       <span class="item" data-toggle="tooltip" data-placement="top" title="Ver comentários">
                           <button data-toggle="modal" data-target="#mediumModalUtil<?=$id_post?>">
-                            <i class="zmdi zmdi-link"></i>
+                            <i class="fas fa-external-link-alt"></i>
                           </button>
                         </span>
                       </div>
@@ -85,7 +88,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="mediumModalLabel">Comentários - Titulo do post</h5>
+        <h5 class="modal-title" id="mediumModalLabel">Atualizar</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

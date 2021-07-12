@@ -51,7 +51,7 @@
 				setcookie("ait_res", "", -1);
 			}else{
 				//criar coockie
-				setcookie("ait_res", "1", time() + (86400 * 30));
+				setcookie("ait_res", "4", time() + (86400 * 30));
 			}
 
 		}

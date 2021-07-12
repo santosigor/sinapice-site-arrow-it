@@ -28,7 +28,6 @@
             $nomeimagem = $novoNome;
         }
     }
-    include("config.php");
 
     $sql = "SELECT id_servico
     FROM ait_servicos 
@@ -44,12 +43,11 @@
         WHERE id_projeto = 0 AND id_servico = $id_servico";
         $rsverifica = mysqli_query($con, $sqlverifica); 
         if(mysqli_num_rows($rsverifica)==0){
-          $insert = "INSERT INTO ait_projeto_servicos (id, id_projeto, id_servico) VALUES(NULL, '0', '$id_servico')";
+          $insert = "INSERT INTO ait_projeto_servicos (id, id_projeto, id_servico, data_cadastro, quem_cadastrou) VALUES(NULL, '0', '$id_servico', NOW(), '1')";
           mysqli_query($con, $insert);
         }
       }
     }
-    mysqli_close($con);
 
 		$objait->registerProjetos('', $titulo, $setor, $tempo_processo, $ambiente, $desafios, $solucao, $resultados, $nomeimagem);
 
@@ -81,7 +79,6 @@
         }
       }
     }
-    include("config.php");
 
     $sql = "SELECT id_servico
     FROM ait_servicos 
@@ -97,7 +94,7 @@
         WHERE id_projeto = $id_projeto AND id_servico = $id_servico";
         $rsverifica = mysqli_query($con, $sqlverifica); 
         if(mysqli_num_rows($rsverifica)==0){
-          $insert = "INSERT INTO ait_projeto_servicos (id, id_projeto, id_servico) VALUES(NULL, '$id_projeto', '$id_servico')";
+          $insert = "INSERT INTO ait_projeto_servicos (id, id_projeto, id_servico, data_cadastro, quem_cadastrou) VALUES(NULL, '$id_projeto', '$id_servico', NOW(), '1')";
           mysqli_query($con, $insert);
         }
       }else{
@@ -105,7 +102,6 @@
         mysqli_query($con, $insert); 
       }
     }
-    mysqli_close($con);
 
 		$objait->registerProjetos($id_projeto, $titulo, $setor, $tempo_processo, $ambiente, $desafios, $solucao, $resultados, $nomeimagem);
 
@@ -223,7 +219,7 @@
               <div class="row form-group">
                 <div class="col col-md-3"></div>
                 <div class="col-12 col-md-9">
-                  <button onclick="acaoProjetos('1', '', '1');" class="btn btn-success btn-md"> Cadastrar</button>
+                  <button type="button" onclick="acaoProjetos('1', '', '1');" class="btn btn-success btn-md"> Cadastrar</button>
                 </div>
               </div>
             </form>
@@ -318,7 +314,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="mediumModalLabel">Projeto</h5>
+        <h5 class="modal-title" id="mediumModalLabel">Atualizar</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

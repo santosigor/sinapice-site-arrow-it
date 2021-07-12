@@ -3,11 +3,7 @@
 	include('config.php'); 
 	
 	session_start();
-
-	if($_SESSION["logged_".$_SESSION["nomesessao"]]!=1){
-		session_destroy();
-		Header("Location: ../index.php");
-	}
+	
 	class Ait_class{
 
 		function anti_sql_injection($str) {
@@ -47,7 +43,9 @@
 					$row = mysqli_fetch_array($rs);
 					$imagem = $row["imagem"];
 
-					unlink("img/servicos/".$imagem);
+					if($imagem!=""){
+						unlink("img/servicos/".$imagem);
+					}
 					$sqladd = ", imagem = '$nomeimagem'";
 				}
 
@@ -125,7 +123,9 @@
 					$row = mysqli_fetch_array($rs);
 					$imagem = $row["imagem"];
 
-					unlink("img/projetos/".$imagem);
+					if($imagem!=""){
+						unlink("img/projetos/".$imagem);
+					}
 					$sqladd = ", imagem = '$nomeimagem'";
 				}
 
@@ -298,7 +298,9 @@
 					$row = mysqli_fetch_array($rs);
 					$imagem = $row["imagem"];
 
-					unlink("img/home_banner/".$imagem);
+					if($imagem!=""){
+						unlink("img/home_banner/".$imagem);
+					}
 					$sqladd = ", imagem = '$nomeimagem', data_cadastro = NOW()";
 				}
 				if($nomeimagemmobile!=""){
@@ -309,7 +311,9 @@
 					$row = mysqli_fetch_array($rs);
 					$imagemmobile = $row["imagemmobile"];
 
-					unlink("img/home_banner/".$imagemmobile);
+					if($imagemmobile!=""){
+						unlink("img/home_banner/".$imagemmobile);
+					}
 					$sqladd = ", imagemmobile = '$nomeimagemmobile', data_cadastro = NOW()";
 				}
 				if($nomeimagemtablet!=""){
@@ -320,7 +324,9 @@
 					$row = mysqli_fetch_array($rs);
 					$imagemtablet = $row["imagemtablet"];
 
-					unlink("img/home_banner/".$imagemtablet);
+					if($imagemtablet!=""){
+						unlink("img/home_banner/".$imagemtablet);
+					}
 					$sqladd = ", imagemtablet = '$nomeimagemtablet', data_cadastro = NOW()";
 				}
 
@@ -346,7 +352,9 @@
 			$row = mysqli_fetch_array($rs);
 			$imagem = $row["imagem"];
 
-			unlink("img/home_banner/".$imagem);
+			if($imagem!=""){
+				unlink("img/home_banner/".$imagem);
+			}
 
 			$sql = "DELETE FROM ait_home_banner WHERE id_banner = $idbanner";
 			mysqli_query($con, $sql);
@@ -418,7 +426,9 @@
 					$row = mysqli_fetch_array($rs);
 					$imagem = $row["imagem"];
 
-					unlink("img/blog_post/".$imagem);
+					if($imagem!=""){
+						unlink("img/blog_post/".$imagem);
+					}
 					$sqladd = ", imagem = '$nomeimagem'";
 				}
 
@@ -430,7 +440,9 @@
 					$row = mysqli_fetch_array($rs);
 					$video = $row["video"];
 
-					unlink("img/blog_post/".$video);
+					if($video!=""){
+						unlink("img/blog_post/".$video);
+					}
 					$sqladd = ", video = '$nomevideo'";
 				}
 
@@ -456,7 +468,9 @@
 			while($row = mysqli_fetch_array($rs)){
 				$imagem = $row["imagem"];
 
-				unlink("img/blog_post/".$imagem);
+				if($imagem!=""){
+					unlink("img/blog_post/".$imagem);
+				}
 			}
 
 			$sql = "DELETE FROM ait_blog_post WHERE id_post = $id_post";
@@ -501,7 +515,9 @@
 					$row = mysqli_fetch_array($rs);
 					$imagem = $row["imagem"];
 
-					unlink("img/parceiros/".$imagem);
+					if($imagem!=""){
+						unlink("img/parceiros/".$imagem);
+					}
 					$sqladd = ", imagem = '$nomeimagem'";
 				}
 
@@ -549,7 +565,9 @@
 					$row = mysqli_fetch_array($rs);
 					$imagem = $row["imagem"];
 
-					unlink("img/clientes/".$imagem);
+					if($imagem!=""){
+						unlink("img/clientes/".$imagem);
+					}
 					$sqladd = ", imagem = '$nomeimagem'";
 				}
 

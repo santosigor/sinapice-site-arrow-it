@@ -3,13 +3,14 @@
   <section class="ait-component__banner">
     <div class="ait-component__banner__carousel">
       <?
-        $sql = "SELECT imagem, imagemmobile, imagemtablet
+        $sql = "SELECT titulo, imagem, imagemmobile, imagemtablet
         FROM ait_home_banner
         WHERE 1
         ORDER BY data_cadastro, destaque DESC
         LIMIT 4";
         $rs = mysqli_query($con, $sql); 
         while($row = mysqli_fetch_array($rs)){
+          $titulo = $row["titulo"];
           $imagem = $row["imagem"];
           $imagemmobile = $row["imagemmobile"];
           $imagemtablet = $row["imagemtablet"];
@@ -22,7 +23,7 @@
         <?if($imagemtablet!=""){?>
           <source media="(min-width: 768px) and (max-width: 991.98px)" srcset="gcs/img/home_banner/<?=$imagemtablet?>" />
         <?}?>
-          <img src="gcs/img/home_banner/<?=$imagem?>" alt="" />
+          <img src="gcs/img/home_banner/<?=$imagem?>" alt="<?=$titulo?>" />
         </picture>
       </div>
       <?}?>
@@ -90,16 +91,17 @@
           <div class="ait-typography__h5 ait-utilities__text-align__center">Parceria sólida com os maiores players</div>
           <div class="ait-component__carousel center">
             <?
-              $sql = "SELECT imagem
+              $sql = "SELECT titulo, imagem
               FROM ait_parceiros
               WHERE 1
               ORDER BY id_parceiro ASC";
               $rs = mysqli_query($con, $sql); 
               while($row = mysqli_fetch_array($rs)){
+                $titulo = $row["titulo"];
                 $imagem = $row["imagem"];
             ?>
               <div>
-                <img src="gcs/img/parceiros/<?=$imagem?>" alt="" width="200px">
+                <img src="gcs/img/parceiros/<?=$imagem?>" alt="<?=$titulo?>" width="200px">
               </div>
             <?}?>
           </div>
@@ -208,16 +210,17 @@
       <span class="ait-component__tag">Quem confia na arrow it</span>
       <div class="ait-component__carousel center">
         <?
-          $sql = "SELECT imagem
+          $sql = "SELECT titulo, imagem
           FROM ait_clientes
           WHERE 1
           ORDER BY id_cliente ASC";
           $rs = mysqli_query($con, $sql); 
           while($row = mysqli_fetch_array($rs)){
+            $titulo = $row["titulo"];
             $imagem = $row["imagem"];
         ?>
           <div>
-            <img src="gcs/img/clientes/<?=$imagem?>" alt="" width="140px">
+            <img src="gcs/img/clientes/<?=$imagem?>" alt="<?=$titulo?>" width="140px">
           </div>
         <?}?>
       </div>
@@ -396,7 +399,7 @@
         <div class="col-md-5">
           <ul>
             <li>
-              <a href="https://goo.gl/maps/bB93DWEQBm7ytmNAA" target="_blank"><?=$endereco?></a>
+              <?=$endereco?>
             </li>
             <li>
               <a href="tel:+55<?=$telefone?>"><?=$telform?></a>

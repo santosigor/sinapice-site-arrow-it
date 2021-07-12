@@ -239,16 +239,17 @@
         <div class="ait-typography__h5 ait-utilities__text-align__center">Parceria sólida com os maiores players</div>
         <div class="ait-component__carousel center">
           <?
-            $sql = "SELECT imagem
+            $sql = "SELECT titulo, imagem
             FROM ait_parceiros
             WHERE 1
             ORDER BY id_parceiro DESC";
             $rs = mysqli_query($con, $sql); 
             while($row = mysqli_fetch_array($rs)){
+              $titulo = $row["titulo"];
               $imagem = $row["imagem"];
           ?>
             <div>
-              <img src="gcs/img/parceiros/<?=$imagem?>" alt="" width="200px">
+              <img src="gcs/img/parceiros/<?=$imagem?>" alt="<?=$titulo?>" width="200px">
             </div>
           <?}?>
         </div>
