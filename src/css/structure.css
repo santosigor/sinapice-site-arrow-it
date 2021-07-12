@@ -3580,10 +3580,17 @@ p:last-child {
     .ait-structure__footer ul li {
       display: inline-block;
       color: #0E1628;
-      margin-bottom: 11px; }
+      margin-bottom: 11px;
+      font-size: 16px;
+      line-height: 22px;
+      color: #fff; }
       @media (max-width: 991.98px) {
         .ait-structure__footer ul li {
           margin-bottom: 4px; } }
+      @media (max-width: 991.98px) {
+        .ait-structure__footer ul li {
+          font-size: 12px;
+          line-height: 14px; } }
       .ait-structure__footer ul li a {
         font-size: 16px;
         line-height: 22px;
