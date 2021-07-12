@@ -95,7 +95,7 @@
               </div>
               <div class="row form-group">
                 <div class="col col-md-3">
-                  <label for="file-input" class="form-control-label">Imagem</label>
+                  <label for="file-input" class="form-control-label">Logo</label>
                 </div>
                 <div class="col-12 col-md-9">
                   <input type="file" id="imagem" name="imagem" class="form-control-file imagesize m-b-10" />
@@ -131,7 +131,7 @@
               <div class="row form-group">
                 <div class="col col-md-3"></div>
                 <div class="col-12 col-md-9">
-                  <button onclick="acaoServico('1', '', '1');" class="btn btn-success btn-md"> Cadastrar</button>
+                  <button type="button" onclick="acaoServico('1', '', '1');" class="btn btn-success btn-md"> Cadastrar</button>
                 </div>
               </div>
             </form>
@@ -155,7 +155,7 @@
                 <tr>
                   <th>titulo</th>
                   <th>descrição</th>
-                  <th>imagem</th>
+                  <th>logo</th>
                   <th></th>
                 </tr>
               </thead>
@@ -224,7 +224,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="mediumModalLabel">Serviço</h5>
+        <h5 class="modal-title" id="mediumModalLabel">Atualizar</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -249,7 +249,7 @@
           </div>
           <div class="row form-group">
             <div class="col col-md-3">
-              <label for="file-input" class="form-control-label">Documento</label>
+              <label for="file-input" class="form-control-label">Logo</label>
             </div>
             <div class="col-12 col-md-9">
               <input type="file" id="imagem" name="imagem" class="form-control-file imagesize m-b-10" />

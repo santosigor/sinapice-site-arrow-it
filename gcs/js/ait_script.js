@@ -44,51 +44,110 @@ $('.videosize').change(function(){
 	}
 });
 
-function cadastroSubmit(){
-	d = document.form;
+function acaoServico(t, id, tipo){
 	erro = false;
 
-	if(d.legenda.value==''){
+	if(tipo==1){
+		var d = document.getElementById('form');
+		var diferenciais = tinyMCE.get('diferenciais').getContent();
+		var objetivo = tinyMCE.get('objetivo').getContent();
+		var beneficios = tinyMCE.get('beneficios').getContent();
+
+		if(d.imagem.value==''){
+			erro = true;
+		}
+	}else if(tipo==2){
+		var d = document.getElementById('formmodal'+id);
+		var diferenciais = tinyMCE.get('diferenciais'+id).getContent();
+		var objetivo = tinyMCE.get('objetivo'+id).getContent();
+		var beneficios = tinyMCE.get('beneficios'+id).getContent();
+	}
+
+	if(d.titulo.value==''){
 		erro = true;
 	}
 
-	if(d.imagembanner.value==''){
+	if(d.descricao.value==''){
+		erro = true;
+	}
+
+	if(diferenciais==''){
+		erro = true;
+	}
+
+	if(objetivo==''){
+		erro = true;
+	}
+
+	if(beneficios==''){
 		erro = true;
 	}
 
 	if(erro===false){
-		d.acao.value = 1;
-		peSetCookie("ait_res", "2", 1);
+		alertResult(t);
+		d.acao.value = t;
+		d.idservico.value = id;
 		d.submit();
 	}else{
 		alertify.warning("Preencha todos os campos!");
 	}
 }
 
-function acaoServico(t, id, tipo){
-	if(tipo==1){
-		var d = document.getElementById('form');
-		peSetCookie("ait_res", "2", 1);
-	}else if(tipo==2){
-		var d = document.getElementById('formmodal'+id);
-		peSetCookie("ait_res", "3", 1);
-	}
-	d.acao.value = t;
-	d.idservico.value = id;
-	d.submit();
-}
-
 function acaoProjetos(t, id, tipo){
+	erro = false;
+
 	if(tipo==1){
 		var d = document.getElementById('form');
-		peSetCookie("ait_res", "2", 1);
+		var desafios = tinyMCE.get('desafios').getContent();
+		var solucao = tinyMCE.get('solucao').getContent();
+		var resultados = tinyMCE.get('resultados').getContent();
+
+		if(d.imagem.value==''){
+			erro = true;
+		}
 	}else if(tipo==2){
 		var d = document.getElementById('formmodal'+id);
-		peSetCookie("ait_res", "3", 1);
+		var desafios = tinyMCE.get('desafios'+id).getContent();
+		var solucao = tinyMCE.get('solucao'+id).getContent();
+		var resultados = tinyMCE.get('resultados'+id).getContent();
 	}
-	d.acao.value = t;
-	d.idprojeto.value = id;
-	d.submit();
+
+	if(d.titulo.value==''){
+		erro = true;
+	}
+
+	if(d.setor.value==''){
+		erro = true;
+	}
+
+	if(d.tempo_processo.value==''){
+		erro = true;
+	}
+
+	if(d.ambiente.value==''){
+		erro = true;
+	}
+
+	if(desafios==''){
+		erro = true;
+	}
+
+	if(solucao==''){
+		erro = true;
+	}
+
+	if(resultados==''){
+		erro = true;
+	}
+
+	if(erro===false){
+		alertResult(t);
+		d.acao.value = t;
+		d.idprojeto.value = id;
+		d.submit();
+	}else{
+		alertify.warning("Preencha todos os campos!");
+	}
 }
 
 function mascaraTexto(evento, mascara){   
@@ -127,206 +186,45 @@ function BloquearLetras(e){
   }
 }
 
-function acaoCursos(t, id, tipo){
-	if(tipo==1){
-		var d = document.getElementById('form');
-		peSetCookie("ait_res", "2", 1);
-	}else if(tipo==2){
-		var d = document.getElementById('formmodal'+id);
-		peSetCookie("ait_res", "3", 1);
-	}
-	d.acao.value = t;
-	d.idcurso.value = id;
-	d.submit();
-}
-
-function acaoFormPag(t, id, tipo){
-	if(tipo==1){
-		var d = document.getElementById('form');
-		peSetCookie("ait_res", "2", 1);
-	}else if(tipo==2){
-		var d = document.getElementById('formmodal'+id);
-		peSetCookie("ait_res", "3", 1);
-	}
-	d.acao.value = t;
-	d.idforma.value = id;
-	d.submit();
-}
-
-function acaoExercicios(t, id, tipo){
-	if(tipo==1){
-		var d = document.getElementById('form');
-		peSetCookie("ait_res", "2", 1);
-	}else if(tipo==2){
-		var d = document.getElementById('formmodal'+id);
-		peSetCookie("ait_res", "3", 1);
-	}
-	d.acao.value = t;
-	d.idexercicio.value = id;
-	d.submit();
-}
-
 function updateDadosGerais(){
 	d = document.form;
-	peSetCookie("ait_res", "3", 1);
-	d.acao.value = 1;
-	d.submit();
-}
+	erro = false;
 
-function BuscaCpf(){
-	d = document.form;
-
-	if(d.cpf.value.length==14){
-		$.ajax({
-			type: 'POST',
-			url: 'pe_ajax.php',
-			data: {buscarCPF: "1", cpf:d.cpf.value},
-			success: function(response) {
-				if(response!=""){
-					var teste = response.split('|');
-
-					$("#name").val(teste[0]);
-					$("#email").val(teste[1]);
-					$("#cel").val(teste[2]);
-					$("#nascimento").val(teste[3]);
-					$("#cidade").val(teste[4]);
-					$("#estado").val(teste[5]);
-					$("#experiencia").val(teste[6]);
-
-					if(teste[7]==1){
-						var $radios = $('input:radio[name=terapia]');
-						$radios.filter('[value=1]').prop('checked', true);
-					}else if(teste[7]==2){
-						var $radios = $('input:radio[name=terapia]');
-						$radios.filter('[value=2]').prop('checked', true);
-					}else{
-						var $radios = $('input:radio[name=terapia]');
-						$radios.filter('[value=1]').prop('checked', false);
-						$radios.filter('[value=2]').prop('checked', false);
-          }
-					
-					if(teste[8]==1){
-						var $radios = $('input:radio[name=terapeuta]');
-						$radios.filter('[value=1]').prop('checked', true);
-					}else if(teste[8]==2){
-						var $radios = $('input:radio[name=terapeuta]');
-						$radios.filter('[value=2]').prop('checked', true);
-					}else{
-						var $radios = $('input:radio[name=terapeuta]');
-						$radios.filter('[value=1]').prop('checked', false);
-						$radios.filter('[value=2]').prop('checked', false);
-          }
-					
-					if(teste[9]==1){
-						var $radios = $('input:radio[name=medicamento]');
-						$radios.filter('[value=1]').prop('checked', true);
-					}else if(teste[9]==2){
-						var $radios = $('input:radio[name=medicamento]');
-						$radios.filter('[value=2]').prop('checked', true);
-					}else{
-						var $radios = $('input:radio[name=medicamento]');
-						$radios.filter('[value=1]').prop('checked', false);
-						$radios.filter('[value=2]').prop('checked', false);
-          }
-
-					$("#qualmedicamento").val(teste[10]);
-					$("#autoconhecimento").val(teste[11]);
-					$("#rg").val(teste[12]);
-					$("#aluno_existente").val(teste[13]);
-				}
-			}
-		});
-	}
-}
-
-function FazerInscricao(){
-  d = document.form;
-
-	if($("#pagamento-1").hasClass("active")){
-		forma_pagamento = 1;
-	}else if($("#pagamento-2").hasClass("active")){
-		forma_pagamento = 2;
-	}
-  
-  $.ajax({
-    type: "POST",
-    url: "pe_ajax.php",
-    data: { finalizarInscricao: "1", cpf: d.cpf.value, rg: d.rg.value, name: d.name.value, 
-      nascimento: d.nascimento.value, cel: d.cel.value, email: d.email.value, 
-      cidade: d.cidade.value, estado: d.estado.value, experiencia: d.experiencia.value, 
-      terapia: d.terapia.value, terapeuta: d.terapeuta.value, medicamento: d.medicamento.value, 
-      qualmedicamento: d.qualmedicamento.value, autoconhecimento: d.autoconhecimento.value, 
-      aluno_existente: d.aluno_existente.value, forma_pagamento: forma_pagamento, id_curso: d.id_curso.value},
-    success: function (response){
-      if(response==1){
-        $("#cpf").val("");
-        $("#name").val("");
-        $("#email").val("");
-        $("#cel").val("");
-        $("#nascimento").val("");
-        $("#cidade").val("");
-        $("#estado").val("");
-        $("#experiencia").val("");
-        var $radios = $('input:radio[name=terapia]');
-        $radios.filter('[value=1]').prop('checked', false);
-        $radios.filter('[value=2]').prop('checked', false);
-
-        var $radios = $('input:radio[name=terapeuta]');
-        $radios.filter('[value=1]').prop('checked', false);
-        $radios.filter('[value=2]').prop('checked', false);
-
-        var $radios = $('input:radio[name=medicamento]');
-        $radios.filter('[value=1]').prop('checked', false);
-        $radios.filter('[value=2]').prop('checked', false);
-
-        $("#qualmedicamento").val("");
-        $("#autoconhecimento").val("");
-        $("#rg").val("");
-        $("#aluno_existente").val("0 ");
-        $("#modalInscricao").fadeIn("fast").addClass("active");
-      }else{
-        alert("erro");
-      }
-    }
-  });
-}
-
-function acaoTemas(t, id, tipo){
-	if(tipo==1){
-		var d = document.getElementById('form');
-	}else if(tipo==2){
-		var d = document.getElementById('formmodal'+id);
-	}
-	d.acao.value = t;
-	d.idtema.value = id;
-	d.submit();
-}
-
-function enviarExercicio(){
-	d = document.form;
-	d.acao.value = 1;
-	d.submit();
-}
-
-function aceitarAcordo(){
-  d = document.form;
-	
-	if(!document.getElementById("acordo").checked){
-		alert("preencha o check");
-		return;
+	if(d.endereco.value==''){
+		erro = true;
 	}
 
-  $.ajax({
-    type: "POST",
-    url: "pe_ajax.php",
-    data: { aceitarAcordo: 1, id_aluno: d.idalunologado.value, acordo: d.acordo.value},
-    success: function (response){
-      if(response==1){
-        $('#modalAcordo').fadeOut('fast').removeClass('active');
-				$('html, body').css('overflow','');
-      }
-    }
-  });
+	if(d.telefone.value==''){
+		erro = true;
+	}
+
+	if(d.celular.value==''){
+		erro = true;
+	}
+
+	if(d.email.value==''){
+		erro = true;
+	}
+
+	if(d.facebook.value==''){
+		erro = true;
+	}
+
+	if(d.instagram.value==''){
+		erro = true;
+	}
+
+	if(d.linkedin.value==''){
+		erro = true;
+	}
+
+	if(erro===false){
+		alertResult(2);
+		d.acao.value = 1;
+		d.submit();
+	}else{
+		alertify.warning("Preencha todos os campos!");
+	}
 }
 
 function enviarOrcamento(){
@@ -375,41 +273,77 @@ function enviarOrcamento(){
 }
 
 function acaoBanner(t, id, tipo){
+	erro = false;
+
 	if(tipo==1){
 		var d = document.getElementById('form');
+
 		if(d.imagem.value==''){
 			erro = true;
 		}
 	}else if(tipo==2){
 		var d = document.getElementById('formmodal'+id);
-	}	
-	erro = false;
+	}
+
+	if(d.titulo.value==''){
+		erro = true;
+	}
 
 	if(erro===false){
-		if(tipo==1){
-			peSetCookie("ait_res", "2", 1);
-		}else if(tipo==2){
-			peSetCookie("ait_res", "3", 1);
-		}	
+		alertResult(t);
 		d.acao.value = t;
 		d.idbanner.value = id;
 		d.submit();
 	}else{
-		alertify.warning("Selecione a imagem Desktop!");
+		alertify.warning("Preencha todos os campos!");
 	}
 }
 
 function acaoPost(t, id, tipo){
+	erro = false;
+
 	if(tipo==1){
 		var d = document.getElementById('form');
-		peSetCookie("ait_res", "2", 1);
 	}else if(tipo==2){
 		var d = document.getElementById('formmodal'+id);
-		peSetCookie("ait_res", "3", 1);
 	}
-	d.acao.value = t;
-	d.idpost.value = id;
-	d.submit();
+
+	if(d.titulo.value==''){
+		erro = true;
+	}
+
+	if(d.segmento.value==''){
+		erro = true;
+	}
+
+	if(d.id_categoria.value=='0'){
+		erro = true;
+	}else if(d.id_categoria.value=='1'){
+		if(d.id_autor.value=='0'){
+			erro = true;
+		}
+	}else if(d.id_categoria.value=='2'){
+		if(d.id_tipo.value=='0'){
+			erro = true;
+		}else if(d.id_tipo.value=='1'){
+			if(d.video.value==''){
+				erro = true;
+			}
+		}else if(d.id_tipo.value=='2'){
+			if(d.linkvideo.value==''){
+				erro = true;
+			}
+		}
+	}
+
+	if(erro===false){
+		alertResult(t);
+		d.acao.value = t;
+		d.idpost.value = id;
+		d.submit();
+	}else{
+		alertify.warning("Preencha todos os campos!");
+	}
 }
 
 function updatePassword(){
@@ -495,11 +429,11 @@ function registerAutor(){
 function acaoParceiros(t, id, tipo){
 	if(tipo==1){
 		var d = document.getElementById('form');
-		peSetCookie("ait_res", "2", 1);
 	}else if(tipo==2){
 		var d = document.getElementById('formmodal'+id);
-		peSetCookie("ait_res", "3", 1);
 	}
+
+	alertResult(t);
 	d.acao.value = t;
 	d.idparceiro.value = id;
 	d.submit();
@@ -508,11 +442,11 @@ function acaoParceiros(t, id, tipo){
 function acaoClientes(t, id, tipo){
 	if(tipo==1){
 		var d = document.getElementById('form');
-		peSetCookie("ait_res", "2", 1);
 	}else if(tipo==2){
 		var d = document.getElementById('formmodal'+id);
-		peSetCookie("ait_res", "3", 1);
 	}
+
+	alertResult(t);
 	d.acao.value = t;
 	d.idcliente.value = id;
 	d.submit();
@@ -521,16 +455,15 @@ function acaoClientes(t, id, tipo){
 function acaoDepoimentos(t, id, tipo){
 	if(tipo==1){
 		var d = document.getElementById('form');
-		peSetCookie("ait_res", "2", 1);
 	}else if(tipo==2){
 		var d = document.getElementById('formmodal'+id);
-		peSetCookie("ait_res", "3", 1);
 	}
+
+	alertResult(t);
 	d.acao.value = t;
 	d.iddepoimento.value = id;
 	d.submit();
 }
-
 
 
 
@@ -564,15 +497,19 @@ if(peGetCookie("ait_res")){
 	var cookie = peGetCookie("ait_res");
 
 	if(cookie==1){
-		alertify.error('Usuário e senha inválido!');
-	}else if(cookie==2){
 		alertify.success('Cadastrado com sucesso!');
-	}else if(cookie==3){
+	}else if(cookie==2){
 		alertify.message('Atualizado com sucesso!');
-	}else if(cookie==4){
+	}else if(cookie==3){
 		alertify.error('Excluído com sucesso!');
+	}else if(cookie==4){
+		alertify.error('Usuário e senha inválido!');
 	}else if(cookie==5){
 		alertify.success('E-mail enviado com sucesso!');
 	}
 	peSetCookie("ait_res", "", -1);
+}
+
+function alertResult(tipo){
+	peSetCookie("ait_res", tipo, 1);
 }
