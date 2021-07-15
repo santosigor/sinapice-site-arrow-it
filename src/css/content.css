@@ -1400,22 +1400,21 @@ img {
     margin: 0;
     list-style-type: square;
     padding-left: 15px;
-    column-count: 2;
-    column-gap: 5px;
     padding-bottom: 50px; }
-    @media (max-width: 991.98px) {
-      .ait-content__servicos__content .text-editor ul {
-        column-count: 2; } }
-    @media (max-width: 767.98px) {
-      .ait-content__servicos__content .text-editor ul {
-        column-count: 1; } }
+    .ait-content__servicos__content .text-editor ul::after {
+      display: block;
+      content: "";
+      clear: both; }
     .ait-content__servicos__content .text-editor ul li::marker {
       color: #303BFE; }
     @media (min-width: 768px) {
       .ait-content__servicos__content .text-editor ul li {
-        margin: 0 0 24px; } }
+        margin: 0 20px 24px;
+        float: left;
+        width: calc(50% - 40px); } }
     @media (max-width: 767.98px) {
       .ait-content__servicos__content .text-editor ul li {
+        width: 100%;
         font-size: 12px;
         line-height: 14px;
         margin: 0 0 10px; } }

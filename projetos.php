@@ -67,7 +67,7 @@
                   $cargo = $row["cargo"];
               ?>
                 <div class="ait-content__projetos__depoimento__item">
-                  <?=$texto?>
+                  <p><?=$texto?></p>
                   <strong>
                     <?=$cliente?>
                     <span><?=$cargo?></span>

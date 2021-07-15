@@ -226,10 +226,6 @@ function updateDadosGerais(){
 		erro = true;
 	}
 
-	if(t==3){
-		erro = false;
-	}
-
 	if(erro===false){
 		alertResult(2);
 		d.acao.value = 1;

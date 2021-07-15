@@ -169,10 +169,12 @@ tinymce.init({
   height: 250,
   language: 'pt_BR',
   menubar: false,
-  plugins: 'lists autolink link image',
+  plugins: 'lists autolink link image paste',
   toolbar: 'undo redo | bold italic | link | image | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist',
   toolbar_mode: 'floating',
   default_link_target: '_blank',
+  paste_webkit_styles: '',  
+  paste_retain_style_properties: '',
    /* enable title field in the Image dialog*/
    image_title: true,
    /* enable automatic uploads of images represented by blob or data URIs*/
@@ -221,5 +223,5 @@ tinymce.init({
  
      input.click();
    },
-   content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+   // content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
 });
