@@ -57,8 +57,9 @@ img {
         width: 30px; }
     @media (max-width: 991.98px) {
       .ait-compartilhar__content {
-        right: 80px;
-        padding: 10px; }
+        right: 60px;
+        padding: 10px;
+        top: 2px; }
         .ait-compartilhar__content a {
           margin-left: 10px;
           width: 20px; }
