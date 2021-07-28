@@ -328,22 +328,24 @@ function acaoPost(t, id, tipo){
 		erro = true;
 	}
 
-	if(d.id_categoria.value=='0'){
-		erro = true;
-	}else if(d.id_categoria.value=='1'){
-		if(d.id_autor.value=='0'){
+	if(tipo==1){
+		if(d.id_categoria.value=='0'){
 			erro = true;
-		}
-	}else if(d.id_categoria.value=='2'){
-		if(d.id_tipo.value=='0'){
-			erro = true;
-		}else if(d.id_tipo.value=='1'){
-			if(d.video.value==''){
+		}else if(d.id_categoria.value=='1'){
+			if(d.id_autor.value=='0'){
 				erro = true;
 			}
-		}else if(d.id_tipo.value=='2'){
-			if(d.linkvideo.value==''){
+		}else if(d.id_categoria.value=='2'){
+			if(d.id_tipo.value=='0'){
 				erro = true;
+			}else if(d.id_tipo.value=='1'){
+				if(d.video.value==''){
+					erro = true;
+				}
+			}else if(d.id_tipo.value=='2'){
+				if(d.linkvideo.value==''){
+					erro = true;
+				}
 			}
 		}
 	}
@@ -396,14 +398,17 @@ function chooseCategoria(tipo, id){
 			document.getElementById("divdestaque").style.display = '';
 			document.getElementById("divvideo").style.display = 'none';
 			$('.esconde-video').show();
+			$('#imagemVideoCapa').show();
 		}else if(d.id_categoria.value==2){
 			document.getElementById("divvideo").style.display = '';
 			document.getElementById("divdestaque").style.display = 'none';
 			$('.esconde-video').hide();
+			$('#imagemVideoCapa').hide();
 		}else{
 			document.getElementById("divvideo").style.display = 'none';
 			document.getElementById("divdestaque").style.display = 'none';
 			$('.esconde-video').show();
+			$('#imagemVideoCapa').hide();
 		}
 	}else{
 		if(d.id_categoria.value==1){
@@ -433,23 +438,29 @@ function chooseTipo(tipo, id){
 		if(d.id_tipo.value==1){
 			document.getElementById("divarq").style.display = '';
 			document.getElementById("divlink").style.display = 'none';
+			$('#imagemVideoCapa').show();
 		}else if(d.id_tipo.value==2){
 			document.getElementById("divlink").style.display = '';
 			document.getElementById("divarq").style.display = 'none';
+			$('#imagemVideoCapa').hide();
 		}else{
 			document.getElementById("divlink").style.display = 'none';
 			document.getElementById("divarq").style.display = 'none';
+			$('#imagemVideoCapa').show();
 		}
 	}else{
 		if(d.id_tipo.value==1){
 			document.getElementById("divarq"+id).style.display = '';
 			document.getElementById("divlink"+id).style.display = 'none';
+			$('#imagemVideoCapa').show();
 		}else if(d.id_tipo.value==2){
 			document.getElementById("divlink"+id).style.display = '';
 			document.getElementById("divarq"+id).style.display = 'none';
+			$('#imagemVideoCapa').hide();
 		}else{
 			document.getElementById("divlink"+id).style.display = 'none';
 			document.getElementById("divarq"+id).style.display = 'none';
+			$('#imagemVideoCapa').show();
 		}
 	}
 }

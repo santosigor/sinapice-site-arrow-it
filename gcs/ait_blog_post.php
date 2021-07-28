@@ -231,16 +231,16 @@
                   </div>
                 </div>
               </div>
-              <div class="esconde-video">
-                <div class="row form-group">
-                  <div class="col col-md-3">
-                    <label for="file-input" class="form-control-label">Imagem</label>
-                  </div>
-                  <div class="col-12 col-md-9">
-                    <input type="file" id="imagem" name="imagem" class="form-control-file imagesize m-b-10" />
-                    <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
-                  </div>
+              <div class="row form-group" id="imagemVideoCapa">
+                <div class="col col-md-3">
+                  <label for="file-input" class="form-control-label">Imagem</label>
                 </div>
+                <div class="col-12 col-md-9">
+                  <input type="file" id="imagem" name="imagem" class="form-control-file imagesize m-b-10" />
+                  <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
+                </div>
+              </div>
+              <div class="esconde-video">
                 <div class="row form-group">
                   <div class="col col-md-3">
                     <label for="text-input" class="form-control-label">Autor</label>
@@ -481,16 +481,16 @@
               </div>
             </div>
           </div>
-          <div class="esconde-video" style="display:<?if($id_categoria==2){?>none<?}?>">
-            <div class="row form-group">
-              <div class="col col-md-3">
-                <label for="file-input" class="form-control-label">Imagem</label>
-              </div>
-              <div class="col-12 col-md-9">
-                <input type="file" id="imagem" name="imagem" class="form-control-file imagesize m-b-10" />
-                <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
-              </div>
+          <div class="row form-group" style="display:<?if($linkvideo!=''){?>none<?}?>">
+            <div class="col col-md-3">
+              <label for="file-input" class="form-control-label">Imagem</label>
             </div>
+            <div class="col-12 col-md-9">
+              <input type="file" id="imagem" name="imagem" class="form-control-file imagesize m-b-10" />
+              <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
+            </div>
+          </div>
+          <div class="esconde-video" style="display:<?if($id_categoria==2){?>none<?}?>">
             <div class="row form-group">
               <div class="col col-md-3">
                 <label for="text-input" class="form-control-label">Autor</label>

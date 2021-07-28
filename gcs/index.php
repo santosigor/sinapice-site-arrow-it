@@ -41,7 +41,7 @@
         <div class="login-wrap">
             <div class="login-content">
                 <div class="login-logo">
-                  <h4>ARROW-IT</h4>
+                  <h4>GCS - ARROW-IT</h4>
                 </div>
                 <div class="login-form">
                     <form name="form" id="form" method="post">

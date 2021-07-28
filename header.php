@@ -6,18 +6,18 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Sinápice - Estúdio de Design | Igor dos Santos - Front End Developer">
     
     <title>ARROWIT</title>
 
-     <link href="./dist/images/favicon.png" rel="icon" sizes="16x16" type="image/png">
+    <link href="./dist/images/favicon.png" rel="icon" sizes="16x16" type="image/png">
 
-    <!-- share -->
     <meta property="og:title" content="Arrow IT" />
     <meta property="og:description" content="O seu objetivo é o nosso caminho" />
     <meta property="og:url" content="https://www.arrowit.com.br/" />
+
     <meta property="og:image" content="https://www.arrowit.com.br/dist/images/ait-image-compartilhar.jpg" />
 
-    <!-- CSS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 

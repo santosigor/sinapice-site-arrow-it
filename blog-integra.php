@@ -1,5 +1,6 @@
-<?
-  include("header.php");
+<? 
+  
+  include("gcs/config.php");
 
   if(isset($_GET["id"])&&$_GET["id"]!=""){
     $id_post = $_GET["id"];
@@ -28,7 +29,72 @@
   }else{
     header("index.php");
   }
+
 ?>
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Sinápice - Estúdio de Design | Igor dos Santos - Front End Developer">
+    
+    <title>ARROWIT BLog</title>
+
+    <link href="./dist/images/favicon.png" rel="icon" sizes="16x16" type="image/png">
+
+    <meta name="description" content="<?=$titulo?>" />
+    <link rel="canonical" href="http://clientesinapice.com.br/sites/arrow-it/blog-integra.php?id=<?=$id_post?>" />
+
+    <meta property="og:title" content="Arrow IT Blog - <?=$segmento?>" />
+    <meta property="og:description" content="<?=$titulo?>" />
+    <meta property="og:url" content="http://clientesinapice.com.br/sites/arrow-it/blog-integra.php?id=<?=$id_post?>" />
+    <meta property="og:site_name" content="Arrow IT Blog" />
+
+    <meta property="og:image" content="http://clientesinapice.com.br/gcs/img/blog_post/<?=$imagem?>">
+    <meta property="og:image:url" content="http://clientesinapice.com.br/gcs/img/blog_post/<?=$imagem?>">
+    <meta property="og:image:secure_url" content="http://clientesinapice.com.br/gcs/img/blog_post/<?=$imagem?>g" />
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="http://clientesinapice.com.br/gcs/img/blog_post/<?=$imagem?>">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./gcs/css/alertify.min.css"/>
+    <link rel="stylesheet" href="./gcs/css/alertify.default.min.css"/>
+
+    <link rel="stylesheet" href="./dist/css/ait.min.css">
+
+  </head>
+  <body>
+
+    <div class="ait-loading">
+      <div class="ait-loading__container">
+        <div class="ait-loading__porcentagem">100</div>
+        <div class="ait-loading__logo"></div>
+        <div class="ait-loading__barra"></div>
+      </div>
+    </div>
+
+    <header class="ait-structure__header">
+      <div class="ait-container">
+        <a href="index.php" class="ait-structure__header__logo">Logo Arrow IT</a>
+        <span class="ait-structure__header__menu-mobile">Menu</span>
+        <nav>
+          <a href="index.php">Home</a>
+          <a href="sobre-arrow-it.php">Arrow IT</a>
+          <a href="servicos.php">Serviços</a>
+          <a href="projetos.php">Projetos</a>
+          <a href="blog.php">Blog</a>
+          <a href="orcamento.php">Orçamento</a>
+          <a href="contato.php">Contato</a>
+        </nav>
+      </div>
+    </header>
 
     <section class="ait-content__blog__integra">
       <div class="ait-container">
