@@ -1,14 +1,36 @@
 <?php 
   include("ait_classes.php");
 
+  if($_SESSION["id_perfil_".$_SESSION["nomesessao"]]!=1){
+    Header("Location: ait_dadosgerais.php");
+  }
+
   $objait = new Ait_class();
 
   if(@$_POST["acao"]==1){
     @$texto = $_POST["texto"];
     @$cliente = $_POST["cliente"];
     @$cargo = $_POST["cargo"];
+    @$id_projeto = $_POST["id_projeto"];
 
-    $objait->registerDepoimentos("", $texto, $cliente, $cargo);
+    $nomevideo = "";
+    if ( isset( $_FILES[ 'video' ][ 'name' ] ) && $_FILES[ 'video' ][ 'error' ] == 0 ) {
+    
+        $arquivo_tmp = $_FILES[ 'video' ][ 'tmp_name' ];
+        $nome = $_FILES[ 'video' ][ 'name' ];
+    
+        $extensao = pathinfo ( $nome, PATHINFO_EXTENSION );
+        $extensao = strtolower ( $extensao );
+
+        $novoNome = uniqid ( time () ).'.'.$extensao;
+        $destino = 'img/depoimentos/'.$novoNome;
+        
+        if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
+            $nomevideo = $novoNome;
+        }
+    }
+
+    $objait->registerDepoimentos("", $texto, $cliente, $cargo, $id_projeto, $nomevideo);
 
     header('Location: ait_depoimentos.php');
   }else if(@$_POST["acao"]==2){
@@ -16,8 +38,27 @@
     @$texto = $_POST["texto"];
     @$cliente = $_POST["cliente"];
     @$cargo = $_POST["cargo"];
+    @$id_projeto = $_POST["id_projeto"];
 
-    $objait->registerDepoimentos($id_depoimento, $texto, $cliente, $cargo);
+    $nomevideo = "";
+    if($_FILES[ 'video' ][ 'name' ]!=""){
+      if ( isset( $_FILES[ 'video' ][ 'name' ] ) && $_FILES[ 'video' ][ 'error' ] == 0 ) {
+        $arquivo_tmp = $_FILES[ 'video' ][ 'tmp_name' ];
+        $nome = $_FILES[ 'video' ][ 'name' ];
+    
+        $extensao = pathinfo ( $nome, PATHINFO_EXTENSION );
+        $extensao = strtolower ( $extensao );
+        
+        $novoNome = uniqid ( time () ).'.'.$extensao;
+        $destino = 'img/depoimentos/'.$novoNome;
+        
+        if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
+            $nomevideo = $novoNome;
+        }
+      }
+    }
+
+    $objait->registerDepoimentos($id_depoimento, $texto, $cliente, $cargo, $id_projeto, $nomevideo);
 
   }else if(@$_POST["acao"]==3){
 
@@ -37,6 +78,28 @@
           <div class="col-lg-12">
             <h3 class="title-5 m-b-35">Novo Depoimento</h3>
             <form id="form" name="form" action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+              <div class="row form-group">
+                <div class="col col-md-3">
+                  <label for="text-input" class="form-control-label">Projeto</label>
+                </div>
+                <div class="col-12 col-md-9">
+                  <select name="id_projeto" id="id_projeto" class="form-control">
+                      <option value="0">Selecione o projeto</option>
+                      <?
+                        $sqlprojeto = "SELECT id_projeto, titulo
+                        FROM ait_projetos
+                        WHERE 1
+                        ORDER BY titulo ASC";
+                        $rsprojeto = mysqli_query($con, $sqlprojeto);
+                        while($rowprojeto = mysqli_fetch_array($rsprojeto)){
+                          $idprojeto = $rowprojeto["id_projeto"];
+                          $titulo = $rowprojeto["titulo"];
+                      ?>
+                        <option value="<?=$idprojeto?>"><?=$titulo?></option>
+                      <?}?>
+                  </select>
+                </div>
+              </div>
               <div class="row form-group">
                 <div class="col col-md-3">
                   <label for="text-input" class="form-control-label">Texto</label>
@@ -59,6 +122,15 @@
                 </div>
                 <div class="col-12 col-md-9">
                   <input type="text" id="cargo" name="cargo" class="form-control" />
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col col-md-3">
+                  <label for="file-input" class="form-control-label">Video</label>
+                </div>
+                <div class="col-12 col-md-9">
+                  <input type="file" id="video" name="video" class="form-control-file videosize m-b-10" />
+                  <small class="form-text text-muted">Tamanho máximo: 10mb</small><hr>
                 </div>
               </div>
               <input type="hidden" id="acao" name="acao" value="0">
@@ -137,7 +209,7 @@
 </section>
 
 <?
-  $sql = "SELECT id_depoimento, texto, cliente, cargo
+  $sql = "SELECT id_depoimento, texto, cliente, cargo, id_projeto
   FROM ait_depoimentos 
   WHERE 1
   ORDER BY id_depoimento DESC";
@@ -147,6 +219,7 @@
     $texto = $row["texto"];
     $cliente = $row["cliente"];
     $cargo = $row["cargo"];
+    $id_projeto = $row["id_projeto"];
 ?>
 <div class="modal fade" id="mediumModal<?=$id_depoimento?>" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
   aria-hidden="true">
@@ -160,8 +233,30 @@
       </div>
       <div class="modal-body">
        <form id="formmodal<?=$id_depoimento?>" name="form<?=$id_depoimento?>" action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-       <div class="row form-group">
-          <div class="col col-md-3">
+          <div class="row form-group">
+            <div class="col col-md-3">
+              <label for="text-input" class="form-control-label">Projeto</label>
+            </div>
+            <div class="col-12 col-md-9">
+              <select name="id_projeto" id="id_projeto" class="form-control">
+                  <option value="0">Selecione o projeto</option>
+                  <?
+                    $sqlprojeto = "SELECT id_projeto, titulo
+                    FROM ait_projetos
+                    WHERE 1
+                    ORDER BY titulo ASC";
+                    $rsprojeto = mysqli_query($con, $sqlprojeto);
+                    while($rowprojeto = mysqli_fetch_array($rsprojeto)){
+                      $idprojeto = $rowprojeto["id_projeto"];
+                      $titulo = $rowprojeto["titulo"];
+                  ?>
+                    <option value="<?=$idprojeto?>" <?if($id_projeto==$idprojeto){?>selected<?}?>><?=$titulo?></option>
+                  <?}?>
+              </select>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-3">
               <label for="text-input" class="form-control-label">Texto</label>
             </div>
             <div class="col-12 col-md-9">
@@ -182,6 +277,15 @@
             </div>
             <div class="col-12 col-md-9">
               <input type="text" id="cargo" name="cargo" class="form-control" value="<?=$cargo?>" />
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-3">
+              <label for="file-input" class="form-control-label">Video</label>
+            </div>
+            <div class="col-12 col-md-9">
+              <input type="file" id="video" name="video" class="form-control-file videosize m-b-10" />
+              <small class="form-text text-muted">Tamanho máximo: 10mb</small><hr>
             </div>
           </div>
           <input type="hidden" id="acao" name="acao" value="0">

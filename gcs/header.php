@@ -31,12 +31,17 @@
                   </div>
                   <div class="setting-menu js-right-sidebar">
                     <div class="account2">
-                      <h4 class="name">Olá, Admin</h4>
+                      <h4 class="name">Olá, <?=$_SESSION["usuario_".$_SESSION["nomesessao"]]?></h4>
                     </div>
                     <div class="account-dropdown__body">
                       <div class="account-dropdown__item">
                         <a href="ait_alterarsenha.php"> <i class="zmdi zmdi-settings"></i>Alterar senha</a>
                       </div>
+                      <?if($_SESSION["id_perfil_".$_SESSION["nomesessao"]]==1){?>
+                      <div class="account-dropdown__item">
+                        <a href="ait_usuarios.php"> <i class="zmdi zmdi-account"></i>Usuários</a>
+                      </div>
+                      <?}?>
                       <div class="account-dropdown__item">
                         <a href="javascript:irPara(1, 'index.php?sair=1');"> <i class="fas fa-sign-out-alt"></i>Sair</a>
                       </div>
@@ -54,53 +59,75 @@
           <div class="menu-sidebar2__content js-scrollbar2">
             <nav class="navbar-sidebar2">
             <ul class="list-unstyled navbar__list">
-              <li>
-                <a href="ait_dadosgerais.php"> <i class="fas fa-list-ul"></i>Dados gerais</a>
-              </li>
-              <li class="has-sub">
-                <a class="js-arrow" href="#">
-                  <i class="fas fa-desktop"></i>Home
-                  <span class="arrow">
-                    <i class="fas fa-angle-down"></i>
-                  </span>
-                </a>
-                <ul class="list-unstyled navbar__sub-list js-sub-list">
-                  <li>
-                    <a href="ait_home.php"> <i class="fas fa-images"></i>Banner</a>
-                  </li>
-                  <li>
-                    <a href="ait_parceiros.php"> <i class="fas fa-handshake"></i>Parceiros</a>
-                  </li>
-                  <li>
-                    <a href="ait_clientes.php"> <i class="fas fa-users"></i>Clientes</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="ait_servicos.php"> <i class="fas fa-cog"></i>Serviços</a>
-              </li>
-              <li>
-                <a href="ait_projetos.php"> <i class="fas fa-clipboard-check"></i>Projetos</a>
-              </li>
-              <li>
-                <a href="ait_depoimentos.php"> <i class="fas fa-align-left"></i>Depoimentos</a>
-              </li>
-              <li class="has-sub">
-                <a class="js-arrow" href="#">
-                  <i class="fab fa-blogger-b"></i>Blog
-                  <span class="arrow">
-                    <i class="fas fa-angle-down"></i>
-                  </span>
-                </a>
-                <ul class="list-unstyled navbar__sub-list js-sub-list">
-                  <li>
-                    <a href="ait_blog_post.php"> <i class="fas fa-tag"></i>Post</a>
-                  </li>
-                  <li>
-                    <a href="ait_blog_conteudo_util.php"> <i class="fas fa-thumbs-up"></i>Conteúdo útil</a>
-                  </li>
-                </ul>
-              </li>
+              <?if($_SESSION["id_perfil_".$_SESSION["nomesessao"]]==1){?>
+                <li>
+                  <a href="ait_dadosgerais.php"> <i class="fas fa-list-ul"></i>Dados gerais</a>
+                </li>
+                <li class="has-sub">
+                  <a class="js-arrow" href="#">
+                    <i class="fas fa-desktop"></i>Home
+                    <span class="arrow">
+                      <i class="fas fa-angle-down"></i>
+                    </span>
+                  </a>
+                  <ul class="list-unstyled navbar__sub-list js-sub-list">
+                    <li>
+                      <a href="ait_home.php"> <i class="fas fa-images"></i>Banner</a>
+                    </li>
+                    <li>
+                      <a href="ait_parceiros.php"> <i class="fas fa-handshake"></i>Parceiros</a>
+                    </li>
+                    <li>
+                      <a href="ait_clientes.php"> <i class="fas fa-users"></i>Clientes</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="ait_servicos.php"> <i class="fas fa-cog"></i>Serviços</a>
+                </li>
+                <li>
+                  <a href="ait_projetos.php"> <i class="fas fa-clipboard-check"></i>Projetos</a>
+                </li>
+                <li>
+                  <a href="ait_depoimentos.php"> <i class="fas fa-align-left"></i>Depoimentos</a>
+                </li>
+                <li class="has-sub">
+                  <a class="js-arrow" href="#">
+                    <i class="fab fa-blogger-b"></i>Blog
+                    <span class="arrow">
+                      <i class="fas fa-angle-down"></i>
+                    </span>
+                  </a>
+                  <ul class="list-unstyled navbar__sub-list js-sub-list">
+                    <li>
+                      <a href="ait_blog_post.php"> <i class="fas fa-tag"></i>Post</a>
+                    </li>
+                    <li>
+                      <a href="ait_blog_conteudo_util.php"> <i class="fas fa-thumbs-up"></i>Conteúdo útil</a>
+                    </li>
+                  </ul>
+                </li>
+              <?}else if($_SESSION["id_perfil_".$_SESSION["nomesessao"]]==2){?>
+                <li>
+                  <a href="ait_dadosgerais.php"> <i class="fas fa-list-ul"></i>Dados gerais</a>
+                </li>
+                <li class="has-sub">
+                  <a class="js-arrow" href="#">
+                    <i class="fab fa-blogger-b"></i>Blog
+                    <span class="arrow">
+                      <i class="fas fa-angle-down"></i>
+                    </span>
+                  </a>
+                  <ul class="list-unstyled navbar__sub-list js-sub-list">
+                    <li>
+                      <a href="ait_blog_post.php"> <i class="fas fa-tag"></i>Post</a>
+                    </li>
+                    <li>
+                      <a href="ait_blog_conteudo_util.php"> <i class="fas fa-thumbs-up"></i>Conteúdo útil</a>
+                    </li>
+                  </ul>
+                </li>
+              <?}?>
             </ul>
           </nav>
           </div>

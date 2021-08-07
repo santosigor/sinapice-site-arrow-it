@@ -23,15 +23,19 @@
 
 			$password = md5($password);
 
-			$sql = "SELECT id_usuario FROM ait_usuarios WHERE login = '$usuario' AND password = '$password'";
+			$sql = "SELECT id_usuario, id_perfil, nome FROM ait_usuarios WHERE login = '$usuario' AND password = '$password'";
 			$rs = mysqli_query($con, $sql);
 			if(mysqli_num_rows($rs)==1){
 				$row = mysqli_fetch_array($rs);
 				$id_usuario = $row["id_usuario"];
+				$nome = $row["nome"];
+				$id_perfil = $row["id_perfil"];
 
 				$_SESSION["nomesessao"] = "gcs";		
 				$_SESSION["logged_".$_SESSION["nomesessao"]] = 1;
 				$_SESSION["id_usuario_".$_SESSION["nomesessao"]] = $id_usuario;
+				$_SESSION["usuario_".$_SESSION["nomesessao"]] = $nome;
+				$_SESSION["id_perfil_".$_SESSION["nomesessao"]] = $id_perfil;
 				
 				$ip = $_SERVER['REMOTE_ADDR'];
 

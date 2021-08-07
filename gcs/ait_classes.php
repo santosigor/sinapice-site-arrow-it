@@ -588,7 +588,7 @@
 			mysqli_close($con);
 		}
 
-		function registerDepoimentos($id_depoimento, $texto, $cliente, $cargo){
+		function registerDepoimentos($id_depoimento, $texto, $cliente, $cargo, $id_projeto, $nomevideo){
 
 			include("config.php");
 
@@ -601,13 +601,30 @@
 			$texto = $this->anti_sql_injection($texto);
 			$cliente = $this->anti_sql_injection($cliente);
 			$cargo = $this->anti_sql_injection($cargo);
+			$id_projeto = $this->anti_sql_injection($id_projeto);
+			$nomevideo = $this->anti_sql_injection($nomevideo);
 
 			if($id_depoimento!=""){
-				$sql = "UPDATE ait_depoimentos SET texto = '$texto', cliente = '$cliente', cargo = '$cargo' WHERE id_depoimento = $id_depoimento";
+				$sqladd = "";
+				if($nomevideo!=""){
+					$sql = "SELECT video
+					FROM ait_depoimentos 
+					WHERE id_depoimento = $id_depoimento";
+					$rs = mysqli_query($con, $sql); 
+					$row = mysqli_fetch_array($rs);
+					$video = $row["video"];
+
+					if($video!=""){
+						unlink("img/depoimentos/".$video);
+					}
+					$sqladd = ", video = '$nomevideo'";
+				}
+
+				$sql = "UPDATE ait_depoimentos SET texto = '$texto', cliente = '$cliente', cargo = '$cargo', id_projeto = '$id_projeto' $sqladd WHERE id_depoimento = $id_depoimento";
 				mysqli_query($con, $sql);
 			}else{
-				$sql = "INSERT INTO ait_depoimentos(id_depoimento, texto, cliente, cargo, data_cadastro, quem_cadastrou, ip_cadastro) 
-				VALUES (NULL, '$texto', '$cliente', '$cargo', NOW(), '$usernow', '$ipnow')";
+				$sql = "INSERT INTO ait_depoimentos(id_depoimento, texto, cliente, cargo, id_projeto, video, data_cadastro, quem_cadastrou, ip_cadastro) 
+				VALUES (NULL, '$texto', '$cliente', '$cargo', '$id_projeto', '$nomevideo', NOW(), '$usernow', '$ipnow')";
 				mysqli_query($con, $sql);
 			}
 
@@ -618,7 +635,62 @@
 
 			include("config.php");
 
+			$sql = "SELECT video
+			FROM ait_depoimentos 
+			WHERE id_depoimento = $iddepoimento";
+			$rs = mysqli_query($con, $sql); 
+			while($row = mysqli_fetch_array($rs)){
+				$video = $row["video"];
+
+				if($video!=""){
+					unlink("img/depoimentos/".$video);
+				}
+			}
+
 			$sql = "DELETE FROM ait_depoimentos WHERE id_depoimento = $iddepoimento";
+			mysqli_query($con, $sql);
+
+			mysqli_close($con);
+		}
+
+		function registerUsuario($id_user, $nome, $id_perfil, $usuario, $senha){
+
+			include("config.php");
+
+			// $usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
+			// $ipnow = $_SERVER["REMOTE_ADDR"];
+			$usernow = 1;
+			$ipnow = "123.123.123";
+
+			$id_user = $this->anti_sql_injection($id_user);
+			$nome = $this->anti_sql_injection($nome);
+			$id_perfil = $this->anti_sql_injection($id_perfil);
+			$usuario = $this->anti_sql_injection($usuario);
+			$senha = $this->anti_sql_injection($senha);
+
+			$senha = md5($senha);
+
+			if($id_user!=""){
+				if($senha!=""){
+					$sqladd = ", password = '$senha'";
+				}
+
+				$sql = "UPDATE ait_usuarios SET nome = '$nome', id_perfil = '$id_perfil', login = '$usuario' $sqladd WHERE id_usuario = $id_user";
+				mysqli_query($con, $sql);
+			}else{
+				$sql = "INSERT INTO ait_usuarios(id_usuario, nome, id_perfil, login, password, data_cadastro, quem_cadastrou, ip_cadastro) 
+				VALUES (NULL, '$nome', '$id_perfil', '$usuario', '$senha', NOW(), '$usernow', '$ipnow')";
+				mysqli_query($con, $sql);
+			}
+
+			mysqli_close($con);
+		}
+
+		function deleteUsuario($idusuario){
+
+			include("config.php");
+
+			$sql = "DELETE FROM ait_usuarios WHERE id_usuario = $idusuario";
 			mysqli_query($con, $sql);
 
 			mysqli_close($con);

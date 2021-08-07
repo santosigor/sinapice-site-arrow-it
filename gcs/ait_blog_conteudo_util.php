@@ -104,14 +104,14 @@
             </thead>
             <tbody>
               <?
-                $sql = "SELECT id_post, comentario, DATE_FORMAT(data_cadastro, '%Y-%m-%d') as datacad
+                $sqldados = "SELECT id_post, comentario, DATE_FORMAT(data_cadastro, '%Y-%m-%d') as datacad
                 FROM ait_conteudo_util 
                 WHERE tipo = 2 AND id_post = $id_post";
-                $rs = mysqli_query($con, $sql); 
-                while($row = mysqli_fetch_array($rs)){
-                  $id_post = $row["id_post"];
-                  $comentario = $row["comentario"];
-                  $data_cadastro = $row["datacad"];
+                $rsdados = mysqli_query($con, $sqldados); 
+                while($rowdados = mysqli_fetch_array($rsdados)){
+                  $id_post = $rowdados["id_post"];
+                  $comentario = $rowdados["comentario"];
+                  $data_cadastro = $rowdados["datacad"];
 
                   $d = explode("-", $data_cadastro);
                   $data_cadastro = $d[2]."/".$d[1]."/".$d[0];

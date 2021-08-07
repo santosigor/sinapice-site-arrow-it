@@ -572,6 +572,52 @@ function acaoDepoimentos(t, id, tipo){
 	}
 }
 
+function acaoUsuarios(t, id, tipo){
+	erro = false;
+
+	if(tipo==1){
+		var d = document.getElementById('form');
+	}else if(tipo==2){
+		var d = document.getElementById('formmodal'+id);
+	}
+
+	if(d.nome.value==''){
+		erro = true;
+	}
+
+	if(d.id_perfil.value=='0'){
+		erro = true;
+	}
+
+	if(d.usuario.value==''){
+		erro = true;
+	}
+
+	if(t==1){
+		if(d.senha.value==''){
+			erro = true;
+		}else	if(d.confirmarsenha.value==''){
+			erro = true;
+		}else	if(d.senha.value!=d.confirmarsenha.value){
+			alertify.warning("As senhas não conferem!");
+			return;
+		}
+	}
+
+	if(t==3){
+		erro = false;
+	}
+
+	if(erro===false){
+		alertResult(t);
+		d.acao.value = t;
+		d.idusuario.value = id;
+		d.submit();
+	}else{
+		alertify.warning("Preencha todos os campos!");
+	}
+}
+
 
 
 //COOKIES

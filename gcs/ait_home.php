@@ -1,5 +1,10 @@
 <?php 
+
   include("ait_classes.php");
+
+  if($_SESSION["id_perfil_".$_SESSION["nomesessao"]]!=1){
+    Header("Location: ait_dadosgerais.php");
+  }
 
   $objait = new Ait_class();
 

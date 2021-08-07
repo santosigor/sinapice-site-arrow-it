@@ -92,6 +92,15 @@
                   <li class="active" ait-tab-item="tab1">desafios</li>
                   <li ait-tab-item="tab2">Solução</li>
                   <li ait-tab-item="tab3">resultados</li>
+                  <?
+                    $sql = "SELECT 1
+                    FROM ait_depoimentos
+                    WHERE id_projeto = $id_projeto";
+                    $rs = mysqli_query($con, $sql); 
+                    if(mysqli_num_rows($rs)>0){
+                  ?>
+                    <li ait-tab-item="tab4">Depoimentos</li>
+                  <?}?>
                 </ul>
               </div>
               <div class="ait-component__tab__content active" ait-tab-content="tab1">
@@ -107,6 +116,31 @@
               <div class="ait-component__tab__content" ait-tab-content="tab3">
                 <div class="text-editor">
                   <?=$resultados?>
+                </div>
+              </div>
+              <div class="ait-component__tab__content" ait-tab-content="tab4">
+                <div class="text-editor">
+                <?
+                  $sql = "SELECT cargo, cliente, video, texto
+                  FROM ait_depoimentos
+                  WHERE id_projeto = $id_projeto";
+                  $rs = mysqli_query($con, $sql); 
+                  while($row = mysqli_fetch_array($rs)){
+                    $cargo = $row["cargo"];
+                    $cliente = $row["cliente"];
+                    $texto = $row["texto"];
+                    $video = $row["video"];
+                ?>
+                    <video width="100%" height="538" controls>
+                      <source src="gcs/img/depoimentos/<?=$video?>" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>  
+                    <p><?=$texto?></p>
+                    <strong>
+                      <?=$cliente?>
+                      <span><?=$cargo?></span>
+                    </strong>
+                <?}?>
                 </div>
               </div>
             </div>
