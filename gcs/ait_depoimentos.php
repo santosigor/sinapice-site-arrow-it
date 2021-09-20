@@ -78,7 +78,7 @@
           <div class="col-lg-12">
             <h3 class="title-5 m-b-35">Novo Depoimento</h3>
             <form id="form" name="form" action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-              <div class="row form-group">
+              <div class="row form-group" style="display:none;">
                 <div class="col col-md-3">
                   <label for="text-input" class="form-control-label">Projeto</label>
                 </div>
@@ -124,7 +124,7 @@
                   <input type="text" id="cargo" name="cargo" class="form-control" />
                 </div>
               </div>
-              <div class="row form-group">
+              <div class="row form-group" style="display:none;">
                 <div class="col col-md-3">
                   <label for="file-input" class="form-control-label">Video</label>
                 </div>
@@ -233,7 +233,7 @@
       </div>
       <div class="modal-body">
        <form id="formmodal<?=$id_depoimento?>" name="form<?=$id_depoimento?>" action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-          <div class="row form-group">
+          <div class="row form-group" style="display:none;">
             <div class="col col-md-3">
               <label for="text-input" class="form-control-label">Projeto</label>
             </div>
@@ -279,7 +279,7 @@
               <input type="text" id="cargo" name="cargo" class="form-control" value="<?=$cargo?>" />
             </div>
           </div>
-          <div class="row form-group">
+          <div class="row form-group"  style="display:none;">
             <div class="col col-md-3">
               <label for="file-input" class="form-control-label">Video</label>
             </div>
