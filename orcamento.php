@@ -81,7 +81,7 @@
             <label for="consentimento">
               <input type="checkbox" name="consentimento" id="consentimento">
               <span>&nbsp;</span>
-              Li e aceito o <a href="#" target="_blank">termo de ciência e consentimento</a>
+              Li e aceito o <a href="./dist/doc/arrowit-termo-de-ciencia-consentimento.pdf" target="_blank">termo de ciência e consentimento</a>
             </label>
           </div>
           <div class="ait-component__checkbox">
