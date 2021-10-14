@@ -84,13 +84,13 @@
               Li e aceito o <a href="./dist/doc/arrowit-termo-de-ciencia-consentimento.pdf" target="_blank">termo de ciência e consentimento</a>
             </label>
           </div>
-          <div class="ait-component__checkbox">
+          <!-- <div class="ait-component__checkbox">
             <label for="privacidade">
               <input type="checkbox" name="privacidade" id="privacidade">
               <span>&nbsp;</span>
               Li e aceito as <a href="#" target="_blank">políticas de privacidade</a>
             </label>
-          </div>
+          </div> -->
           <input type="hidden" id="acao" name="acao" value="0">
           <div class="ait-utilities__pdd__30-0-50-0">
             <a href="javascript:enviarOrcamento();" class="ait-component__button lg">Enviar</a>

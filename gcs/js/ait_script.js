@@ -267,9 +267,9 @@ function enviarOrcamento(){
 		erro = true;
 	}
 
-	if(!d.privacidade.checked){
-		erro = true;
-	}
+	// if(!d.privacidade.checked){
+	// 	erro = true;
+	// }
 
 	if(erro===false){
 		d.acao.value = 1;
