@@ -100,6 +100,9 @@
                   </a>
                   <ul class="list-unstyled navbar__sub-list js-sub-list">
                     <li>
+                      <a href="ait_autor.php"> <i class="fas fa-user"></i>Autor</a>
+                    </li>
+                    <li>
                       <a href="ait_blog_post.php"> <i class="fas fa-tag"></i>Post</a>
                     </li>
                     <li>
@@ -119,6 +122,9 @@
                     </span>
                   </a>
                   <ul class="list-unstyled navbar__sub-list js-sub-list">
+                    <li>
+                      <a href="ait_autor.php"> <i class="fas fa-user"></i>Autor</a>
+                    </li>
                     <li>
                       <a href="ait_blog_post.php"> <i class="fas fa-tag"></i>Post</a>
                     </li>
