@@ -496,7 +496,7 @@
                 <label for="text-input" class="form-control-label">Autor</label>
               </div>
               <div class="col-12 col-md-9">
-                <select name="id_autor" id="id_autor" class="form-control" onchange="registerAutor()">
+                <select name="id_autor" id="id_autor" class="form-control">
                     <option value="0">Selecione a autor</option>
                     <?
                       $sqlautor = "SELECT id_autor, nome
@@ -510,35 +510,7 @@
                     ?>
                       <option value="<?=$idautor?>" <?if($id_autor==$idautor){?>selected<?}?>><?=$nomeautor?></option>
                     <?}?>
-                    <option value="999">Novo cadastro</option>
                 </select>
-              </div>
-            </div>
-            <div id="divautor" style="display:none;">
-              <div class="row form-group">
-                <div class="col col-md-3">
-                  <label for="text-input" class="form-control-label">Autor</label>
-                </div>
-                <div class="col-12 col-md-9">
-                  <input type="text" id="autor" name="autor" class="form-control" />
-                </div>
-              </div>
-              <div class="row form-group">
-                <div class="col col-md-3">
-                  <label for="text-input" class="form-control-label">Cargo autor</label>
-                </div>
-                <div class="col-12 col-md-9">
-                  <input type="text" id="cargo_autor" name="cargo_autor" class="form-control" />
-                </div>
-              </div>
-              <div class="row form-group">
-                <div class="col col-md-3">
-                  <label for="file-input" class="form-control-label">Foto autor</label>
-                </div>
-                <div class="col-12 col-md-9">
-                  <input type="file" id="foto_autor" name="foto_autor" class="form-control-file imagesize m-b-10" />
-                  <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
-                </div>
               </div>
             </div>
             <div class="row form-group">

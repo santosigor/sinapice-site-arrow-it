@@ -20,11 +20,9 @@
 
 			include("config.php");
 
-			// $usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
-			// $ipnow = $_SERVER["REMOTE_ADDR"];
-			$usernow = 1;
-			$ipnow = "123.123.123";
-
+			$usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
+			$ipnow = $_SERVER["REMOTE_ADDR"];
+			
 			$id_servico = $this->anti_sql_injection($id_servico);
 			$titulo = $this->anti_sql_injection($titulo);
 			$descricao = $this->anti_sql_injection($descricao);
@@ -74,11 +72,9 @@
 
 			include("config.php");
 
-			// $usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
-			// $ipnow = $_SERVER["REMOTE_ADDR"];
-			$usernow = 1;
-			$ipnow = "123.123.123";
-
+			$usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
+			$ipnow = $_SERVER["REMOTE_ADDR"];
+			
 			$id_dados = $this->anti_sql_injection($id_dados);
 			$endereco = $this->anti_sql_injection($endereco);
 			$telefone = $this->anti_sql_injection($telefone);
@@ -88,7 +84,7 @@
 			$instagram = $this->anti_sql_injection($instagram);
 			$linkedin = $this->anti_sql_injection($linkedin);
 
-			$sql = "UPDATE ait_dadosgerais SET endereco = '$endereco', telefone = '$telefone', celular = '$celular', email = '$email', facebook = '$facebook', instagram = '$instagram', linkedin = '$linkedin' WHERE id_dados = $id_dados";
+			$sql = "UPDATE ait_dadosgerais SET endereco = '$endereco', telefone = '$telefone', celular = '$celular', email = '$email', facebook = '$facebook', instagram = '$instagram', linkedin = '$linkedin', ip_cadastro = '$ipnow', quem_cadastrou = '$usernow' WHERE id_dados = $id_dados";
 			mysqli_query($con, $sql);
 
 			mysqli_close($con);
@@ -98,11 +94,9 @@
 
 			include("config.php");
 
-			// $usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
-			// $ipnow = $_SERVER["REMOTE_ADDR"];
-			$usernow = 1;
-			$ipnow = "123.123.123";
-
+			$usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
+			$ipnow = $_SERVER["REMOTE_ADDR"];
+			
 			$id_projeto = $this->anti_sql_injection($id_projeto);
 			$titulo = $this->anti_sql_injection($titulo);
 			$setor = $this->anti_sql_injection($setor);
@@ -272,11 +266,9 @@
 
 			include("config.php");
 
-			// $usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
-			// $ipnow = $_SERVER["REMOTE_ADDR"];
-			$usernow = 1;
-			$ipnow = "123.123.123";
-
+			$usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
+			$ipnow = $_SERVER["REMOTE_ADDR"];
+			
 			$id_banner = $this->anti_sql_injection($id_banner);
 			$titulo = $this->anti_sql_injection($titulo);
 			$destaque = $this->anti_sql_injection($destaque);
@@ -358,14 +350,72 @@
 			mysqli_close($con);
 		}
 
+		function registerAutor($id_autor, $nome, $cargo, $nomeimagem){
+
+			include("config.php");
+
+			$usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
+			$ipnow = $_SERVER["REMOTE_ADDR"];
+			
+			$id_autor = $this->anti_sql_injection($id_autor);
+			$nome = $this->anti_sql_injection($nome);
+			$cargo = $this->anti_sql_injection($cargo);
+			$nomeimagem = $this->anti_sql_injection($nomeimagem);
+
+			if($id_autor!=""){
+				$sqladd = "";
+				if($nomeimagem!=""){
+					$sql = "SELECT foto
+					FROM ait_autor 
+					WHERE id_autor = $id_autor";
+					$rs = mysqli_query($con, $sql); 
+					$row = mysqli_fetch_array($rs);
+					$imagem = $row["foto"];
+
+					if($imagem!=""){
+						unlink("img/blog_post/".$imagem);
+					}
+					$sqladd = ", foto = '$nomeimagem'";
+				}
+
+				$sql = "UPDATE ait_autor SET nome = '$nome', cargo = '$cargo' $sqladd WHERE id_autor = $id_autor";
+				mysqli_query($con, $sql);
+			}else{
+				$sql = "INSERT INTO ait_autor(id_autor, nome, cargo, foto, data_cadastro, quem_cadastrou, ip_cadastro) 
+					VALUES (NULL, '$nome', '$cargo', '$nomeimagem', NOW(), '$usernow', '$ipnow')";
+				mysqli_query($con, $sql);
+			}
+
+			mysqli_close($con);
+		}
+
+		function deleteAutor($id_autor){
+
+			include("config.php");
+
+			$sql = "SELECT foto
+			FROM ait_autor 
+			WHERE id_autor = $id_autor";
+			$rs = mysqli_query($con, $sql); 
+			$row = mysqli_fetch_array($rs);
+			$imagem = $row["foto"];
+
+			if($imagem!=""){
+				unlink("img/blog_post/".$imagem);
+			}
+
+			$sql = "DELETE FROM ait_autor WHERE id_autor = $id_autor";
+			mysqli_query($con, $sql);
+
+			mysqli_close($con);
+		}
+
 		function registerPost($id_post, $titulo, $segmento, $id_categoria, $autor, $cargo_autor, $conteudo, $nomeimagem, $nomefotoautor, $destaque, $linkvideo, $nomevideo, $id_autor){
 			include("config.php");
 
-			// $usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
-			// $ipnow = $_SERVER["REMOTE_ADDR"];
-			$usernow = 1;
-			$ipnow = "123.123.123";
-
+			$usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
+			$ipnow = $_SERVER["REMOTE_ADDR"];
+			
 			$id_post = $this->anti_sql_injection($id_post);
 			$titulo = $this->anti_sql_injection($titulo);
 			$segmento = $this->anti_sql_injection($segmento);
@@ -492,11 +542,9 @@
 
 			include("config.php");
 
-			// $usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
-			// $ipnow = $_SERVER["REMOTE_ADDR"];
-			$usernow = 1;
-			$ipnow = "123.123.123";
-
+			$usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
+			$ipnow = $_SERVER["REMOTE_ADDR"];
+			
 			$id_parceiro = $this->anti_sql_injection($id_parceiro);
 			$titulo = $this->anti_sql_injection($titulo);
 			$nomeimagem = $this->anti_sql_injection($nomeimagem);
@@ -542,11 +590,9 @@
 
 			include("config.php");
 
-			// $usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
-			// $ipnow = $_SERVER["REMOTE_ADDR"];
-			$usernow = 1;
-			$ipnow = "123.123.123";
-
+			$usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
+			$ipnow = $_SERVER["REMOTE_ADDR"];
+			
 			$id_cliente = $this->anti_sql_injection($id_cliente);
 			$titulo = $this->anti_sql_injection($titulo);
 			$nomeimagem = $this->anti_sql_injection($nomeimagem);
@@ -592,11 +638,9 @@
 
 			include("config.php");
 
-			// $usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
-			// $ipnow = $_SERVER["REMOTE_ADDR"];
-			$usernow = 1;
-			$ipnow = "123.123.123";
-
+			$usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
+			$ipnow = $_SERVER["REMOTE_ADDR"];
+			
 			$id_depoimento = $this->anti_sql_injection($id_depoimento);
 			$texto = $this->anti_sql_injection($texto);
 			$cliente = $this->anti_sql_injection($cliente);
@@ -657,11 +701,9 @@
 
 			include("config.php");
 
-			// $usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
-			// $ipnow = $_SERVER["REMOTE_ADDR"];
-			$usernow = 1;
-			$ipnow = "123.123.123";
-
+			$usernow = $_SESSION["id_usuario_".$_SESSION["nomesessao"]];
+			$ipnow = $_SERVER["REMOTE_ADDR"];
+			
 			$id_user = $this->anti_sql_injection($id_user);
 			$nome = $this->anti_sql_injection($nome);
 			$id_perfil = $this->anti_sql_injection($id_perfil);

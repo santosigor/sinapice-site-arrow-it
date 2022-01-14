@@ -311,6 +311,40 @@ function acaoBanner(t, id, tipo){
 	}
 }
 
+function acaoAutor(t, id, tipo){
+	erro = false;
+
+	if(tipo==1){
+		var d = document.getElementById('form');
+		
+		if(d.foto_autor.value==''){
+			erro = true;
+		}
+	}else if(tipo==2){
+		var d = document.getElementById('formmodal'+id);
+	}
+
+	if(d.autor.value==''){
+		erro = true;
+	}
+	if(d.cargo_autor.value==''){
+		erro = true;
+	}
+
+	if(t==3){
+		erro = false;
+	}
+
+	if(erro===false){
+		alertResult(t);
+		d.acao.value = t;
+		d.idautor.value = id;
+		d.submit();
+	}else{
+		alertify.warning("Preencha todos os campos!");
+	}
+}
+
 function acaoPost(t, id, tipo){
 	erro = false;
 

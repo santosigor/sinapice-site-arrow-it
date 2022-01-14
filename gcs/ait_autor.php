@@ -8,7 +8,7 @@
 	$objait = new Ait_class();
 
 	if(@$_POST["acao"]==1){
-		@$idautor = $_POST["id_autor"];
+		
     @$autor = $_POST["autor"];
     @$cargo_autor = $_POST["cargo_autor"];
 
@@ -32,8 +32,10 @@
 		$objait->registerAutor("", $autor, $cargo_autor, $nomefotoautor);
 
     header('Location: ait_autor.php');
+
 	}else if(@$_POST["acao"]==2){
-   @$idautor = $_POST["id_autor"];
+
+    @$idautor = $_POST["idautor"];
     @$autor = $_POST["autor"];
     @$cargo_autor = $_POST["cargo_autor"];
 

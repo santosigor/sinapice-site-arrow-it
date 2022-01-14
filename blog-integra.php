@@ -22,6 +22,12 @@
     $conteudo = $row["conteudo"];
     $id_categoria = $row["id_categoria"];
 
+    if($nome_autor=="") {
+      $foto_autor = "logo-default-autor.png";
+      $nome_autor = "Arrow IT";
+      $cargo_autor = "Soluções";
+    }
+
     $data_cadastro = $row["datacad"];
     setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
     date_default_timezone_set('America/Sao_Paulo');
