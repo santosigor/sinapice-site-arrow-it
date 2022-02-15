@@ -1,3 +1,0 @@
-RewriteEngine On
-
-RewriteRule ^sobre-arrow-it?$ sobre-arrow-it.php
