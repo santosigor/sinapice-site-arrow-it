@@ -9,8 +9,9 @@
   $objait = new Ait_class();
 
   if(@$_POST["acao"]==1){
+
     @$titulo = $_POST["titulo"];
-    @$destaque = $_POST["destaque"];
+    @$destaque = $_POST["destaque"] ? $_POST["destaque"] : 0;
 
     $nomeimagem = "";
     if ( isset( $_FILES[ 'imagem' ][ 'name' ] ) && $_FILES[ 'imagem' ][ 'error' ] == 0 ) {
@@ -67,9 +68,10 @@
 
     header('Location: ait_home.php');
   }else if(@$_POST["acao"]==2){
+
     @$id_banner = $_POST["idbanner"];
     @$titulo = $_POST["titulo"];
-    @$destaque = $_POST["destaque"];
+    @$destaque = $_POST["destaque"] ? $_POST["destaque"] : 0;
 
     $nomeimagem = "";
     if($_FILES[ 'imagem' ][ 'name' ]!=""){
@@ -173,7 +175,7 @@
                 </div>
                 <div class="col-12 col-md-9">
                   <input type="file" id="imagem" name="imagem" class="form-control-file imagesize m-b-10" />
-                  <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
+                  <small class="form-text text-muted">Tamanho máximo: 450kb</small><hr>
                 </div>
               </div>
               <div class="row form-group">
@@ -182,7 +184,7 @@
                 </div>
                 <div class="col-12 col-md-9">
                   <input type="file" id="imagem_tablet" name="imagem_tablet" class="form-control-file imagesize m-b-10" />
-                  <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
+                  <small class="form-text text-muted">Tamanho máximo: 450kb</small><hr>
                 </div>
               </div>
               <div class="row form-group">
@@ -191,7 +193,7 @@
                 </div>
                 <div class="col-12 col-md-9">
                   <input type="file" id="imagem_mobile" name="imagem_mobile" class="form-control-file imagesize m-b-10" />
-                  <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
+                  <small class="form-text text-muted">Tamanho máximo: 450kb</small><hr>
                 </div>
               </div>
               <input type="hidden" id="acao" name="acao" value="0">
@@ -328,7 +330,7 @@
             </div>
             <div class="col-12 col-md-9">
               <input type="file" id="imagem" name="imagem" class="form-control-file imagesize m-b-10" />
-              <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
+              <small class="form-text text-muted">Tamanho máximo: 450kb</small><hr>
             </div>
           </div>
           <div class="row form-group">
@@ -337,7 +339,7 @@
             </div>
             <div class="col-12 col-md-9">
               <input type="file" id="imagem_tablet" name="imagem_tablet" class="form-control-file imagesize m-b-10" />
-              <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
+              <small class="form-text text-muted">Tamanho máximo: 450kb</small><hr>
             </div>
           </div>
           <div class="row form-group">
@@ -346,7 +348,7 @@
             </div>
             <div class="col-12 col-md-9">
               <input type="file" id="imagem_mobile" name="imagem_mobile" class="form-control-file imagesize m-b-10" />
-              <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
+              <small class="form-text text-muted">Tamanho máximo: 450kb</small><hr>
             </div>
           </div>
           <input type="hidden" id="acao" name="acao" value="0">

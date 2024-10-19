@@ -86,7 +86,7 @@
                 </div>
                 <div class="col-12 col-md-9">
                   <input type="file" id="imagem" name="imagem" class="form-control-file imagesize m-b-10" />
-                  <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
+                  <small class="form-text text-muted">Tamanho máximo: 450kb</small><hr>
                 </div>
               </div>
               <input type="hidden" id="acao" name="acao" value="0">
@@ -206,7 +206,7 @@
             </div>
             <div class="col-12 col-md-9">
               <input type="file" id="imagem" name="imagem" class="form-control-file imagesize m-b-10" />
-              <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
+              <small class="form-text text-muted">Tamanho máximo: 450kb</small><hr>
             </div>
           </div>
           <input type="hidden" id="acao" name="acao" value="0">

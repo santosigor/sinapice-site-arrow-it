@@ -226,7 +226,7 @@
                   </div>
                   <div class="col-12 col-md-9">
                     <input type="file" id="video" name="video" class="form-control-file videosize m-b-10" />
-                    <small class="form-text text-muted">Tamanho máximo: 10mb</small><hr>
+                    <small class="form-text text-muted">Tamanho máximo: 5mb</small><hr>
                     <small class="form-text text-muted">Extensões: .mp4</small><hr>
                   </div>
                 </div>
@@ -237,7 +237,7 @@
                 </div>
                 <div class="col-12 col-md-9">
                   <input type="file" id="imagem" name="imagem" class="form-control-file imagesize m-b-10" />
-                  <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
+                  <small class="form-text text-muted">Tamanho máximo: 450kb</small><hr>
                 </div>
               </div>
               <div class="esconde-video">
@@ -287,7 +287,7 @@
                     </div>
                     <div class="col-12 col-md-9">
                       <input type="file" id="foto_autor" name="foto_autor" class="form-control-file imagesize m-b-10" />
-                      <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
+                      <small class="form-text text-muted">Tamanho máximo: 450kb</small><hr>
                     </div>
                   </div>
                 </div>
@@ -487,7 +487,7 @@
             </div>
             <div class="col-12 col-md-9">
               <input type="file" id="imagem" name="imagem" class="form-control-file imagesize m-b-10" />
-              <small class="form-text text-muted">Tamanho máximo: 4mb</small><hr>
+              <small class="form-text text-muted">Tamanho máximo: 450kb</small><hr>
             </div>
           </div>
           <div class="esconde-video" style="display:<?if($id_categoria==2){?>none<?}?>">

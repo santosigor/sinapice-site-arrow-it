@@ -130,7 +130,7 @@
                 </div>
                 <div class="col-12 col-md-9">
                   <input type="file" id="video" name="video" class="form-control-file videosize m-b-10" />
-                  <small class="form-text text-muted">Tamanho máximo: 10mb</small><hr>
+                  <small class="form-text text-muted">Tamanho máximo: 5mb</small><hr>
                 </div>
               </div>
               <input type="hidden" id="acao" name="acao" value="0">
@@ -285,7 +285,7 @@
             </div>
             <div class="col-12 col-md-9">
               <input type="file" id="video" name="video" class="form-control-file videosize m-b-10" />
-              <small class="form-text text-muted">Tamanho máximo: 10mb</small><hr>
+              <small class="form-text text-muted">Tamanho máximo: 5mb</small><hr>
             </div>
           </div>
           <input type="hidden" id="acao" name="acao" value="0">

@@ -28,19 +28,19 @@ function irPara(tp, pag){
 }
 
 /* General	*/
-$('.imagesize').change(function(){
-	const file = $(this)[0].files[0]
-	if(file.size>4000000){
-		$('.imagesize').val('');
-	  alertify.warning("O tamanho do arquivo excede 4mb!");
+$('.imagesize6').change(function(){
+	var file = $(this)[0].files[0]
+	if(file.size>512000){
+		$('.imagesize6').val('');
+	  alertify.warning("O tamanho do arquivo excede 450kb!");
 	}
 });
 
 $('.videosize').change(function(){
-	const file = $(this)[0].files[0]
-	if(file.size>10000000){
+	var file = $(this)[0].files[0]
+	if(file.size>5532000){
 		$('.videosize').val('');
-	  alertify.warning("O tamanho do arquivo excede 10mb!");
+	  alertify.warning("O tamanho do arquivo excede 5mb!");
 	}
 });
 
